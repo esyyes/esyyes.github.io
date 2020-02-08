@@ -10,7 +10,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="ESY,"> 
-    <meta name="description" content="mengxin,"> 
+    <meta name="description" content="mengxin,PYTHON——滑动切片需求：1.所需要的数据是以5分钟为短程分析
+2.注释是以30秒为一个间期
+3.以5分钟为片段，30秒为滑动窗口，考虑样本采样率为250，滑动的间隔为250*30=7500个数,"> 
     <meta name="author" content="esy"> 
     <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
     <link rel="icon" href="/img/hhh.png"> 
@@ -61,7 +63,272 @@
 
         </div>
         <div class="content markdown">
-            
+            <h1 id="PYTHON——滑动切片"><a href="#PYTHON——滑动切片" class="headerlink" title="PYTHON——滑动切片"></a>PYTHON——滑动切片</h1><p>需求：1.所需要的数据是以5分钟为短程分析</p>
+<p>2.注释是以30秒为一个间期</p>
+<p>3.以5分钟为片段，30秒为滑动窗口，考虑样本采样率为250，滑动的间隔为250*30=7500个数据点</p>
+<p>4.直接用采样峰值点来进行切片，最后放入一个（）中，每个间隔为小矩阵</p>
+<p>若为了好写的话，可以直接在python里面找pt算法，在找异常点，在循环，按照matlab的步骤</p>
+<p>后面分析的还是这个公开数据库的数据，所以我可以直接按照峰值点来进行计算。</p>
+<p>数据样本直接按照读取的峰值点进行提取即可。</p>
+<h2 id="1-选取5分钟作为切片"><a href="#1-选取5分钟作为切片" class="headerlink" title="1.选取5分钟作为切片"></a>1.选取5分钟作为切片</h2><p>首先判定里面数据的类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(type(locs))</span><br><span class="line">print(type(ECG))</span><br><span class="line">[[<span class="number">0.085</span>]</span><br><span class="line"> [<span class="number">0.08</span> ]</span><br><span class="line"> [<span class="number">0.125</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">0.23</span> ]</span><br><span class="line"> [<span class="number">0.235</span>]</span><br><span class="line"> [<span class="number">0.225</span>]]</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">numpy</span>.<span class="title">ndarray</span>'&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">numpy</span>.<span class="title">ndarray</span>'&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-数据系列复习下"><a href="#1-1-数据系列复习下" class="headerlink" title="1.1 数据系列复习下"></a>1.1 数据系列复习下</h3><h4 id="1-1-1字符串"><a href="#1-1-1字符串" class="headerlink" title="1.1.1字符串"></a>1.1.1字符串</h4><p>字符串是 Python 中最常用的数据类型。我们一般使用引号来创建字符串。name1 = ‘Tom’</p>
+<p>控制台显示结果为<code>&lt;class &#39;str&#39;&gt;</code>， 即数据类型为str(字符串)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name = input(<span class="string">'请输入您的名字：'</span>)</span><br><span class="line">print(<span class="string">f'您输入的名字是<span class="subst">&#123;name&#125;</span>'</span>)</span><br><span class="line">print(type(name))</span><br><span class="line"></span><br><span class="line">password = input(<span class="string">'请输入您的密码：'</span>)</span><br><span class="line">print(<span class="string">f'您输入的密码是<span class="subst">&#123;password&#125;</span>'</span>)</span><br><span class="line">print(type(password))</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-2-下标"><a href="#1-1-2-下标" class="headerlink" title="1.1.2 下标"></a>1.1.2 下标</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"abcdef"</span></span><br><span class="line">取到不同下标对应的数据</span><br><span class="line">print(name[<span class="number">1</span>])</span><br><span class="line">print(name[<span class="number">0</span>])</span><br><span class="line">print(name[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-3-切片"><a href="#1-1-3-切片" class="headerlink" title="1.1.3 切片"></a>1.1.3 切片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">序列[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>1. 不包含结束位置下标对应的数据， 正负整数均可；
+2. 步长是选取间隔，正负整数均可，默认步长为1。</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">"abcdefg"</span></span><br><span class="line"></span><br><span class="line">print(name[<span class="number">2</span>:<span class="number">5</span>:<span class="number">1</span>])  <span class="comment"># cde</span></span><br><span class="line">print(name[<span class="number">2</span>:<span class="number">5</span>])  <span class="comment"># cde</span></span><br><span class="line">print(name[:<span class="number">5</span>])  <span class="comment"># abcde</span></span><br><span class="line">print(name[<span class="number">1</span>:])  <span class="comment"># bcdefg</span></span><br><span class="line">print(name[:])  <span class="comment"># abcdefg</span></span><br><span class="line">print(name[::<span class="number">2</span>])  <span class="comment"># aceg</span></span><br><span class="line">print(name[:<span class="number">-1</span>])  <span class="comment"># abcdef, 负1表示倒数第一个数据</span></span><br><span class="line">print(name[<span class="number">-4</span>:<span class="number">-1</span>])  <span class="comment"># def</span></span><br><span class="line">print(name[::<span class="number">-1</span>])  <span class="comment"># gfedcba</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-4查找"><a href="#1-1-4查找" class="headerlink" title="1.1.4查找"></a>1.1.4查找</h4><p>所谓字符串查找方法即是查找子串在字符串中的位置或出现的次数。</p>
+<ul>
+<li>find()：检测某个子串是否包含在这个字符串中，如果在返回这个子串开始的位置下标，否则则返回-1。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串序列.find(子串, 开始位置下标, 结束位置下标)</span><br></pre></td></tr></table></figure>
+
+<p>注意：开始和结束位置下标可以省略，表示在整个字符串序列中查找。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">"hello world and itcast and itheima and Python"</span></span><br><span class="line"></span><br><span class="line">print(mystr.find(<span class="string">'and'</span>))  <span class="comment"># 12</span></span><br><span class="line">print(mystr.find(<span class="string">'and'</span>, <span class="number">15</span>, <span class="number">30</span>))  <span class="comment"># 23</span></span><br><span class="line">print(mystr.find(<span class="string">'ands'</span>))  <span class="comment"># -1</span></span><br></pre></td></tr></table></figure>
+
+<p>index()：检测某个子串是否包含在这个字符串中，如果在返回这个子串开始的位置下标，否则则报异常。</p>
+<p>count()：返回某个子串在字符串中出现的次数</p>
+<ul>
+<li>下标<ul>
+<li>计算机为数据序列中每个元素分配的从0开始的编号</li>
+</ul>
+</li>
+<li>切片</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">序列名[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用操作方法<ul>
+<li>find()</li>
+<li>index()</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-2列表"><a href="#1-1-2列表" class="headerlink" title="1.1.2列表"></a>1.1.2列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[数据<span class="number">1</span>, 数据<span class="number">2</span>, 数据<span class="number">3</span>, 数据<span class="number">4.</span>.....]</span><br></pre></td></tr></table></figure>
+
+<p>列表可以一次性存储多个数据，且可以为不同数据类型。</p>
+<h3 id="1-1-2-1-下标"><a href="#1-1-2-1-下标" class="headerlink" title="1.1.2.1 下标"></a>1.1.2.1 下标</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">print(name_list[<span class="number">0</span>])  <span class="comment"># Tom</span></span><br><span class="line">print(name_list[<span class="number">1</span>])  <span class="comment"># Lily</span></span><br><span class="line">print(name_list[<span class="number">2</span>])  <span class="comment"># Rose</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-2-2-函数"><a href="#1-1-2-2-函数" class="headerlink" title="1.1.2.2 函数"></a>1.1.2.2 函数</h3><ul>
+<li>index()：返回指定数据所在位置的下标 。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.index(数据, 开始位置下标, 结束位置下标)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">print(name_list.index(<span class="string">'Lily'</span>, <span class="number">0</span>, <span class="number">2</span>))  <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果查找的数据不存在则报错。</p>
+</blockquote>
+<ul>
+<li>count()：统计指定数据在当前列表中出现的次数。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">print(name_list.count(<span class="string">'Lily'</span>))  <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>len()：访问列表长度，即列表中数据的个数。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">print(len(name_list))  <span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-2-3-增加"><a href="#1-1-2-3-增加" class="headerlink" title="1.1.2.3 增加"></a>1.1.2.3 增加</h2><p>作用：增加指定数据到列表中。</p>
+<ul>
+<li>append()：列表结尾追加数据。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.append(数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.append(<span class="string">'xiaoming'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'Lily', 'Rose', 'xiaoming']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:/%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90/%E8%B5%84%E6%96%99%E4%B8%8E%E4%BB%A3%E7%A0%81/01-Python%E5%9F%BA%E7%A1%80%E8%AF%BE%E4%BB%B6/04-%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/02-%E5%88%97%E8%A1%A8.assets/image-20190130160154636.png" alt="image-20190130160154636"></p>
+<blockquote>
+<p>列表追加数据的时候，直接在原列表里面追加了指定数据，即修改了原列表，故列表为可变类型数据。</p>
+</blockquote>
+<ol start="3">
+<li>注意点</li>
+</ol>
+<p>如果append()追加的数据是一个序列，则追加整个序列到列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.append([<span class="string">'xiaoming'</span>, <span class="string">'xiaohong'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'Lily', 'Rose', ['xiaoming', 'xiaohong']]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>extend()：列表结尾追加数据，如果数据是一个序列，则将这个序列的数据逐一添加到列表。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.extend(数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>快速体验</p>
+<p>2.1 单个数据</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.extend(<span class="string">'xiaoming'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'Lily', 'Rose', 'x', 'i', 'a', 'o', 'm', 'i', 'n', 'g']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+<p>​    2.2 序列数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.extend([<span class="string">'xiaoming'</span>, <span class="string">'xiaohong'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'Lily', 'Rose', 'xiaoming', 'xiaohong']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>insert()：指定位置新增数据。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.insert(位置下标, 数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.insert(<span class="number">1</span>, <span class="string">'xiaoming'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'xiaoming', 'Lily', 'Rose']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-2-4-删除"><a href="#1-1-2-4-删除" class="headerlink" title="1.1.2.4 删除"></a>1.1.2.4 删除</h2><ul>
+<li>del</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> 目标</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>快速体验</p>
+<p>2.1 删除列表</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：报错提示：name 'name_list' is not defined</span></span><br><span class="line"><span class="keyword">del</span> name_list</span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+<p>​    2.2 删除指定数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> name_list[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Lily', 'Rose']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>pop()：删除指定下标的数据(默认为最后一个)，并返回该数据。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.pop(下标)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">del_name = name_list.pop(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：Lily</span></span><br><span class="line">print(del_name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'Rose']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>remove()：移除列表中某个数据的第一个匹配项。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.remove(数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.remove(<span class="string">'Rose'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['Tom', 'Lily']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>clear()：清空列表</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list.clear()</span><br><span class="line">print(name_list) <span class="comment"># 结果： []</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-2-5-修改"><a href="#1-1-2-5-修改" class="headerlink" title="1.1.2.5 修改"></a>1.1.2.5 修改</h2><ul>
+<li>修改指定下标数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">name_list[<span class="number">0</span>] = <span class="string">'aaa'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：['aaa', 'Lily', 'Rose']</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>逆置：reverse()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">num_list = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">num_list.reverse()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[8, 6, 3, 2, 5, 1]</span></span><br><span class="line">print(num_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="1-1-2-6-列表的循环遍历"><a href="#1-1-2-6-列表的循环遍历" class="headerlink" title="1.1.2.6 列表的循环遍历"></a>1.1.2.6 列表的循环遍历</h1><p>需求：依次打印列表中的各个数据。</p>
+<h5 id="while"><a href="#while" class="headerlink" title="while"></a>while</h5><ul>
+<li>代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; len(name_list):</span><br><span class="line">    print(name_list[i])</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果</li>
+</ul>
+<p><img src="H:/%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90/%E8%B5%84%E6%96%99%E4%B8%8E%E4%BB%A3%E7%A0%81/01-Python%E5%9F%BA%E7%A1%80%E8%AF%BE%E4%BB%B6/04-%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/02-%E5%88%97%E8%A1%A8.assets/image-20190130164205143.png" alt="image-20190130164205143"></p>
+<h5 id="for"><a href="#for" class="headerlink" title="for"></a>for</h5><ul>
+<li>代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> name_list:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>执行结果</li>
+</ul>
+<p><img src="H:/%E7%99%BE%E5%BA%A6%E8%B5%84%E6%BA%90/%E8%B5%84%E6%96%99%E4%B8%8E%E4%BB%A3%E7%A0%81/01-Python%E5%9F%BA%E7%A1%80%E8%AF%BE%E4%BB%B6/04-%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/02-%E5%88%97%E8%A1%A8.assets/image-20190130164227739.png" alt="image-20190130164227739"></p>
+<h5 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h5><p>所谓列表嵌套指的就是一个列表里面包含了其他的子列表。</p>
+<p>应用场景：要存储班级一、二、三三个班级学生姓名，且每个班级的学生姓名在一个列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name_list = [[<span class="string">'小明'</span>, <span class="string">'小红'</span>, <span class="string">'小绿'</span>], [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>], [<span class="string">'张三'</span>, <span class="string">'李四'</span>, <span class="string">'王五'</span>]]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思考： 如何查找到数据”李四”？</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步：按下标查找到李四所在的列表</span></span><br><span class="line">print(name_list[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：从李四所在的列表里面，再按下标找到数据李四</span></span><br><span class="line">print(name_list[<span class="number">2</span>][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>列表的格式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[数据<span class="number">1</span>, 数据<span class="number">2</span>, 数据<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用操作方法<ul>
+<li>index()</li>
+<li>len()</li>
+<li>append()</li>
+<li>pop()</li>
+<li>remove()</li>
+</ul>
+</li>
+<li>列表嵌套</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name_list = [[<span class="string">'小明'</span>, <span class="string">'小红'</span>, <span class="string">'小绿'</span>], [<span class="string">'Tom'</span>, <span class="string">'Lily'</span>, <span class="string">'Rose'</span>], [<span class="string">'张三'</span>, <span class="string">'李四'</span>, <span class="string">'王五'</span>]]</span><br><span class="line">name_list[<span class="number">2</span>][<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>总结反应过来了这是一个数组，我需要将他切片放进列表中，太久没学习了脑壳疼。</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
