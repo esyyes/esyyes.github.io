@@ -1,0 +1,400 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python_Matplotlib - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="mengxin,python_Matplotlib参考这个即可
+https://www.jb51.net/article/168302.htm
+1from matplotlib import pyplot as p,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" target="_blank" rel="noopener" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python_Matplotlib</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;" target="_blank" rel="noopener"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python_Matplotlib</h1>
+        <div class="stuff">
+            <span>三月 19, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="python-Matplotlib"><a href="#python-Matplotlib" class="headerlink" title="python_Matplotlib"></a>python_Matplotlib</h1><p>参考这个即可</p>
+<p><a href="https://www.jb51.net/article/168302.htm" target="_blank" rel="noopener">https://www.jb51.net/article/168302.htm</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
+
+<p>横纵坐标的确定，以绘制特征选择曲线为例。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">25</span>)</span><br><span class="line">y为N123RW,DLRW,SRW</span><br></pre></td></tr></table></figure>
+
+<p>绘制最简单的图像</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = np.arange(<span class="number">1</span>, <span class="number">25</span>)</span><br><span class="line">y1 = N123RW</span><br><span class="line">y2 = DLRW</span><br><span class="line">y3 = SRW</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x,y1) </span><br><span class="line">plt.xlabel(<span class="string">"Characteristic number"</span>) </span><br><span class="line">plt.ylabel(<span class="string">"Accuracy of RF"</span>)</span><br><span class="line">plt.title(<span class="string">"Feature elimination based on DBT and RFE"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:%5Cmyboke%5Cmybike%5Csource%5Cimages%5Ctest1.png" alt="image-20200319162254065"></p>
+<h2 id="对点进行标记"><a href="#对点进行标记" class="headerlink" title="对点进行标记"></a>对点进行标记</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x,y1,<span class="string">"*r"</span>)</span><br><span class="line"><span class="comment"># 只有点</span></span><br><span class="line">plt.plot(x,y1,<span class="string">"*r--"</span>)</span><br><span class="line"><span class="comment"># 带虚线的点</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="H:%5Cmyboke%5Cmybike%5Csource%5Cimages%5Ctest2.png" alt="image-20200319162723556"></p>
+<table>
+<thead>
+<tr>
+<th><code>&#39;-&#39;</code></th>
+<th>实线样式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&#39;--&#39;</code></td>
+<td>短横线样式</td>
+</tr>
+<tr>
+<td><code>&#39;-.&#39;</code></td>
+<td>点划线样式</td>
+</tr>
+<tr>
+<td><code>&#39;:&#39;</code></td>
+<td>虚线样式</td>
+</tr>
+<tr>
+<td><code>&#39;.&#39;</code></td>
+<td>点标记</td>
+</tr>
+<tr>
+<td><code>&#39;,&#39;</code></td>
+<td>像素标记</td>
+</tr>
+<tr>
+<td><code>&#39;o&#39;</code></td>
+<td>圆标记</td>
+</tr>
+<tr>
+<td><code>&#39;v&#39;</code></td>
+<td>倒三角标记</td>
+</tr>
+<tr>
+<td><code>&#39;^&#39;</code></td>
+<td>正三角标记</td>
+</tr>
+<tr>
+<td><code>&#39;&lt;&#39;</code></td>
+<td>左三角标记</td>
+</tr>
+<tr>
+<td><code>&#39;&gt;&#39;</code></td>
+<td>右三角标记</td>
+</tr>
+<tr>
+<td><code>&#39;1&#39;</code></td>
+<td>下箭头标记</td>
+</tr>
+<tr>
+<td><code>&#39;2&#39;</code></td>
+<td>上箭头标记</td>
+</tr>
+<tr>
+<td><code>&#39;3&#39;</code></td>
+<td>左箭头标记</td>
+</tr>
+<tr>
+<td><code>&#39;4&#39;</code></td>
+<td>右箭头标记</td>
+</tr>
+<tr>
+<td><code>&#39;s&#39;</code></td>
+<td>正方形标记</td>
+</tr>
+<tr>
+<td><code>&#39;p&#39;</code></td>
+<td>五边形标记</td>
+</tr>
+<tr>
+<td><code>&#39;*&#39;</code></td>
+<td>星形标记</td>
+</tr>
+<tr>
+<td><code>&#39;h&#39;</code></td>
+<td>六边形标记 1</td>
+</tr>
+<tr>
+<td><code>&#39;H&#39;</code></td>
+<td>六边形标记 2</td>
+</tr>
+<tr>
+<td><code>&#39;+&#39;</code></td>
+<td>加号标记</td>
+</tr>
+<tr>
+<td><code>&#39;x&#39;</code></td>
+<td>X 标记</td>
+</tr>
+<tr>
+<td><code>&#39;D&#39;</code></td>
+<td>菱形标记</td>
+</tr>
+<tr>
+<td><code>&#39;d&#39;</code></td>
+<td>窄菱形标记</td>
+</tr>
+<tr>
+<td>`’</td>
+<td>‘`</td>
+</tr>
+<tr>
+<td><code>&#39;_&#39;</code></td>
+<td>水平线标记</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">字符</th>
+<th align="left">颜色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>&#39;b&#39;</code></td>
+<td align="left">蓝色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;g&#39;</code></td>
+<td align="left">绿色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;r&#39;</code></td>
+<td align="left">红色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;c&#39;</code></td>
+<td align="left">青色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;m&#39;</code></td>
+<td align="left">品红色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;y&#39;</code></td>
+<td align="left">黄色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;k&#39;</code></td>
+<td align="left">黑色</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;w&#39;</code></td>
+<td align="left">白色</td>
+</tr>
+</tbody></table>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>图像不清晰，横坐标想用12345-25表示，字体太小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">属性                      值类型</span><br><span class="line">alpha                   浮点值</span><br><span class="line">animated                [<span class="literal">True</span> / <span class="literal">False</span>]</span><br><span class="line">antialiased <span class="keyword">or</span> aa       [<span class="literal">True</span> / <span class="literal">False</span>]</span><br><span class="line">clip_box                matplotlib.transform.Bbox 实例</span><br><span class="line">clip_on                 [<span class="literal">True</span> / <span class="literal">False</span>]</span><br><span class="line">clip_path               Path 实例， Transform，以及Patch实例</span><br><span class="line">color <span class="keyword">or</span> c              任何 matplotlib 颜色</span><br><span class="line">contains                命中测试函数</span><br><span class="line">dash_capstyle           [<span class="string">'butt'</span> / <span class="string">'round'</span> / <span class="string">'projecting'</span>]</span><br><span class="line">dash_joinstyle          [<span class="string">'miter'</span> / <span class="string">'round'</span> / <span class="string">'bevel'</span>]</span><br><span class="line">dashes                  以点为单位的连接/断开墨水序列</span><br><span class="line">data                    (np.array xdata, np.array ydata)</span><br><span class="line">figure                  matplotlib.figure.Figure 实例</span><br><span class="line">label                   任何字符串</span><br><span class="line">linestyle <span class="keyword">or</span> ls         [ <span class="string">'-'</span> / <span class="string">'--'</span> / <span class="string">'-.'</span> / <span class="string">':'</span> / <span class="string">'steps'</span> / ...]</span><br><span class="line">linewidth <span class="keyword">or</span> lw         以点为单位的浮点值</span><br><span class="line">lod                     [<span class="literal">True</span> / <span class="literal">False</span>]</span><br><span class="line">marker                  [ <span class="string">'+'</span> / <span class="string">','</span> / <span class="string">'.'</span> / <span class="string">'1'</span> / <span class="string">'2'</span> / <span class="string">'3'</span> / <span class="string">'4'</span> ]</span><br><span class="line">markeredgecolor <span class="keyword">or</span> mec  任何 matplotlib 颜色</span><br><span class="line">markeredgewidth <span class="keyword">or</span> mew  以点为单位的浮点值</span><br><span class="line">markerfacecolor <span class="keyword">or</span> mfc  任何 matplotlib 颜色</span><br><span class="line">markersize <span class="keyword">or</span> ms        浮点值</span><br><span class="line">markevery               [ <span class="literal">None</span> / 整数值 / (startind, stride) ]</span><br><span class="line">picker                  用于交互式线条选择</span><br><span class="line">pickradius              线条的拾取选择半径</span><br><span class="line">solid_capstyle          [<span class="string">'butt'</span> / <span class="string">'round'</span> / <span class="string">'projecting'</span>]</span><br><span class="line">solid_joinstyle         [<span class="string">'miter'</span> / <span class="string">'round'</span> / <span class="string">'bevel'</span>]</span><br><span class="line">transform               matplotlib.transforms.Transform 实例</span><br><span class="line">visible                 [<span class="literal">True</span> / <span class="literal">False</span>]</span><br><span class="line">xdata                   np.array</span><br><span class="line">ydata                   np.array</span><br><span class="line">zorder                  任何数值</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示中文</span></span><br><span class="line">mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'FangSong'</span>] <span class="comment"># 指定默认字体 </span></span><br><span class="line">mpl.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span> <span class="comment"># 解决保存图像是负号'-'显示为方块的问题</span></span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>黑体</th>
+<th>SimHei</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>微软雅黑</td>
+<td>Microsoft YaHei</td>
+</tr>
+<tr>
+<td>微软正黑体</td>
+<td>Microsoft JhengHei</td>
+</tr>
+<tr>
+<td>新宋体</td>
+<td>NSimSun</td>
+</tr>
+<tr>
+<td>新细明体</td>
+<td>PMingLiU</td>
+</tr>
+<tr>
+<td>细明体</td>
+<td>MingLiU</td>
+</tr>
+<tr>
+<td>标楷体</td>
+<td>DFKai-SB</td>
+</tr>
+<tr>
+<td>仿宋</td>
+<td>FangSong</td>
+</tr>
+<tr>
+<td>楷体</td>
+<td>KaiTi</td>
+</tr>
+<tr>
+<td>仿宋_GB2312</td>
+<td>FangSong_GB2312</td>
+</tr>
+<tr>
+<td>楷体_GB2312</td>
+<td>KaiTi_GB2312</td>
+</tr>
+</tbody></table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#颜色、标记和线型</span></span><br><span class="line">plt.figure()</span><br><span class="line"><span class="comment">##linestyle设置线型，color设置颜色,marker设置设置连接点</span></span><br><span class="line">plt.plot(numpy.random.randn(<span class="number">30</span>).cumsum(),linestyle=<span class="string">'--'</span>,color=<span class="string">'g'</span>,marker=<span class="string">'o'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参考这个</p>
+<p><a href="https://www.jb51.net/article/168302.htm" target="_blank" rel="noopener">https://www.jb51.net/article/168302.htm</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置标题、轴标签，刻度以及刻度标签</span></span><br><span class="line">fig = plt.figure()   <span class="comment">#创建figure对象</span></span><br><span class="line">ax = fig.add_subplot(<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>)   <span class="comment">#获得Axes对象</span></span><br><span class="line">ax.plot(numpy.random.randn(<span class="number">1000</span>).cumsum()) <span class="comment">#生成随机数</span></span><br><span class="line">ax.set_xticks([<span class="number">0</span>,<span class="number">250</span>,<span class="number">500</span>,<span class="number">750</span>,<span class="number">1000</span>])   <span class="comment">#设置x轴刻度</span></span><br><span class="line">ax.set_yticks([<span class="number">-20</span>,<span class="number">-10</span>,<span class="number">0</span>,<span class="number">10</span>,<span class="number">20</span>])    <span class="comment">#设置y轴刻度</span></span><br><span class="line">ax.set_title(<span class="string">'My first matplotlib plot'</span>)  <span class="comment">#设置标题</span></span><br><span class="line">ax.set_xlabel(<span class="string">'Xtages'</span>)   <span class="comment">#设置x轴标签</span></span><br><span class="line">ax.set_ylabel(<span class="string">'Ytages'</span>)   <span class="comment">#设置y轴标签</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plt.annotate(<span class="string">"Important value"</span>, (<span class="number">55</span>,<span class="number">20</span>), xycoords=<span class="string">'data'</span>,  <span class="comment">#添加注释的方法</span></span><br><span class="line">     xytext=(<span class="number">5</span>, <span class="number">38</span>),</span><br><span class="line">     arrowprops=dict(arrowstyle=<span class="string">'-&gt;'</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 调整图像的大小</span></span><br><span class="line">fig = plt.figure(figsize=(<span class="number">12</span>,<span class="number">6</span>))</span><br><span class="line"><span class="comment">#解决中文显示问题</span></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>]=[<span class="string">'Microsoft YaHei'</span>]</span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span></span><br><span class="line"><span class="comment"># 标记图的序号</span></span><br><span class="line"><span class="comment"># fig.suptitle('1') </span></span><br><span class="line"><span class="comment"># 改变横纵坐标</span></span><br><span class="line">plt.xticks(x)</span><br><span class="line"><span class="comment"># 绘制图像，r*--颜色，点的标记，线段模式，label标签的名字，linewidth线的宽度</span></span><br><span class="line">plt.plot(x,y1,<span class="string">"r*--"</span>, label=<span class="string">'N123RW'</span>,linewidth=<span class="number">0.25</span> )</span><br><span class="line">plt.plot(x,y2,<span class="string">"ks--"</span>, label=<span class="string">'DLRW'</span>,linewidth=<span class="number">0.25</span>)</span><br><span class="line">plt.plot(x,y3,<span class="string">"gp--"</span>, label=<span class="string">'SRW'</span>,linewidth=<span class="number">0.25</span>)</span><br><span class="line"><span class="comment"># 显示标签，默认为axis=0左上角</span></span><br><span class="line">plt.legend()</span><br><span class="line"><span class="comment"># fontsize字体大小</span></span><br><span class="line">plt.xlabel(<span class="string">"Characteristic number"</span>, fontsize = <span class="number">15</span>) </span><br><span class="line">plt.xticks(fontsize=<span class="number">10</span>)</span><br><span class="line">plt.ylabel(<span class="string">"Accuracy of RF"</span>, fontsize = <span class="number">15</span>)</span><br><span class="line">plt.yticks(fontsize=<span class="number">10</span>)</span><br><span class="line">plt.title(<span class="string">"Feature elimination based on DBT and RFE"</span>, fontsize = <span class="number">15</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(<span class="string">'features.png'</span>,dpi = <span class="number">400</span>,bbox_inches=<span class="string">'tight'</span>)</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
