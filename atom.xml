@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>ESY</title>
   
-  <subtitle>mengxin</subtitle>
+  <subtitle>miao</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://esyyes.github.io/"/>
-  <updated>2020-06-09T02:48:46.000Z</updated>
+  <updated>2020-06-11T08:49:41.000Z</updated>
   <id>https://esyyes.github.io/</id>
   
   <author>
@@ -15,6 +15,85 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全部特征的提取和标签处理</title>
+    <link href="https://esyyes.github.io/2020/06/11/%E5%85%A8%E9%83%A8%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E5%92%8C%E6%A0%87%E7%AD%BE%E5%A4%84%E7%90%86/"/>
+    <id>https://esyyes.github.io/2020/06/11/%E5%85%A8%E9%83%A8%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E5%92%8C%E6%A0%87%E7%AD%BE%E5%A4%84%E7%90%86/</id>
+    <published>2020-06-11T08:49:41.000Z</published>
+    <updated>2020-06-11T08:49:41.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="全部特征的提取和标签处理"><a href="#全部特征的提取和标签处理" class="headerlink" title="全部特征的提取和标签处理"></a>全部特征的提取和标签处理</h1><p>提取5分钟片段的特征，并进行滑窗切片，以30s为窗口，5min为步长</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/11</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将5分钟的数据进行30s窗口的滑窗切片，然后进行输出为list</span></span><br><span class="line"><span class="comment"># 5min的进行单独的分析，然后进行时频域和非线性的分析</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> wfdb</span><br><span class="line"><span class="keyword">from</span> wfdb <span class="keyword">import</span> processing</span><br><span class="line"><span class="comment"># import numpy as np</span></span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="keyword">from</span> peaks_time_features <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> time_domain <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> frequency_domain <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> HRV_interp1 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> nonliner_domain <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> eliminate_outliers <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line">test = <span class="string">'slp01a'</span></span><br><span class="line">record = wfdb.rdrecord(<span class="string">'F:/slpdb_data/mitdata'</span> + <span class="string">'/%s'</span> % test, channels=[<span class="number">0</span>])</span><br><span class="line">annotation = wfdb.rdann(<span class="string">'F:/slpdb_data/mitdata'</span> + <span class="string">'/%s'</span> % test, <span class="string">'ecg'</span>)</span><br><span class="line"></span><br><span class="line">ecg_signal = record.p_signal</span><br><span class="line">ecg_locs = annotation.sample.tolist()</span><br><span class="line">ecg_locs.pop(<span class="number">0</span>)</span><br><span class="line">min_bpm = <span class="number">40</span></span><br><span class="line">max_bpm = <span class="number">200</span></span><br><span class="line"></span><br><span class="line">search_radius = int(record.fs * <span class="number">60</span> / max_bpm)</span><br><span class="line">ecg_r_locs1 = processing.correct_peaks(ecg_signal[:, <span class="number">0</span>], peak_inds=ecg_locs,</span><br><span class="line">                                       search_radius=search_radius, smooth_window_size=<span class="number">100</span>)</span><br><span class="line"><span class="comment"># ecg_r_locs异常点处理</span></span><br><span class="line">ecg_r_locs = eliminate(ecg_r_locs1)</span><br><span class="line"><span class="comment"># ecg_r_peaks峰值点获取</span></span><br><span class="line">ecg_r_peaks = [ecg_signal[int(ecg_r_locs[i])][<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(ecg_r_locs))]</span><br><span class="line"></span><br><span class="line">all_RR_5m = []</span><br><span class="line">all_locs_5m = []</span><br><span class="line">all_peaks_5m = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(int(record.sig_len/record.fs/<span class="number">30</span> - <span class="number">11</span>)):</span><br><span class="line">    RR_300s = []</span><br><span class="line">    locs_300s = []</span><br><span class="line">    peaks_300s = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(len(ecg_r_locs)):</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">30</span>*record.fs*i) &lt;= ecg_r_locs[j] &lt;= (<span class="number">30</span>*record.fs*(i+<span class="number">10</span>)):</span><br><span class="line">            locs_300s.append(ecg_r_locs[j])</span><br><span class="line">            RR_300s.append((ecg_r_locs[j+<span class="number">1</span>] - ecg_r_locs[j]) * <span class="number">4</span>)</span><br><span class="line">            peaks_300s.append(ecg_r_peaks[j][<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    RR_300s.pop()</span><br><span class="line">    all_RR_5m.append(RR_300s)</span><br><span class="line">    all_locs_5m.append(locs_300s)</span><br><span class="line">    all_peaks_5m.append(peaks_300s)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ECG_R</span></span><br><span class="line">peaks_features = [peaks_time_feature(all_peaks_300s[i]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_peaks_300s))]</span><br><span class="line"><span class="comment"># HRV</span></span><br><span class="line">hrv_time = [time_features(all_RR_300s[i]) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_RR_300s))]</span><br><span class="line">hrv_freq = [getfreq(resample(hrv_interp1(all_locs_300s[i], all_RR_300s[i], <span class="number">1</span>), <span class="number">250</span>, <span class="number">4</span>)) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_RR_300s))]</span><br><span class="line">hrv_nonl = [non_linear(np.array(all_RR_300s[i])) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_RR_30s))]</span><br><span class="line">features = [peaks_features[i] + hrv_time[i] + hrv_freq[i] + hrv_nonl[i] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_RR_300s))]</span><br></pre></td></tr></table></figure><h2 id="特征重要度"><a href="#特征重要度" class="headerlink" title="特征重要度"></a>特征重要度</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/11</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> data_preprocessing <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.feature_selection <span class="keyword">import</span> SelectFromModel</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">19</span>):</span><br><span class="line">    feature = pd.read_excel(<span class="string">'F:/py/python-ECG信号处理/all_feature'</span> + <span class="string">'/features'</span> + <span class="string">'%s'</span> % i + <span class="string">'.xlsx'</span>)</span><br><span class="line">    data = pd.get_dummies(feature.iloc[<span class="number">0</span>:len(feature), <span class="number">1</span>:])</span><br><span class="line">    note = pd.read_excel(<span class="string">'F:/py/python-ECG信号处理/all_note'</span> + <span class="string">'/note'</span> + <span class="string">'%s'</span> % i + <span class="string">'.xlsx'</span>)</span><br><span class="line">    tag = pd.get_dummies(note.iloc[<span class="number">0</span>:len(data), <span class="number">1</span>:])</span><br><span class="line">    <span class="comment"># 数据预处理</span></span><br><span class="line">    df = data_pre(data)</span><br><span class="line">    label = pd.get_dummies(tag.iloc[<span class="number">0</span>:len(data), <span class="number">-2</span>:<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">    X = df</span><br><span class="line">    Y = label</span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=<span class="number">0.3</span>)</span><br><span class="line">    sel = SelectFromModel(RandomForestClassifier(n_jobs=<span class="number">-1</span>))</span><br><span class="line">    sel.fit(X_train, y_train)</span><br><span class="line">    features = X_train.columns[sel.get_support()]</span><br><span class="line">    print(<span class="string">f'%2d 重要特征数为：<span class="subst">&#123;len(features)&#125;</span>'</span> %i, end=<span class="string">'\t'</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure><p>1 重要特征数为：26<br> 2 重要特征数为：30<br> 3 重要特征数为：24<br> 4 重要特征数为：34<br> 5 重要特征数为：42<br> 6 重要特征数为：32<br> 7 重要特征数为：40<br> 8 重要特征数为：34<br> 9 重要特征数为：21<br>10 重要特征数为：25<br>11 重要特征数为：41<br>12 重要特征数为：29<br>13 重要特征数为：26<br>14 重要特征数为：32<br>15 重要特征数为：30<br>16 重要特征数为：37<br>17 重要特征数为：21<br>18 重要特征数为：27</p><p>还是选择25个作为特征重要度筛选</p><p><img src="https://images.ali213.net/picfile/pic/2013/11/10/927_20131110120357350.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;全部特征的提取和标签处理&quot;&gt;&lt;a href=&quot;#全部特征的提取和标签处理&quot; class=&quot;headerlink&quot; title=&quot;全部特征的提取和标签处理&quot;&gt;&lt;/a&gt;全部特征的提取和标签处理&lt;/h1&gt;&lt;p&gt;提取5分钟片段的特征，并进行滑窗切片，以30s为窗口，5mi
+      
+    
+    </summary>
+    
+    
+      <category term="work" scheme="https://esyyes.github.io/categories/work/"/>
+    
+    
+      <category term="work" scheme="https://esyyes.github.io/tags/work/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo相关学习</title>
+    <link href="https://esyyes.github.io/2020/06/10/hexo%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://esyyes.github.io/2020/06/10/hexo%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/</id>
+    <published>2020-06-10T06:45:26.000Z</published>
+    <updated>2020-06-10T06:45:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo相关学习"><a href="#hexo相关学习" class="headerlink" title="hexo相关学习"></a>hexo相关学习</h1><p>hexo -主题切换</p><p><a href="https://github.com/ZEROKISEKI/hexo-theme-gal" target="_blank" rel="noopener">https://github.com/ZEROKISEKI/hexo-theme-gal</a></p><p>看中了gal这个主题</p><p>下载放入themes文件夹下,更名为gai</p><p>hexo s,查看效果</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;hexo相关学习&quot;&gt;&lt;a href=&quot;#hexo相关学习&quot; class=&quot;headerlink&quot; title=&quot;hexo相关学习&quot;&gt;&lt;/a&gt;hexo相关学习&lt;/h1&gt;&lt;p&gt;hexo -主题切换&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://esyyes.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://esyyes.github.io/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo-无法登陆github</title>
+    <link href="https://esyyes.github.io/2020/06/10/hexo/hexo-%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86github/"/>
+    <id>https://esyyes.github.io/2020/06/10/hexo/hexo-%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86github/</id>
+    <published>2020-06-10T01:16:51.000Z</published>
+    <updated>2020-06-10T01:16:51.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="hexo-无法登陆github"><a href="#hexo-无法登陆github" class="headerlink" title="hexo-无法登陆github"></a>hexo-无法登陆github</h1><h2 id="Typora进入全屏模式"><a href="#Typora进入全屏模式" class="headerlink" title="Typora进入全屏模式"></a>Typora进入全屏模式</h2><p>按F11进入和退出</p><h2 id="hexo无法上传博客"><a href="#hexo无法上传博客" class="headerlink" title="hexo无法上传博客"></a>hexo无法上传博客</h2><h3 id="github无法访问"><a href="#github无法访问" class="headerlink" title="github无法访问"></a>github无法访问</h3><p>主要修改host文件，去访问IP</p><p>直接C盘输入</p><p>C:\Windows\System32\drivers\etc</p><p>找hosts文件</p><p>检测DNS所在地的IP</p><p><a href="http://tool.chinaz.com/dns?type=1&amp;host=github.com&amp;ip=" target="_blank" rel="noopener">http://tool.chinaz.com/dns?type=1&amp;host=github.com&amp;ip=</a></p><p>在hosts文件中输入ip响应的ip地址加github.com</p><p>192.30.253.112 github.com</p><p>13.229.188.59 github.com</p><p>140.82.114.4 github.com</p><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1591762523205&di=6c4080b0a13a65b3044518782d4ba91b&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fw%3D580%2Fsign%3D0767ae5574094b36db921be593cd7c00%2F869a3d87e950352af09675825143fbf2b3118b2a.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;hexo-无法登陆github&quot;&gt;&lt;a href=&quot;#hexo-无法登陆github&quot; class=&quot;headerlink&quot; title=&quot;hexo-无法登陆github&quot;&gt;&lt;/a&gt;hexo-无法登陆github&lt;/h1&gt;&lt;h2 id=&quot;Typora进入全屏模式&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="hexo" scheme="https://esyyes.github.io/categories/hexo/"/>
+    
+    
+      <category term="hexo" scheme="https://esyyes.github.io/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>数据预处理</title>
@@ -436,65 +515,6 @@
 &lt;li&gt;写一篇专利&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;专利：利用图像识别技术，识别QR
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python-opencv基础入门</title>
-    <link href="https://esyyes.github.io/2020/05/05/opencv/python-opencv%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/"/>
-    <id>https://esyyes.github.io/2020/05/05/opencv/python-opencv%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/</id>
-    <published>2020-05-05T12:47:17.000Z</published>
-    <updated>2020-05-05T12:47:17.000Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python-Matplotlib视频讲解版</title>
-    <link href="https://esyyes.github.io/2020/04/12/python/python-Matplotlib%E8%A7%86%E9%A2%91%E8%AE%B2%E8%A7%A3%E7%89%88/"/>
-    <id>https://esyyes.github.io/2020/04/12/python/python-Matplotlib%E8%A7%86%E9%A2%91%E8%AE%B2%E8%A7%A3%E7%89%88/</id>
-    <published>2020-04-12T04:22:04.000Z</published>
-    <updated>2020-04-12T04:22:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="python-Matplotlib视频讲解版"><a href="#python-Matplotlib视频讲解版" class="headerlink" title="python-Matplotlib视频讲解版"></a>python-Matplotlib视频讲解版</h1><p>视频连接</p><p><a href="https://www.bilibili.com/video/BV1tt411e7zF?p=1" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1tt411e7zF?p=1</a></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 绘制成一条线形式</span></span><br><span class="line">fig, ax = plt.subplots(figsize=(<span class="number">7</span>, <span class="number">4</span>))</span><br><span class="line"><span class="comment"># xy范围</span></span><br><span class="line">plt.ylim((<span class="number">80</span>,<span class="number">100</span>))</span><br><span class="line"><span class="comment"># 设定xy的尺度大小</span></span><br><span class="line">new_ticks = np.linspace(<span class="number">80</span>, <span class="number">100</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># yticks改变坐标轴的大小</span></span><br><span class="line">plt.yticks(new_ticks, fontsize=<span class="number">8</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改变标签注释的大小</span></span><br><span class="line">plt.ylabel(<span class="string">'Average Accuracy/%'</span>, fontsize=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更改横坐标的标签和字体大小，以及转换方向</span></span><br><span class="line">plt.xticks(x,(df.keys()), fontsize=<span class="number">8</span>, rotation=<span class="number">0</span>)</span><br><span class="line">l1, = ax.plot(x,y1,color=<span class="string">'red'</span>,linewidth=<span class="number">1.0</span>,linestyle=<span class="string">'--'</span>)</span><br><span class="line">l2, = ax.plot(x,y2,color=<span class="string">'blue'</span>,linewidth=<span class="number">3.0</span>,linestyle=<span class="string">'--'</span>)</span><br><span class="line"><span class="comment"># 标准图例</span></span><br><span class="line">plt.legend(handles=[l1,l2],labels=[<span class="string">'Original model'</span>,<span class="string">'Optimization model'</span>],loc=<span class="string">'best'</span>)</span><br><span class="line"><span class="comment"># shift+tab可以查看图中函数的设置</span></span><br><span class="line"><span class="comment"># 改变图的边框颜色</span></span><br><span class="line">ax = plt.gca()</span><br><span class="line">ax.spines[<span class="string">'right'</span>].set_color(<span class="string">'none'</span>)</span><br><span class="line">ax.spines[<span class="string">'top'</span>].set_color(<span class="string">'blue'</span>)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><p><img src="H:%5Cmyboke%5Cmybike%5Csource%5Cimages%5Cimage-20200412210230713.png" alt="image-20200412210230713"></p><p><a href="https://jishuin.proginn.com/p/7056.html" target="_blank" rel="noopener">https://jishuin.proginn.com/p/7056.html</a></p><p>这个链接中描述了很多绘制</p><p>多用shift+tab加来查看函数的说明</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;python-Matplotlib视频讲解版&quot;&gt;&lt;a href=&quot;#python-Matplotlib视频讲解版&quot; class=&quot;headerlink&quot; title=&quot;python-Matplotlib视频讲解版&quot;&gt;&lt;/a&gt;python-Matplotlib视频讲
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>python_可视化之seaborn</title>
-    <link href="https://esyyes.github.io/2020/03/26/python/python-%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8Bseaborn/"/>
-    <id>https://esyyes.github.io/2020/03/26/python/python-%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B9%8Bseaborn/</id>
-    <published>2020-03-26T13:16:31.000Z</published>
-    <updated>2020-03-26T13:16:31.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="python-可视化之seaborn"><a href="#python-可视化之seaborn" class="headerlink" title="python_可视化之seaborn"></a>python_可视化之seaborn</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br></pre></td></tr></table></figure><p>主题修改：</p><p><a href="https://matplotlib.org/tutorials/introductory/customizing.html" target="_blank" rel="noopener">https://matplotlib.org/tutorials/introductory/customizing.html</a></p><p>将自己的主题设定为：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置风格</span></span><br><span class="line">sns.set_style(<span class="string">"whitegrid"</span>)</span><br></pre></td></tr></table></figure><p><a href="https://www.cntofu.com/book/172/docs/20.md" target="_blank" rel="noopener">https://www.cntofu.com/book/172/docs/20.md</a></p><p>后面还是参考上面网址进行学习，基本已经理清seaborn怎么绘制。</p><p>好吧还是使用这个！</p><p><a href="https://www.jb51.net/article/104924.htm" target="_blank" rel="noopener">https://www.jb51.net/article/104924.htm</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;python-可视化之seaborn&quot;&gt;&lt;a href=&quot;#python-可视化之seaborn&quot; class=&quot;headerlink&quot; title=&quot;python_可视化之seaborn&quot;&gt;&lt;/a&gt;python_可视化之seaborn&lt;/h1&gt;&lt;figure c
       
     
     </summary>
