@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>交叉验证 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/matlab-%E5%B7%A5%E4%BD%9C/">-matlab -工作</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/matlab/">matlab</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%8D%87%E7%BA%A7conda/">-升级conda</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">-python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">python</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>交叉验证</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">交叉验证</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-07-02
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">交叉验证</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-07-02
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><h2 id="交叉验证：评估估算器的表现"><a href="#交叉验证：评估估算器的表现" class="headerlink" title="交叉验证：评估估算器的表现"></a>交叉验证：评估估算器的表现</h2><p>学习预测函数的参数，并在相同数据集上进行测试是一种错误的做法: 一个仅给出测试用例标签的模型将会获得极高的分数，但对于尚未出现过的数据它则无法预测出任何有用的信息。 这种情况称为 overfitting（过拟合）. 为了避免这种情况，在进行（监督）机器学习实验时，通常取出部分可利用数据作为 test set（测试数据集）</p>
+<h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><p> <a href="https://baike.baidu.com/item/置信区间/7442583?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/7442583?fr=aladdin</a> </p>
+<p> 置信区间是指由<a href="https://baike.baidu.com/item/样本统计量/7378689" target="_blank" rel="noopener">样本统计量</a>所构造的总体参数的估计区间。在统计学中，一个<a href="https://baike.baidu.com/item/概率/828845" target="_blank" rel="noopener">概率</a>样本的置信区间（Confidence interval）是对这个样本的某个总体参数的<a href="https://baike.baidu.com/item/区间估计/6611490" target="_blank" rel="noopener">区间估计</a>。 </p>
+<p> 置信区间与置信水平、样本量等因素均有关系，其中<a href="https://baike.baidu.com/item/样本量" target="_blank" rel="noopener">样本量</a>对置信区间的影响为：在<a href="https://baike.baidu.com/item/置信水平" target="_blank" rel="noopener">置信水平</a>固定的情况下，样本量越多，置信区间越窄。其次，在<a href="https://baike.baidu.com/item/样本量" target="_blank" rel="noopener">样本量</a>相同的情况下，置信水平越高，置信区间越宽 </p>
+<p>95%置信区间（Confidence Interval,CI）：当给出某个估计值的95%置信区间为【a,b】时，可以理解为我们有95%的信心（Confidence）可以说样本的平均值介于a到b之间，而发生错误的概率为5%。 </p>
+<p> 有时也会说90%，99%的置信区间，具体含义可参考95%置信区间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Accuracy: %0.2f (+/- %0.2f)"</span> % (scores.mean(), scores.std() * <span class="number">2</span>))</span><br><span class="line">Accuracy: <span class="number">0.98</span> (+/- <span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="交叉验证-1"><a href="#交叉验证-1" class="headerlink" title="交叉验证"></a>交叉验证</h2><p>用来验证分类器的性能一种统计分析方法，基本思想是把在某种意义下将原始数据(data set)进行分组，一部分做为训练集(training set)，另一部分做为验证集(validation set)，首先用训练集对分类器进行训练，在利用验证集来测试训练得到的模型(model)，以此来做为评价分类器的性能指标。</p>
+<h3 id="k折交叉验证-k-fold-cross-validation"><a href="#k折交叉验证-k-fold-cross-validation" class="headerlink" title="k折交叉验证(k-fold cross validation)"></a>k折交叉验证(k-fold cross validation)</h3><p>将数据集无替换的随机分为k份，k-1份用来训练模型，剩下一份用来模型性能评估。重复k次，得到k个模型和性能评估结果。得到k个性能评估后，取平均求出最终性能评估。即：<br>第一步：不重复抽样将原始数据随机分为k份。<br>第二步：每一次挑选其中 1 份作为测试集，剩余k-1份作为训练集用于模型训练。<br>第三步：重复第二步k次，每个子集都有一次作为测试集，其余子集作为训练集。在每个训练集上训练后得到一个模型，用这个模型在相应测试集上测试，计算并保存模型的评估指标。<br>第四步：计算k组测试结果的平均值作为模型精度的估计，并作为当前k折交叉验证下模型的性能指标。</p>
+<p>优点：分组后取平均减少方差，使得模型对数据划分不敏感。<br>缺点：k取值需要尝试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @time     : 2020/6/30 0030</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">from</span> data_preprocessing <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_rf</span><span class="params">(train_x, test_x, train_y, test_y)</span>:</span></span><br><span class="line">    clf = RandomForestClassifier()</span><br><span class="line">    clf.fit(train_x, train_y)</span><br><span class="line">    pred_y = clf.predict(test_x)</span><br><span class="line">    acr = accuracy_score(test_y, pred_y)</span><br><span class="line">    <span class="keyword">return</span> acr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">feature = pd.read_excel(<span class="string">'D:/zccode/all_feature'</span> + <span class="string">'/features'</span> + <span class="string">'%s'</span> % <span class="number">1</span> + <span class="string">'.xlsx'</span>)</span><br><span class="line">data = pd.get_dummies(feature.iloc[<span class="number">0</span>:len(feature), <span class="number">1</span>:])</span><br><span class="line">note = pd.read_excel(<span class="string">'D:/zccode/all_note'</span> + <span class="string">'/note'</span> + <span class="string">'%s'</span> % <span class="number">1</span> + <span class="string">'.xlsx'</span>)</span><br><span class="line">tag = pd.get_dummies(note.iloc[<span class="number">0</span>:len(data), <span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line">feature_import = pd.read_excel(<span class="string">'D:/zccode'</span> + <span class="string">'/feature_important'</span> + <span class="string">'%s'</span> % <span class="number">2</span> + <span class="string">'.xlsx'</span>)</span><br><span class="line">df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:len(feature_import), <span class="number">1</span>:<span class="number">16</span>])</span><br><span class="line"></span><br><span class="line">std_data = data_pre(data[df.keys()])</span><br><span class="line">label = pd.get_dummies(tag.iloc[<span class="number">0</span>:len(data), <span class="number">2</span>:<span class="number">3</span>])</span><br><span class="line">scores = cross_val_score(RandomForestClassifier(), std_data, label, cv=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f'<span class="subst">&#123;scores&#125;</span>'</span>)</span><br><span class="line">print(<span class="string">"Accuracy: %0.2f (+/- %0.2f)"</span> % (scores.mean(), scores.std() * <span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0.88</span>       <span class="number">0.92</span>       <span class="number">0.86956522</span> <span class="number">0.91304348</span> <span class="number">0.95652174</span> <span class="number">1.</span></span><br><span class="line"> <span class="number">1.</span>         <span class="number">0.86363636</span> <span class="number">1.</span>         <span class="number">0.59090909</span>]</span><br><span class="line">Accuracy: <span class="number">0.90</span> (+/- <span class="number">0.23</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>交叉验证K值的确定，找一个样本很平均的，然后再去利用样本来进行判定</p>
+<h2 id="交叉验证的作用："><a href="#交叉验证的作用：" class="headerlink" title="交叉验证的作用："></a>交叉验证的作用：</h2><h3 id="评估模型的稳定性及调参"><a href="#评估模型的稳定性及调参" class="headerlink" title="评估模型的稳定性及调参"></a>评估模型的稳定性及调参</h3><p>比如5折交叉验证，在参数确定了的情况下，我们可以将数据弄成五份，每一份中80%训练，20%作为测试集，这样可以训练五个模型，这五个模型除了训练集测试集不同外，其他的都相同，这样我们可以得到五个模型的评估指标比如<strong>auc</strong>,计算五个模型得到的<strong>auc的方差</strong>，如果方差小说明模型的泛化性比较好，模型比较稳定是个好模型，否则说明模型泛化性不好。<br>xgboost中cv函数返回的值包括两个，一个是单模型的评价指标（比如auc），另外一个是模型的方差。</p>
+<p>参数不确定的情况下，我们通过<strong>模型的准确性和稳定性</strong>来选择最合适的参数。<br> <a href="https://blog.csdn.net/weixin_41060109/article/details/80878325?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase" target="_blank" rel="noopener">https://blog.csdn.net/weixin_41060109/article/details/80878325?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase</a> </p>
+<p> 在实际训练中，模型通常对训练数据好，但是对训练数据之外的数据拟合程度差。用于<strong>评价模型的泛化能力</strong>，从而进行<strong>模型选择</strong>。 </p>
+<h2 id="交叉验证的初步目标"><a href="#交叉验证的初步目标" class="headerlink" title="交叉验证的初步目标"></a>交叉验证的初步目标</h2><p>初步选择大部分的模型，然后通过交叉验证，例如：10次10折，先初步去筛选得到性能效果好的模型，然后再对这几个好的模型，进行网格搜索的超参数优化</p>
+<p>交叉验证得到一个准确率，但是不能用准确率这个指标去直接判定分类器的性能</p>
+<p>最后用混淆矩阵、精度、召回率等去评估分类的效果和性能</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593683305451&di=084be09798a996ba20acd53f72f8e663&imgtype=0&src=http%3A%2F%2Fhbimg.b0.upaiyun.com%2F1e4a2abbb0ec1309578de3741b1c7619c7a34c4f2834b-zmvQca_fw658" alt=""></p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/22/chatbot/chatbot-sorry%E7%AF%87/">chatbot_sorry篇</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/21/chatbot/python%E4%B8%8A%E7%9A%84GUI/">python上的GUI</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/20/chatbot/chatbot%E5%9C%A8python%E4%B8%8A%E5%AE%9E%E7%8E%B0/">chatbot在python上实现</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/19/chatbot/Q-A-chatbot-%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">Q&amp;A chatbot 简单实现</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/18/chatbot/spacy%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%86%8D%E5%AD%A6%E4%B9%A0/">spacy的基础知识再学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/16/chatbot/q-a%E6%A3%80%E7%B4%A2%E5%BC%8F%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E6%B5%81%E7%A8%8B/">q@a检索式机器人的流程</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/15/chatbot/spacy%E7%9A%84%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">spacy的基础学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/10/chatbot/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/">聊天机器人基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/09/HMM/HMM%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%84%E7%90%86/">HMM之数据的处理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/08/HMM/%E7%8A%B6%E6%80%81%E4%B8%BA3%E6%97%B6%E7%9A%84%E8%AE%BE%E5%AE%9A/">状态为3时的设定</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/10/chatbot/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/">聊天机器人基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/08/HMM/HMM%E4%B8%AD%E7%9A%84B%E5%80%BC%E7%A1%AE%E5%AE%9A/">HMM中的B值确定</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/18/matlab/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">matlab中的插值</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/02/hexo/hexo%E7%9A%84%E4%BD%BF%E7%94%A8/">LV-1.3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/03/hexo/hexo%E5%AD%A6%E4%B9%A0/">hexo学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/29/sleep%20apnea%20and%20sleep%20stage/%E4%B8%AD%E6%9C%9F%E7%AD%94%E8%BE%A9%E9%A2%98%E7%9B%AE/">中期答辩题目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/%E6%A0%87%E7%AD%BE%E5%92%8C%E7%89%B9%E5%BE%81%E9%95%BF%E5%BA%A6%E5%A4%84%E7%90%86/">标签和特征长度处理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/15/python/python-wfdb%E4%BD%BF%E7%94%A8/">python_wfdb使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/26/python/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">python-入门复习面向对象</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/01/python/python%E5%9F%BA%E7%A1%80%E4%B9%8B%E8%AF%BB%E5%8F%96mat%E6%96%87%E4%BB%B6/">LV.0</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/work/" style="font-size: 12.675738501742519px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 12.736131908392629px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/hexo/" style="font-size: 11.559965565432522px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/python/" style="font-size: 13.17608011100496px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 9.556865718177171px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/python/" style="font-size: 14.129352287925885px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 12.077303825277593px;" class="tag-cloud-link">-python -人工智能</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
