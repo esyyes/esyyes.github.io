@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>GUI界面的完善 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%8D%87%E7%BA%A7conda/">-升级conda</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E4%BD%9C/">-工作</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">-python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">-python -人工智能</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>GUI界面的完善</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/">GUI界面的完善</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-07-28
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/">GUI界面的完善</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-07-28
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="GUI界面的完善"><a href="#GUI界面的完善" class="headerlink" title="GUI界面的完善"></a>GUI界面的完善</h1><h2 id="已实现功能"><a href="#已实现功能" class="headerlink" title="已实现功能"></a>已实现功能</h2><ol>
+<li><p>按回车键输出消息，并不会在文本中表示回车</p>
+</li>
+<li><p>问题描述</p>
+<p>在按下回车键时，不仅会触发我们绑定的方法，还会触发回车键原本的换行效果，<br> 但我们希望只触发绑定的方法而不进行换行。</p>
+<p>解决方法</p>
+<p>在绑定事件函数的末尾加上 return ‘break’ 即可阻止按键的默认操作</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMsgEvent</span><span class="params">(event)</span>:</span>  <span class="comment"># 发送消息事件</span></span><br><span class="line">    <span class="keyword">if</span> event.keysym == <span class="string">'Return'</span>:</span><br><span class="line">        sendMsg()</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'break'</span></span><br><span class="line">加入<span class="keyword">break</span>即可让回车键按下发送后不进行跳行</span><br><span class="line"></span><br><span class="line"><span class="comment"># 布局2</span></span><br><span class="line"><span class="comment"># 多重文本框输入，建立输入窗口</span></span><br><span class="line">txtMsg = Text(frm2, height=<span class="number">5</span>, width=<span class="number">60</span>, font=(<span class="string">'微软雅黑'</span>, <span class="number">15</span>))</span><br><span class="line">txtMsg.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, stick=E)</span><br><span class="line"><span class="comment"># 绑定一个控制键，进行发送信息</span></span><br><span class="line">txtMsg.bind(<span class="string">"&lt;KeyPress-Return&gt;"</span>, sendMsgEvent)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>按下按钮后发送并返回消息</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMsg</span><span class="params">()</span>:</span>  <span class="comment"># 发送消息</span></span><br><span class="line">    strMsg = <span class="string">"user:"</span> + time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime()) + <span class="string">'\n'</span></span><br><span class="line">    txtMsgList.config(state=<span class="string">'normal'</span>)</span><br><span class="line">    txtMsgList.insert(END, strMsg, <span class="string">'greencolor'</span>)</span><br><span class="line">    txtMsgList.insert(END, txtMsg.get(<span class="string">'0.0'</span>, END))</span><br><span class="line">    <span class="comment"># 开始回复消息</span></span><br><span class="line">    answer = <span class="string">"chatbot:"</span> + <span class="string">'\n'</span></span><br><span class="line">    <span class="comment"># get('0.0', END)[:-1],0,end获取所有数据，会加入一个换行符，‘\n'，因此需要加入一个【：-1】</span></span><br><span class="line">    best = run_chatbot(txtMsg.get(<span class="string">'0.0'</span>, END)[:<span class="number">-1</span>], data) + <span class="string">'\n'</span></span><br><span class="line">    txtMsgList.insert(END, answer, <span class="string">'greencolor'</span>)</span><br><span class="line">    txtMsgList.insert(END, best)</span><br><span class="line">    txtMsgList.config(state=<span class="string">'disabled'</span>)</span><br><span class="line">    txtMsg.delete(<span class="string">'0.0'</span>, END)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>bind的用法：控件.bind(event, handler),其中event是tkinter已经定义好的的事件，handler是处理器，可以是一个处理函数，如果相关事件发生, handler 函数会被触发, 事件对象 event 会传递给 handler 函数  </li>
+<li>基本所有控件都能bind  </li>
+<li>常见event有：  <ul>
+<li>鼠标单击事件：鼠标左键点击为 <Button-1>, 鼠标中键点击为 <Button-2>, 鼠标右键点击为 <Button-3>, 向上滚动滑轮为 <Button-4>, 向下滚动滑轮为 <Button-5>.  </li>
+<li>鼠标双击事件.：鼠标左键点击为 <Double-Button-1>, 鼠标中键点击为 <Double-Button-2>, 鼠标右键点击为 <Double-Button-3>.  </li>
+<li>鼠标释放事件：鼠标左键点击为 <ButtonRelease-1>, 鼠标中键点击为 <ButtonRelease-2>, 鼠标右键点击为 <ButtonRelease-3>. 鼠标相对当前控件的位置会被存储在 event 对象中的 x 和 y 字段中传递给回调函数.  </li>
+<li>鼠标移入控件事件：<Enter>  </li>
+<li>获得焦点事件：<FocusIn>  </li>
+<li>鼠标移出控件事件: <Leave>  </li>
+<li>失去焦点事件:<FocusOut>  </li>
+<li>鼠标按下移动事件：鼠标左键点击为 <B1-Motion>, 鼠标中键点击为 <B2-Motion>, 鼠标右键点击为 <B3-Motion>. 鼠标相对当前控件的位置会被存储在 event 对象中的 x 和 y 字段中传递给回调函数.  </li>
+<li>键盘按下事件:<Key>，event中的keysym ,keycode,char都可以获取按下的键【其他想要获取值的也可以先看看event中有什么】  </li>
+<li>键位绑定事件：<Return>回车键，<BackSpace>,<Escape>,<Left>,<Up>,<Right>,<Down>…….  </li>
+<li>控件大小改变事件：<Configure>，新的控件大小会存储在 event 对象中的 width 和 height 属性传递. 有些平台上该事件也可能代表控件位置改变.</li>
+</ul>
+</li>
+<li>Event中的属性：  <ul>
+<li><strong>widget：产生事件的控件</strong>  </li>
+<li><strong>x, y：当前鼠标的位置</strong>  </li>
+<li><strong>x_root, y_root：当前鼠标相对于屏幕左上角的位置，以像素为单位。</strong>  </li>
+<li><strong>char：字符代码（仅限键盘事件），作为字符串。</strong>  </li>
+<li><strong>keysym：关键符号（仅限键盘事件）。</strong>  </li>
+<li><strong>keycode：关键代码（仅限键盘事件）。</strong>  </li>
+<li><strong>num：按钮号码（仅限鼠标按钮事件）。</strong>  </li>
+<li><strong>width, height：小部件的新大小（以像素为单位）（仅限配置事件）。</strong>  </li>
+<li><strong>type：事件类型。</strong></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/UI%E7%95%8C%E9%9D%A2%E7%BE%8E%E5%8C%96/">UI界面美化</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/q-a%E6%95%B0%E6%8D%AE%E8%A1%A5%E5%85%85/">q&amp;a数据补充</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/chatbot-%E7%89%88%E6%9C%AC1%E6%80%BB%E7%BB%93/">chatbot_版本1总结</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/">GUI界面的完善</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/HMM/%E6%A0%B7%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%9A%84%E7%94%9F%E6%88%90/">样本数据的生成</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/23/chatbot/gui%E7%95%8C%E9%9D%A2%E6%9A%82%E5%AE%9A%E7%89%88%E5%92%8C%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">gui界面暂定版和遇到的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/23/chatbot/qachatbot%E6%9A%82%E5%AE%9A%E7%89%88/">qachatbot暂定版</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/22/chatbot/chatbot-sorry%E7%AF%87/">chatbot_sorry篇</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/21/chatbot/python%E4%B8%8A%E7%9A%84GUI/">python上的GUI</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/20/chatbot/chatbot%E5%9C%A8python%E4%B8%8A%E5%AE%9E%E7%8E%B0/">chatbot在python上实现</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/04/HMM/HMM%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/">HMM模型的学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/08/HMM/%E7%8A%B6%E6%80%81%E4%B8%BA3%E6%97%B6%E7%9A%84%E8%AE%BE%E5%AE%9A/">状态为3时的设定</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/10/hexo/hexo%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/">hexo相关学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/24/python/pyhon%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/">pyhon基础--函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/03/22/python/python-Accuracy-Precison-Recall-F1-score/">python_Accuracy,Precison,Recall,F1 score</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/15/python/python-wfdb%E4%BD%BF%E7%94%A8/">python_wfdb使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/08/python/python%E5%9F%BA%E7%A1%80%E4%B9%8B%E5%88%97%E8%A1%A8/">LV-2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/26/python/python%E8%B0%83%E7%94%A8wfdb/">LV-3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/29/sleep%20apnea%20and%20sleep%20stage/%E4%B8%AD%E6%9C%9F%E7%AD%94%E8%BE%A9%E9%A2%98%E7%9B%AE/">中期答辩题目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/09/sleep%20apnea%20and%20sleep%20stage/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">数据预处理</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/work/" style="font-size: 15.064748462467271px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/hexo/" style="font-size: 9.99474388141053px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 8.426357804633083px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/python/" style="font-size: 13.562508582584947px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 10.236575096940836px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 12.151450165814868px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 13.654063789472776px;" class="tag-cloud-link">python</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
