@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>查看单独数据下的准确率 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/aos.js"></script>
+    <script src="/js/highslide/highslide-full.min.js"></script>
+    <link rel="stylesheet" href="/js/highslide/highslide.css">
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
+</head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/matlab-%E5%B7%A5%E4%BD%9C/">-matlab -工作</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/matlab/">matlab</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python/">-python</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">-python -人工智能</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>查看单独数据下的准确率</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/08/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%8D%95%E7%8B%AC%E6%95%B0%E6%8D%AE%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87/">查看单独数据下的准确率</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-08-24
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/08/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%8D%95%E7%8B%AC%E6%95%B0%E6%8D%AE%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87/">查看单独数据下的准确率</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-08-24
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="查看单独数据下的准确率"><a href="#查看单独数据下的准确率" class="headerlink" title="查看单独数据下的准确率"></a>查看单独数据下的准确率</h1><p>查看每个分期下的特征重要度，并选取均值，然后取18个数据的均值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/24</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将2345期的组合放到1个list中</span></span><br><span class="line">slpdb_stage = []</span><br><span class="line">key_word = []</span><br><span class="line"><span class="comment"># 读取2345期的睡眠结果</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    df = pd.read_excel(<span class="string">'E:/8-23 feature section and importance/slpdb_feature_mean_stage'</span> + <span class="string">'%d'</span> % index + <span class="string">'.xlsx'</span>)</span><br><span class="line">    key_word = df.keys()[<span class="number">1</span>:]</span><br><span class="line">    data = np.array(df)</span><br><span class="line">    all_feature = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">103</span>):</span><br><span class="line">        feature_mean = []</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">18</span>):</span><br><span class="line">            feature_mean.append(data[j][i])</span><br><span class="line">        all_feature.append(np.array(feature_mean).mean())</span><br><span class="line">    slpdb_stage.append(all_feature)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/24</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将2345期的组合放到1个list中</span></span><br><span class="line">slpdb_stage = []</span><br><span class="line">key_word = []</span><br><span class="line"><span class="comment"># 读取2345期的睡眠结果</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    df = pd.read_excel(<span class="string">'E:/8-23 feature section and importance/slpdb_feature_mean_stage'</span> + <span class="string">'%d'</span> % index + <span class="string">'.xlsx'</span>)</span><br><span class="line">    key_word = df.keys()[<span class="number">1</span>:]</span><br><span class="line">    data = np.array(df)</span><br><span class="line">    all_feature = [np.array([data[j][i] <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">18</span>)]).mean() <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">103</span>)]</span><br><span class="line">    slpdb_stage.append(all_feature)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">feature_name = []</span><br><span class="line"><span class="keyword">for</span> i_x <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">    dict_data = dict(zip(key_word, slpdb_stage[i_x]))</span><br><span class="line">    <span class="comment"># 将字典中的值按照降序排序</span></span><br><span class="line">    <span class="comment"># sorted, reverse -- 排序规则，reverse = True 降序 ， reverse = False 升序（默认）,降序排列</span></span><br><span class="line">    sort_score = sorted(zip(dict_data.values(), dict_data.keys()), reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="comment"># 得到30个特征的关键词</span></span><br><span class="line">    F1_keys = [sort_score[i][<span class="number">1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>)]</span><br><span class="line">    feature_name.append(F1_keys)</span><br><span class="line"></span><br><span class="line">feature_names = pd.DataFrame(feature_name, index=[<span class="string">'stage_2'</span>, <span class="string">'stage_3'</span>, <span class="string">'stage_4'</span>, <span class="string">'stage_5'</span>], columns=np.arange(<span class="number">1</span>, <span class="number">31</span>)).T</span><br><span class="line">feature_names.to_excel(<span class="string">'slpdb的特征贡献度特征排序.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="查看两个数据库的单人情况"><a href="#查看两个数据库的单人情况" class="headerlink" title="查看两个数据库的单人情况"></a>查看两个数据库的单人情况</h1><p>首先生成对应的特征组合数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取2345期的睡眠结果</span></span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> range(<span class="number">2</span>, <span class="number">6</span>):</span><br><span class="line">    df = pd.read_excel(<span class="string">'E:/8-23 feature section and importance/slpdb_feature_acr_stage'</span> + <span class="string">'%d'</span> % index + <span class="string">'.xlsx'</span>).T</span><br><span class="line">    <span class="comment"># 读取18个数据的平均准确率</span></span><br><span class="line">    F_mean = [[np.array([eval(df[k][i])[num] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span>)]).mean() <span class="keyword">for</span> num <span class="keyword">in</span> range(<span class="number">25</span>)] <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">18</span>)]</span><br><span class="line">    slpdb_singel = pd.DataFrame(F_mean)</span><br><span class="line">    slpdb_singel.to_excel(<span class="string">'slpdb_stage_'</span> + <span class="string">'%d'</span> % index + <span class="string">'.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>查看生成的4个阶段，在同一个数据库中，差距变化并不大</p>
+<p>因此现在选择初始的5个特征作为比较，看每个数据在不同周期下的情况</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>stage_2</strong></th>
+<th><strong>stage_3</strong></th>
+<th><strong>stage_4</strong></th>
+<th><strong>stage_5</strong></th>
+<th><strong>AHI</strong></th>
+<th><strong>Seff(%)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>slp01a</td>
+<td>97.59%</td>
+<td>95.80%</td>
+<td>83.88%</td>
+<td>82.55%</td>
+<td>17.0</td>
+<td>97.82</td>
+</tr>
+<tr>
+<td>slp01b</td>
+<td>86.95%</td>
+<td>80.95%</td>
+<td>81.58%</td>
+<td>76.67%</td>
+<td>22.3</td>
+<td>48.42</td>
+</tr>
+<tr>
+<td>slp02a</td>
+<td>94.27%</td>
+<td>89.12%</td>
+<td>85.77%</td>
+<td>83.47%</td>
+<td>34.0</td>
+<td>85.10</td>
+</tr>
+<tr>
+<td>slp02b</td>
+<td>89.15%</td>
+<td>85.10%</td>
+<td>85.79%</td>
+<td>84.00%</td>
+<td>22.2</td>
+<td>60.62</td>
+</tr>
+<tr>
+<td>slp03</td>
+<td>88.86%</td>
+<td>81.59%</td>
+<td>77.32%</td>
+<td>70.04%</td>
+<td>43.0</td>
+<td>83.19</td>
+</tr>
+<tr>
+<td>slp04</td>
+<td>91.11%</td>
+<td>89.93%</td>
+<td>85.92%</td>
+<td>83.01%</td>
+<td>59.8</td>
+<td>78.14</td>
+</tr>
+<tr>
+<td>slp14</td>
+<td>81.29%</td>
+<td>79.86%</td>
+<td>79.11%</td>
+<td>65.33%</td>
+<td>30.7</td>
+<td>55.05</td>
+</tr>
+<tr>
+<td>slp16</td>
+<td>84.72%</td>
+<td>83.80%</td>
+<td>82.58%</td>
+<td>80.89%</td>
+<td>53.1</td>
+<td>55.20</td>
+</tr>
+<tr>
+<td>slp32</td>
+<td>92.84%</td>
+<td>92.63%</td>
+<td>81.66%</td>
+<td>80.86%</td>
+<td>22.1</td>
+<td>39.11</td>
+</tr>
+<tr>
+<td>slp37</td>
+<td>94.72%</td>
+<td>94.23%</td>
+<td>94.07%</td>
+<td>92.42%</td>
+<td>100.8</td>
+<td>89.37</td>
+</tr>
+<tr>
+<td>slp41</td>
+<td>83.87%</td>
+<td>80.64%</td>
+<td>80.39%</td>
+<td>62.35%</td>
+<td>60 [2]</td>
+<td>71.65</td>
+</tr>
+<tr>
+<td>slp45</td>
+<td>92.92%</td>
+<td>88.30%</td>
+<td>80.58%</td>
+<td>76.06%</td>
+<td>5 [2]</td>
+<td>85.05</td>
+</tr>
+<tr>
+<td>slp48</td>
+<td>90.36%</td>
+<td>88.83%</td>
+<td>89.14%</td>
+<td>66.04%</td>
+<td>46.8</td>
+<td>72.10</td>
+</tr>
+<tr>
+<td>slp59</td>
+<td>86.49%</td>
+<td>84.24%</td>
+<td>77.87%</td>
+<td>72.43%</td>
+<td>55.3</td>
+<td>69.80</td>
+</tr>
+<tr>
+<td>slp60</td>
+<td>87.78%</td>
+<td>84.57%</td>
+<td>85.07%</td>
+<td>78.56%</td>
+<td>59.2</td>
+<td>59.23</td>
+</tr>
+<tr>
+<td>slp61</td>
+<td>89.54%</td>
+<td>87.57%</td>
+<td>80.29%</td>
+<td>73.15%</td>
+<td>41.2</td>
+<td>83.22</td>
+</tr>
+<tr>
+<td>slp66</td>
+<td>87.94%</td>
+<td>88.20%</td>
+<td>87.04%</td>
+<td>73.16%</td>
+<td>65.5</td>
+<td>61.07</td>
+</tr>
+<tr>
+<td><strong>slp67x</strong></td>
+<td><strong>79.95%</strong></td>
+<td><strong>79.44%</strong></td>
+<td><strong>80.09%</strong></td>
+<td><strong>69.72%</strong></td>
+<td>0.7</td>
+<td>54.55</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>stage_2</strong></th>
+<th><strong>stage_3</strong></th>
+<th><strong>stage_4</strong></th>
+<th><strong>stage_5</strong></th>
+<th>PSG AHI</th>
+<th>Seff (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UCDDB002</td>
+<td>90.15%</td>
+<td>84.77%</td>
+<td>76.27%</td>
+<td>66.92%</td>
+<td>23</td>
+<td>84.96</td>
+</tr>
+<tr>
+<td>UCDDB003</td>
+<td>95.50%</td>
+<td>91.20%</td>
+<td>85.08%</td>
+<td>80.12%</td>
+<td>51</td>
+<td>81.97</td>
+</tr>
+<tr>
+<td>UCDDB005</td>
+<td>87.31%</td>
+<td>82.83%</td>
+<td>81.25%</td>
+<td>73.46%</td>
+<td>13</td>
+<td>65.86</td>
+</tr>
+<tr>
+<td>UCDDB006</td>
+<td>95.00%</td>
+<td>90.21%</td>
+<td>82.68%</td>
+<td>77.42%</td>
+<td>31</td>
+<td>92.79</td>
+</tr>
+<tr>
+<td>UCDDB007</td>
+<td>92.66%</td>
+<td>87.80%</td>
+<td>81.70%</td>
+<td>76.85%</td>
+<td>12</td>
+<td>90.52</td>
+</tr>
+<tr>
+<td>UCDDB008</td>
+<td>88.47%</td>
+<td>85.11%</td>
+<td>80.01%</td>
+<td>71.42%</td>
+<td>5</td>
+<td>73.83</td>
+</tr>
+<tr>
+<td>UCDDB009</td>
+<td>86.84%</td>
+<td>86.61%</td>
+<td>76.91%</td>
+<td>70.63%</td>
+<td>12</td>
+<td>79.98</td>
+</tr>
+<tr>
+<td>UCDDB010</td>
+<td>93.61%</td>
+<td>86.52%</td>
+<td>82.15%</td>
+<td>76.10%</td>
+<td>34</td>
+<td>92.52</td>
+</tr>
+<tr>
+<td>UCDDB011</td>
+<td>91.37%</td>
+<td>88.07%</td>
+<td>80.90%</td>
+<td>78.05%</td>
+<td>8</td>
+<td>61.12</td>
+</tr>
+<tr>
+<td>UCDDB012</td>
+<td>91.60%</td>
+<td>84.68%</td>
+<td>80.43%</td>
+<td>75.52%</td>
+<td>25</td>
+<td>86.05</td>
+</tr>
+<tr>
+<td>UCDDB013</td>
+<td>88.38%</td>
+<td>85.77%</td>
+<td>84.61%</td>
+<td>81.25%</td>
+<td>16</td>
+<td>61.75</td>
+</tr>
+<tr>
+<td>UCDDB014</td>
+<td>87.39%</td>
+<td>84.66%</td>
+<td>85.00%</td>
+<td>74.87%</td>
+<td>36</td>
+<td>79.82</td>
+</tr>
+<tr>
+<td>UCDDB015</td>
+<td>83.48%</td>
+<td>79.19%</td>
+<td>78.02%</td>
+<td>70.76%</td>
+<td>6</td>
+<td>80.25</td>
+</tr>
+<tr>
+<td>UCDDB017</td>
+<td>93.46%</td>
+<td>88.16%</td>
+<td>81.74%</td>
+<td>80.11%</td>
+<td>12</td>
+<td>88.17</td>
+</tr>
+<tr>
+<td><strong>UCDDB018</strong></td>
+<td><strong>92.25%</strong></td>
+<td><strong>89.76%</strong></td>
+<td><strong>90.24%</strong></td>
+<td><strong>87.82%</strong></td>
+<td>2</td>
+<td>60.91</td>
+</tr>
+<tr>
+<td>UCDDB019</td>
+<td>94.89%</td>
+<td>84.90%</td>
+<td>82.22%</td>
+<td>80.19%</td>
+<td>16</td>
+<td>92.74</td>
+</tr>
+<tr>
+<td>UCDDB020</td>
+<td>84.75%</td>
+<td>82.27%</td>
+<td>80.90%</td>
+<td>75.78%</td>
+<td>15</td>
+<td>78.14</td>
+</tr>
+<tr>
+<td>UCDDB021</td>
+<td>91.93%</td>
+<td>87.16%</td>
+<td>83.76%</td>
+<td>79.42%</td>
+<td>13</td>
+<td>84.77</td>
+</tr>
+<tr>
+<td>UCDDB022</td>
+<td>87.14%</td>
+<td>86.52%</td>
+<td>85.84%</td>
+<td>84.08%</td>
+<td>7</td>
+<td>59.20</td>
+</tr>
+<tr>
+<td>UCDDB023</td>
+<td>81.09%</td>
+<td>79.60%</td>
+<td>76.65%</td>
+<td>64.41%</td>
+<td>39</td>
+<td>66.19</td>
+</tr>
+<tr>
+<td>UCDDB024</td>
+<td>91.32%</td>
+<td>86.76%</td>
+<td>83.42%</td>
+<td>79.03%</td>
+<td>24</td>
+<td>83.50</td>
+</tr>
+<tr>
+<td>UCDDB025</td>
+<td>78.15%</td>
+<td>75.19%</td>
+<td>74.87%</td>
+<td>58.10%</td>
+<td>91</td>
+<td>78.00</td>
+</tr>
+<tr>
+<td>UCDDB026</td>
+<td>95.52%</td>
+<td>85.37%</td>
+<td>79.05%</td>
+<td>74.18%</td>
+<td>14</td>
+<td>87.30</td>
+</tr>
+<tr>
+<td>UCDDB027</td>
+<td>92.88%</td>
+<td>85.71%</td>
+<td>86.15%</td>
+<td>80.86%</td>
+<td>55</td>
+<td>86.85</td>
+</tr>
+<tr>
+<td>UCDDB028</td>
+<td>73.49%</td>
+<td>64.52%</td>
+<td>62.79%</td>
+<td>55.63%</td>
+<td>46</td>
+<td>69.20</td>
+</tr>
+</tbody></table>
+<p>利用AHI和SEFF进行分类别，看下平均的</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598265807368&di=de5fc4ce35b04ffbc8ea8699648516a7&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farticle%2Ff19c090f678c8e472ad62affb63457d976163339.jpg" alt=""></p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/24/%E5%9F%BA%E4%BA%8EAHI%E5%92%8Cseff%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%86%E7%B1%BB%E5%88%AB/">基于AHI和seff不同的分类别</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%8D%95%E7%8B%AC%E6%95%B0%E6%8D%AE%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87/">查看单独数据下的准确率</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/23/sleep%20apnea%20and%20sleep%20stage/%E7%BB%98%E5%88%B6%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%9C%E5%9B%BE/">绘制特征选择结果图</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/23/sleep%20apnea%20and%20sleep%20stage/%E6%A0%B9%E6%8D%AE5%E6%9C%9F%E7%9A%84%E6%A0%87%E7%AD%BE%E7%94%9F%E6%88%902%E6%9C%9F%E7%9A%84%E6%A0%87%E7%AD%BE/">根据5期的标签生成2期的标签</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/23/sleep%20apnea%20and%20sleep%20stage/%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E7%9A%84%E6%96%B0%E7%90%86%E8%A7%A3%E5%92%8C%E6%9B%B4%E6%94%B9/">特征选择的新理解和更改</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/22/sleep%20apnea%20and%20sleep%20stage/%E9%87%8D%E6%96%B0%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">重新进行特征筛选</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/20/sleep%20apnea%20and%20sleep%20stage/%E9%87%8D%E6%96%B0%E6%9E%84%E5%BB%BAslpdb%E4%B8%AD%E7%9A%84%E7%89%B9%E5%BE%81%E5%92%8C%E6%A0%87%E7%AD%BE/">重新构建slpdb中的特征和标签</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/19/sleep%20apnea%20and%20sleep%20stage/%E5%AF%B9UCDDB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">对UCDDB数据库进行特征提取</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/19/sleep%20apnea%20and%20sleep%20stage/%E5%A4%84%E7%90%86%E5%B9%B6%E7%BB%9F%E8%AE%A1%E4%B8%A4%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E7%9D%A1%E7%9C%A0%E6%A0%87%E7%AD%BE/">处理并统计两个数据库中的睡眠标签</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/18/sleep%20apnea%20and%20sleep%20stage/edf%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96/">edf文件中的数据读取</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/09/HMM/HMM%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%84%E7%90%86/">HMM之数据的处理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/08/HMM/%E7%8A%B6%E6%80%81%E4%B8%BA3%E6%97%B6%E7%9A%84%E8%AE%BE%E5%AE%9A/">状态为3时的设定</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/05/opencv/python-opencv%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/">python-opencv基础入门</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/16/hexo/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">心率变异性</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/19/sleep%20apnea%20and%20sleep%20stage/%E5%AF%B9UCDDB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">对UCDDB数据库进行特征提取</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/23/sleep%20apnea%20and%20sleep%20stage/%E7%BB%98%E5%88%B6%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%9C%E5%9B%BE/">绘制特征选择结果图</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/10/python/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">matplotlib图像绘制学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/03/21/python/python-%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96%E6%93%8D%E4%BD%9C/">python_文件存取操作</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/25/python/python%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/">python——入门复习数据序列</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/20/python/python%E5%9F%BA%E7%A1%80--%E6%8E%A8%E5%AF%BC%E5%BC%8F/">python1</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/08/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%8D%95%E7%8B%AC%E6%95%B0%E6%8D%AE%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/08/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%8D%95%E7%8B%AC%E6%95%B0%E6%8D%AE%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/08/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%8D%95%E7%8B%AC%E6%95%B0%E6%8D%AE%E4%B8%8B%E7%9A%84%E5%87%86%E7%A1%AE%E7%8E%87/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/work/" style="font-size: 19.37063328100039px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 15.799587596887656px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/hexo/" style="font-size: 17.21383366252978px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.993917621150107px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/python/" style="font-size: 9.708353687081px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 16.70742161437713px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 9.454377427930549px;" class="tag-cloud-link">python</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+<script src="/js/activate-power-mode.js"></script>
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
+
+
+
+</html>
