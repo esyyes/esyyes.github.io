@@ -1,76 +1,295 @@
-
 <!DOCTYPE html>
-<html lang="zh-CN" class="loading">
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>python——OpenCV初接触 - ESY</title>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="ESY,"> 
-    <meta name="description" content="mengxin,OpenCV初接触
-github问题解决github出问题了公共秘钥的问题,不能进行打开和下载，而且github也出现问题，各种不显示。
-已经解决：
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>python——OpenCV初接触 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
 
-对浏览器进行删除浏览记录，消除cookie;然,"> 
-    <meta name="author" content="esy"> 
-    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
-    <link rel="icon" href="/img/hhh.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({
-              google_ad_client: "ca-pub-8691406134231910",
-              enable_page_level_ads: true
-         });
-    </script>
-    <script async custom-element="amp-auto-ads"
-        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-</head>
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
 
-<body class="loading">
-    <span id="config-title" style="display:none">ESY</span>
-    <div id="loader"></div>
-​    <div id="single">
-    <div id="top" style="display: block;">
-    <div class="bar" style="width: 0;"></div>
-    <a class="icon-home image-icon" href="javascript:;" target="_blank" rel="noopener" data-url="https://esyyes.github.io"></a>
-    <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">python——OpenCV初接触</h3>
-    <div class="social">
-        <!--<div class="like-icon">-->
-            <!--<a href="javascript:;" target="_blank" rel="noopener" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
-        <!--</div>-->
-        <div>
-            <div class="share">
-                <a title="获取二维码" class="icon-scan" href="javascript:;" target="_blank" rel="noopener"></a>
-            </div>
-            <div id="qr"></div>
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
         </div>
     </div>
-    <div class="scrollbar"></div>
-</div>
-
-    <div class="section">
-        <div class="article">
-    <div class='main'>
-        <h1 class="title">python——OpenCV初接触</h1>
-        <div class="stuff">
-            <span>三月 08, 2020</span>
-            
-
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>python——OpenCV初接触</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/03/08/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/">python——OpenCV初接触</a>
+            </h1>
         </div>
-        <div class="content markdown">
-            <h1 id="OpenCV初接触"><a href="#OpenCV初接触" class="headerlink" title="OpenCV初接触"></a>OpenCV初接触</h1><p><img src="https://i04piccdn.sogoucdn.com/6c5b8086d2535f2b" alt=""></p>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-03-08
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/03/08/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/">python——OpenCV初接触</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-03-08
+            </p>
+            <p>
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="OpenCV初接触"><a href="#OpenCV初接触" class="headerlink" title="OpenCV初接触"></a>OpenCV初接触</h1><p><img src="https://i04piccdn.sogoucdn.com/6c5b8086d2535f2b"></p>
 <h2 id="github问题解决"><a href="#github问题解决" class="headerlink" title="github问题解决"></a>github问题解决</h2><p>github出问题了公共秘钥的问题,不能进行打开和下载，而且github也出现问题，各种不显示。</p>
 <p>已经解决：</p>
 <ol>
 <li>对浏览器进行删除浏览记录，消除cookie;然后可以正常进行登录了。</li>
-<li>问题2，登录慢；ping github.com请求超时的问题；<a href="https://www.cnblogs.com/findview/p/11720245.html" target="_blank" rel="noopener">https://www.cnblogs.com/findview/p/11720245.html</a></li>
+<li>问题2，登录慢；ping github.com请求超时的问题；<a target="_blank" rel="noopener" href="https://www.cnblogs.com/findview/p/11720245.html">https://www.cnblogs.com/findview/p/11720245.html</a></li>
 </ol>
 <h2 id="opencv-python下载"><a href="#opencv-python下载" class="headerlink" title="opencv-python下载"></a>opencv-python下载</h2><p>pip insatll opencv-python</p>
 <p>pip install opencv-contrib-python</p>
@@ -78,7 +297,7 @@ github问题解决github出问题了公共秘钥的问题,不能进行打开和�
 <p>首先进行安装，实在是慢，我先看下文献；希望别出错！！！</p>
 <h3 id="opencv-python安装"><a href="#opencv-python安装" class="headerlink" title="opencv-python安装"></a>opencv-python安装</h3><p>python版本：3.7.5</p>
 <p>1.进入清华镜像</p>
-<p><a href="https://blog.csdn.net/qq_38327353/article/details/88847694?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">https://blog.csdn.net/qq_38327353/article/details/88847694?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38327353/article/details/88847694?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task">https://blog.csdn.net/qq_38327353/article/details/88847694?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
 <p>2.下载opencv-python对应的版本，whl文件</p>
 <p>3.用pip install (whl)文件进行安装</p>
 <p>4.以后下载安装还是直接找包或者镜像，要不然国外的太慢。</p>
@@ -88,113 +307,368 @@ github问题解决github出问题了公共秘钥的问题,不能进行打开和�
 <p>貌似图片都可以读取</p>
 <p>利用jupyter读取图片，毕竟这个可以保存。</p>
 <h3 id="opencv读取图片"><a href="#opencv读取图片" class="headerlink" title="opencv读取图片"></a>opencv读取图片</h3><p>图片的样子</p>
-<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583842369695&di=54d84190d5a56d8bab0e400f6b31c051&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201803%2F26%2F20180326184016_z4sS5.thumb.700_0.jpeg" alt=""></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv</span><br><span class="line">img = cv.imread(<span class="string">"C:/Users/86184/Desktop/111.jfif"</span>) </span><br><span class="line">cv.imshow(<span class="string">"miao"</span>,img)</span><br><span class="line">cv.waitKey() <span class="comment">#在imshow之后如果没有waitkey语句则不会正常显示图像</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583842369695&di=54d84190d5a56d8bab0e400f6b31c051&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201803/26/20180326184016_z4sS5.thumb.700_0.jpeg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv</span><br><span class="line">img = cv.imread(<span class="string">&quot;C:/Users/86184/Desktop/111.jfif&quot;</span>) </span><br><span class="line">cv.imshow(<span class="string">&quot;miao&quot;</span>,img)</span><br><span class="line">cv.waitKey() <span class="comment">#在imshow之后如果没有waitkey语句则不会正常显示图像</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="H:%5Cmyboke%5Cmybike%5Csource%5Cimages%5Cmiao.png" alt="image-20200310173233338"></p>
-
-            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
-            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
-                <source type="audio/mpeg" src="">
-            </audio>
-            
-                <ul id="audio-list" style="display:none">
-                    
-                        
-                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
-                        
-                    
-                        
-                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
-                        
-                    
-                        
-                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
-                        
-                    
-                        
-                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
-                        
-                    
-                </ul>
-            
-        </div>
-        
-    <div id='gitalk-container' class="comment link"
-        data-ae='false'
-        data-ci=''
-        data-cs=''
-        data-r=''
-        data-o=''
-        data-a=''
-        data-d='false'
-    >查看评论</div>
-
+<p><img src="H:\myboke\mybike\source\images\miao.png" alt="image-20200310173233338"></p>
 
     </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/04/HMM%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/">HMM模型的学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/18/VF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">VF基础知识</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/03/21/python-%E6%96%87%E4%BB%B6%E5%AD%98%E5%8F%96%E6%93%8D%E4%BD%9C/">python_文件存取操作</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">python__获取MIT数据</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/26/python%E2%80%94%E2%80%94%E5%91%BC%E5%90%B8%E9%9F%B3%E7%89%B9%E5%BE%81/">python</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/20/python%E5%9F%BA%E7%A1%80--%E6%8E%A8%E5%AF%BC%E5%BC%8F/">python1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/10/%E5%90%84%E9%A1%B9%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">各项特征提取</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/27/%E6%A0%B7%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%9A%84%E7%94%9F%E6%88%90/">样本数据的生成</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/03/08/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/03/08/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/03/08/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/py-study/" style="font-size: 10.696450054355601px;" class="tag-cloud-link">py_study</a>
+    
+    <a href="/tags/nlp/" style="font-size: 17.376919187578313px;" class="tag-cloud-link">nlp</a>
+    
+    <a href="/tags/Graduation-work/" style="font-size: 14.378821575626773px;" class="tag-cloud-link">Graduation work</a>
+    
+    <a href="/tags/work/" style="font-size: 14.169748445074937px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/hexo/" style="font-size: 9.818454995305398px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14.636102904222px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 16.75398788753088px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10.393481755819376px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 13.611138335339707px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 17.501339275608927px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 19.70001211358472px;" class="tag-cloud-link">mathematical modeling</a>
     
 </div>
-
-
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
     </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
 </div>
 </body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
 
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-        </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
-            </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
-            </div>
-        </div>
-    </div>
-</div>
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
 
 
 

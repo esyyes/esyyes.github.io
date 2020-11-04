@@ -15,14 +15,26 @@
     <title>重要特征查看 | ESY</title>
     <link href="https://esyyes.github.io" rel="prefetch" />
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
 <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
     <style type="text/css">
         @media (max-width: 768px) {
             body {
@@ -45,8 +57,7 @@
         }
       }
     </script>-->
-<link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <body>
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
@@ -136,7 +147,15 @@
                         
                         
                         <li>
-                            <a href="/categories/hexo/">hexo</a>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
                         </li>
                         
                         <li>
@@ -144,19 +163,11 @@
                         </li>
                         
                         <li>
-                            <a href="/categories/%E5%8D%87%E7%BA%A7conda/">-升级conda</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/%E5%B7%A5%E4%BD%9C/">-工作</a>
+                            <a href="/categories/hexo/">hexo</a>
                         </li>
                         
                         <li>
                             <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a>
                         </li>
                         
                         
@@ -182,7 +193,15 @@
                         
                         
                         <li>
-                            <a href="/tags/hexo/">hexo</a>
+                            <a href="/tags/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
                         </li>
                         
                         <li>
@@ -190,19 +209,11 @@
                         </li>
                         
                         <li>
-                            <a href="/tags/python/">-python</a>
+                            <a href="/tags/hexo/">hexo</a>
                         </li>
                         
                         <li>
                             <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">-python -人工智能</a>
                         </li>
                         
                         
@@ -285,9 +296,10 @@
         </center>
     </div>
     <div class="content-article">
-        <h1 id="重要特征查看"><a href="#重要特征查看" class="headerlink" title="重要特征查看"></a>重要特征查看</h1><p>目的：将睡眠分期中的345阶段的睡眠分期结果进行比较，查看特征对睡眠分期的影响</p>
+        <h1 id="重要特征查看"><a href="#重要特征查看" class="headerlink" title="重要特征查看"></a>重要特征查看</h1><p>目的：将睡眠分期中的345阶段的睡眠分期结果进行比较，查看特征对睡眠分期的影响,</p>
+<p>筛选出特征贡献度最高的那几个，进行查看</p>
 <p>程序：利用表格形式输出特征的排序</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/18</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">    feature_import = pd.read_excel(<span class="string">'E:/features'</span> + <span class="string">'/feature_important'</span> + <span class="string">'%s'</span> % h + <span class="string">'.xlsx'</span>)</span><br><span class="line">    df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:len(feature_import), <span class="number">1</span>:<span class="number">23</span>])</span><br><span class="line">    data = df.T</span><br><span class="line">    print(<span class="string">f'列写特征重要度排序'</span>, end=<span class="string">'\t'</span>)</span><br><span class="line">    print()</span><br><span class="line">    print(<span class="string">f'序号'</span>, end=<span class="string">'\t\t'</span>)</span><br><span class="line">    print(<span class="string">f'特征'</span>, end=<span class="string">'\t\t'</span>)</span><br><span class="line">    print(<span class="string">f'重要度'</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">22</span>):</span><br><span class="line">        print(<span class="string">f'%2d'</span> % i, end=<span class="string">'\t'</span>)</span><br><span class="line">        print(<span class="string">f'%10s'</span> % df.keys()[i], end=<span class="string">'\t'</span>)</span><br><span class="line">        print(<span class="string">f'%0.3f'</span> % data[<span class="number">0</span>][i])</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/18</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">    feature_import = pd.read_excel(<span class="string">&#x27;E:/features&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % h + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:<span class="number">23</span>])</span><br><span class="line">    data = df.T</span><br><span class="line">    print(<span class="string">f&#x27;列写特征重要度排序&#x27;</span>, end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    print()</span><br><span class="line">    print(<span class="string">f&#x27;序号&#x27;</span>, end=<span class="string">&#x27;\t\t&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;特征&#x27;</span>, end=<span class="string">&#x27;\t\t&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;重要度&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">22</span>):</span><br><span class="line">        print(<span class="string">f&#x27;%2d&#x27;</span> % i, end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        print(<span class="string">f&#x27;%10s&#x27;</span> % df.keys()[i], end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        print(<span class="string">f&#x27;%0.3f&#x27;</span> % data[<span class="number">0</span>][i])</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">序号		特征	 重要度</span><br><span class="line"> <span class="number">0</span>	    <span class="number">5</span>pNN20	<span class="number">0.021</span></span><br><span class="line"> <span class="number">1</span>	     <span class="number">5</span>NN20	<span class="number">0.021</span></span><br><span class="line"> <span class="number">2</span>	    <span class="number">5</span>pNN50	<span class="number">0.019</span></span><br><span class="line"> <span class="number">3</span>	     <span class="number">5</span>NN50	<span class="number">0.019</span></span><br><span class="line"> <span class="number">4</span>	  <span class="number">5</span>p_RMSSD	<span class="number">0.018</span></span><br><span class="line"> <span class="number">5</span>	    <span class="number">5</span>p_var	<span class="number">0.018</span></span><br><span class="line"> <span class="number">6</span>	    <span class="number">5</span>csi50	<span class="number">0.017</span></span><br><span class="line"> <span class="number">7</span>	    <span class="number">5</span>csi30	<span class="number">0.017</span></span><br><span class="line"> <span class="number">8</span>	    <span class="number">5</span>csi10	<span class="number">0.017</span></span><br><span class="line"> <span class="number">9</span>	       <span class="number">5</span>HF	<span class="number">0.017</span></span><br><span class="line"><span class="number">10</span>	   <span class="number">5</span>p_skew	<span class="number">0.017</span></span><br><span class="line"><span class="number">11</span>	   <span class="number">5</span>p_SDNN	<span class="number">0.017</span></span><br><span class="line"><span class="number">12</span>	 <span class="number">5</span>p_median	<span class="number">0.017</span></span><br><span class="line"><span class="number">13</span>	   <span class="number">5</span>R_mean	<span class="number">0.016</span></span><br><span class="line"><span class="number">14</span>	  <span class="number">5</span>HR_mean	<span class="number">0.016</span></span><br><span class="line"><span class="number">15</span>	    <span class="number">5</span>p_RMS	<span class="number">0.015</span></span><br><span class="line"><span class="number">16</span>	   <span class="number">5</span>p_mean	<span class="number">0.015</span></span><br><span class="line"><span class="number">17</span>	    <span class="number">5</span>p_max	<span class="number">0.014</span></span><br><span class="line"><span class="number">18</span>	 <span class="number">5</span>R_median	<span class="number">0.014</span></span><br><span class="line"><span class="number">19</span>	     <span class="number">5</span>apen	<span class="number">0.014</span></span><br><span class="line"><span class="number">20</span>	<span class="number">5</span>p_peak_factor	<span class="number">0.014</span></span><br><span class="line"><span class="number">21</span>	   <span class="number">5</span>csi100	<span class="number">0.014</span></span><br></pre></td></tr></table></figure>
 
@@ -297,13 +309,13 @@
 
 <p>排序顺序为543分类</p>
 <p>直接用一个行表格不就行了嘛。。。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/18</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># for h in range(1, 4):</span></span><br><span class="line"><span class="comment">#     feature_import = pd.read_excel('E:/features' + '/feature_important' + '%s' % h + '.xlsx')</span></span><br><span class="line"><span class="comment">#     df = pd.get_dummies(feature_import.iloc[0:len(feature_import), 1:23])</span></span><br><span class="line"><span class="comment">#     data = df.T</span></span><br><span class="line"><span class="comment">#     print(f'列写特征重要度排序', end='\t')</span></span><br><span class="line"><span class="comment">#     print()</span></span><br><span class="line"><span class="comment">#     print(f'序号', end='\t\t')</span></span><br><span class="line"><span class="comment">#     print(f'特征', end='\t\t')</span></span><br><span class="line"><span class="comment">#     print(f'重要度')</span></span><br><span class="line"><span class="comment">#     for i in range(22):</span></span><br><span class="line"><span class="comment">#         print(f'%2d' % i, end='\t')</span></span><br><span class="line"><span class="comment">#         print(f'%10s' % df.keys()[i], end='\t')</span></span><br><span class="line"><span class="comment">#         print(f'%0.3f' % data[0][i])</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">22</span>):</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        feature_import = pd.read_excel(<span class="string">'E:/features'</span> + <span class="string">'/feature_important'</span> + <span class="string">'%s'</span> % h + <span class="string">'.xlsx'</span>)</span><br><span class="line">        df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:len(feature_import), <span class="number">1</span>:<span class="number">23</span>])</span><br><span class="line">        data = df.T</span><br><span class="line">        print(<span class="string">f'%15s'</span> % df.keys()[i], end=<span class="string">'\t'</span>)</span><br><span class="line">    print()</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/18</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># for h in range(1, 4):</span></span><br><span class="line"><span class="comment">#     feature_import = pd.read_excel(&#x27;E:/features&#x27; + &#x27;/feature_important&#x27; + &#x27;%s&#x27; % h + &#x27;.xlsx&#x27;)</span></span><br><span class="line"><span class="comment">#     df = pd.get_dummies(feature_import.iloc[0:len(feature_import), 1:23])</span></span><br><span class="line"><span class="comment">#     data = df.T</span></span><br><span class="line"><span class="comment">#     print(f&#x27;列写特征重要度排序&#x27;, end=&#x27;\t&#x27;)</span></span><br><span class="line"><span class="comment">#     print()</span></span><br><span class="line"><span class="comment">#     print(f&#x27;序号&#x27;, end=&#x27;\t\t&#x27;)</span></span><br><span class="line"><span class="comment">#     print(f&#x27;特征&#x27;, end=&#x27;\t\t&#x27;)</span></span><br><span class="line"><span class="comment">#     print(f&#x27;重要度&#x27;)</span></span><br><span class="line"><span class="comment">#     for i in range(22):</span></span><br><span class="line"><span class="comment">#         print(f&#x27;%2d&#x27; % i, end=&#x27;\t&#x27;)</span></span><br><span class="line"><span class="comment">#         print(f&#x27;%10s&#x27; % df.keys()[i], end=&#x27;\t&#x27;)</span></span><br><span class="line"><span class="comment">#         print(f&#x27;%0.3f&#x27; % data[0][i])</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">22</span>):</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        feature_import = pd.read_excel(<span class="string">&#x27;E:/features&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % h + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">        df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:<span class="number">23</span>])</span><br><span class="line">        data = df.T</span><br><span class="line">        print(<span class="string">f&#x27;%15s&#x27;</span> % df.keys()[i], end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">	  5期			  4期			 3期</span><br><span class="line">	 5pNN20	          5NN20	         5pNN20	</span><br><span class="line">         5NN20	         5pNN20	          5NN20	</span><br><span class="line">        5pNN50	         5pNN50	         5pNN50	</span><br><span class="line">         5NN50	          5NN50	          5NN50	</span><br><span class="line">      5p_RMSSD	        5p_skew	        5R_mean	</span><br><span class="line">        5p_var	            5HF	        5p_skew	</span><br><span class="line">        5csi50	      5p_median	            5HF	</span><br><span class="line">        5csi30	        5R_mean	        5HR_min	</span><br><span class="line">        5csi10	        5p_SDNN	      5p_median	</span><br><span class="line">           5HF	         5p_var	      5R_median	</span><br><span class="line">       5p_skew	         5p_RMS	          5apen	</span><br><span class="line">       5p_SDNN	         5csi10	       5HR_mean	</span><br><span class="line">     5p_median	       5p_RMSSD	       5p_RMSSD	</span><br><span class="line">       5R_mean	        5R_CVSD	        5R_CVSD	</span><br><span class="line">      5HR_mean	         5p_max	         5csi10	</span><br><span class="line">        5p_RMS	         5csi50	        5p_SDNN	</span><br><span class="line">       5p_mean	        5R_SDSD	         5p_RMS	</span><br><span class="line">        5p_max	        5p_mean	         5p_max	</span><br><span class="line">     5R_median	           5sd1	         5p_var	</span><br><span class="line">         5apen	       5R_RMSSD	        5p_mean	</span><br><span class="line">5p_peak_factor	        5HR_min	        5R_SDSD	</span><br><span class="line">       5csi100	          5apen	       5R_RMSSD</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">	   5期			  4期			 3期</span><br><span class="line">	 5pNN20	          5NN20	         5pNN20	</span><br><span class="line">         5NN20	         5pNN20	          5NN20	</span><br><span class="line">        5pNN50	         5pNN50	         5pNN50	</span><br><span class="line">         5NN50	          5NN50	          5NN50	</span><br><span class="line">      5p_RMSSD	        5p_skew	        5R_mean	</span><br><span class="line">        5p_var	            5HF	        5p_skew	</span><br><span class="line">        5csi50	      5p_median	            5HF	</span><br><span class="line">        5csi30	        5R_mean	        5HR_min	</span><br><span class="line">        5csi10	        5p_SDNN	      5p_median	</span><br><span class="line">           5HF	         5p_var	      5R_median	</span><br><span class="line">       5p_skew	         5p_RMS	          5apen	</span><br><span class="line">       5p_SDNN	         5csi10	       5HR_mean	</span><br><span class="line">     5p_median	       5p_RMSSD	       5p_RMSSD	</span><br><span class="line">       5R_mean	        5R_CVSD	        5R_CVSD	</span><br><span class="line">      5HR_mean	         5p_max	         5csi10	</span><br><span class="line">        5p_RMS	         5csi50	        5p_SDNN	</span><br><span class="line">       5p_mean	        5R_SDSD	         5p_RMS	</span><br><span class="line">        5p_max	        5p_mean	         5p_max	</span><br><span class="line">     5R_median	           5sd1	         5p_var	</span><br><span class="line">         5apen	       5R_RMSSD	        5p_mean	</span><br><span class="line">5p_peak_factor	        5HR_min	        5R_SDSD	</span><br><span class="line">       5csi100	          5apen	       5R_RMSSD	</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://image.uczzd.cn/889217514512198939.jpg" alt=""></p>
+<p><img src="http://image.uczzd.cn/889217514512198939.jpg"></p>
 
     </div>
 </article>
@@ -366,61 +378,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/18/%E9%87%8D%E8%A6%81%E7%89%B9%E5%BE%81%E6%9F%A5%E7%9C%8B/">重要特征查看</a>
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/11/%E5%85%A8%E9%83%A8%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E5%92%8C%E6%A0%87%E7%AD%BE%E5%A4%84%E7%90%86/">全部特征的提取和标签处理</a>
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/10/hexo%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/">hexo相关学习</a>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/10/hexo/hexo-%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86github/">hexo-无法登陆github</a>
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/09/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/">数据预处理</a>
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/%E6%A0%87%E7%AD%BE%E5%92%8C%E7%89%B9%E5%BE%81%E9%95%BF%E5%BA%A6%E5%A4%84%E7%90%86/">标签和特征长度处理</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/HRV%E7%9A%8430s%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">HRV的30s特征提取</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/ECG-RR%E9%97%B4%E6%9C%9F%E9%A2%84%E5%A4%84%E7%90%86/">ECG_RR间期预处理</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/ECG%E4%BF%A1%E5%8F%B7%E8%AF%BB%E5%8F%96/">ECG信号读取</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/31/sleep%20apnea%20and%20sleep%20stage/sleep-apnea/">sleep apnea</a>
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
                 </span>
             </li>
             
@@ -442,61 +454,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/03/hexo/hexo%E5%AD%A6%E4%B9%A0/">hexo学习</a>
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/03/08/opencv/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/">python——OpenCV初接触</a>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/24/python/pyhon%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/">pyhon基础--函数</a>
+                    <a href="/2020/07/08/HMM%E4%B8%AD%E7%9A%84B%E5%80%BC%E7%A1%AE%E5%AE%9A/">HMM中的B值确定</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/26/python/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E4%B9%8B%E5%BC%82%E5%B8%B8/">python-入门复习之异常</a>
+                    <a href="/2020/08/08/chatbot-%E7%89%88%E6%9C%AC1%E6%80%BB%E7%BB%93/">chatbot_版本1总结</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/25/python/python%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/">python——入门复习数据序列</a>
+                    <a href="/2020/08/18/edf%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96/">edf文件中的数据读取</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/26/python/python%E2%80%94%E2%80%94%E5%91%BC%E5%90%B8%E9%9F%B3%E7%89%B9%E5%BE%81/">python</a>
+                    <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">python——滑动切片之数组</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/26/python/python%E2%80%94%E2%80%94%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96/">python——特征选择和优化</a>
+                    <a href="/2020/02/09/python%E6%A8%A1%E5%9D%97%E7%9A%84%E6%9E%84%E5%BB%BA%E5%92%8C%E8%B0%83%E7%94%A8/">python模块的构建和调用</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/08/python/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">python__滑动切片</a>
+                    <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">去趋势波动分析DFA</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/31/sleep%20apnea%20and%20sleep%20stage/sleep-apnea/">sleep apnea</a>
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/%E6%A0%87%E7%AD%BE%E5%92%8C%E7%89%B9%E5%BE%81%E9%95%BF%E5%BA%A6%E5%A4%84%E7%90%86/">标签和特征长度处理</a>
+                    <a href="/2020/08/31/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%A1%AE%E5%AE%9A/">分类模型的确定</a>
                 </span>
             </li>
             
@@ -529,19 +541,27 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/hexo/" style="font-size: 10.672648038194412px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/py-study/" style="font-size: 18.285992578105947px;" class="tag-cloud-link">py_study</a>
     
-    <a href="/tags/work/" style="font-size: 19.361515362045846px;" class="tag-cloud-link">work</a>
+    <a href="/tags/nlp/" style="font-size: 8.132292079687218px;" class="tag-cloud-link">nlp</a>
     
-    <a href="/tags/python/" style="font-size: 12.914819201836941px;" class="tag-cloud-link">-python</a>
+    <a href="/tags/Graduation-work/" style="font-size: 10.96092114556211px;" class="tag-cloud-link">Graduation work</a>
     
-    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 11.130634086817318px;" class="tag-cloud-link">-个人博客搭建</a>
+    <a href="/tags/work/" style="font-size: 9.717260502390959px;" class="tag-cloud-link">work</a>
     
-    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 9.297511378728718px;" class="tag-cloud-link">-malab -毕业</a>
+    <a href="/tags/hexo/" style="font-size: 9.568900914521372px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 14.434603423641825px;" class="tag-cloud-link">-python -人工智能</a>
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 17.309543746995114px;" class="tag-cloud-link">-个人博客搭建</a>
     
-    <a href="/tags/python/" style="font-size: 17.94902888778075px;" class="tag-cloud-link">python</a>
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 12.71363331799556px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 15.25223429856202px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 19.415829258194066px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 15.233587194778963px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 18.351190625017153px;" class="tag-cloud-link">mathematical modeling</a>
     
 </div>
                 
@@ -598,7 +618,9 @@
     <i class="fa fa-angle-up"></i>
 </div>
 </body>
+
 <script src="/js/activate-power-mode.js"></script>
+
 <script>
 
     // 配置highslide
@@ -645,10 +667,14 @@
       maxCount: '6'
     }
 </script>
+
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
 
+
+
 <script src="/js/oni.js"></script>
+
 
 
 

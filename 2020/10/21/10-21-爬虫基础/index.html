@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>10-21 爬虫基础 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>10-21 爬虫基础</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/py-study/">py_study</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-10-21
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-10-21
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/py-study/">py_study</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="10-21-爬虫基础"><a href="#10-21-爬虫基础" class="headerlink" title="10-21 爬虫基础"></a>10-21 爬虫基础</h1><p>URI的全称为 Uniform Resource Identifier ，即统一资源标志符，URL 的全称为 Universal Resource Locator ，即统一资源定位符 .</p>
+<p>URI还包括一个子类 叫作 URN ，它的全称为 Universal Resource  Name ，即统一资源、名 称 </p>
+<p> 超文本，其英文名称叫作 hypertext </p>
+<p>HTTP 的全称是 Hyper Text  Transfer  Protocol ，中文名 叫作超文本传输协议 。 HTTP 协议是用于从网络传输超文本数据到本地浏览器的传送协议，它能保证高效而准确地传送超文本文档。 HTTP 由万维网协会（ World Wide Web Consortium ）和 Internet 工作小组 IETF ( Internet Engineering Task Force ) 共同合作制定的规范，目前广泛使用的是 HTTP 1.1 版本</p>
+<p>HTTPS 的全称是 Hyper Text Transfer Protocol  over Secure  Socket Layer ，是以安全为目标的 HTTP 通道，简单讲是 HTTP 的安全版， 即 HTTP 下加入 SSL 层 ，简称为 HTTPS </p>
+<h1 id="10-22-urllib学习"><a href="#10-22-urllib学习" class="headerlink" title="10-22 urllib学习"></a>10-22 urllib学习</h1><p>首先，了解一下 urllib 库，它是 Python 内置的 HTTP 请求库 ，也就是说不需要额外安装即可使用它包含如下 4 个模块。</p>
+<p>口 request ： 它是最基本的 HTTP 请求模块，可以用来模拟发送请求 。 就像在浏览器里输入网挝然后回车一样，只需要给库方法传入 URL 以及额外的参数，就可以模拟实现这个过程了 。</p>
+<p>口 error ： 异常处理模块，如果出现请求错误 ， 我们可以捕获这些异常，然后进行重试或其他操作以保证程序不会意外终止。</p>
+<p>口 parse ： 一个工具模块，提供了许多 URL 处理方法，比如拆分、解析 、 合并等。</p>
+<p>口 robotparser ：主要是用来识别网站的 robots.txt 文件，然后判断哪些网站可以爬，哪些网站不可以爬，它其实用得 比较少。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/10/22</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># python官网</span></span><br><span class="line">response = urllib.request.urlopen(<span class="string">&#x27;https://www.python.org&#x27;</span>)</span><br><span class="line">print(response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line">print(<span class="built_in">type</span>(response))</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">http</span>.<span class="title">client</span>.<span class="title">HTTPResponse</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">它是一个 <span class="title">HTTPResposne</span> 类型的对象，主要包含 <span class="title">read</span> （） 、 <span class="title">read</span> <span class="title">into</span> （）、 <span class="title">getheader</span>(<span class="params">name ）、gethea ders （） 、 file no （）等方法，以及 msg 、 version 、 status 、 reason 、 debuglevel 、 ιlosed 等属性 。</span></span></span><br><span class="line"><span class="class"><span class="params"></span></span></span><br><span class="line"><span class="class"><span class="params"><span class="built_in">print</span>(<span class="params">response.status</span>)</span></span></span><br><span class="line"><span class="class"><span class="params"><span class="built_in">print</span>(<span class="params">response.getheaders(<span class="params"></span>)</span>)</span></span></span><br><span class="line"><span class="class"><span class="params"><span class="built_in">print</span>(<span class="params">response.getheader(<span class="params"><span class="string">&#x27;Server&#x27;</span></span>)</span>)</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="10-22-request学习"><a href="#10-22-request学习" class="headerlink" title="10-22 request学习"></a>10-22 request学习</h1>
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/chatbot-%E7%89%88%E6%9C%AC1%E6%80%BB%E7%BB%93/">chatbot_版本1总结</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/04/matlab%E4%B8%AD%E7%9A%84function%E5%87%BD%E6%95%B0/">matlab中的function函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">matlab中的重采样</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">matplotlib图像绘制学习</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/20/python%E5%9F%BA%E7%A1%80--%E5%BC%82%E5%B8%B8/">python2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/19/%E5%A4%84%E7%90%86%E5%B9%B6%E7%BB%9F%E8%AE%A1%E4%B8%A4%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E7%9A%84%E7%9D%A1%E7%9C%A0%E6%A0%87%E7%AD%BE/">处理并统计两个数据库中的睡眠标签</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/%E5%B0%86python%E8%BD%AC%E6%8D%A2%E4%B8%BAexe/">将python转换为exe</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/10/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/">聊天机器人基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/22/%E9%87%8D%E6%96%B0%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E7%AD%9B%E9%80%89/">重新进行特征筛选</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/py-study/" style="font-size: 14.395313048442953px;" class="tag-cloud-link">py_study</a>
+    
+    <a href="/tags/nlp/" style="font-size: 9.484499219934072px;" class="tag-cloud-link">nlp</a>
+    
+    <a href="/tags/Graduation-work/" style="font-size: 16.49415846321582px;" class="tag-cloud-link">Graduation work</a>
+    
+    <a href="/tags/work/" style="font-size: 13.930053465758377px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/hexo/" style="font-size: 13.04145378000937px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 15.196389029932625px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 10.5091096585277px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10.370253972173284px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 13.189881914994249px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 14.390502209504032px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 16.863764323044386px;" class="tag-cloud-link">mathematical modeling</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
+
+
+
+
+</html>

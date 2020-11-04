@@ -15,14 +15,26 @@
     <title>q&amp;a数据补充 | ESY</title>
     <link href="https://esyyes.github.io" rel="prefetch" />
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
 <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
     <style type="text/css">
         @media (max-width: 768px) {
             body {
@@ -45,8 +57,7 @@
         }
       }
     </script>-->
-<link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <body>
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
@@ -136,6 +147,18 @@
                         
                         
                         <li>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/work/">work</a>
                         </li>
                         
@@ -145,18 +168,6 @@
                         
                         <li>
                             <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/%E5%8D%87%E7%BA%A7conda/">-升级conda</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/%E5%B7%A5%E4%BD%9C/">-工作</a>
                         </li>
                         
                         
@@ -182,6 +193,18 @@
                         
                         
                         <li>
+                            <a href="/tags/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
                             <a href="/tags/work/">work</a>
                         </li>
                         
@@ -191,18 +214,6 @@
                         
                         <li>
                             <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/python/">-python</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">-python -人工智能</a>
                         </li>
                         
                         
@@ -287,21 +298,21 @@
     <div class="content-article">
         <h1 id="q-amp-a数据补充"><a href="#q-amp-a数据补充" class="headerlink" title="q&amp;a数据补充"></a>q&amp;a数据补充</h1><p>数据量只有100多条，数据太少，不利于实验的进行</p>
 <p>因此考虑采用爬虫的方式，进行数据的补充。</p>
-<p>网站： <a href="http://english.visitbeijing.com.cn/f/list.html?c1=u8e9t0ae" target="_blank" rel="noopener">http://english.visitbeijing.com.cn/f/list.html?c1=u8e9t0ae</a> </p>
+<p>网站： <a target="_blank" rel="noopener" href="http://english.visitbeijing.com.cn/f/list.html?c1=u8e9t0ae">http://english.visitbeijing.com.cn/f/list.html?c1=u8e9t0ae</a> </p>
 <p>关于北京旅游的所有信息都有</p>
 <p>进行爬虫后，初步筛选数据</p>
-<h2 id="读取爬取的旅游文本数据"><a href="#读取爬取的旅游文本数据" class="headerlink" title="读取爬取的旅游文本数据"></a>读取爬取的旅游文本数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="string">'旅游.csv'</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">name = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">    name.append(df[i][<span class="number">0</span>])</span><br><span class="line">names = pd.DataFrame(name, columns=&#123;<span class="string">'name'</span>&#125;)</span><br><span class="line">names.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">names = np.array(names).tolist()</span><br><span class="line">all_data = []</span><br><span class="line">place = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">    <span class="keyword">if</span> names[i][<span class="number">0</span>] != <span class="number">0</span>:</span><br><span class="line">        all_data.append(df[i])</span><br><span class="line">        place.append(names[i][<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">price = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_data)):</span><br><span class="line">    <span class="keyword">if</span> all_data[i][<span class="number">1</span>][<span class="number">0</span>:<span class="number">4</span>] == <span class="string">'门票价格'</span>:</span><br><span class="line">        price.append(all_data[i][<span class="number">1</span>][<span class="number">5</span>:].strip())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        price.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">daoyu = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_data)):</span><br><span class="line">    daoyu.append(all_data[i][<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">daoyu = pd.DataFrame(daoyu, columns=&#123;<span class="string">'daoyu'</span>&#125;)</span><br><span class="line">daoyu.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">daoyu = np.array(daoyu).tolist()</span><br><span class="line"></span><br><span class="line">introduce = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_data)):</span><br><span class="line">    <span class="keyword">if</span> all_data[i][<span class="number">1</span>][<span class="number">0</span>] == <span class="string">'导'</span>:</span><br><span class="line">        introduce.append(all_data[i][<span class="number">1</span>][<span class="number">5</span>:].replace(<span class="string">' '</span>, <span class="string">''</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> daoyu[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> daoyu[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">'地'</span>:</span><br><span class="line">        <span class="keyword">if</span> daoyu[i][<span class="number">0</span>][<span class="number">0</span>] == <span class="string">'导'</span>:</span><br><span class="line">            introduce.append(all_data[i][<span class="number">2</span>][<span class="number">5</span>:].replace(<span class="string">' '</span>, <span class="string">''</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        introduce.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">dizhi = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_data)):</span><br><span class="line">    dizhi.append(all_data[i][<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">dizhi = pd.DataFrame(dizhi, columns=&#123;<span class="string">'dizhi'</span>&#125;)</span><br><span class="line">dizhi.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">dizhi = np.array(dizhi).tolist()</span><br><span class="line"></span><br><span class="line">dizhi1 = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_data)):</span><br><span class="line">    dizhi1.append(all_data[i][<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">dizhi1 = pd.DataFrame(dizhi1, columns=&#123;<span class="string">'dizhi'</span>&#125;)</span><br><span class="line">dizhi1.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">dizhi1 = np.array(dizhi1).tolist()</span><br><span class="line"></span><br><span class="line">site = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(all_data)):</span><br><span class="line">    <span class="keyword">if</span> daoyu[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> daoyu[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">'导'</span>:</span><br><span class="line">        site.append(daoyu[i][<span class="number">0</span>][<span class="number">5</span>:].replace(<span class="string">' '</span>, <span class="string">''</span>))</span><br><span class="line">    <span class="keyword">elif</span> dizhi[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> dizhi[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">'导'</span>:</span><br><span class="line">        site.append(dizhi[i][<span class="number">0</span>][<span class="number">5</span>:].replace(<span class="string">' '</span>, <span class="string">''</span>))</span><br><span class="line">    <span class="keyword">elif</span> dizhi1[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> dizhi1[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">'导'</span>:</span><br><span class="line">        site.append(dizhi1[i][<span class="number">0</span>][<span class="number">5</span>:].replace(<span class="string">' '</span>, <span class="string">''</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        site.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">place = pd.DataFrame(place, columns=&#123;<span class="string">'place'</span>&#125;)</span><br><span class="line">price = pd.DataFrame(price, columns=&#123;<span class="string">'price'</span>&#125;)</span><br><span class="line">introduce = pd.DataFrame(introduce, columns=&#123;<span class="string">'introduce'</span>&#125;)</span><br><span class="line">site = pd.DataFrame(site, columns=&#123;<span class="string">'site'</span>&#125;)</span><br><span class="line">datas = pd.concat([place, price, introduce, site], axis=<span class="number">1</span>)</span><br><span class="line">datas.to_excel(<span class="string">'datas.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="读取爬取的旅游文本数据"><a href="#读取爬取的旅游文本数据" class="headerlink" title="读取爬取的旅游文本数据"></a>读取爬取的旅游文本数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;旅游.csv&#x27;</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">name = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    name.append(df[i][<span class="number">0</span>])</span><br><span class="line">names = pd.DataFrame(name, columns=&#123;<span class="string">&#x27;name&#x27;</span>&#125;)</span><br><span class="line">names.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">names = np.array(names).tolist()</span><br><span class="line">all_data = []</span><br><span class="line">place = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    <span class="keyword">if</span> names[i][<span class="number">0</span>] != <span class="number">0</span>:</span><br><span class="line">        all_data.append(df[i])</span><br><span class="line">        place.append(names[i][<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">price = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_data)):</span><br><span class="line">    <span class="keyword">if</span> all_data[i][<span class="number">1</span>][<span class="number">0</span>:<span class="number">4</span>] == <span class="string">&#x27;门票价格&#x27;</span>:</span><br><span class="line">        price.append(all_data[i][<span class="number">1</span>][<span class="number">5</span>:].strip())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        price.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">daoyu = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_data)):</span><br><span class="line">    daoyu.append(all_data[i][<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">daoyu = pd.DataFrame(daoyu, columns=&#123;<span class="string">&#x27;daoyu&#x27;</span>&#125;)</span><br><span class="line">daoyu.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">daoyu = np.array(daoyu).tolist()</span><br><span class="line"></span><br><span class="line">introduce = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_data)):</span><br><span class="line">    <span class="keyword">if</span> all_data[i][<span class="number">1</span>][<span class="number">0</span>] == <span class="string">&#x27;导&#x27;</span>:</span><br><span class="line">        introduce.append(all_data[i][<span class="number">1</span>][<span class="number">5</span>:].replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">elif</span> daoyu[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> daoyu[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">&#x27;地&#x27;</span>:</span><br><span class="line">        <span class="keyword">if</span> daoyu[i][<span class="number">0</span>][<span class="number">0</span>] == <span class="string">&#x27;导&#x27;</span>:</span><br><span class="line">            introduce.append(all_data[i][<span class="number">2</span>][<span class="number">5</span>:].replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        introduce.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">dizhi = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_data)):</span><br><span class="line">    dizhi.append(all_data[i][<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">dizhi = pd.DataFrame(dizhi, columns=&#123;<span class="string">&#x27;dizhi&#x27;</span>&#125;)</span><br><span class="line">dizhi.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">dizhi = np.array(dizhi).tolist()</span><br><span class="line"></span><br><span class="line">dizhi1 = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_data)):</span><br><span class="line">    dizhi1.append(all_data[i][<span class="number">4</span>])</span><br><span class="line"></span><br><span class="line">dizhi1 = pd.DataFrame(dizhi1, columns=&#123;<span class="string">&#x27;dizhi&#x27;</span>&#125;)</span><br><span class="line">dizhi1.fillna(value=<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">dizhi1 = np.array(dizhi1).tolist()</span><br><span class="line"></span><br><span class="line">site = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(all_data)):</span><br><span class="line">    <span class="keyword">if</span> daoyu[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> daoyu[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">&#x27;导&#x27;</span>:</span><br><span class="line">        site.append(daoyu[i][<span class="number">0</span>][<span class="number">5</span>:].replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    <span class="keyword">elif</span> dizhi[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> dizhi[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">&#x27;导&#x27;</span>:</span><br><span class="line">        site.append(dizhi[i][<span class="number">0</span>][<span class="number">5</span>:].replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    <span class="keyword">elif</span> dizhi1[i][<span class="number">0</span>] != <span class="number">0</span> <span class="keyword">and</span> dizhi1[i][<span class="number">0</span>][<span class="number">0</span>] != <span class="string">&#x27;导&#x27;</span>:</span><br><span class="line">        site.append(dizhi1[i][<span class="number">0</span>][<span class="number">5</span>:].replace(<span class="string">&#x27; &#x27;</span>, <span class="string">&#x27;&#x27;</span>))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        site.append(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">place = pd.DataFrame(place, columns=&#123;<span class="string">&#x27;place&#x27;</span>&#125;)</span><br><span class="line">price = pd.DataFrame(price, columns=&#123;<span class="string">&#x27;price&#x27;</span>&#125;)</span><br><span class="line">introduce = pd.DataFrame(introduce, columns=&#123;<span class="string">&#x27;introduce&#x27;</span>&#125;)</span><br><span class="line">site = pd.DataFrame(site, columns=&#123;<span class="string">&#x27;site&#x27;</span>&#125;)</span><br><span class="line">datas = pd.concat([place, price, introduce, site], axis=<span class="number">1</span>)</span><br><span class="line">datas.to_excel(<span class="string">&#x27;datas.xlsx&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h1 id="并将新的数据转换为xlsx"><a href="#并将新的数据转换为xlsx" class="headerlink" title="并将新的数据转换为xlsx"></a>并将新的数据转换为xlsx</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">f = open(<span class="string">r'C:\Users\86184\Desktop\D.txt'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line">all_data = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> f:</span><br><span class="line">    all_data.append(element.split(<span class="string">"\t"</span>))</span><br><span class="line">data = pd.DataFrame(all_data)</span><br><span class="line">data.to_excel(<span class="string">'new_data.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="并将新的数据转换为xlsx"><a href="#并将新的数据转换为xlsx" class="headerlink" title="并将新的数据转换为xlsx"></a>并将新的数据转换为xlsx</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">r&#x27;C:\Users\86184\Desktop\D.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line">all_data = []</span><br><span class="line"><span class="keyword">for</span> element <span class="keyword">in</span> f:</span><br><span class="line">    all_data.append(element.split(<span class="string">&quot;\t&quot;</span>))</span><br><span class="line">data = pd.DataFrame(all_data)</span><br><span class="line">data.to_excel(<span class="string">&#x27;new_data.xlsx&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="生成对应所需的问题"><a href="#生成对应所需的问题" class="headerlink" title="生成对应所需的问题"></a>生成对应所需的问题</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data = pd.read_excel(<span class="string">'new_data.xlsx'</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成价格的问题</span></span><br><span class="line">price0 = <span class="string">'How much is the entrance fee of the '</span></span><br><span class="line">price1 = <span class="string">'How much is the ticket of the '</span></span><br><span class="line">price_list = []</span><br><span class="line">price_asnw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">    <span class="keyword">if</span> df[i][<span class="number">1</span>] == <span class="string">'0'</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> == random.randint(<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">            price_list.append(price0 + df[i][<span class="number">0</span>])</span><br><span class="line">            price_asnw.append(df[i][<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            price_list.append(price1 + df[i][<span class="number">0</span>])</span><br><span class="line">            price_asnw.append(df[i][<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成导语</span></span><br><span class="line">tell0 = <span class="string">'Tell me something about the '</span></span><br><span class="line">tell1 = <span class="string">'description of the '</span></span><br><span class="line"></span><br><span class="line">tell_list = []</span><br><span class="line">tell_asnw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> == random.randint(<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">        tell_list.append(tell0 + df[i][<span class="number">0</span>])</span><br><span class="line">        tell_asnw.append(df[i][<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        tell_list.append(tell1 + df[i][<span class="number">0</span>])</span><br><span class="line">        tell_asnw.append(df[i][<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成地址</span></span><br><span class="line"></span><br><span class="line">where = <span class="string">'Where is the '</span></span><br><span class="line"></span><br><span class="line">site_list = []</span><br><span class="line">site_asnw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">    site_list.append(where + df[i][<span class="number">0</span>])</span><br><span class="line">    site_asnw.append(df[i][<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">price = pd.DataFrame(price_list)</span><br><span class="line">tell = pd.DataFrame(tell_list)</span><br><span class="line">site = pd.DataFrame(site_list)</span><br><span class="line">question = pd.concat([price, tell, site], axis=<span class="number">0</span>)</span><br><span class="line">price_a = pd.DataFrame(price_asnw)</span><br><span class="line">tell_a = pd.DataFrame(tell_asnw)</span><br><span class="line">site_a = pd.DataFrame(site_asnw)</span><br><span class="line">answer = pd.concat([price_a, tell_a, site_a], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">QA = pd.concat([question, answer], axis=<span class="number">1</span>)</span><br><span class="line">QA.to_excel(<span class="string">'Q&amp;A pairs.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="生成对应所需的问题"><a href="#生成对应所需的问题" class="headerlink" title="生成对应所需的问题"></a>生成对应所需的问题</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;new_data.xlsx&#x27;</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成价格的问题</span></span><br><span class="line">price0 = <span class="string">&#x27;How much is the entrance fee of the &#x27;</span></span><br><span class="line">price1 = <span class="string">&#x27;How much is the ticket of the &#x27;</span></span><br><span class="line">price_list = []</span><br><span class="line">price_asnw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    <span class="keyword">if</span> df[i][<span class="number">1</span>] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> == random.randint(<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">            price_list.append(price0 + df[i][<span class="number">0</span>])</span><br><span class="line">            price_asnw.append(df[i][<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            price_list.append(price1 + df[i][<span class="number">0</span>])</span><br><span class="line">            price_asnw.append(df[i][<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成导语</span></span><br><span class="line">tell0 = <span class="string">&#x27;Tell me something about the &#x27;</span></span><br><span class="line">tell1 = <span class="string">&#x27;description of the &#x27;</span></span><br><span class="line"></span><br><span class="line">tell_list = []</span><br><span class="line">tell_asnw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> == random.randint(<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">        tell_list.append(tell0 + df[i][<span class="number">0</span>])</span><br><span class="line">        tell_asnw.append(df[i][<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        tell_list.append(tell1 + df[i][<span class="number">0</span>])</span><br><span class="line">        tell_asnw.append(df[i][<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成地址</span></span><br><span class="line"></span><br><span class="line">where = <span class="string">&#x27;Where is the &#x27;</span></span><br><span class="line"></span><br><span class="line">site_list = []</span><br><span class="line">site_asnw = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    site_list.append(where + df[i][<span class="number">0</span>])</span><br><span class="line">    site_asnw.append(df[i][<span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">price = pd.DataFrame(price_list)</span><br><span class="line">tell = pd.DataFrame(tell_list)</span><br><span class="line">site = pd.DataFrame(site_list)</span><br><span class="line">question = pd.concat([price, tell, site], axis=<span class="number">0</span>)</span><br><span class="line">price_a = pd.DataFrame(price_asnw)</span><br><span class="line">tell_a = pd.DataFrame(tell_asnw)</span><br><span class="line">site_a = pd.DataFrame(site_asnw)</span><br><span class="line">answer = pd.concat([price_a, tell_a, site_a], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">QA = pd.concat([question, answer], axis=<span class="number">1</span>)</span><br><span class="line">QA.to_excel(<span class="string">&#x27;Q&amp;A pairs.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="价格的答案需要更改"><a href="#价格的答案需要更改" class="headerlink" title="价格的答案需要更改"></a>价格的答案需要更改</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data = pd.read_excel(<span class="string">'Q&amp;A pairs.xlsx'</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line">answer = <span class="string">' yuan per person'</span></span><br><span class="line"></span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">165</span>):</span><br><span class="line">    <span class="keyword">if</span> df[i][<span class="number">1</span>] == <span class="string">'free'</span>:</span><br><span class="line">        ans.append(df[i][<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">elif</span> df[i][<span class="number">1</span>][<span class="number">5</span>] == <span class="string">'R'</span>:</span><br><span class="line">        ans.append(<span class="string">'About '</span> + df[i][<span class="number">1</span>][<span class="number">9</span>:] + answer)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ans.append(<span class="string">'About '</span> + df[i][<span class="number">1</span>][<span class="number">5</span>:] + <span class="string">' per person'</span>)</span><br><span class="line"></span><br><span class="line">anss = pd.DataFrame(ans)</span><br><span class="line">anss.to_excel(<span class="string">'ans.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="价格的答案需要更改"><a href="#价格的答案需要更改" class="headerlink" title="价格的答案需要更改"></a>价格的答案需要更改</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;Q&amp;A pairs.xlsx&#x27;</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line">answer = <span class="string">&#x27; yuan per person&#x27;</span></span><br><span class="line"></span><br><span class="line">ans = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">165</span>):</span><br><span class="line">    <span class="keyword">if</span> df[i][<span class="number">1</span>] == <span class="string">&#x27;free&#x27;</span>:</span><br><span class="line">        ans.append(df[i][<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">elif</span> df[i][<span class="number">1</span>][<span class="number">5</span>] == <span class="string">&#x27;R&#x27;</span>:</span><br><span class="line">        ans.append(<span class="string">&#x27;About &#x27;</span> + df[i][<span class="number">1</span>][<span class="number">9</span>:] + answer)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ans.append(<span class="string">&#x27;About &#x27;</span> + df[i][<span class="number">1</span>][<span class="number">5</span>:] + <span class="string">&#x27; per person&#x27;</span>)</span><br><span class="line"></span><br><span class="line">anss = pd.DataFrame(ans)</span><br><span class="line">anss.to_excel(<span class="string">&#x27;ans.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="比较所有的数据和原始数据的重复情况"><a href="#比较所有的数据和原始数据的重复情况" class="headerlink" title="比较所有的数据和原始数据的重复情况"></a>比较所有的数据和原始数据的重复情况</h2><p>并删除重复后的生成数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data0 = pd.read_excel(<span class="string">'Q&amp;A pairs.xlsx'</span>)</span><br><span class="line">data1 = pd.read_csv(<span class="string">'Q&amp;A pairs1.csv'</span>)</span><br><span class="line"></span><br><span class="line">df0 = np.array(data0).tolist()</span><br><span class="line">df1 = np.array(data1).tolist()</span><br><span class="line"></span><br><span class="line">print(len(df0))</span><br><span class="line"><span class="comment"># 进行查重</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(data0)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(len(data1)):</span><br><span class="line">        <span class="keyword">if</span> df0[i][<span class="number">0</span>] == df1[j][<span class="number">0</span>]:</span><br><span class="line">            print(<span class="string">f'数据0第<span class="subst">&#123;i&#125;</span>个问题与数据1的第<span class="subst">&#123;j&#125;</span>个一样'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> df0[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">del</span> df0[<span class="number">396</span>]</span><br><span class="line">print(len(df0))</span><br><span class="line"></span><br><span class="line">shuju0 = pd.DataFrame(df0)</span><br><span class="line">shuju1 = pd.DataFrame(df1)</span><br><span class="line">shuju = pd.concat([shuju1, shuju0], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">shuju.to_excel(<span class="string">'shuju.xlsx'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/5</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">data0 = pd.read_excel(<span class="string">&#x27;Q&amp;A pairs.xlsx&#x27;</span>)</span><br><span class="line">data1 = pd.read_csv(<span class="string">&#x27;Q&amp;A pairs1.csv&#x27;</span>)</span><br><span class="line"></span><br><span class="line">df0 = np.array(data0).tolist()</span><br><span class="line">df1 = np.array(data1).tolist()</span><br><span class="line"></span><br><span class="line">print(<span class="built_in">len</span>(df0))</span><br><span class="line"><span class="comment"># 进行查重</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data0)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data1)):</span><br><span class="line">        <span class="keyword">if</span> df0[i][<span class="number">0</span>] == df1[j][<span class="number">0</span>]:</span><br><span class="line">            print(<span class="string">f&#x27;数据0第<span class="subst">&#123;i&#125;</span>个问题与数据1的第<span class="subst">&#123;j&#125;</span>个一样&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> df0[<span class="number">1</span>]</span><br><span class="line"><span class="keyword">del</span> df0[<span class="number">396</span>]</span><br><span class="line">print(<span class="built_in">len</span>(df0))</span><br><span class="line"></span><br><span class="line">shuju0 = pd.DataFrame(df0)</span><br><span class="line">shuju1 = pd.DataFrame(df1)</span><br><span class="line">shuju = pd.concat([shuju1, shuju0], axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">shuju.to_excel(<span class="string">&#x27;shuju.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=234291938,405007536&fm=26&gp=0.jpg" alt=""></p>
+<p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=234291938,405007536&fm=26&gp=0.jpg"></p>
 
     </div>
 </article>
@@ -364,61 +375,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/08/08/UI%E7%95%8C%E9%9D%A2%E7%BE%8E%E5%8C%96/">UI界面美化</a>
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/08/08/q-a%E6%95%B0%E6%8D%AE%E8%A1%A5%E5%85%85/">q&amp;a数据补充</a>
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/08/08/chatbot-%E7%89%88%E6%9C%AC1%E6%80%BB%E7%BB%93/">chatbot_版本1总结</a>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/28/chatbot/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/">GUI界面的完善</a>
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/27/HMM/%E6%A0%B7%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%9A%84%E7%94%9F%E6%88%90/">样本数据的生成</a>
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/23/chatbot/gui%E7%95%8C%E9%9D%A2%E6%9A%82%E5%AE%9A%E7%89%88%E5%92%8C%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">gui界面暂定版和遇到的问题</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/23/chatbot/qachatbot%E6%9A%82%E5%AE%9A%E7%89%88/">qachatbot暂定版</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/22/chatbot/chatbot-sorry%E7%AF%87/">chatbot_sorry篇</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/21/chatbot/python%E4%B8%8A%E7%9A%84GUI/">python上的GUI</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/20/chatbot/chatbot%E5%9C%A8python%E4%B8%8A%E5%AE%9E%E7%8E%B0/">chatbot在python上实现</a>
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
                 </span>
             </li>
             
@@ -440,61 +451,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/08/HMM/%E7%8A%B6%E6%80%81%E4%B8%BA3%E6%97%B6%E7%9A%84%E8%AE%BE%E5%AE%9A/">状态为3时的设定</a>
+                    <a href="/2020/07/20/chatbot%E5%9C%A8python%E4%B8%8A%E5%AE%9E%E7%8E%B0/">chatbot在python上实现</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/20/chatbot/chatbot%E5%9C%A8python%E4%B8%8A%E5%AE%9E%E7%8E%B0/">chatbot在python上实现</a>
+                    <a href="/2020/03/19/python-Matplotlib/">python_Matplotlib</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/16/chatbot/q-a%E6%A3%80%E7%B4%A2%E5%BC%8F%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E6%B5%81%E7%A8%8B/">q@a检索式机器人的流程</a>
+                    <a href="/2020/05/26/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E4%B9%8B%E5%87%BD%E6%95%B0/">python_入门复习之函数</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/10/hexo/hexo-%E6%97%A0%E6%B3%95%E7%99%BB%E9%99%86github/">hexo-无法登陆github</a>
+                    <a href="/2020/05/26/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%92%8C%E5%8C%85/">python-入门复习之模块和包</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/10/hexo/hexo%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/">hexo相关学习</a>
+                    <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">python__滑动切片</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/16/hexo/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">心率变异性</a>
+                    <a href="/2020/02/26/python%E2%80%94%E2%80%94%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96/">python——特征选择和优化</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/26/python/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E4%B9%8B%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96/">python_入门复习之文件读取</a>
+                    <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">LV-3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/25/python/python%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/">python——入门复习数据序列</a>
+                    <a href="/2020/08/19/%E5%AF%B9UCDDB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">对UCDDB数据库进行特征提取</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">交叉验证</a>
+                    <a href="/2020/08/23/%E7%BB%98%E5%88%B6%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%9C%E5%9B%BE/">绘制特征选择结果图</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/07/python/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">python__获取MIT数据</a>
+                    <a href="/2020/06/18/%E9%87%8D%E8%A6%81%E7%89%B9%E5%BE%81%E6%9F%A5%E7%9C%8B/">重要特征查看</a>
                 </span>
             </li>
             
@@ -527,19 +538,27 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/work/" style="font-size: 11.664162402338059px;" class="tag-cloud-link">work</a>
+    <a href="/tags/py-study/" style="font-size: 17.059150713813843px;" class="tag-cloud-link">py_study</a>
     
-    <a href="/tags/hexo/" style="font-size: 8.494278547193534px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/nlp/" style="font-size: 18.177387098780393px;" class="tag-cloud-link">nlp</a>
     
-    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 15.426564485618098px;" class="tag-cloud-link">-个人博客搭建</a>
+    <a href="/tags/Graduation-work/" style="font-size: 12.810378782961166px;" class="tag-cloud-link">Graduation work</a>
     
-    <a href="/tags/python/" style="font-size: 15.589036760929753px;" class="tag-cloud-link">-python</a>
+    <a href="/tags/work/" style="font-size: 10.311113678658977px;" class="tag-cloud-link">work</a>
     
-    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 13.026877876615167px;" class="tag-cloud-link">-malab -毕业</a>
+    <a href="/tags/hexo/" style="font-size: 19.44827981986173px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 19.081882216208154px;" class="tag-cloud-link">-python -人工智能</a>
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 11.089288975480299px;" class="tag-cloud-link">-个人博客搭建</a>
     
-    <a href="/tags/python/" style="font-size: 14.21805145561411px;" class="tag-cloud-link">python</a>
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 15.017975034657548px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 13.589628656015009px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 13.00474386086773px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 18.911641060542024px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 8.042319552532838px;" class="tag-cloud-link">mathematical modeling</a>
     
 </div>
                 
@@ -596,7 +615,9 @@
     <i class="fa fa-angle-up"></i>
 </div>
 </body>
+
 <script src="/js/activate-power-mode.js"></script>
+
 <script>
 
     // 配置highslide
@@ -643,10 +664,14 @@
       maxCount: '6'
     }
 </script>
+
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
 
+
+
 <script src="/js/oni.js"></script>
+
 
 
 

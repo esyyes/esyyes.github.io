@@ -15,14 +15,26 @@
     <title>GUI界面的完善 | ESY</title>
     <link href="https://esyyes.github.io" rel="prefetch" />
 
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 <link rel="stylesheet" href="/css/aos.css">
 <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/aos.js"></script>
-    <script src="/js/highslide/highslide-full.min.js"></script>
-    <link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
     <style type="text/css">
         @media (max-width: 768px) {
             body {
@@ -45,8 +57,7 @@
         }
       }
     </script>-->
-<link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
-</head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 <body>
     <!-- 背景轮播图功能 -->
     <section class="hidden-xs">
@@ -136,23 +147,23 @@
                         
                         
                         <li>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
                             <a href="/categories/work/">work</a>
                         </li>
                         
                         <li>
-                            <a href="/categories/matlab-%E5%B7%A5%E4%BD%9C/">-matlab -工作</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a>
-                        </li>
-                        
-                        <li>
                             <a href="/categories/hexo/">hexo</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/matlab/">matlab</a>
                         </li>
                         
                         <li>
@@ -182,11 +193,19 @@
                         
                         
                         <li>
-                            <a href="/tags/work/">work</a>
+                            <a href="/tags/py-study/">py_study</a>
                         </li>
                         
                         <li>
-                            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
                         </li>
                         
                         <li>
@@ -195,14 +214,6 @@
                         
                         <li>
                             <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/python/">-python</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">-python -人工智能</a>
                         </li>
                         
                         
@@ -294,12 +305,12 @@
 <p>在绑定事件函数的末尾加上 return ‘break’ 即可阻止按键的默认操作</p>
 </li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMsgEvent</span><span class="params">(event)</span>:</span>  <span class="comment"># 发送消息事件</span></span><br><span class="line">    <span class="keyword">if</span> event.keysym == <span class="string">'Return'</span>:</span><br><span class="line">        sendMsg()</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'break'</span></span><br><span class="line">加入<span class="keyword">break</span>即可让回车键按下发送后不进行跳行</span><br><span class="line"></span><br><span class="line"><span class="comment"># 布局2</span></span><br><span class="line"><span class="comment"># 多重文本框输入，建立输入窗口</span></span><br><span class="line">txtMsg = Text(frm2, height=<span class="number">5</span>, width=<span class="number">60</span>, font=(<span class="string">'微软雅黑'</span>, <span class="number">15</span>))</span><br><span class="line">txtMsg.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, stick=E)</span><br><span class="line"><span class="comment"># 绑定一个控制键，进行发送信息</span></span><br><span class="line">txtMsg.bind(<span class="string">"&lt;KeyPress-Return&gt;"</span>, sendMsgEvent)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMsgEvent</span>(<span class="params">event</span>):</span>  <span class="comment"># 发送消息事件</span></span><br><span class="line">    <span class="keyword">if</span> event.keysym == <span class="string">&#x27;Return&#x27;</span>:</span><br><span class="line">        sendMsg()</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;break&#x27;</span></span><br><span class="line">加入<span class="keyword">break</span>即可让回车键按下发送后不进行跳行</span><br><span class="line"></span><br><span class="line"><span class="comment"># 布局2</span></span><br><span class="line"><span class="comment"># 多重文本框输入，建立输入窗口</span></span><br><span class="line">txtMsg = Text(frm2, height=<span class="number">5</span>, width=<span class="number">60</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">15</span>))</span><br><span class="line">txtMsg.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, stick=E)</span><br><span class="line"><span class="comment"># 绑定一个控制键，进行发送信息</span></span><br><span class="line">txtMsg.bind(<span class="string">&quot;&lt;KeyPress-Return&gt;&quot;</span>, sendMsgEvent)</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
 <li>按下按钮后发送并返回消息</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMsg</span><span class="params">()</span>:</span>  <span class="comment"># 发送消息</span></span><br><span class="line">    strMsg = <span class="string">"user:"</span> + time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime()) + <span class="string">'\n'</span></span><br><span class="line">    txtMsgList.config(state=<span class="string">'normal'</span>)</span><br><span class="line">    txtMsgList.insert(END, strMsg, <span class="string">'greencolor'</span>)</span><br><span class="line">    txtMsgList.insert(END, txtMsg.get(<span class="string">'0.0'</span>, END))</span><br><span class="line">    <span class="comment"># 开始回复消息</span></span><br><span class="line">    answer = <span class="string">"chatbot:"</span> + <span class="string">'\n'</span></span><br><span class="line">    <span class="comment"># get('0.0', END)[:-1],0,end获取所有数据，会加入一个换行符，‘\n'，因此需要加入一个【：-1】</span></span><br><span class="line">    best = run_chatbot(txtMsg.get(<span class="string">'0.0'</span>, END)[:<span class="number">-1</span>], data) + <span class="string">'\n'</span></span><br><span class="line">    txtMsgList.insert(END, answer, <span class="string">'greencolor'</span>)</span><br><span class="line">    txtMsgList.insert(END, best)</span><br><span class="line">    txtMsgList.config(state=<span class="string">'disabled'</span>)</span><br><span class="line">    txtMsg.delete(<span class="string">'0.0'</span>, END)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sendMsg</span>():</span>  <span class="comment"># 发送消息</span></span><br><span class="line">    strMsg = <span class="string">&quot;user:&quot;</span> + time.strftime(<span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, time.localtime()) + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    txtMsgList.config(state=<span class="string">&#x27;normal&#x27;</span>)</span><br><span class="line">    txtMsgList.insert(END, strMsg, <span class="string">&#x27;greencolor&#x27;</span>)</span><br><span class="line">    txtMsgList.insert(END, txtMsg.get(<span class="string">&#x27;0.0&#x27;</span>, END))</span><br><span class="line">    <span class="comment"># 开始回复消息</span></span><br><span class="line">    answer = <span class="string">&quot;chatbot:&quot;</span> + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    <span class="comment"># get(&#x27;0.0&#x27;, END)[:-1],0,end获取所有数据，会加入一个换行符，‘\n&#x27;，因此需要加入一个【：-1】</span></span><br><span class="line">    best = run_chatbot(txtMsg.get(<span class="string">&#x27;0.0&#x27;</span>, END)[:<span class="number">-1</span>], data) + <span class="string">&#x27;\n&#x27;</span></span><br><span class="line">    txtMsgList.insert(END, answer, <span class="string">&#x27;greencolor&#x27;</span>)</span><br><span class="line">    txtMsgList.insert(END, best)</span><br><span class="line">    txtMsgList.config(state=<span class="string">&#x27;disabled&#x27;</span>)</span><br><span class="line">    txtMsg.delete(<span class="string">&#x27;0.0&#x27;</span>, END)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>bind的用法：控件.bind(event, handler),其中event是tkinter已经定义好的的事件，handler是处理器，可以是一个处理函数，如果相关事件发生, handler 函数会被触发, 事件对象 event 会传递给 handler 函数  </li>
@@ -393,61 +404,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/28/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/">GUI界面的完善</a>
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/27/%E6%A0%B7%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%9A%84%E7%94%9F%E6%88%90/">样本数据的生成</a>
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/23/chatbot/gui%E7%95%8C%E9%9D%A2%E6%9A%82%E5%AE%9A%E7%89%88%E5%92%8C%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">gui界面暂定版和遇到的问题</a>
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/23/chatbot/qachatbot%E6%9A%82%E5%AE%9A%E7%89%88/">qachatbot暂定版</a>
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/22/chatbot/chatbot-sorry%E7%AF%87/">chatbot_sorry篇</a>
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/21/chatbot/python%E4%B8%8A%E7%9A%84GUI/">python上的GUI</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/20/chatbot/chatbot%E5%9C%A8python%E4%B8%8A%E5%AE%9E%E7%8E%B0/">chatbot在python上实现</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/19/chatbot/Q-A-chatbot-%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/">Q&amp;A chatbot 简单实现</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/18/chatbot/spacy%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%86%8D%E5%AD%A6%E4%B9%A0/">spacy的基础知识再学习</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/16/chatbot/q-a%E6%A3%80%E7%B4%A2%E5%BC%8F%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E6%B5%81%E7%A8%8B/">q@a检索式机器人的流程</a>
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
                 </span>
             </li>
             
@@ -469,61 +480,61 @@
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/23/chatbot/qachatbot%E6%9A%82%E5%AE%9A%E7%89%88/">qachatbot暂定版</a>
+                    <a href="/2020/02/28/2-28%E6%B1%87%E6%8A%A5/">2-28汇报</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/11/24/python/pyhon%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/">pyhon基础--函数</a>
+                    <a href="/2020/07/04/HMM%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%AD%A6%E4%B9%A0/">HMM模型的学习</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/26/python/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E4%B9%8B%E5%BC%82%E5%B8%B8/">python-入门复习之异常</a>
+                    <a href="/2020/08/08/chatbot-%E7%89%88%E6%9C%AC1%E6%80%BB%E7%BB%93/">chatbot_版本1总结</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/02/08/python/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">python——滑动切片之数组</a>
+                    <a href="/2020/02/26/python%E2%80%94%E2%80%94%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E5%92%8C%E4%BC%98%E5%8C%96/">python——特征选择和优化</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2019/12/26/python/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">去趋势波动分析DFA</a>
+                    <a href="/2019/12/01/python%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BB%98%E5%88%B6%E5%88%97%E8%A1%A8%E6%96%87%E4%BB%B6/">LV-1</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/08/sleep%20apnea%20and%20sleep%20stage/ECG%E4%BF%A1%E5%8F%B7%E8%AF%BB%E5%8F%96/">ECG信号读取</a>
+                    <a href="/2020/07/18/spacy%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%86%8D%E5%AD%A6%E4%B9%A0/">spacy的基础知识再学习</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/07/02/sleep%20apnea%20and%20sleep%20stage/%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81/">交叉验证</a>
+                    <a href="/2020/09/10/%E5%90%84%E9%A1%B9%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">各项特征提取</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/24/sleep%20apnea%20and%20sleep%20stage/%E6%9F%A5%E7%9C%8B%E5%88%86%E7%B1%BB%E5%99%A8%E5%AF%B9%E5%BA%94%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B3%BB%E5%88%97/">查看分类器对应的数据系列</a>
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/06/18/sleep%20apnea%20and%20sleep%20stage/%E9%87%8D%E8%A6%81%E7%89%B9%E5%BE%81%E6%9F%A5%E7%9C%8B/">重要特征查看</a>
+                    <a href="/2020/05/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%88%E5%AD%A6%E5%91%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">面向对象版学员管理系统</a>
                 </span>
             </li>
             
             <li class="list-group-item">
                 <span class="post-title">
-                    <a href="/2020/05/18/matlab/VF/VF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">VF基础知识</a>
+                    <a href="/2020/08/31/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%A1%AE%E5%AE%9A/">分类模型的确定</a>
                 </span>
             </li>
             
@@ -556,19 +567,27 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/work/" style="font-size: 15.87854643885395px;" class="tag-cloud-link">work</a>
+    <a href="/tags/py-study/" style="font-size: 9.763249321603604px;" class="tag-cloud-link">py_study</a>
     
-    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 15.509735330892866px;" class="tag-cloud-link">-malab -毕业</a>
+    <a href="/tags/nlp/" style="font-size: 18.916056170272398px;" class="tag-cloud-link">nlp</a>
     
-    <a href="/tags/hexo/" style="font-size: 8.669746911730375px;" class="tag-cloud-link">hexo</a>
+    <a href="/tags/Graduation-work/" style="font-size: 18.44191991396211px;" class="tag-cloud-link">Graduation work</a>
     
-    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 13.429853724322223px;" class="tag-cloud-link">-个人博客搭建</a>
+    <a href="/tags/work/" style="font-size: 15.214139013178022px;" class="tag-cloud-link">work</a>
     
-    <a href="/tags/python/" style="font-size: 19.902652981427625px;" class="tag-cloud-link">-python</a>
+    <a href="/tags/hexo/" style="font-size: 11.2560329567013px;" class="tag-cloud-link">hexo</a>
     
-    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 17.171630339190386px;" class="tag-cloud-link">-python -人工智能</a>
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 14.015923541636003px;" class="tag-cloud-link">-个人博客搭建</a>
     
-    <a href="/tags/python/" style="font-size: 16.44276648583385px;" class="tag-cloud-link">python</a>
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 16.79537176253492px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 9.317509874347124px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 13.065636819178078px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 17.748679279987474px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 13.367872454677514px;" class="tag-cloud-link">mathematical modeling</a>
     
 </div>
                 
@@ -625,7 +644,9 @@
     <i class="fa fa-angle-up"></i>
 </div>
 </body>
+
 <script src="/js/activate-power-mode.js"></script>
+
 <script>
 
     // 配置highslide
@@ -672,10 +693,14 @@
       maxCount: '6'
     }
 </script>
+
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
 
+
+
 <script src="/js/oni.js"></script>
+
 
 
 

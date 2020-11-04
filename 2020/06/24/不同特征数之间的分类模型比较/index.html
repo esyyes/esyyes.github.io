@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>不同特征数之间的分类模型比较 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>不同特征数之间的分类模型比较</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/06/24/%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83/">不同特征数之间的分类模型比较</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-06-24
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/06/24/%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83/">不同特征数之间的分类模型比较</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-06-24
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="不同特征数之间的分类模型比较"><a href="#不同特征数之间的分类模型比较" class="headerlink" title="不同特征数之间的分类模型比较"></a>不同特征数之间的分类模型比较</h1><p>首先确定特征的个数，确定index和特征数之间的关系</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line">feature_import = pd.read_excel(<span class="string">&#x27;D:/zccode&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % <span class="number">2</span> + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:<span class="number">5</span>])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      <span class="number">5</span>NN20    <span class="number">5</span>pNN20    <span class="number">5</span>pNN50     <span class="number">5</span>NN50</span><br><span class="line"><span class="number">0</span>  <span class="number">0.023794</span>  <span class="number">0.023346</span>  <span class="number">0.022757</span>  <span class="number">0.022194</span></span><br></pre></td></tr></table></figure>
+
+<p>根据设定的index,还是取的是左闭右开，因此对于下面的特征，index 应该为特征数加1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">最大准确率时对应的特征数</span><br><span class="line">分期为<span class="number">5</span>时	最高准确率为<span class="number">79.65</span>%	特征数为<span class="number">23</span></span><br><span class="line">分期为<span class="number">4</span>时	最高准确率为<span class="number">86.40</span>%	特征数为<span class="number">23</span></span><br><span class="line">分期为<span class="number">3</span>时	最高准确率为<span class="number">89.04</span>%	特征数为<span class="number">15</span></span><br><span class="line">准确率降低<span class="number">1</span>%后对应的特征数</span><br><span class="line">分期为<span class="number">5</span>时	最高准确率为<span class="number">79.65</span>%	最高准确率降低<span class="number">1</span>%后为<span class="number">78.85</span>%	比较筛选的准确率为<span class="number">78.86</span>%	特征数为<span class="number">9</span></span><br><span class="line">分期为<span class="number">4</span>时	最高准确率为<span class="number">86.40</span>%	最高准确率降低<span class="number">1</span>%后为<span class="number">85.54</span>%	比较筛选的准确率为<span class="number">85.66</span>%	特征数为<span class="number">8</span></span><br><span class="line">分期为<span class="number">3</span>时	最高准确率为<span class="number">89.04</span>%	最高准确率降低<span class="number">1</span>%后为<span class="number">88.15</span>%	比较筛选的准确率为<span class="number">88.22</span>%	特征数为<span class="number">7</span></span><br></pre></td></tr></table></figure>
+
+<p>重新跑下结果；</p>
+<p>因此对于最大准确率时，基于特征数的分类模型就该为下面程序</p>
+<h2 id="最大准确率时特征对应的分类结果"><a href="#最大准确率时特征对应的分类结果" class="headerlink" title="最大准确率时特征对应的分类结果"></a>最大准确率时特征对应的分类结果</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @time     : 2020/6/23 0023</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sleep_class <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0</span>:</span><br><span class="line">        index = <span class="number">24</span></span><br><span class="line">        class_feature(k, index)</span><br><span class="line">    <span class="keyword">elif</span> k == <span class="number">1</span>:</span><br><span class="line">        index = <span class="number">24</span></span><br><span class="line">        class_feature(k, index)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        index = <span class="number">16</span></span><br><span class="line">        class_feature(k, index)</span><br></pre></td></tr></table></figure>
+
+<h3 id="sleep-class-中的函数"><a href="#sleep-class-中的函数" class="headerlink" title="sleep class 中的函数"></a>sleep class 中的函数</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @time     : 2020/6/23 0023</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> data_preprocessing <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">from</span> classifiers <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">class_feature</span>(<span class="params">k, index</span>):</span></span><br><span class="line">    class_scores = []</span><br><span class="line">    kappa_scores = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">19</span>):</span><br><span class="line">        feature = pd.read_excel(<span class="string">&#x27;D:/zccode/all_feature&#x27;</span> + <span class="string">&#x27;/features&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % i + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">        data = pd.get_dummies(feature.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature), <span class="number">1</span>:])</span><br><span class="line">        note = pd.read_excel(<span class="string">&#x27;D:/zccode/all_note&#x27;</span> + <span class="string">&#x27;/note&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % i + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">        tag = pd.get_dummies(note.iloc[<span class="number">0</span>:<span class="built_in">len</span>(data), <span class="number">1</span>:])</span><br><span class="line">        feature_import = pd.read_excel(<span class="string">&#x27;D:/zccode&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % (k+<span class="number">1</span>) + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">        df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:index])</span><br><span class="line"></span><br><span class="line">        std_data = data_pre(data[df.keys()])</span><br><span class="line">        label = pd.get_dummies(tag.iloc[<span class="number">0</span>:<span class="built_in">len</span>(data), k:k+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">        class_score = []</span><br><span class="line">        kappa_score = []</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>):</span><br><span class="line">            X_train, X_test, y_train, y_test = train_test_split(std_data, label, test_size=<span class="number">0.3</span>)</span><br><span class="line">            score = run_classifiers(X_train, X_test, y_train, y_test)</span><br><span class="line">            class_score.append(score[<span class="number">0</span>])</span><br><span class="line">            kappa_score.append(score[<span class="number">1</span>])</span><br><span class="line">        class_scores.append([(np.array([class_score[a][k] <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>)])).mean() <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)])</span><br><span class="line">        kappa_scores.append([(np.array([kappa_score[a][k] <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">50</span>)])).mean() <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)])</span><br><span class="line">        print(<span class="string">f&#x27;已经运行<span class="subst">&#123;i&#125;</span>次&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    class_total = pd.DataFrame(class_scores)</span><br><span class="line">    kappa_total = pd.DataFrame(kappa_scores)</span><br><span class="line"></span><br><span class="line">    class_total.to_excel(<span class="string">&#x27;feature_section_class&#x27;</span> + <span class="string">&#x27;%d&#x27;</span> % k + <span class="string">&quot;.xlsx&quot;</span>)</span><br><span class="line">    kappa_total.to_excel(<span class="string">&#x27;feature_section_kappa&#x27;</span> + <span class="string">&#x27;%d&#x27;</span> % k + <span class="string">&quot;.xlsx&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&#x27;运行一次&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="特征降维后的分类结果"><a href="#特征降维后的分类结果" class="headerlink" title="特征降维后的分类结果"></a>特征降维后的分类结果</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @time     : 2020/6/23 0023</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sleep_class <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0</span>:</span><br><span class="line">        index = <span class="number">10</span></span><br><span class="line">        class_feature(k, index)</span><br><span class="line">    <span class="keyword">elif</span> k == <span class="number">1</span>:</span><br><span class="line">        index = <span class="number">9</span></span><br><span class="line">        class_feature(k, index)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        index = <span class="number">8</span></span><br><span class="line">        class_feature(k, index)</span><br></pre></td></tr></table></figure>
+
+<p>保存名字为 <strong>features_section_class</strong></p>
+<p>然后将其取平均值，并绘制柱状图</p>
+<h2 id="分类结果"><a href="#分类结果" class="headerlink" title="分类结果"></a>分类结果</h2><p>文件保存为：</p>
+<p>E:\feature section</p>
+<p> <strong>features_section_class</strong>是降维后</p>
+<p> <strong>feature_section_class</strong> 是最开始的数据分类结果</p>
+<p>经过查看，在即使在最高分期准确率的结果下，都会出现数据一部分特别好一部分都很差的情况</p>
+<p>暂时只进行数据的平均分类准确率，然后筛选出最优的分类模型，比较每个模型中最优的结果</p>
+<p>然后再去考虑单独的人，为什么会差距这么大，是什么因素影响了分期准确率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">           <span class="number">0</span>         <span class="number">1</span>         <span class="number">2</span>  ...         <span class="number">6</span>         <span class="number">7</span>         <span class="number">8</span></span><br><span class="line"><span class="number">0</span>   <span class="number">0.785217</span>  <span class="number">0.862609</span>  <span class="number">0.828406</span>  ...  <span class="number">0.874493</span>  <span class="number">0.879130</span>  <span class="number">0.882029</span></span><br><span class="line"><span class="number">1</span>   <span class="number">0.789143</span>  <span class="number">0.824000</span>  <span class="number">0.843429</span>  ...  <span class="number">0.844952</span>  <span class="number">0.845714</span>  <span class="number">0.847810</span></span><br><span class="line"><span class="number">2</span>   <span class="number">0.834667</span>  <span class="number">0.866286</span>  <span class="number">0.857714</span>  ...  <span class="number">0.848381</span>  <span class="number">0.853524</span>  <span class="number">0.860381</span></span><br><span class="line"><span class="number">3</span>   <span class="number">0.881538</span>  <span class="number">0.890000</span>  <span class="number">0.886154</span>  ...  <span class="number">0.881795</span>  <span class="number">0.864615</span>  <span class="number">0.898718</span></span><br><span class="line"><span class="number">4</span>   <span class="number">0.601373</span>  <span class="number">0.694902</span>  <span class="number">0.687745</span>  ...  <span class="number">0.756569</span>  <span class="number">0.765588</span>  <span class="number">0.768333</span></span><br><span class="line"><span class="number">5</span>   <span class="number">0.754366</span>  <span class="number">0.805540</span>  <span class="number">0.804131</span>  ...  <span class="number">0.850704</span>  <span class="number">0.847512</span>  <span class="number">0.827793</span></span><br><span class="line"><span class="number">6</span>   <span class="number">0.615450</span>  <span class="number">0.674597</span>  <span class="number">0.664171</span>  ...  <span class="number">0.706161</span>  <span class="number">0.702749</span>  <span class="number">0.715735</span></span><br><span class="line"><span class="number">7</span>   <span class="number">0.754732</span>  <span class="number">0.831122</span>  <span class="number">0.803415</span>  ...  <span class="number">0.840293</span>  <span class="number">0.824195</span>  <span class="number">0.845951</span></span><br><span class="line"><span class="number">8</span>   <span class="number">0.811746</span>  <span class="number">0.826984</span>  <span class="number">0.831429</span>  ...  <span class="number">0.822751</span>  <span class="number">0.834921</span>  <span class="number">0.844339</span></span><br><span class="line"><span class="number">9</span>   <span class="number">0.915749</span>  <span class="number">0.928309</span>  <span class="number">0.927246</span>  ...  <span class="number">0.941739</span>  <span class="number">0.935556</span>  <span class="number">0.938744</span></span><br><span class="line"><span class="number">10</span>  <span class="number">0.535238</span>  <span class="number">0.640173</span>  <span class="number">0.591602</span>  ...  <span class="number">0.674026</span>  <span class="number">0.670216</span>  <span class="number">0.669524</span></span><br><span class="line"><span class="number">11</span>  <span class="number">0.695733</span>  <span class="number">0.780800</span>  <span class="number">0.759822</span>  ...  <span class="number">0.809689</span>  <span class="number">0.798489</span>  <span class="number">0.795289</span></span><br><span class="line"><span class="number">12</span>  <span class="number">0.640356</span>  <span class="number">0.700889</span>  <span class="number">0.687911</span>  ...  <span class="number">0.690844</span>  <span class="number">0.696978</span>  <span class="number">0.705422</span></span><br><span class="line"><span class="number">13</span>  <span class="number">0.694667</span>  <span class="number">0.804148</span>  <span class="number">0.751852</span>  ...  <span class="number">0.786519</span>  <span class="number">0.801037</span>  <span class="number">0.811556</span></span><br><span class="line"><span class="number">14</span>  <span class="number">0.803824</span>  <span class="number">0.833137</span>  <span class="number">0.834608</span>  ...  <span class="number">0.841373</span>  <span class="number">0.833529</span>  <span class="number">0.850392</span></span><br><span class="line"><span class="number">15</span>  <span class="number">0.646479</span>  <span class="number">0.679531</span>  <span class="number">0.723192</span>  ...  <span class="number">0.772582</span>  <span class="number">0.776901</span>  <span class="number">0.803474</span></span><br><span class="line"><span class="number">16</span>  <span class="number">0.682636</span>  <span class="number">0.745271</span>  <span class="number">0.743101</span>  ...  <span class="number">0.760930</span>  <span class="number">0.770078</span>  <span class="number">0.758140</span></span><br><span class="line"><span class="number">17</span>  <span class="number">0.668372</span>  <span class="number">0.708837</span>  <span class="number">0.700465</span>  ...  <span class="number">0.719535</span>  <span class="number">0.696744</span>  <span class="number">0.721395</span></span><br></pre></td></tr></table></figure>
+
+<p>如下表所示，有些列的数据对应起来就并不好，先基于平均值然后再去筛选为什么为地域80%的原因，找单独的数据序列，去对应查看其中的影响因素。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> <span class="number">0</span>         <span class="number">1</span>         <span class="number">2</span>  ...         <span class="number">6</span>         <span class="number">7</span>         <span class="number">8</span></span><br><span class="line"><span class="number">0</span>   <span class="number">0.721449</span>  <span class="number">0.851304</span>  <span class="number">0.764348</span>  ...  <span class="number">0.848116</span>  <span class="number">0.836232</span>  <span class="number">0.851594</span></span><br><span class="line"><span class="number">1</span>   <span class="number">0.712571</span>  <span class="number">0.770095</span>  <span class="number">0.768381</span>  ...  <span class="number">0.808571</span>  <span class="number">0.814476</span>  <span class="number">0.769714</span></span><br><span class="line"><span class="number">2</span>   <span class="number">0.806476</span>  <span class="number">0.858286</span>  <span class="number">0.844000</span>  ...  <span class="number">0.837524</span>  <span class="number">0.842095</span>  <span class="number">0.861905</span></span><br><span class="line"><span class="number">3</span>   <span class="number">0.818205</span>  <span class="number">0.846154</span>  <span class="number">0.870513</span>  ...  <span class="number">0.854103</span>  <span class="number">0.851538</span>  <span class="number">0.856410</span></span><br><span class="line"><span class="number">4</span>   <span class="number">0.495882</span>  <span class="number">0.645000</span>  <span class="number">0.575392</span>  ...  <span class="number">0.700294</span>  <span class="number">0.696961</span>  <span class="number">0.682059</span></span><br><span class="line"><span class="number">5</span>   <span class="number">0.720845</span>  <span class="number">0.784695</span>  <span class="number">0.757934</span>  ...  <span class="number">0.818592</span>  <span class="number">0.814554</span>  <span class="number">0.764225</span></span><br><span class="line"><span class="number">6</span>   <span class="number">0.521991</span>  <span class="number">0.613175</span>  <span class="number">0.576967</span>  ...  <span class="number">0.637820</span>  <span class="number">0.638768</span>  <span class="number">0.635735</span></span><br><span class="line"><span class="number">7</span>   <span class="number">0.676488</span>  <span class="number">0.782634</span>  <span class="number">0.677366</span>  ...  <span class="number">0.799707</span>  <span class="number">0.803220</span>  <span class="number">0.807902</span></span><br><span class="line"><span class="number">8</span>   <span class="number">0.782540</span>  <span class="number">0.819153</span>  <span class="number">0.817460</span>  ...  <span class="number">0.810794</span>  <span class="number">0.820106</span>  <span class="number">0.832698</span></span><br><span class="line"><span class="number">9</span>   <span class="number">0.906377</span>  <span class="number">0.917005</span>  <span class="number">0.916908</span>  ...  <span class="number">0.920000</span>  <span class="number">0.916908</span>  <span class="number">0.920483</span></span><br><span class="line"><span class="number">10</span>  <span class="number">0.484762</span>  <span class="number">0.586667</span>  <span class="number">0.511688</span>  ...  <span class="number">0.642511</span>  <span class="number">0.638182</span>  <span class="number">0.614978</span></span><br><span class="line"><span class="number">11</span>  <span class="number">0.683378</span>  <span class="number">0.739111</span>  <span class="number">0.730667</span>  ...  <span class="number">0.785156</span>  <span class="number">0.779111</span>  <span class="number">0.758222</span></span><br><span class="line"><span class="number">12</span>  <span class="number">0.637956</span>  <span class="number">0.688356</span>  <span class="number">0.688267</span>  ...  <span class="number">0.670578</span>  <span class="number">0.679467</span>  <span class="number">0.688533</span></span><br><span class="line"><span class="number">13</span>  <span class="number">0.528741</span>  <span class="number">0.705778</span>  <span class="number">0.642519</span>  ...  <span class="number">0.723852</span>  <span class="number">0.733333</span>  <span class="number">0.690519</span></span><br><span class="line"><span class="number">14</span>  <span class="number">0.736569</span>  <span class="number">0.810686</span>  <span class="number">0.774216</span>  ...  <span class="number">0.818431</span>  <span class="number">0.817647</span>  <span class="number">0.819118</span></span><br><span class="line"><span class="number">15</span>  <span class="number">0.490704</span>  <span class="number">0.595869</span>  <span class="number">0.573052</span>  ...  <span class="number">0.724413</span>  <span class="number">0.706291</span>  <span class="number">0.639531</span></span><br><span class="line"><span class="number">16</span>  <span class="number">0.666977</span>  <span class="number">0.746202</span>  <span class="number">0.727907</span>  ...  <span class="number">0.754884</span>  <span class="number">0.753488</span>  <span class="number">0.760310</span></span><br><span class="line"><span class="number">17</span>  <span class="number">0.595814</span>  <span class="number">0.668372</span>  <span class="number">0.650233</span>  ...  <span class="number">0.676279</span>  <span class="number">0.657209</span>  <span class="number">0.696279</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/24</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最高准确率时对应特征数，对应的分类准确率</span></span><br><span class="line">feature = pd.read_excel(<span class="string">&#x27;E:/feature section&#x27;</span> + <span class="string">&#x27;/feature_section_class&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % <span class="number">1</span> + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">data = pd.get_dummies(feature.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature), <span class="number">1</span>:])</span><br><span class="line">data.rename(columns=&#123;<span class="number">0</span>: <span class="string">&#x27;SGD&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;SVM&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;LSVM&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;LR&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;KNN&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;DT&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;RF&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;GBT&#x27;</span>, <span class="number">8</span>: <span class="string">&#x27;NN&#x27;</span>&#125;, inplace=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 经过1%牺牲后的分类准确率</span></span><br><span class="line">section = pd.read_excel(<span class="string">&#x27;E:/feature section&#x27;</span> + <span class="string">&#x27;/features_section_class&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % <span class="number">1</span> + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">df = pd.get_dummies(section.iloc[<span class="number">0</span>:<span class="built_in">len</span>(section), <span class="number">1</span>:])</span><br><span class="line">df.rename(columns=&#123;<span class="number">0</span>: <span class="string">&#x27;SGD&#x27;</span>, <span class="number">1</span>: <span class="string">&#x27;SVM&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;LSVM&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;LR&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;KNN&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;DT&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;RF&#x27;</span>, <span class="number">7</span>: <span class="string">&#x27;GBT&#x27;</span>, <span class="number">8</span>: <span class="string">&#x27;NN&#x27;</span>&#125;, inplace=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">x = np.arange(<span class="number">9</span>)</span><br><span class="line">y1 = [(np.array([np.array(data).tolist()[i][j] * <span class="number">100</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>)])).mean() <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)]</span><br><span class="line">y2 = [(np.array([np.array(df).tolist()[i][j] * <span class="number">100</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>)])).mean() <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>)]</span><br><span class="line"></span><br><span class="line">width = <span class="number">0.4</span></span><br><span class="line">plt.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>] = [<span class="string">&#x27;Microsoft YaHei&#x27;</span>]</span><br><span class="line">plt.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br><span class="line">fig, ax = plt.subplots(figsize=(<span class="number">7</span>, <span class="number">5</span>))</span><br><span class="line">rects1 = ax.bar(x - width/<span class="number">2</span>, y1, width, color=<span class="string">&#x27;SkyBlue&#x27;</span>, label=<span class="string">&#x27;Before dimensionality reduction&#x27;</span>)</span><br><span class="line">rects2 = ax.bar(x + width/<span class="number">2</span>, y2, width, color=<span class="string">&#x27;IndianRed&#x27;</span>, label=<span class="string">&#x27;After dimensionality reduction&#x27;</span>)</span><br><span class="line"></span><br><span class="line">plt.xticks(x, (df.keys()), fontsize=<span class="number">10</span>, rotation=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">plt.ylabel(<span class="string">&#x27;Average Accuracy/%&#x27;</span>, fontsize=<span class="number">15</span>)</span><br><span class="line">ax.set_title(<span class="string">&#x27;DLRW主题下降维前后准确率对比&#x27;</span>, fontsize=<span class="number">15</span>)</span><br><span class="line">ax.legend()</span><br><span class="line">plt.ylim((<span class="number">60</span>, <span class="number">95</span>))</span><br><span class="line">new_ticks = np.linspace(<span class="number">60</span>, <span class="number">95</span>, <span class="number">5</span>)</span><br><span class="line">plt.yticks(new_ticks, fontsize=<span class="number">10</span>)</span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> rects1+rects2:</span><br><span class="line">    h = y.get_height()</span><br><span class="line">    ax.text(y.get_x()+y.get_width()/<span class="number">2</span>, h, <span class="string">&#x27;%.1f&#x27;</span> % h, ha=<span class="string">&#x27;center&#x27;</span>, va=<span class="string">&#x27;bottom&#x27;</span>, fontsize=<span class="number">10</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig.savefig(<span class="string">&#x27;feature_class4_number.png&#x27;</span>, dpi=<span class="number">1600</span>, bbox_inches=<span class="string">&#x27;tight&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>感觉效果并不好，考虑下一个步骤</p>
+<p><img src="/images/feature_class3_number.png" alt="feature_class3_number"></p>
+<p><img src="http://b-ssl.duitang.com/uploads/item/201610/09/20161009160331_YNsHu.jpeg"></p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/08/ECG-RR%E9%97%B4%E6%9C%9F%E9%A2%84%E5%A4%84%E7%90%86/">ECG_RR间期预处理</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/28/GUI%E7%95%8C%E9%9D%A2%E7%9A%84%E5%AE%8C%E5%96%84/">GUI界面的完善</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">matlab中的插值</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/01/python%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BB%98%E5%88%B6%E5%88%97%E8%A1%A8%E6%96%87%E4%BB%B6/">LV-1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/29/%E4%B8%AD%E6%9C%9F%E7%AD%94%E8%BE%A9%E9%A2%98%E7%9B%AE/">中期答辩题目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/10/%E5%8D%87%E7%BA%A7conda/">升级conda</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/19/%E5%AF%B9UCDDB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">对UCDDB数据库进行特征提取</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/%E5%B0%86python%E8%BD%AC%E6%8D%A2%E4%B8%BAexe/">将python转换为exe</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/23/%E6%A0%B9%E6%8D%AE5%E6%9C%9F%E7%9A%84%E6%A0%87%E7%AD%BE%E7%94%9F%E6%88%902%E6%9C%9F%E7%9A%84%E6%A0%87%E7%AD%BE/">根据5期的标签生成2期的标签</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/06/24/%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/06/24/%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/06/24/%E4%B8%8D%E5%90%8C%E7%89%B9%E5%BE%81%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/py-study/" style="font-size: 10.567968684770467px;" class="tag-cloud-link">py_study</a>
+    
+    <a href="/tags/nlp/" style="font-size: 13.413530755764107px;" class="tag-cloud-link">nlp</a>
+    
+    <a href="/tags/Graduation-work/" style="font-size: 16.630700575185855px;" class="tag-cloud-link">Graduation work</a>
+    
+    <a href="/tags/work/" style="font-size: 11.804524807047166px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/hexo/" style="font-size: 16.08537855720449px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10.671258123575173px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 18.969405881206768px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 12.914692011594859px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 8.693491287888595px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 13.559867474596949px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 19.225363145663845px;" class="tag-cloud-link">mathematical modeling</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
+
+
+
+
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="esy">
+    
+    <meta name="description" content="miao">
+    
+    
+    
+    
+    
+    
+    <title>聊天机器人基础 | ESY</title>
+    <link href="https://esyyes.github.io" rel="prefetch" />
+
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/aos.css">
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<script src="/js/jquery.min.js"></script>
+
+    
+<script src="/js/bootstrap.min.js"></script>
+
+    
+<script src="/js/aos.js"></script>
+
+    
+<script src="/js/highslide/highslide-full.min.js"></script>
+
+    
+<link rel="stylesheet" href="/js/highslide/highslide.css">
+
+    <style type="text/css">
+        @media (max-width: 768px) {
+            body {
+                background-color: #f0f0f0;
+                background: url('/imgs/xsbg.gif');
+                background-attachment: fixed;
+            }
+        }
+    </style>
+    
+    <!--<script type="text/javascript">
+      if (document.images) {
+        var avatar = new Image();
+        avatar.src = '/imgs/avatar.jpg'
+        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
+        var previewsPreLoad = []
+        for(var i = 0; i < length; i++) {
+          previewsPreLoad.push(new Image())
+          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
+        }
+      }
+    </script>-->
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body>
+    <!-- 背景轮播图功能 -->
+    <section class="hidden-xs">
+    <ul class="cb-slideshow">
+        <li><span>天若</span></li>
+        <li><span>有情</span></li>
+        <li><span>天亦老</span></li>
+        <li><span>我为</span></li>
+        <li><span>长者</span></li>
+        <li><span>续一秒</span></li>
+    </ul>
+</section>
+    <!-- 欧尼酱功能, 谁用谁知道 -->
+    
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
+    <header class="navbar navbar-inverse" id="gal-header">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target=".bs-navbar-collapse"
+                    aria-expanded="false">
+                <span class="fa fa-lg fa-reorder"></span>
+            </button>
+            <a href="https://esyyes.github.io">
+                
+                <style>
+                    #gal-header .navbar-brand {
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
+                    }
+                </style>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">ESY</div>
+                
+            </a>
+        </div>
+        <div class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav" id="menu-gal">
+                
+                
+                <li class="">
+                    <a href="/">
+                        <i class="fa fa-home"></i>首页
+                    </a>
+                </li>
+                
+                
+                
+                <li class="">
+                    <a href="/archives">
+                        <i class="fa fa-archive"></i>归档
+                    </a>
+                </li>
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-list"></i>分类
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/categories/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/categories">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                
+                <li class="dropdown">
+                    <!-- TODO 添加hover dropdown效果 -->
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
+                        <i class="fa fa-tags"></i>标签
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li>
+                            <a href="/tags/py-study/">py_study</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/nlp/">nlp</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/Graduation-work/">Graduation work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/work/">work</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/hexo/">hexo</a>
+                        </li>
+                        
+                        <li>
+                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
+                        </li>
+                        
+                        
+                        <li>
+                            <a href="/tags">...</a>
+                        </li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+                
+                <li class="">
+                    <a href="/about">
+                        <i class="fa fa-user"></i>关于我
+                    </a>
+                </li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</header>
+    <div id="gal-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 gal-right" id="mainstay">
+                    
+<article class="article well article-body" id="article">
+    <div class="breadcrumb">
+        <i class="fa fa-home"></i>
+        <a href="https://esyyes.github.io">ESY</a>
+        >
+        <span>聊天机器人基础</span>
+    </div>
+    <!-- 大型设备详细文章 -->
+    <div class="hidden-xs">
+        <div class="title-article">
+            <h1>
+                <a href="/2020/07/10/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/">聊天机器人基础</a>
+            </h1>
+        </div>
+        <div class="tag-article">
+            
+            <span class="label label-gal">
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+            </span>
+            
+            <span class="label label-gal">
+                <i class="fa fa-calendar"></i> 2020-07-10
+            </span>
+            
+        </div>
+    </div>
+    <!-- 小型设备详细文章 -->
+    <div class="visible-xs">
+        <center>
+            <div class="title-article">
+                <h4>
+                    <a href="/2020/07/10/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/">聊天机器人基础</a>
+                </h4>
+            </div>
+            <p>
+                <i class="fa fa-calendar"></i> 2020-07-10
+            </p>
+            <p>
+                
+                <i class="fa fa-tags"></i>
+                
+                <a href="/tags/work/">work</a>
+                
+                
+                
+            </p>
+        </center>
+    </div>
+    <div class="content-article">
+        <h1 id="聊天机器人基础篇"><a href="#聊天机器人基础篇" class="headerlink" title="聊天机器人基础篇"></a>聊天机器人基础篇</h1><p><strong>问答系统</strong>是搜索引擎技术的一种扩展，可根据用户<strong>输入的问题</strong>给出<strong>精确而简练</strong>的答案。根据回答问题的范围，问答系统分为<strong>开域</strong>和<strong>闭域</strong>。开域的问答系统可以回答多种多样、涉及很多领域的问题；<strong>闭域的问答系统为用户回答某个特定领域的问题</strong>。</p>
+<p>问答系统通常是闭域的，且为执行具体的任务而设计，这种问答系统也称作任务式问答系统</p>
+<p>I plan to develop <strong>a question-and-answer chatbot for the tourism domain</strong><br>based on <strong>retrieval mode</strong>. The chatbot will respond to users by<br>selecting the best matching answer in the database based on users’<br>questions.</p>
+<p>本文的要求：聊天机器人就为问答式的指定的旅游和检索式的！</p>
+<p>以任务为主的特定领域。检索式</p>
+<p>检索式单轮聊天机器人（ＦＡＱ－Ｂ〇ｔ），其思想就是通过计算词向量的相似性，利用有限的问答对进行同义词的扩展修改和复写，此外还有问答系统（ＱＡ）</p>
+<p>即创建一个问答式的检索聊天机器人。</p>
+<h2 id="问答系统"><a href="#问答系统" class="headerlink" title="问答系统"></a>问答系统</h2><p>问答系统 （ Question  Answerir毡， QA ）由最初的搜索需求发展而来，基本为“一问一答”的交互模式 ，因此构建问答系统时一般不会涉及对话管理相关的技术。 第 l 章介绍过， 聊天机器人的核心模块包括自然语言理解、对话管理和自 然语言生成。 在自然语言理解层面，问答系统偏重于问句分析，旨在获取问句的主题词、问题词、 中心动词等。 目前，问句分析主要采用模板匹配和语义解析两种方式。</p>
+<h3 id="自然语言"><a href="#自然语言" class="headerlink" title="自然语言"></a>自然语言</h3><p>自然语言通常会自然地随文化发生演化，英语、汉语、日语都是具体种类的自然语言，这些自然语言震行着语言最原始的作用 ： 人们进行交互和思想交流的媒介性工具。我们可以从语音、音韵、词态、句法、语义、语用 6 个维度理解自然语言。</p>
+<p>(  1 ） <strong>语音</strong>是与发音相关的学问（例如儿童学习的汉语拼音等），主要在前述介绍的语音技术中发挥作用。</p>
+<p>( 2 ） <strong>音韵</strong>是由语音组合起来的读音，即汉语拼音和四声调。</p>
+<p>( 3 ） <strong>词态</strong>封装了可用于自然语言理解的有用信息，其中信息量的大小取决于具体的语言种类。需要特别提及的是，中文没有太多的词态变换（不像拉丁语系语言），仅存在不同的偏旁，导致出现词的性别转换的情况（例如 “他”“她” ） 。</p>
+<p>( 4 ） <strong>句法</strong>主要研究词语如何组成合乎语法的句子 ，句法提供单词组成句子的约束条件，为语义的合成提供框架。</p>
+<p>( 5 ） <strong>语义和语用</strong>是自然语言所包含和表达的意思 。</p>
+<p>对<strong>计算机</strong>来说，<strong>自然语言处理</strong>的难度主要体现在以下几个方面 ：</p>
+<p>( 1 ）自然语言千变万化，没有固定格式。同样的意思可以使用多种句式来表达，同样的句子调整一个字、调整语调或者调整语序 ， 表达的意思可能相差甚多。</p>
+<p>( 2 ）不断有新的词汇出现，计算机需要不断学习新的词汇。</p>
+<p>( 3 ）在不同的场景 （上下文语境）下，同一句话表达的意思可能不同 。</p>
+<p><strong>聊天机器人系统中的自然语言理解模块的功能主要包捐实体识别、用户意图识别、用户情感识别、指代消解、省｜咯恢复、回复确认及拒识判断等</strong>。 <strong>实体识别</strong>又称命名实体识别（ Named Entity  Recognition ），指识别自然语言中具有特定意义的实体，如人名、时间、地名及各种专有名词。 用户意图识别中需要识别的用户意图包括显式意图和隐式意图，显式意图通常对应一个明确的用户需求 ，而隐式意图则较难判断，表 2-1 举例说明了用户的显式意图和隐式意图。用户情感和用户意图类似，也可以分为显式和隐式两种，表 2-2 是对用户显式情感和隐式情感的举例说明。 指代消解和省略恢复是指聊天主题背景一致的情况下 ，人们在对话过程中通常会习惯性地使用代词指代已经出现过的某个实体或事件 ， 或者为了方便表述省略句子部分成分的情况。 自然语言理解模块需要明确代词指代的成分及句子中省略的成分，唯有如此，聊天机器人才能正确理解用户的输入，给出合乎上下文语义的回复。 当用户意图、聊天信息等带有一定的模糊性时 ， 需要聊天机器人主动向用户询问 ，确认用户的意图，即回复确认。 拒识判断是指聊天机器人系统应当具备一定的拒识能力 ， 主动拒绝识别及回复超出自身理解／回复范围或者涉及敏感话题的用户输入。</p>
+<h3 id="基于规则的方法"><a href="#基于规则的方法" class="headerlink" title="基于规则的方法"></a>基于规则的方法</h3><p>通常，可以将自然语言理解的主要方法分为<strong>基于规则的方法</strong>和<strong>基于统计的方法</strong>两种。 <strong>基于规则的方法</strong>是指利用<strong>规则定义如何从文本中提取语义</strong> ， 大致思路是<strong>人工定义很多语法规则</strong>，它们是表达某种特定语义的具体方式， 然后自然语言理解模块根据这些<strong>规则解析输入该模块的文本</strong>。基于规则的 自然语言理解模块的优点是灵活 ，<strong>可以定义各种各样的规则 ， 而且不依赖训练数据</strong> ； 缺点是<strong>需要大量的、覆盖不同场景</strong>的规则 ， 且随着规则数量的增长 ，对规则进行人工维护的难度也会增加。因此， 基于规则的自然语言理解只适合用在<strong>相对简单</strong>的场景，其优势在于可以快速实现一个简单可用的语义理解模块。</p>
+<p>在具体实践中，通常将这两种方法结合起来使用 。</p>
+<p>(  1 ）<strong>没有数据及数据较少时先采用基于规则的方法，当数据积累到 一定规模时逐渐转为使用基于统计的方法。</strong></p>
+<p><strong>词性标注</strong>最初采用的主要模型是隐马尔可夫生成式模型，之后陆续采用过判别式的最大脑模型、支持向量机模型等进行尝试。 词性标注的方法主要分为两种 ： 基于规则的方法和基于统计模型的方法。 基于规则的词性标注方法按照兼类词搭配关系和上下文语境建造词类消歧规则 。</p>
+<p>对句子进行句法分析需要确定句子的句法结构，分析的结果往往以树结构的形式表现，这棵表示句子结构的树又叫作句法分析树。 句法分析树的建立可以采用自顶向下的方法，也可以采用自底向上的方法。</p>
+<p>根据句法结构的不同表示形式，可以将句法分析任务划分为以下 3 种。( 1 ）依存句法分析（ Dependency Syntactic Parsing ）， 主要任务是识别句子中词汇之间的相互依存关系。</p>
+<p>( 2 ） 短语结构句法分析（ Phrase-structure  Syntactic  Parsing ）， 也称作成分句法分析（ Constituent Syntactic Parsing ），主要任务是识别句子中短语结构和短语之间的层次句法关系</p>
+<p>( 3 ）深层文法句法分析，主要任务是利用深层文沽，对句子进行深层的句法及语义分析，这些深层文法包括词汇化树邻接文法、词汇功能文法、组合范畴文法等。</p>
+<h2 id="KBQA系统"><a href="#KBQA系统" class="headerlink" title="KBQA系统"></a>KBQA系统</h2><p><strong>问答系统是信息、检索系统的一种高级形式</strong> ， 它通过 Web 搜索或链接知识库等方式 ， 检索到用户问题的答案，并用准确、简洁的自然语言回答用户。本书第 2 章简要阐述了问答系统、对话系统和闲聊系统的区别与联系。问答系统更接近信息检索中的语义搜索 ， 针对用户用自然语言提出的问题，通过一系列的方法生成问题的答案 ， 但与信息检索系统的不同在于，问答系统根据用户的问题直接给出精准的答案， 而不是给出一系列包含候选答案的页面。 系统生成答案的过程虽然也涉及简单的上下文处理 ， 但通常是通过指代消解和内容补全完成处理操作的。问答系统主要针对特定领域的知识进行一问一答 ， 侧重于知识结构的构建、知识的融合与知识的推理。</p>
+<p>问答系统</p>
+<p>(  1 ）以自然语言 问题为输入，以准确的答案为输出 。</p>
+<p>( 2 ） 让机器承担更多数据解释的工作。</p>
+<p>( 3 ） 问答系统是一个问题驱动的信息获取过程（ Query-driven Information Access ） </p>
+<p>问答系统适用于特殊而复杂的信息需求，可以从多样化的、非结构化的信息中获取问题的答案，并且需要对问题进行更多自动化的语义理解。</p>
+<p>现有的问答系统根据其问题答案的数据来源和回答的方式的不同， 大体上可以分为以下 3 类。</p>
+<ol>
+<li><p>基于 Web 信息检索的问答系统（ Web Question Answering ,  WebQA) WebQA 系统以搜索引擎为支撑 ， 理解分析用户的问题意图后，利用搜索引 擎在全网范围内搜索相关答案反馈给用户 。 典型的系统有早期的 Ask Jeeves 和 Answer Bus 问答系统。</p>
+</li>
+<li><p><strong>基于知识库的问答系统 C Knowledge  Based  Question  Answering, KBQA)</strong> 阻QA 系统通过结合一些已有的知识库或数据库资源（例如 Fre巳ba挝、DBpedia 、 Yago 、 Zhishi . me 等） ，以及利 用如维基百科、百度百科等非结构化文本的信息 ，使用信息抽取的方法提取有价值的信息 ，并构建知识图谱作为问答系统的后台支撑， 再一结合知识推理等方法为用户提供更深层次语义理解的答案。</p>
+</li>
+<li><p>社区问答系统（ Community Question Answering,  CQA) CQA 系统也叫基于社交媒体的问答系统 ， 例如 Yahoo! Answers 、百度知道、知乎等问答平台。大多数问题的答案由网友提供，问答系统会检索社交媒体中与用户提问语义相似的问题，并将答案返回给用户。</p>
+</li>
+</ol>
+<p>上述 3 类问答系统中 ，KBQA 是当下应用最广泛的 ， 该类系统不仅需要实现对复杂问题的语义理解 ，还要在若干知识库之间进行知识的融合，并针对复杂的问题进行知识推理。 3.2 节将详细介绍 阻QA 中用到的相关技术 ， 3.3 节将介绍如何实现一个简单的问答系统。 除了这 3 类主流问答系统，还有其他形式的问答系统 ，例如混合式问答系统 （ Hybrid QA ）、 多语言问答系统（ Multilingual QA ）、基于常见问题库的问答系统（ Frequently Asked Question,  FAQ ） </p>
+<p><strong>知识库（ Knowledge Base ，KB</strong> ）是用于知识管理的一种特殊的数据库，用于相关领域知识的采集、整理及提取。 知识库中的知识源于领域专家，是求解问题所需领域知识的集合 ， 包括一些基本事实、规则和其他相关信息。知识库的表示形式是一个对象模型（ object model ），通常称为本体，包含一些类、子类和实体。不同于传统的数据库 ， 知识库中存放的知识蕴含特殊的知识表示 ，其结构比数据库更复杂，可以用来存放更多复杂语义表示的数据。 知识库最早被应用于专家系统 ， 它是一种基于知识的系统，包含表示客观世界事实的一系列知识及一个推理机（ inference engine ），并依赖一定的规则和逻辑形式推理出一些新的事实</p>
+<p>KBQA 是基于知识库中的专业知识建立的问答系统，也是目前最主流的问答系统。常见的知识库有 Freebase 、 DBpedia 等。知识库一般采用 RDF 格式对其中的知识进行表示 ， 知识的查询主要采用 RDF 标准查询语言 SPARQL。除此之外，还有一些 （例如维基百科等 ）无结构化文本知识库。</p>
+<p>但一般来说， KBQA 系统包含问句理解、答案信息抽取、答案排序和生成等核心模块，</p>
+<p>因此现在主要是对问句进行理解！</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1594788222495&di=82165d1eb214d317226aa4c184b4ead8&imgtype=0&src=http://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/0823dd54564e9258088b73de9782d158ccbf4e47.jpg"></p>
+
+    </div>
+</article>
+
+
+                </div>
+                <aside class="col-md-4 gal-left" id="sidebar">
+    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
+<aside id="sidebar-search">
+    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <form class="form-inline clearfix" id="search-form" method="get"
+              action="/search/index.html">
+            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
+            <button class="btn btn-danger btn-gal" type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+    </div>
+</aside>
+    <aside id="sidebar-author">
+    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
+        <div class="panel-heading" style="text-align: center">
+            <i class="fa fa-quote-left"></i>
+            esy
+            <i class="fa fa-quote-right"></i>
+        </div>
+        <div class="author-panel text-center">
+            <img src="/imgs/avatar.jpg" width="140" height="140"
+                 alt="个人头像" class="author-image">
+            <p class="author-description"><p>miao</p>
+</p>
+        </div>
+    </div>
+</aside>
+    
+    <aside id="sidebar-recent_comments">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-comments"></i>
+            最新评论
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush"></ul>
+    </div>
+</aside>
+    
+    <!-- 要配置好leancloud才能开启此小工具 -->
+    
+    
+    <aside id="sidebar-recent_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            近期文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/04/hello-world/">Hello World</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="sidebar-rand_posts">
+    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+        <div class="panel-heading">
+            <i class="fa fa-refresh"></i>
+            随机文章
+            <i class="fa fa-times-circle panel-remove"></i>
+            <i class="fa fa-chevron-circle-up panel-toggle"></i>
+        </div>
+        <ul class="list-group list-group-flush">
+            
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/07/23/gui%E7%95%8C%E9%9D%A2%E6%9A%82%E5%AE%9A%E7%89%88%E5%92%8C%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">gui界面暂定版和遇到的问题</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/24/pyhon%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0/">pyhon基础--函数</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/11/24/pyhon%E5%9F%BA%E7%A1%80-%E6%A8%A1%E5%9D%97/">pyhon基础--模块</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/15/python-wfdb%E4%BD%BF%E7%94%A8/">python_wfdb使用</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/02/26/python%E2%80%94%E2%80%94%E5%91%BC%E5%90%B8%E9%9F%B3%E7%89%B9%E5%BE%81/">python</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2019/12/01/python%E5%9F%BA%E7%A1%80%E4%B9%8B%E7%BB%98%E5%88%B6%E5%88%97%E8%A1%A8%E6%96%87%E4%BB%B6/">LV-1</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/05/31/sleep-apnea/">sleep apnea</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/06/29/%E4%B8%AD%E6%9C%9F%E7%AD%94%E8%BE%A9%E9%A2%98%E7%9B%AE/">中期答辩题目</a>
+                </span>
+            </li>
+            
+            <li class="list-group-item">
+                <span class="post-title">
+                    <a href="/2020/08/08/%E5%B0%86python%E8%BD%AC%E6%8D%A2%E4%B8%BAexe/">将python转换为exe</a>
+                </span>
+            </li>
+            
+        </ul>
+    </div>
+</aside>
+    
+    
+    <aside id="gal-sets">
+        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
+            <ul class="nav nav-pills pills-gal">
+
+                
+                <li>
+                    <a href="/2020/07/10/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/10/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                </li>
+                
+                
+                <li>
+                    <a href="/2020/07/10/%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%9F%BA%E7%A1%80/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                </li>
+                
+            </ul>
+            <div class="tab-content">
+                
+                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+    
+    <a href="/tags/py-study/" style="font-size: 19.096576774374128px;" class="tag-cloud-link">py_study</a>
+    
+    <a href="/tags/nlp/" style="font-size: 16.443129031327867px;" class="tag-cloud-link">nlp</a>
+    
+    <a href="/tags/Graduation-work/" style="font-size: 17.501711231085924px;" class="tag-cloud-link">Graduation work</a>
+    
+    <a href="/tags/work/" style="font-size: 15.617015642118819px;" class="tag-cloud-link">work</a>
+    
+    <a href="/tags/hexo/" style="font-size: 18.449493949223186px;" class="tag-cloud-link">hexo</a>
+    
+    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10.854643228228px;" class="tag-cloud-link">-个人博客搭建</a>
+    
+    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 8.29272826876398px;" class="tag-cloud-link">-malab -毕业</a>
+    
+    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 19.913649705841493px;" class="tag-cloud-link">-python -人工智能</a>
+    
+    <a href="/tags/python/" style="font-size: 16.296557833869787px;" class="tag-cloud-link">python</a>
+    
+    <a href="/tags/python/" style="font-size: 13.111910066708965px;" class="tag-cloud-link">-python</a>
+    
+    <a href="/tags/mathematical-modeling/" style="font-size: 15.803572391380392px;" class="tag-cloud-link">mathematical modeling</a>
+    
+</div>
+                
+                
+                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
+    
+    <li>
+        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
+    </li>
+    
+    <li>
+        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
+    </li>
+    
+    <li>
+        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
+    </li>
+    
+</div>
+                
+                
+                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
+    
+    <li>
+        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
+    </li>
+    
+    <li>
+        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
+    </li>
+    
+    <li>
+        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
+    </li>
+    
+</div>
+                
+            </div>
+        </div>
+    </aside>
+    
+</aside>
+            </div>
+        </div>
+    </div>
+    <footer id="gal-footer">
+    <div class="container">
+        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+    </div>
+</footer>
+
+<!-- 回到顶端 -->
+<div id="gal-gotop">
+    <i class="fa fa-angle-up"></i>
+</div>
+</body>
+
+<script src="/js/activate-power-mode.js"></script>
+
+<script>
+
+    // 配置highslide
+	hs.graphicsDir = '/js/highslide/graphics/'
+    hs.outlineType = "rounded-white";
+    hs.dimmingOpacity = 0.8;
+    hs.outlineWhileAnimating = true;
+    hs.showCredits = false;
+    hs.captionEval = "this.thumb.alt";
+    hs.numberPosition = "caption";
+    hs.align = "center";
+    hs.transitions = ["expand", "crossfade"];
+    hs.lang.number = '共%2张图, 当前是第%1张';
+    hs.addSlideshow({
+      interval: 5000,
+      repeat: true,
+      useControls: true,
+      fixedControls: "fit",
+      overlayOptions: {
+        opacity: 0.75,
+        position: "bottom center",
+        hideOnMouseOut: true
+      }
+    })
+
+    // 初始化aos
+    AOS.init({
+      duration: 1000,
+      delay: 0,
+      easing: 'ease-out-back'
+    });
+
+</script>
+<script>
+	POWERMODE.colorful = 'true';    // make power mode colorful
+	POWERMODE.shake = 'true';       // turn off shake
+	// TODO 这里根据具体情况修改
+	document.body.addEventListener('input', POWERMODE);
+</script>
+<script>
+    window.slideConfig = {
+      prefix: '/imgs/slide/background',
+      ext: 'jpg',
+      maxCount: '6'
+    }
+</script>
+
+<script src="/js/hs.js"></script>
+<script src="/js/blog.js"></script>
+
+
+
+<script src="/js/oni.js"></script>
+
+
+
+
+</html>
