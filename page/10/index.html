@@ -1,1440 +1,1174 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="esy">
-    
-    <meta name="description" content="miao">
-    
-    
-    
-    
-    
-    
-    <title>ESY</title>
-    <link href="https://esyyes.github.io" rel="prefetch" />
+  <meta charset="utf-8">
+  
 
-    
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
+  
+  <title>ESY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="esy">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ESY">
+<meta property="og:url" content="https://esyyes.github.io/page/10/index.html">
+<meta property="og:site_name" content="ESY">
+<meta property="og:description" content="esy">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="esy">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
-    
-<script src="/js/jquery.min.js"></script>
-
-    
-<script src="/js/bootstrap.min.js"></script>
-
-    
-<script src="/js/aos.js"></script>
-
-    
-<script src="/js/highslide/highslide-full.min.js"></script>
-
-    
-<link rel="stylesheet" href="/js/highslide/highslide.css">
-
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
 <meta name="generator" content="Hexo 5.2.0"></head>
+
 <body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
-    <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
-    </ul>
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-    <div class="circle" id="gal">
-        <div class="ring">
-            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
-            
-            <a href="/page/11/" class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
-            
-            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
-
-            
-            <a href="/page/9" class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
-            
-        </div>
-        <audio id="audio" src="/imgs/oni.mp3"></audio>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ESY</a>
+      </h1>
+      
     </div>
-</div>
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://esyyes.github.io">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">ESY</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
-                    <a href="/">
-                        <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                
-                
-                <li class="">
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
-                    </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/py-study/">py_study</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/nlp/">nlp</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/Graduation-work/">Graduation work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/work/">work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/hexo/">hexo</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/py-study/">py_study</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/nlp/">nlp</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Graduation-work/">Graduation work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/work/">work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/hexo/">hexo</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
-                    <a href="/about">
-                        <i class="fa fa-user"></i>关于我
-                    </a>
-                </li>
-                
-                
-            </ul>
-        </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://esyyes.github.io"></form>
+      </div>
     </div>
+  </div>
 </header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<div class="alert well fade in" id="gal-issue" role="alert">
-    <!-- TODO 添加关闭公告框功能 -->
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <!-- 这里自行配置公告内容 -->
-    这里是公告内容
-    <br>
-    配置相关说明请看<strong>_config.yml</strong>
-    <!-- 自行配置公告内容结束 -->
-</div>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-python——滑动切片之数组" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/" class="article-date">
+  <time datetime="2020-02-08T05:45:57.000Z" itemprop="datePublished">2020-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">python——滑动切片之数组</a>
+    </h1>
+  
 
-<div id="article-list">
-     
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
+      </header>
     
-    <div class="data-article hidden-xs">
-        <span class="month">02月</span>
-        <span class="day">08</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">
-                    <span>python——滑动切片之数组</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview3.jpg" alt="python——滑动切片之数组">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">
-                        <span>python——滑动切片之数组</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2020-02-08
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">
-                    
-                    <img src="/imgs/preview/preview2.jpg" alt="python——滑动切片之数组">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">02月</span>
-        <span class="day">08</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">
-                    <span>python__滑动切片</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview2.jpg" alt="python__滑动切片">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">
-                        <span>python__滑动切片</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2020-02-08
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">
-                    
-                    <img src="/imgs/preview/preview2.jpg" alt="python__滑动切片">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">02月</span>
-        <span class="day">07</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">
-                    <span>python__获取MIT数据</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview2.jpg" alt="python__获取MIT数据">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">
-                        <span>python__获取MIT数据</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2020-02-07
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">
-                    
-                    <img src="/imgs/preview/preview1.jpg" alt="python__获取MIT数据">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">01月</span>
-        <span class="day">07</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                    <span>matlab中的滑动窗口</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview4.jpg" alt="matlab中的滑动窗口">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                        <span>matlab中的滑动窗口</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2020-01-07
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                    
-                    <img src="/imgs/preview/preview2.jpg" alt="matlab中的滑动窗口">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">26</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">
-                    <span>去趋势波动分析DFA</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview4.jpg" alt="去趋势波动分析DFA">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">
-                        <span>去趋势波动分析DFA</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-12-26
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">
-                    
-                    <img src="/imgs/preview/preview3.jpg" alt="去趋势波动分析DFA">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">26</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">
-                    <span>LV-3</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview4.jpg" alt="LV-3">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">
-                        <span>LV-3</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-12-26
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">
-                    
-                    <img src="/imgs/preview/preview4.jpg" alt="LV-3">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">18</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">
-                    <span>matlab中的插值</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview2.jpg" alt="matlab中的插值">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">
-                        <span>matlab中的插值</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-12-18
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">
-                    
-                    <img src="/imgs/preview/preview2.jpg" alt="matlab中的插值">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">17</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">
-                    <span>matlab中的重采样</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
-                
-            </span>
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview3.jpg" alt="matlab中的重采样">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">
-                        <span>matlab中的重采样</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-12-17
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            <i class="fa fa-tags"></i>
-            
-            <a href="/tags/malab-%E6%AF%95%E4%B8%9A/">-malab -毕业</a>
-            
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">
-                    
-                    <img src="/imgs/preview/preview3.jpg" alt="matlab中的重采样">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">16</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">
-                    <span>心率变异性</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview4.jpg" alt="心率变异性">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">
-                        <span>心率变异性</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-12-16
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">
-                    
-                    <img src="/imgs/preview/preview4.jpg" alt="心率变异性">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-     <div class="article well clearfix article-body article-excerpt" data-aos="flip-up">
-    
-    <div class="data-article hidden-xs">
-        <span class="month">12月</span>
-        <span class="day">10</span>
-    </div>
-    <!-- 大型设备文章 -->
-    <section class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">
-                    <span>matplotlib图像绘制学习</span>
-                </a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            
-            <!-- TODO 添加评论统计 -->
-            <!--<span class="label label-gal">
-                <i class="fa fa-comments"></i>
-                <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/#comments">739</a>
-            </span>-->
-        </div>
-        <div class="alert alert-gal article-body content-article">
-            <div class="item">
-                <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">
-                    <div class="img">
-                        
-                        <img src="/imgs/preview/preview4.jpg" alt="matplotlib图像绘制学习">
-                    </div>
-                    <div class="info">
-                        
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="visible-xs">
-        <div class="title-article">
-            <center>
-                <h4>
-                    <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">
-                        <span>matplotlib图像绘制学习</span>
-                    </a>
-                </h4>
-            </center>
-        </div>
-        <p></p>
-        <center>
-            <i class="fa fa-calendar"></i> 2019-12-10
-        </center>
-        <p></p>
-        <p></p>
-        <center>
-            
-            
-        </center>
-        <p></p>
-        <div class="alert alert-gal article-body content-article">
-            <p style="text-align: center;">
-                <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">
-                    
-                    <img src="/imgs/preview/preview4.jpg" alt="matplotlib图像绘制学习">
-                </a>
-            </p>
-        </div>
-        
-        <a class="btn btn-danger pull-right read-more btn-block" href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">
-            阅读全文
-            <!--<span class="badge">739</span>-->
-        </a>
-    </section>
-</div>
-     
-</div>
-<!-- 前方最多7个 < 1 2 3 4 5 6 -->
-<!-- 前方超过第7页则分为 < 1 ... (n - 3) (n - 2) (n - 1) n, 此时前面为固定的6个 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">ndarray.ndim</td>
+<td align="left">秩，即轴的数量或维度的数量</td>
+</tr>
+<tr>
+<td align="left">ndarray.shape</td>
+<td align="left">数组的维度，对于矩阵，n 行 m 列</td>
+</tr>
+<tr>
+<td align="left">ndarray.size</td>
+<td align="left">数组元素的总个数，相当于 .shape 中 n*m 的值</td>
+</tr>
+<tr>
+<td align="left">ndarray.dtype</td>
+<td align="left">ndarray 对象的元素类型</td>
+</tr>
+<tr>
+<td align="left">ndarray.itemsize</td>
+<td align="left">ndarray 对象中每个元素的大小，以字节为单位</td>
+</tr>
+<tr>
+<td align="left">ndarray.flags</td>
+<td align="left">ndarray 对象的内存信息</td>
+</tr>
+<tr>
+<td align="left">ndarray.real</td>
+<td align="left">ndarray元素的实部</td>
+</tr>
+<tr>
+<td align="left">ndarray.imag</td>
+<td align="left">ndarray 元素的虚部</td>
+</tr>
+<tr>
+<td align="left">ndarray.data</td>
+<td align="left">包含实际数组元素的缓冲区，由于一般通过数组的索引获取元素，所以通常不需要使用这个属性。</td>
+</tr>
+</tbody></table>
+<p>数组的切片：</p>
+<p>ndarray对象的内容可以通过索引或切片来访问和修改，与 Python 中 list 的切片操作一样。</p>
+<p>ndarray 数组可以基于 0 - n 的下标进行索引，切片对象可以通过内置的 slice 函数，并设置 start, stop 及 step 参数进行，从原数组中切割出一个新数组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"> </span><br><span class="line">a = np.arange(<span class="number">10</span>)  </span><br><span class="line">b = a[<span class="number">2</span>:<span class="number">7</span>:<span class="number">2</span>]   <span class="comment"># 从索引 2 开始到索引 7 停止，间隔为 2</span></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure>
 
-<!-- 后方最多8个 (n + 1) 到 (n + 7) > -->
-<!-- 如果末页和当前页相差超过7, 此时后面为固定的6个, (n + 1) (n + 2) (n + 3) ... total > -->
+<p>数组的详细介绍</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/numpy/numpy-ndexing-and-slicing.html">https://www.runoob.com/numpy/numpy-ndexing-and-slicing.html</a></p>
+<p><img src="H:\myboke\mybike\source\images\image-20200208142758066.png" alt="image-20200208142758066"></p>
+<p>还是需要用到循环结果</p>
+<p>进行30s切片，并得到RR系列：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">0</span></span><br><span class="line">locs_30s = []</span><br><span class="line">RR = []</span><br><span class="line"><span class="keyword">while</span> locs[i] &lt; <span class="number">7500</span>:</span><br><span class="line">    locs_30s.append(locs[i])</span><br><span class="line">    RR.append(locs[i+<span class="number">1</span>] - locs[i])</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">RR.pop()</span><br><span class="line">print(RR)</span><br><span class="line">[<span class="number">215</span>, <span class="number">223</span>, <span class="number">230</span>, <span class="number">224</span>, <span class="number">226</span>, <span class="number">223</span>, <span class="number">221</span>, <span class="number">227</span>, <span class="number">221</span>, <span class="number">215</span>, <span class="number">216</span>, <span class="number">213</span>, <span class="number">217</span>, <span class="number">227</span>, <span class="number">237</span>, <span class="number">245</span>, <span class="number">242</span>, <span class="number">239</span>, <span class="number">247</span>, <span class="number">249</span>, <span class="number">246</span>, <span class="number">239</span>, <span class="number">231</span>, <span class="number">234</span>, <span class="number">235</span>, <span class="number">237</span>, <span class="number">236</span>, <span class="number">226</span>, <span class="number">222</span>, <span class="number">224</span>, <span class="number">228</span>, <span class="number">226</span>]</span><br></pre></td></tr></table></figure>
+
+<p>循环切片先不管RR系列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 考虑它的片段个数240</span></span><br><span class="line"><span class="comment"># 先考虑ECG片段的分段，分为240个30s的数据，毕竟这个为等距离的，列表里面放列表</span></span><br><span class="line"><span class="comment"># 建立一个空元组</span></span><br><span class="line">tuple1 = []</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; (ECG_LEN / <span class="number">250</span> / <span class="number">30</span>) - <span class="number">1</span>:</span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    locs_30s = []</span><br><span class="line"><span class="comment">#     RR = []</span></span><br><span class="line">    <span class="keyword">while</span> locs[j] &lt; <span class="number">7500</span> * (i + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> locs[j] &gt;= <span class="number">7500</span> * i:</span><br><span class="line">            locs_30s.append(locs[j])</span><br><span class="line"><span class="comment">#             C = locs[j+1] - locs[j]</span></span><br><span class="line"><span class="comment">#             RR.append(C) </span></span><br><span class="line">        j+=<span class="number">1</span></span><br><span class="line">    print(locs_30s)</span><br><span class="line">    tuple1.append(locs_30s)</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">print(i)</span><br><span class="line">print(tuple1)</span><br><span class="line">[<span class="number">19</span>, <span class="number">234</span>, <span class="number">457</span>, <span class="number">687</span>, <span class="number">911</span>, <span class="number">1137</span>, <span class="number">1360</span>, <span class="number">1581</span>, <span class="number">1808</span>, <span class="number">2029</span>, <span class="number">2244</span>, <span class="number">2460</span>, <span class="number">2673</span>, <span class="number">2890</span>, <span class="number">3117</span>, <span class="number">3354</span>, <span class="number">3599</span>, <span class="number">3841</span>, <span class="number">4080</span>, <span class="number">4327</span>, <span class="number">4576</span>, <span class="number">4822</span>, <span class="number">5061</span>, <span class="number">5292</span>, <span class="number">5526</span>, <span class="number">5761</span>, <span class="number">5998</span>, <span class="number">6234</span>, <span class="number">6460</span>, <span class="number">6682</span>, <span class="number">6906</span>, <span class="number">7134</span>, <span class="number">7360</span>]</span><br><span class="line">[<span class="number">7578</span>, <span class="number">7787</span>, <span class="number">7993</span>, <span class="number">8202</span>, <span class="number">8418</span>, <span class="number">8643</span>, <span class="number">8874</span>, <span class="number">9104</span>, <span class="number">9352</span>, <span class="number">9606</span>, <span class="number">9857</span>, <span class="number">10106</span>, <span class="number">10343</span>, <span class="number">10577</span>, <span class="number">10808</span>, <span class="number">11038</span>, <span class="number">11268</span>, <span class="number">11490</span>, <span class="number">11710</span>, <span class="number">11933</span>, <span class="number">12165</span>, <span class="number">12407</span>, <span class="number">12647</span>, <span class="number">12873</span>, <span class="number">13093</span>, <span class="number">13306</span>, <span class="number">13520</span>, <span class="number">13736</span>, <span class="number">13954</span>, <span class="number">14176</span>, <span class="number">14414</span>, <span class="number">14664</span>, <span class="number">14912</span>]</span><br><span class="line">[<span class="number">15159</span>, <span class="number">15400</span>, <span class="number">15634</span>, <span class="number">15875</span>, <span class="number">16114</span>, <span class="number">16352</span>, <span class="number">16583</span>, <span class="number">16809</span>, <span class="number">17038</span>, <span class="number">17266</span>, <span class="number">17497</span>, <span class="number">17728</span>, <span class="number">17946</span>, <span class="number">18159</span>, <span class="number">18368</span>, <span class="number">18575</span>, <span class="number">18787</span>, <span class="number">19007</span>, <span class="number">19230</span>, <span class="number">19455</span>, <span class="number">19691</span>, <span class="number">19934</span>, <span class="number">20178</span>, <span class="number">20416</span>, <span class="number">20654</span>, <span class="number">20898</span>, <span class="number">21143</span>, <span class="number">21387</span>, <span class="number">21619</span>, <span class="number">21845</span>, <span class="number">22071</span>, <span class="number">22301</span>]</span><br><span class="line">[<span class="number">22532</span>, <span class="number">22757</span>, <span class="number">22968</span>, <span class="number">23180</span>, <span class="number">23393</span>, <span class="number">23612</span>, <span class="number">23842</span>, <span class="number">24077</span>, <span class="number">24325</span>, <span class="number">24582</span>, <span class="number">24846</span>, <span class="number">25109</span>, <span class="number">25362</span>, <span class="number">25608</span>, <span class="number">25856</span>, <span class="number">26106</span>, <span class="number">26356</span>, <span class="number">26598</span>, <span class="number">26830</span>, <span class="number">27055</span>, <span class="number">27280</span>, <span class="number">27498</span>, <span class="number">27710</span>, <span class="number">27921</span>, <span class="number">28133</span>, <span class="number">28352</span>, <span class="number">28585</span>, <span class="number">28819</span>, <span class="number">29057</span>, <span class="number">29306</span>, <span class="number">29554</span>, <span class="number">29798</span>]</span><br><span class="line">[<span class="number">30054</span>, <span class="number">30314</span>, <span class="number">30573</span>, <span class="number">30824</span>, <span class="number">31070</span>, <span class="number">31313</span>, <span class="number">31555</span>, <span class="number">31793</span>, <span class="number">32029</span>, <span class="number">32258</span>, <span class="number">32490</span>, <span class="number">32727</span>, <span class="number">32961</span>, <span class="number">33195</span>, <span class="number">33425</span>, <span class="number">33652</span>, <span class="number">33880</span>, <span class="number">34110</span>, <span class="number">34337</span>, <span class="number">34562</span>, <span class="number">34782</span>, <span class="number">35007</span>, <span class="number">35236</span>, <span class="number">35473</span>, <span class="number">35710</span>, <span class="number">35943</span>, <span class="number">36174</span>, <span class="number">36409</span>, <span class="number">36653</span>, <span class="number">36899</span>, <span class="number">37138</span>, <span class="number">37369</span>]</span><br></pre></td></tr></table></figure>
+
+<p>得到一个大的列表，里面包含很多个小的列表，</p>
+<p>*<em>while i &lt; (ECG_LEN / 250 / 30) - 1:**在编写时，一定要考虑i的区间范围，要不然会超出范围，导致程序出错，虽然有结果，但是无法正常运行，在进行时通过计算-1可得到完整的数据，毕竟后面有个 **while locs[j] &lt; 7500 * (i + 1):*</em></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">list_RR = []</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; (ECG_LEN / <span class="number">250</span> / <span class="number">30</span>) - <span class="number">1</span>:</span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    locs_30s = []</span><br><span class="line">    RR = []</span><br><span class="line">    <span class="keyword">while</span> locs[j] &lt; <span class="number">7500</span> * (i + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> locs[j] &gt;= <span class="number">7500</span> * i:</span><br><span class="line">            locs_30s.append(locs[j])</span><br><span class="line">            C = locs[j+<span class="number">1</span>] - locs[j]</span><br><span class="line">            RR.append(C) </span><br><span class="line">        j+=<span class="number">1</span></span><br><span class="line">    print(RR)</span><br><span class="line">    list_RR.append(RR)</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">print(i)</span><br><span class="line">print(list_RR)</span><br><span class="line">[<span class="number">215</span>, <span class="number">223</span>, <span class="number">230</span>, <span class="number">224</span>, <span class="number">226</span>, <span class="number">223</span>, <span class="number">221</span>, <span class="number">227</span>, <span class="number">221</span>, <span class="number">215</span>, <span class="number">216</span>, <span class="number">213</span>, <span class="number">217</span>, <span class="number">227</span>, <span class="number">237</span>, <span class="number">245</span>, <span class="number">242</span>, <span class="number">239</span>, <span class="number">247</span>, <span class="number">249</span>, <span class="number">246</span>, <span class="number">239</span>, <span class="number">231</span>, <span class="number">234</span>, <span class="number">235</span>, <span class="number">237</span>, <span class="number">236</span>, <span class="number">226</span>, <span class="number">222</span>, <span class="number">224</span>, <span class="number">228</span>, <span class="number">226</span>, <span class="number">218</span>]</span><br><span class="line">[<span class="number">209</span>, <span class="number">206</span>, <span class="number">209</span>, <span class="number">216</span>, <span class="number">225</span>, <span class="number">231</span>, <span class="number">230</span>, <span class="number">248</span>, <span class="number">254</span>, <span class="number">251</span>, <span class="number">249</span>, <span class="number">237</span>, <span class="number">234</span>, <span class="number">231</span>, <span class="number">230</span>, <span class="number">230</span>, <span class="number">222</span>, <span class="number">220</span>, <span class="number">223</span>, <span class="number">232</span>, <span class="number">242</span>, <span class="number">240</span>, <span class="number">226</span>, <span class="number">220</span>, <span class="number">213</span>, <span class="number">214</span>, <span class="number">216</span>, <span class="number">218</span>, <span class="number">222</span>, <span class="number">238</span>, <span class="number">250</span>, <span class="number">248</span>, <span class="number">247</span>]</span><br><span class="line">[<span class="number">241</span>, <span class="number">234</span>, <span class="number">241</span>, <span class="number">239</span>, <span class="number">238</span>, <span class="number">231</span>, <span class="number">226</span>, <span class="number">229</span>, <span class="number">228</span>, <span class="number">231</span>, <span class="number">231</span>, <span class="number">218</span>, <span class="number">213</span>, <span class="number">209</span>, <span class="number">207</span>, <span class="number">212</span>, <span class="number">220</span>, <span class="number">223</span>, <span class="number">225</span>, <span class="number">236</span>, <span class="number">243</span>, <span class="number">244</span>, <span class="number">238</span>, <span class="number">238</span>, <span class="number">244</span>, <span class="number">245</span>, <span class="number">244</span>, <span class="number">232</span>, <span class="number">226</span>, <span class="number">226</span>, <span class="number">230</span>, <span class="number">231</span>]</span><br><span class="line">[<span class="number">225</span>, <span class="number">211</span>, <span class="number">212</span>, <span class="number">213</span>, <span class="number">219</span>, <span class="number">230</span>, <span class="number">235</span>, <span class="number">248</span>, <span class="number">257</span>, <span class="number">264</span>, <span class="number">263</span>, <span class="number">253</span>, <span class="number">246</span>, <span class="number">248</span>, <span class="number">250</span>, <span class="number">250</span>, <span class="number">242</span>, <span class="number">232</span>, <span class="number">225</span>, <span class="number">225</span>, <span class="number">218</span>, <span class="number">212</span>, <span class="number">211</span>, <span class="number">212</span>, <span class="number">219</span>, <span class="number">233</span>, <span class="number">234</span>, <span class="number">238</span>, <span class="number">249</span>, <span class="number">248</span>, <span class="number">244</span>, <span class="number">256</span>]</span><br></pre></td></tr></table></figure>
+
+<p>得到以5分钟为片段的30s滑窗的矩阵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">list_RR = []</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; (ECG_LEN / <span class="number">250</span> / <span class="number">30</span>) - <span class="number">11</span>:</span><br><span class="line">    j = <span class="number">0</span></span><br><span class="line">    locs_300s = []</span><br><span class="line">    RR = []</span><br><span class="line">    <span class="keyword">while</span> locs[j] &lt; <span class="number">75000</span> + <span class="number">7500</span> * i:</span><br><span class="line">        <span class="keyword">if</span> locs[j] &gt;= <span class="number">7500</span> * i:</span><br><span class="line">            locs_30s.append(locs[j])</span><br><span class="line">            C = locs[j+<span class="number">1</span>] - locs[j]</span><br><span class="line">            RR.append(C) </span><br><span class="line">        j+=<span class="number">1</span></span><br><span class="line">    RR.pop() <span class="comment"># 删除列表的最后一个，毕竟将数据多加了一个1，进行了运算</span></span><br><span class="line">    print(RR)</span><br><span class="line">    list_RR.append(RR) <span class="comment"># 将每个运行的列表叠加在一个列表上，构成一个大的列表</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">print(list_RR)</span><br><span class="line">[<span class="number">215</span>, <span class="number">223</span>, <span class="number">230</span>, <span class="number">224</span>, <span class="number">226</span>, <span class="number">223</span>, <span class="number">221</span>, <span class="number">227</span>, <span class="number">221</span>, <span class="number">215</span>, <span class="number">216</span>, <span class="number">213</span>, <span class="number">217</span>, <span class="number">227</span>, <span class="number">237</span>, <span class="number">245</span>, <span class="number">242</span>, <span class="number">239</span>, <span class="number">247</span>, <span class="number">249</span>, <span class="number">246</span>, <span class="number">239</span>, <span class="number">231</span>, <span class="number">234</span>, <span class="number">235</span>, <span class="number">237</span>, <span class="number">236</span>, <span class="number">226</span>, <span class="number">222</span>, <span class="number">224</span>, <span class="number">228</span>, <span class="number">226</span>, <span class="number">218</span>, <span class="number">209</span>, <span class="number">206</span>, <span class="number">209</span>, <span class="number">216</span>, <span class="number">225</span>, <span class="number">231</span>, <span class="number">230</span>, <span class="number">248</span>, <span class="number">254</span>, <span class="number">251</span>, <span class="number">249</span>, <span class="number">237</span>, <span class="number">234</span>, <span class="number">231</span>, <span class="number">230</span>, <span class="number">230</span>, <span class="number">222</span>, <span class="number">220</span>, <span class="number">223</span>, <span class="number">232</span>, <span class="number">242</span>, <span class="number">240</span>, <span class="number">226</span>, <span class="number">220</span>, <span class="number">213</span>, <span class="number">214</span>, <span class="number">216</span>, <span class="number">218</span>, <span class="number">222</span>, <span class="number">238</span>, <span class="number">250</span>, <span class="number">248</span>, <span class="number">247</span>, <span class="number">241</span>, <span class="number">234</span>, <span class="number">241</span>, <span class="number">239</span>, <span class="number">238</span>, <span class="number">231</span>, <span class="number">226</span>, <span class="number">229</span>, <span class="number">228</span>, <span class="number">231</span>, <span class="number">231</span>, <span class="number">218</span>, <span class="number">213</span>, <span class="number">209</span>, <span class="number">207</span>, <span class="number">212</span>, <span class="number">220</span>, <span class="number">223</span>, <span class="number">225</span>, <span class="number">236</span>, <span class="number">243</span>, <span class="number">244</span>, <span class="number">238</span>, <span class="number">238</span>, <span class="number">244</span>, <span class="number">245</span>, <span class="number">244</span>, <span class="number">232</span>, <span class="number">226</span>, <span class="number">226</span>, <span class="number">230</span>, <span class="number">231</span>, <span class="number">225</span>, <span class="number">211</span>, <span class="number">212</span>, <span class="number">213</span>, <span class="number">219</span>, <span class="number">230</span>, <span class="number">235</span>, <span class="number">248</span>, <span class="number">257</span>, <span class="number">264</span>, <span class="number">263</span>, <span class="number">253</span>, <span class="number">246</span>, <span class="number">248</span>, <span class="number">250</span>, <span class="number">250</span>, <span class="number">242</span>, <span class="number">232</span>, <span class="number">225</span>, <span class="number">225</span>, <span class="number">218</span>, <span class="number">212</span>, <span class="number">211</span>, <span class="number">212</span>, <span class="number">219</span>, <span class="number">233</span>, <span class="number">234</span>, <span class="number">238</span>, <span class="number">249</span>, <span class="number">248</span>, <span class="number">244</span>, <span class="number">256</span>, <span class="number">260</span>, <span class="number">259</span>, <span class="number">251</span>, <span class="number">246</span>, <span class="number">243</span>, <span class="number">242</span>, <span class="number">238</span>, <span class="number">236</span>, <span class="number">229</span>, <span class="number">232</span>, <span class="number">237</span>, <span class="number">234</span>, <span class="number">234</span>, <span class="number">230</span>, <span class="number">227</span>, <span class="number">228</span>, <span class="number">230</span>, <span class="number">227</span>, <span class="number">225</span>, <span class="number">220</span>, <span class="number">225</span>, <span class="number">229</span>, <span class="number">237</span>, <span class="number">237</span>, <span class="number">233</span>, <span class="number">231</span>, <span class="number">235</span>, <span class="number">244</span>, <span class="number">246</span>, <span class="number">239</span>, <span class="number">231</span>, <span class="number">231</span>, <span class="number">229</span>, <span class="number">228</span>, <span class="number">226</span>, <span class="number">222</span>, <span class="number">226</span>, <span class="number">224</span>, <span class="number">214</span>, <span class="number">215</span>, <span class="number">212</span>, <span class="number">216</span>, <span class="number">223</span>, <span class="number">232</span>, <span class="number">236</span>, <span class="number">238</span>, <span class="number">232</span>, <span class="number">240</span>, <span class="number">244</span>, <span class="number">248</span>, <span class="number">239</span>, <span class="number">232</span>, <span class="number">231</span>, <span class="number">231</span>, <span class="number">232</span>, <span class="number">230</span>, <span class="number">227</span>, <span class="number">226</span>, <span class="number">235</span>, <span class="number">238</span>, <span class="number">238</span>, <span class="number">233</span>, <span class="number">227</span>, <span class="number">223</span>, <span class="number">214</span>, <span class="number">207</span>, <span class="number">202</span>, <span class="number">204</span>, <span class="number">210</span>, <span class="number">227</span>, <span class="number">245</span>, <span class="number">258</span>, <span class="number">254</span>, <span class="number">251</span>, <span class="number">255</span>, <span class="number">246</span>, <span class="number">248</span>, <span class="number">237</span>, <span class="number">227</span>, <span class="number">230</span>, <span class="number">227</span>, <span class="number">227</span>, <span class="number">230</span>, <span class="number">229</span>, <span class="number">232</span>, <span class="number">237</span>, <span class="number">239</span>, <span class="number">237</span>, <span class="number">230</span>, <span class="number">227</span>, <span class="number">235</span>, <span class="number">237</span>, <span class="number">234</span>, <span class="number">228</span>, <span class="number">230</span>, <span class="number">221</span>, <span class="number">222</span>, <span class="number">220</span>, <span class="number">221</span>, <span class="number">234</span>, <span class="number">244</span>, <span class="number">250</span>, <span class="number">247</span>, <span class="number">242</span>, <span class="number">247</span>, <span class="number">248</span>, <span class="number">247</span>, <span class="number">242</span>, <span class="number">231</span>, <span class="number">230</span>, <span class="number">232</span>, <span class="number">233</span>, <span class="number">233</span>, <span class="number">228</span>, <span class="number">227</span>, <span class="number">228</span>, <span class="number">229</span>, <span class="number">229</span>, <span class="number">217</span>, <span class="number">207</span>, <span class="number">207</span>, <span class="number">207</span>, <span class="number">213</span>, <span class="number">221</span>, <span class="number">227</span>, <span class="number">227</span>, <span class="number">228</span>, <span class="number">234</span>, <span class="number">238</span>, <span class="number">237</span>, <span class="number">230</span>, <span class="number">231</span>, <span class="number">234</span>, <span class="number">234</span>, <span class="number">232</span>, <span class="number">225</span>, <span class="number">222</span>, <span class="number">224</span>, <span class="number">229</span>, <span class="number">233</span>, <span class="number">225</span>, <span class="number">226</span>, <span class="number">228</span>, <span class="number">231</span>, <span class="number">234</span>, <span class="number">224</span>, <span class="number">217</span>, <span class="number">225</span>, <span class="number">231</span>, <span class="number">240</span>, <span class="number">246</span>, <span class="number">241</span>, <span class="number">240</span>, <span class="number">247</span>, <span class="number">254</span>, <span class="number">249</span>, <span class="number">234</span>, <span class="number">237</span>, <span class="number">236</span>, <span class="number">242</span>, <span class="number">241</span>, <span class="number">234</span>, <span class="number">227</span>, <span class="number">223</span>, <span class="number">214</span>, <span class="number">209</span>, <span class="number">208</span>, <span class="number">207</span>, <span class="number">210</span>, <span class="number">219</span>, <span class="number">227</span>, <span class="number">234</span>, <span class="number">235</span>, <span class="number">231</span>, <span class="number">238</span>, <span class="number">237</span>, <span class="number">238</span>, <span class="number">236</span>, <span class="number">231</span>, <span class="number">224</span>, <span class="number">226</span>, <span class="number">222</span>, <span class="number">214</span>, <span class="number">207</span>, <span class="number">206</span>, <span class="number">212</span>, <span class="number">220</span>, <span class="number">230</span>, <span class="number">233</span>, <span class="number">233</span>, <span class="number">236</span>, <span class="number">243</span>, <span class="number">246</span>, <span class="number">244</span>]</span><br></pre></td></tr></table></figure>
+
+<p>两种情况都得到结果</p>
+<p>下一步：得到RR序列，首先查看，那个库，然后进行时频域分析，我觉得还是要消除异常点，毕竟为了后面做准备，还可以将其作为一个时域特征。</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1581244543642&di=eadb0d6f73d023fd1ad1f4944147a6be&imgtype=0&src=http://imgsrc.baidu.com/forum/w=580/sign=f77af06f942397ddd679980c6983b216/70e2ae2f070828388d72159cbd99a9014d08f15d.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2020/02/08/python%E2%80%94%E2%80%94%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87%E4%B9%8B%E6%95%B0%E7%BB%84/" data-id="ckh378yd2003zl4ueek0497ro" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-滑动切片" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/" class="article-date">
+  <time datetime="2020-02-08T02:33:27.000Z" itemprop="datePublished">2020-02-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/">python__滑动切片</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="PYTHON——滑动切片"><a href="#PYTHON——滑动切片" class="headerlink" title="PYTHON——滑动切片"></a>PYTHON——滑动切片</h1><p>需求：1.所需要的数据是以5分钟为短程分析</p>
+<p>2.注释是以30秒为一个间期</p>
+<p>3.以5分钟为片段，30秒为滑动窗口，考虑样本采样率为250，滑动的间隔为250*30=7500个数据点</p>
+<p>4.直接用采样峰值点来进行切片，最后放入一个（）中，每个间隔为小矩阵</p>
+<p>若为了好写的话，可以直接在python里面找pt算法，在找异常点，在循环，按照matlab的步骤</p>
+<p>后面分析的还是这个公开数据库的数据，所以我可以直接按照峰值点来进行计算。</p>
+<p>数据样本直接按照读取的峰值点进行提取即可。</p>
+<h2 id="1-选取5分钟作为切片"><a href="#1-选取5分钟作为切片" class="headerlink" title="1.选取5分钟作为切片"></a>1.选取5分钟作为切片</h2><p>首先判定里面数据的类型</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="built_in">type</span>(locs))</span><br><span class="line">print(<span class="built_in">type</span>(ECG))</span><br><span class="line">[[<span class="number">0.085</span>]</span><br><span class="line"> [<span class="number">0.08</span> ]</span><br><span class="line"> [<span class="number">0.125</span>]</span><br><span class="line"> ...</span><br><span class="line"> [<span class="number">0.23</span> ]</span><br><span class="line"> [<span class="number">0.235</span>]</span><br><span class="line"> [<span class="number">0.225</span>]]</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> &#x27;<span class="title">numpy</span>.<span class="title">ndarray</span>&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-1-数据系列复习下"><a href="#1-1-数据系列复习下" class="headerlink" title="1.1 数据系列复习下"></a>1.1 数据系列复习下</h3><h4 id="1-1-1字符串"><a href="#1-1-1字符串" class="headerlink" title="1.1.1字符串"></a>1.1.1字符串</h4><p>字符串是 Python 中最常用的数据类型。我们一般使用引号来创建字符串。name1 = ‘Tom’</p>
+<p>控制台显示结果为<code>&lt;class &#39;str&#39;&gt;</code>， 即数据类型为str(字符串)。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的名字：&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;您输入的名字是<span class="subst">&#123;name&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="built_in">type</span>(name))</span><br><span class="line"></span><br><span class="line">password = <span class="built_in">input</span>(<span class="string">&#x27;请输入您的密码：&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;您输入的密码是<span class="subst">&#123;password&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="built_in">type</span>(password))</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-2-下标"><a href="#1-1-2-下标" class="headerlink" title="1.1.2 下标"></a>1.1.2 下标</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;abcdef&quot;</span></span><br><span class="line">取到不同下标对应的数据</span><br><span class="line">print(name[<span class="number">1</span>])</span><br><span class="line">print(name[<span class="number">0</span>])</span><br><span class="line">print(name[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-3-切片"><a href="#1-1-3-切片" class="headerlink" title="1.1.3 切片"></a>1.1.3 切片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">序列[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意</p>
+</blockquote>
+<pre><code>   1. 不包含结束位置下标对应的数据， 正负整数均可；
+      2. 步长是选取间隔，正负整数均可，默认步长为1。</code></pre>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">name = <span class="string">&quot;abcdefg&quot;</span></span><br><span class="line"></span><br><span class="line">print(name[<span class="number">2</span>:<span class="number">5</span>:<span class="number">1</span>])  <span class="comment"># cde</span></span><br><span class="line">print(name[<span class="number">2</span>:<span class="number">5</span>])  <span class="comment"># cde</span></span><br><span class="line">print(name[:<span class="number">5</span>])  <span class="comment"># abcde</span></span><br><span class="line">print(name[<span class="number">1</span>:])  <span class="comment"># bcdefg</span></span><br><span class="line">print(name[:])  <span class="comment"># abcdefg</span></span><br><span class="line">print(name[::<span class="number">2</span>])  <span class="comment"># aceg</span></span><br><span class="line">print(name[:<span class="number">-1</span>])  <span class="comment"># abcdef, 负1表示倒数第一个数据</span></span><br><span class="line">print(name[<span class="number">-4</span>:<span class="number">-1</span>])  <span class="comment"># def</span></span><br><span class="line">print(name[::<span class="number">-1</span>])  <span class="comment"># gfedcba</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-1-4查找"><a href="#1-1-4查找" class="headerlink" title="1.1.4查找"></a>1.1.4查找</h4><p>所谓字符串查找方法即是查找子串在字符串中的位置或出现的次数。</p>
+<ul>
+<li>find()：检测某个子串是否包含在这个字符串中，如果在返回这个子串开始的位置下标，否则则返回-1。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">字符串序列.find(子串, 开始位置下标, 结束位置下标)</span><br></pre></td></tr></table></figure>
+
+<p>注意：开始和结束位置下标可以省略，表示在整个字符串序列中查找。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mystr = <span class="string">&quot;hello world and itcast and itheima and Python&quot;</span></span><br><span class="line"></span><br><span class="line">print(mystr.find(<span class="string">&#x27;and&#x27;</span>))  <span class="comment"># 12</span></span><br><span class="line">print(mystr.find(<span class="string">&#x27;and&#x27;</span>, <span class="number">15</span>, <span class="number">30</span>))  <span class="comment"># 23</span></span><br><span class="line">print(mystr.find(<span class="string">&#x27;ands&#x27;</span>))  <span class="comment"># -1</span></span><br></pre></td></tr></table></figure>
+
+<p>index()：检测某个子串是否包含在这个字符串中，如果在返回这个子串开始的位置下标，否则则报异常。</p>
+<p>count()：返回某个子串在字符串中出现的次数</p>
+<ul>
+<li>下标<ul>
+<li>计算机为数据序列中每个元素分配的从0开始的编号</li>
+</ul>
+</li>
+<li>切片</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">序列名[开始位置下标:结束位置下标:步长]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用操作方法<ul>
+<li>find()</li>
+<li>index()</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-1-2列表"><a href="#1-1-2列表" class="headerlink" title="1.1.2列表"></a>1.1.2列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">L.append(var)          <span class="comment">#追加元素</span></span><br><span class="line">L.insert(index,var)</span><br><span class="line">L.pop(var)               <span class="comment">#返回最后一个元素，并从list中删除之</span></span><br><span class="line">L.remove(var)            <span class="comment">#删除第一次出现的该元素</span></span><br><span class="line">L.count(var)             <span class="comment">#该元素在列表中出现的个数</span></span><br><span class="line">L.index(var)             <span class="comment">#该元素的位置,无则抛异常</span></span><br><span class="line">L.extend(list6)         <span class="comment">#追加list６，即合并list到L上,这里注意，使用extend函数可以一次在一个列表中插入任意多个值，而不必须每次只使用append()一次一值的插入</span></span><br><span class="line">L.sort()        <span class="comment">#排序</span></span><br><span class="line">L.reverse()     <span class="comment">#倒序</span></span><br><span class="line"><span class="keyword">del</span> L[<span class="number">1</span>]        <span class="comment">#删除指定下标的元素</span></span><br><span class="line"><span class="keyword">del</span> L[<span class="number">1</span>:<span class="number">3</span>]      <span class="comment">#删除指定下标范围的元素</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#复制list:</span></span><br><span class="line">L1 = L      <span class="comment">#L1为L的别名，用C来说就是指针地址相同，对L1操作即对L操作。</span></span><br><span class="line">L1 = L[:]   <span class="comment">#L1为L的克隆，即另一个拷贝。</span></span><br><span class="line">https://blog.csdn.net/liuyanfeier/article/details/<span class="number">53731239</span></span><br></pre></td></tr></table></figure>
 
 
 
-<div id="gal-pagination" class="clearfix">
-    <ul class="pagination pagination-gal pull-right">
-        
-        <li class="prev">
-            <a href="/page/9/">«</a>
-        </li>
-        
-        
-        <li>
-            <a href="/">1</a>
-        </li>
-        <li>
-            <span>...</span>
-        </li>
-        
-        <li>
-            <a href="/page/7 ">7</a>
-        </li>
-        
-        <li>
-            <a href="/page/8 ">8</a>
-        </li>
-        
-        <li>
-            <a href="/page/9 ">9</a>
-        </li>
-        
-        
-        <li class="current">
-            <span>10</span>
-        </li>
-        
-        
-        <li>
-            <a href="/page/11">11</a>
-        </li>
-        
-        <li>
-            <a href="/page/12">12</a>
-        </li>
-        
-        
-        
-        <li class="next">
-            <a href="/page/11/">»</a>
-        </li>
-        
-    </ul>
-</div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[数据<span class="number">1</span>, 数据<span class="number">2</span>, 数据<span class="number">3</span>, 数据<span class="number">4.</span>.....]</span><br></pre></td></tr></table></figure>
 
-<!-- 加上这段代码原因： gitment在首页加载时, 如果找不到对应的控件会报错，此处加上，同时设置为none，防止报错 -->   
+<p>列表可以一次性存储多个数据，且可以为不同数据类型。</p>
+<h3 id="1-1-2-1-下标"><a href="#1-1-2-1-下标" class="headerlink" title="1.1.2.1 下标"></a>1.1.2.1 下标</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">print(name_list[<span class="number">0</span>])  <span class="comment"># Tom</span></span><br><span class="line">print(name_list[<span class="number">1</span>])  <span class="comment"># Lily</span></span><br><span class="line">print(name_list[<span class="number">2</span>])  <span class="comment"># Rose</span></span><br></pre></td></tr></table></figure>
 
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
+<h3 id="1-1-2-2-函数"><a href="#1-1-2-2-函数" class="headerlink" title="1.1.2.2 函数"></a>1.1.2.2 函数</h3><ul>
+<li>index()：返回指定数据所在位置的下标 。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.index(数据, 开始位置下标, 结束位置下标)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">print(name_list.index(<span class="string">&#x27;Lily&#x27;</span>, <span class="number">0</span>, <span class="number">2</span>))  <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：如果查找的数据不存在则报错。</p>
+</blockquote>
+<ul>
+<li>count()：统计指定数据在当前列表中出现的次数。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">print(name_list.count(<span class="string">&#x27;Lily&#x27;</span>))  <span class="comment"># 1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>len()：访问列表长度，即列表中数据的个数。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">print(<span class="built_in">len</span>(name_list))  <span class="comment"># 3</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-2-3-增加"><a href="#1-1-2-3-增加" class="headerlink" title="1.1.2.3 增加"></a>1.1.2.3 增加</h2><p>作用：增加指定数据到列表中。</p>
+<ul>
+<li>append()：列表结尾追加数据。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.append(数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.append(<span class="string">&#x27;xiaoming&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;Lily&#x27;, &#x27;Rose&#x27;, &#x27;xiaoming&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+<p><img src="H:/百度资源/资料与代码/01-Python基础课件/04-数据序列/02-列表.assets/image-20190130160154636.png" alt="image-20190130160154636"></p>
+<blockquote>
+<p>列表追加数据的时候，直接在原列表里面追加了指定数据，即修改了原列表，故列表为可变类型数据。</p>
+</blockquote>
+<ol start="3">
+<li>注意点</li>
+</ol>
+<p>如果append()追加的数据是一个序列，则追加整个序列到列表</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.append([<span class="string">&#x27;xiaoming&#x27;</span>, <span class="string">&#x27;xiaohong&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;Lily&#x27;, &#x27;Rose&#x27;, [&#x27;xiaoming&#x27;, &#x27;xiaohong&#x27;]]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>extend()：列表结尾追加数据，如果数据是一个序列，则将这个序列的数据逐一添加到列表。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.extend(数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>快速体验</p>
+<p>2.1 单个数据</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.extend(<span class="string">&#x27;xiaoming&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;Lily&#x27;, &#x27;Rose&#x27;, &#x27;x&#x27;, &#x27;i&#x27;, &#x27;a&#x27;, &#x27;o&#x27;, &#x27;m&#x27;, &#x27;i&#x27;, &#x27;n&#x27;, &#x27;g&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+<p>​    2.2 序列数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.extend([<span class="string">&#x27;xiaoming&#x27;</span>, <span class="string">&#x27;xiaohong&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;Lily&#x27;, &#x27;Rose&#x27;, &#x27;xiaoming&#x27;, &#x27;xiaohong&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>insert()：指定位置新增数据。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.insert(位置下标, 数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.insert(<span class="number">1</span>, <span class="string">&#x27;xiaoming&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;xiaoming&#x27;, &#x27;Lily&#x27;, &#x27;Rose&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-2-4-删除"><a href="#1-1-2-4-删除" class="headerlink" title="1.1.2.4 删除"></a>1.1.2.4 删除</h2><ul>
+<li>del</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> 目标</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>快速体验</p>
+<p>2.1 删除列表</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：报错提示：name &#x27;name_list&#x27; is not defined</span></span><br><span class="line"><span class="keyword">del</span> name_list</span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+<p>​    2.2 删除指定数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">del</span> name_list[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Lily&#x27;, &#x27;Rose&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>pop()：删除指定下标的数据(默认为最后一个)，并返回该数据。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.pop(下标)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">del_name = name_list.pop(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：Lily</span></span><br><span class="line">print(del_name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;Rose&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>remove()：移除列表中某个数据的第一个匹配项。</li>
+</ul>
+<ol>
+<li>语法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">列表序列.remove(数据)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>快速体验</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.remove(<span class="string">&#x27;Rose&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;Tom&#x27;, &#x27;Lily&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>clear()：清空列表</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list.clear()</span><br><span class="line">print(name_list) <span class="comment"># 结果： []</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="1-1-2-5-修改"><a href="#1-1-2-5-修改" class="headerlink" title="1.1.2.5 修改"></a>1.1.2.5 修改</h2><ul>
+<li>修改指定下标数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">name_list[<span class="number">0</span>] = <span class="string">&#x27;aaa&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[&#x27;aaa&#x27;, &#x27;Lily&#x27;, &#x27;Rose&#x27;]</span></span><br><span class="line">print(name_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>逆置：reverse()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">num_list = [<span class="number">1</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">num_list.reverse()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 结果：[8, 6, 3, 2, 5, 1]</span></span><br><span class="line">print(num_list)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="1-1-2-6-列表的循环遍历"><a href="#1-1-2-6-列表的循环遍历" class="headerlink" title="1.1.2.6 列表的循环遍历"></a>1.1.2.6 列表的循环遍历</h1><p>需求：依次打印列表中的各个数据。</p>
+<h5 id="while"><a href="#while" class="headerlink" title="while"></a>while</h5><ul>
+<li>代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="built_in">len</span>(name_list):</span><br><span class="line">    print(name_list[i])</span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行结果</li>
+</ul>
+<p><img src="H:/百度资源/资料与代码/01-Python基础课件/04-数据序列/02-列表.assets/image-20190130164205143.png" alt="image-20190130164205143"></p>
+<h5 id="for"><a href="#for" class="headerlink" title="for"></a>for</h5><ul>
+<li>代码</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name_list = [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> name_list:</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>执行结果</li>
+</ul>
+<p><img src="H:/百度资源/资料与代码/01-Python基础课件/04-数据序列/02-列表.assets/image-20190130164227739.png" alt="image-20190130164227739"></p>
+<h5 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a>列表嵌套</h5><p>所谓列表嵌套指的就是一个列表里面包含了其他的子列表。</p>
+<p>应用场景：要存储班级一、二、三三个班级学生姓名，且每个班级的学生姓名在一个列表。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name_list = [[<span class="string">&#x27;小明&#x27;</span>, <span class="string">&#x27;小红&#x27;</span>, <span class="string">&#x27;小绿&#x27;</span>], [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>], [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>思考： 如何查找到数据”李四”？</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步：按下标查找到李四所在的列表</span></span><br><span class="line">print(name_list[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：从李四所在的列表里面，再按下标找到数据李四</span></span><br><span class="line">print(name_list[<span class="number">2</span>][<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+
+<h5 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h5><ul>
+<li>列表的格式</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[数据<span class="number">1</span>, 数据<span class="number">2</span>, 数据<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用操作方法<ul>
+<li>index()</li>
+<li>len()</li>
+<li>append()</li>
+<li>pop()</li>
+<li>remove()</li>
+</ul>
+</li>
+<li>列表嵌套</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name_list = [[<span class="string">&#x27;小明&#x27;</span>, <span class="string">&#x27;小红&#x27;</span>, <span class="string">&#x27;小绿&#x27;</span>], [<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Lily&#x27;</span>, <span class="string">&#x27;Rose&#x27;</span>], [<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;李四&#x27;</span>, <span class="string">&#x27;王五&#x27;</span>]]</span><br><span class="line">name_list[<span class="number">2</span>][<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+<p>总结反应过来了这是一个数组，我需要将他切片放进列表中，太久没学习了脑壳疼。</p>
+
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2020/02/08/python-%E6%BB%91%E5%8A%A8%E5%88%87%E7%89%87/" data-id="ckh378ycw003pl4uegv0uh4xu" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python-获取MIT数据" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/" class="article-date">
+  <time datetime="2020-02-07T06:06:46.000Z" itemprop="datePublished">2020-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">python__获取MIT数据</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python-获取MIT数据"><a href="#python-获取MIT数据" class="headerlink" title="python__获取MIT数据"></a>python__获取MIT数据</h1><p>1.数据库所在位置：F:\MITDAT</p>
+<p>2.数据保存格式：st,dat,ecg,hea</p>
+<p>3.利用pycharm读取dat数据，并且存为可读格式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载对应的数据库数据，保存位置：F:\MITDAT</span></span><br><span class="line"><span class="comment"># 读取对应数据库的dat数据</span></span><br><span class="line"><span class="keyword">import</span> wfdb <span class="keyword">as</span> wfdb</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">读取心电信号文件</span></span><br><span class="line"><span class="string">sampfrom: 设置读取心电信号的 起始位置，sampfrom=0表示从0开始读取，默认从0开始</span></span><br><span class="line"><span class="string">sampto：设置读取心电信号的 结束位置，sampto = 1500表示从1500出结束，默认读到文件末尾</span></span><br><span class="line"><span class="string">channel_names：设置设置读取心电信号名字，必须是列表，channel_names=[&#x27;MLII&#x27;]表示读取MLII导联线</span></span><br><span class="line"><span class="string">channels：设置读取第几个心电信号，必须是列表，channels=[0, 3]表示读取第0和第3个信号，注意信号数不确定</span></span><br><span class="line"><span class="string">:return:</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># record = wfdb.rdrecord(&#x27;F:/MITDAT/slp01a&#x27;, sampfrom=0, sampto = 1500)</span></span><br><span class="line"><span class="comment"># record = wfdb.rdrecord(&#x27;F:/MITDAT/slp01a&#x27;, sampfrom=0, sampto = 1500)</span></span><br><span class="line"><span class="comment"># 仅仅读取“ECG”信号</span></span><br><span class="line"><span class="comment"># record = wfdb.rdrecord(&#x27;F:/MITDAT/slp01a&#x27;, sampto=1500, channel_names=[&#x27;ECG&#x27;])</span></span><br><span class="line"><span class="comment"># 仅仅读取第0个信号（ECG）</span></span><br><span class="line"><span class="comment"># record = wfdb.rdrecord(&#x27;F:/MITDAT/slp01a&#x27;, sampfrom=0, channels=[0])</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取slp01a的数据，sampfrom：起始位置，sampto：结束位置，即可写做</span></span><br><span class="line">record = wfdb.rdrecord(<span class="string">&#x27;F:/MITDAT/slp01a&#x27;</span>)</span><br><span class="line"><span class="comment"># 查看record类型</span></span><br><span class="line">print(<span class="built_in">type</span>(record))</span><br><span class="line"><span class="comment"># 查看类中的方法和属性</span></span><br><span class="line"><span class="comment"># print(dir(record))</span></span><br><span class="line"><span class="comment"># 获得心电导联线信号，本文获得是4通道的信号</span></span><br><span class="line">print(record.p_signal)</span><br><span class="line"><span class="comment"># 输出4通道的信号</span></span><br><span class="line">print(np.shape(record.p_signal))</span><br><span class="line"><span class="comment"># 查看导联线信号长度</span></span><br><span class="line">print(record.sig_len)</span><br><span class="line"><span class="comment"># 查看文件名</span></span><br><span class="line">print(record.record_name)</span><br><span class="line"><span class="comment"># 查看导联线条数，本文为导联线条数4</span></span><br><span class="line">print(record.n_sig)</span><br><span class="line"><span class="comment"># 查看信号名称（列表），本文导联线名称[&#x27;ECG&#x27;, &#x27;BP&#x27;, &#x27;EEG (C4-A1)&#x27;, &#x27;Resp (sum)&#x27;]</span></span><br><span class="line">print(record.sig_name)</span><br><span class="line"><span class="comment"># 查看采用率</span></span><br><span class="line">print(record.fs)</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="C:\Users\86184\AppData\Roaming\Typora\typora-user-images\image-20200207151930604.png"></p>
+<p>暂时只需要ECG信号，即第一个客户端的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只获取ECG对应的信号</span></span><br><span class="line"><span class="keyword">import</span> wfdb <span class="keyword">as</span> wfdb</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">record = wfdb.rdrecord(<span class="string">&#x27;F:/MITDAT/slp01a&#x27;</span>, channels=[<span class="number">0</span>])</span><br><span class="line">print(record.p_signal)</span><br><span class="line"><span class="comment"># 输出4通道的信号</span></span><br><span class="line">print(np.shape(record.p_signal))</span><br><span class="line"><span class="comment"># 查看导联线信号长度</span></span><br><span class="line">print(record.sig_len)</span><br><span class="line"><span class="comment"># 查看文件名</span></span><br><span class="line">print(record.record_name)</span><br><span class="line"><span class="comment"># 查看导联线条数，本文为导联线条数4</span></span><br><span class="line">print(record.n_sig)</span><br><span class="line"><span class="comment"># 查看信号名称（列表），本文导联线名称[&#x27;ECG&#x27;, &#x27;BP&#x27;, &#x27;EEG (C4-A1)&#x27;, &#x27;Resp (sum)&#x27;]</span></span><br><span class="line">print(record.sig_name)</span><br><span class="line"><span class="comment"># 查看采用率</span></span><br><span class="line">print(record.fs)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\86184\AppData\Roaming\Typora\typora-user-images\image-20200207152059811.png"></p>
+<p>即所需的数据为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wfdb <span class="keyword">as</span> wfdb</span><br><span class="line">record = wfdb.rdrecord(<span class="string">&#x27;F:/MITDAT/slp01a&#x27;</span>, channels=[<span class="number">0</span>])</span><br><span class="line"><span class="comment"># 输出ECG通道的信号</span></span><br><span class="line">ECG  = record.p_signal</span><br><span class="line">print(ECG)</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\86184\AppData\Roaming\Typora\typora-user-images\image-20200207152555100.png"></p>
+<p>读取R峰值点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wfdb <span class="keyword">as</span> wfdb</span><br><span class="line"><span class="comment"># 读取心电数据库的R峰值点</span></span><br><span class="line">annotation = wfdb.rdann(<span class="string">&#x27;F:/MITDAT/slp01a&#x27;</span>, <span class="string">&#x27;ecg&#x27;</span>)</span><br><span class="line"><span class="comment"># 标注每一个心拍的R波的尖锋位置，与心电信号对应</span></span><br><span class="line">print(annotation.sample)</span><br><span class="line"><span class="comment">#symbol对应标签,sample为R峰所在位置，sig为R峰值</span></span><br><span class="line"><span class="comment"># print(annotation.symbol)</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\86184\AppData\Roaming\Typora\typora-user-images\image-20200207154706625.png"></p>
+<p>提取注释信息！可以暂时不用管理，到时重新导出注释信号。</p>
+<p>下一步。利用PT算法，读取峰值点，在python里面读取</p>
+<p>不过已经直接读取出R峰值点，暂时可不考虑。pt算法。</p>
+<p>切片循环和导出峰值，提取时域。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/" data-id="ckh378ycx003sl4ue9m1g05rx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-matlab中的滑动窗口" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="article-date">
+  <time datetime="2020-01-07T02:47:29.000Z" itemprop="datePublished">2020-01-07</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/matlab/">matlab</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">matlab中的滑动窗口</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="进行滑动加窗"><a href="#进行滑动加窗" class="headerlink" title="进行滑动加窗"></a>进行滑动加窗</h1><p>Kubios HRV分析的信号在加载时会漏掉后续20秒的数据，想要完整的5分钟数据，因此输出的信号即为6分钟，保持连贯性，即选取6分钟的窗口，以5分钟为步长进行移动分析。</p>
+<p>sliding Windows</p>
+<p>滑动窗口：<strong>滑动窗口由固定的窗口长度和滑动间隔组成</strong>。</p>
+<p><strong>特点</strong>：<strong>窗口长度固定，有重叠</strong>。</p>
+<p><img src="https://img2018.cnblogs.com/blog/1247221/201905/1247221-20190513011529750-1763616187.png" alt="sliding windows"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190305164439172.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xtMjc4ODU4NDQ1,size_16,color_FFFFFF,t_70" alt="滑窗"></p>
+<p>滑动窗口大小：5分钟即：75000</p>
+<p>总结：笨。。。</p>
+<h1 id="批量保存txt文件"><a href="#批量保存txt文件" class="headerlink" title="批量保存txt文件"></a>批量保存txt文件</h1><p>1.放在一个矩阵中，会出现维度不同的报错问题</p>
+<p>2.综合考虑放在一个cell元包数组中，或者结构体中</p>
+<p>3.在考虑批量保存</p>
+<h3 id="元胞数组："><a href="#元胞数组：" class="headerlink" title="元胞数组："></a>元胞数组：</h3><p>特点：</p>
+<p>1.可以存储大小不同的矩阵序列</p>
+<p>2.检索内容时，使用大括号下标进行索引，A{1}</p>
+<p>3.包含其他数组的<em>副本</em>，而不包含指向这些数组的<em>指针，即修改原值，元胞里的内容不变</em></p>
+<h3 id="结构体："><a href="#结构体：" class="headerlink" title="结构体："></a>结构体：</h3><p>结构体是多维 MATLAB 数组，包含可按文本字段标志符访问的元素。</p>
+<p>cell（1，1）是查看大小和样式</p>
+<p>cell{1 . 1}是读取全部的数</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">i</span> &lt;= m</span><br><span class="line">    [QRS_pks, QRS_locs, delay] = pan_tompkin(ECG(<span class="built_in">i</span>, :), fs, <span class="number">0</span>);</span><br><span class="line">    [RR] = HRV(QRS_locs);<span class="comment">% 得到HRV信号</span></span><br><span class="line">    [QRS_locs, RR] = Eliminate_outliers(QRS_locs, RR);<span class="comment">% 消除HRV中的RR异常值</span></span><br><span class="line">    cell_RR(<span class="built_in">i</span>, <span class="number">1</span>) = &#123;RR&#125;;</span><br><span class="line">    <span class="built_in">i</span> = <span class="built_in">i</span> + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="number">332</span>x1 double</span><br><span class="line"><span class="number">341</span>x1 double</span><br><span class="line"><span class="number">331</span>x1 double</span><br><span class="line"><span class="number">321</span>x1 double</span><br><span class="line"><span class="number">315</span>x1 double</span><br><span class="line"><span class="number">315</span>x1 double</span><br><span class="line"><span class="number">301</span>x1 double</span><br><span class="line"><span class="number">306</span>x1 double</span><br><span class="line"><span class="number">303</span>x1 double</span><br><span class="line"><span class="number">305</span>x1 double</span><br><span class="line"><span class="number">305</span>x1 double</span><br><span class="line"><span class="number">320</span>x1 double</span><br><span class="line"><span class="number">322</span>x1 double</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>两个分析的软件都只能读取txt文件。因此需要进行批量保存为txt文件。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2020/01/07/matlab%E4%B8%AD%E7%9A%84%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" data-id="ckh378yc50024l4ue49w23lf8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-去趋势波动分析DFA" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/" class="article-date">
+  <time datetime="2019-12-26T06:34:05.000Z" itemprop="datePublished">2019-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/">去趋势波动分析DFA</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2019/12/26/%E5%8E%BB%E8%B6%8B%E5%8A%BF%E6%B3%A2%E5%8A%A8%E5%88%86%E6%9E%90DFA/" data-id="ckh378ydq005pl4uef7zb1jj8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-python调用wfdb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/" class="article-date">
+  <time datetime="2019-12-26T02:33:29.000Z" itemprop="datePublished">2019-12-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">LV-3</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="python中的WFDB库使用"><a href="#python中的WFDB库使用" class="headerlink" title="python中的WFDB库使用"></a>python中的WFDB库使用</h1><h2 id="1-获取MIT——PhysioNet数据库的所有库名称"><a href="#1-获取MIT——PhysioNet数据库的所有库名称" class="headerlink" title="1.获取MIT——PhysioNet数据库的所有库名称"></a>1.获取MIT——PhysioNet数据库的所有库名称</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wfdb <span class="keyword">as</span> wfdb</span><br><span class="line"></span><br><span class="line">dbs = wfdb.get_dbs()</span><br><span class="line">print(dbs)</span><br></pre></td></tr></table></figure>
+
+<p>获取PhysioNet所有库的名称列表：</p>
+<p>[[‘adfecgdb’, ‘Abdominal and Direct Fetal ECG Database’], [‘aftdb’, ‘AF Termination Challenge Database’], [‘ahadb’, ‘AHA Database [sample excluded record]’], [‘aami-ec13’, ‘ANSI/AAMI EC13 Test Waveforms’], [‘apnea-ecg’, ‘Apnea-ECG Database’], [‘chfdb’, ‘BIDMC Congestive Heart Failure Database’], [‘bidmc’, ‘BIDMC PPG and Respiration Dataset’], [‘bpssrat’, ‘Blood Pressure in Salt-Sensitive Dahl Rats’], [‘capslpdb’, ‘CAP Sleep Database’], [‘crisdb’, ‘CAST RR Interval Sub-Study Database’], [‘cves’, ‘Cerebral Vasoregulation in Elderly with Stroke’], [‘challenge/2009/test-set-a’, ‘Challenge 2009 Test Set A’], [‘challenge/2009/test-set-b’, ‘Challenge 2009 Test Set B’], [‘challenge/2010/set-a’, ‘Challenge 2010 Training Set A’], [‘challenge/2010/set-b’, ‘Challenge 2010 Test Set B’], [‘challenge/2010/set-c’, ‘Challenge 2010 Test Set C’], [‘challenge/2011/sim’, ‘Challenge 2011 Pilot Set’], [‘challenge/2011/set-a’, ‘Challenge 2011 Training Set A’], [‘challenge/2011/set-b’, ‘Challenge 2011 Test Set B’], [‘challenge/2013/set-a’, ‘Challenge 2013 Training Set A’], [‘challenge/2013/set-b’, ‘Challenge 2013 Test Set B’], [‘challenge/2014/set-p2’, ‘Challenge 2014 Extended Training Set’], [‘challenge/2014/set-p’, ‘Challenge 2014 Training Set’], [‘challenge/2015/training’, ‘Challenge 2015 Training Set’], [‘challenge/2016/training-a’, ‘Challenge 2016 Training Set A’], [‘challenge/2016/training-b’, ‘Challenge 2016 Training Set B’], [‘challenge/2016/training-c’, ‘Challenge 2016 Training Set C’], [‘challenge/2016/training-d’, ‘Challenge 2016 Training Set D’], [‘challenge/2016/training-e’, ‘Challenge 2016 Training Set E’], [‘challenge/2016/training-f’, ‘Challenge 2016 Training Set F’], [‘challenge/2017/training’, ‘Challenge 2017 Training Set’], [‘challenge/2018/training’, ‘Challenge 2018 Training Set’], [‘challenge/2018/test’, ‘Challenge 2018 Test Set’], [‘charisdb’, ‘CHARIS database’], [‘chbmit’, ‘CHB-MIT Scalp EEG Database’], [‘cebsdb’, ‘Combined measurement of ECG, Breathing and Seismocardiograms’], [‘culm’, ‘Complex Upper-Limb Movements’], [‘chf2db’, ‘Congestive Heart Failure RR Interval Database’], [‘ctu-uhb-ctgdb’, ‘CTU-CHB Intrapartum Cardiotocography Database’], [‘cudb’, ‘CU Ventricular Tachyarrhythmia Database’], [‘ecgdmmld’, ‘ECG Effects of Dofetilide, Moxifloxacin, Dofetilide+Mexiletine, Dofetilide+Lidocaine and Moxifloxacin+Diltiazem’], [‘ecgcipa’, ‘CiPA ECG Validation Study’], [‘ecgrdvq’, ‘ECG Effects of Ranolazine, Dofetilide, Verapamil, and Quinidine’], [‘ecgiddb’, ‘ECG-ID Database’], [‘eegmat’, ‘EEG During Mental Arithmetic Tasks’], [‘eegmmidb’, ‘EEG Motor Movement/Imagery Dataset’], [‘ltrsvp’, ‘EEG Signals from an RSVP Task’], [‘erpbci’, ‘ERP-based Brain-Computer Interface recordings’], [‘edb’, ‘European ST-T Database’], [‘earh’, ‘Evoked Auditory Responses in Heading Impaired’], [‘earndb’, ‘Evoked Auditory Responses in Normals’], [‘emgdb’, ‘Examples of Electromyograms’], [‘fantasia’, ‘Fantasia Database’], [‘fecgsyndb’, ‘Fetal ECG Synthetic Database’], [‘fpcgdb’, ‘Fetal PCG Database’], [‘gaitdb’, ‘Gait in Aging and Disease Database’], [‘gaitndd’, ‘Gait in Neurodegenerative Disease Database’], [‘gait-maturation-db/data’, ‘Gait Maturation Database’], [‘meditation/data’, ‘Heart Rate Oscillations during Meditation’], [‘hbedb’, ‘Human Balance Evaluation Database’], [‘ehgdb’, ‘Icelandic 16-electrode Electrohysterogram Database’], [‘iafdb’, ‘Intracardiac Atrial Fibrillation Database’], [‘ltafdb’, ‘Long Term AF Database’], [‘ltstdb’, ‘Long Term ST Database’], [‘mssvepdb’, ‘MAMEM SSVEP Database’], [‘mghdb’, ‘MGH/MF Waveform Database’], [‘mimicdb’, ‘MIMIC Database’], [‘mimicdb/numerics’, ‘MIMIC Database Numerics’], [‘mimic2cdb’, ‘MIMIC II Clinical Database Public Subset’], [‘mimic2wdb/30’, ‘MIMIC II/III Waveform Database, part 0’], [‘mimic2wdb/31’, ‘MIMIC II/III Waveform Database, part 1’], [‘mimic2wdb/32’, ‘MIMIC II/III Waveform Database, part 2’], [‘mimic2wdb/33’, ‘MIMIC II/III Waveform Database, part 3’], [‘mimic2wdb/34’, ‘MIMIC II/III Waveform Database, part 4’], [‘mimic2wdb/35’, ‘MIMIC II/III Waveform Database, part 5’], [‘mimic2wdb/36’, ‘MIMIC II/III Waveform Database, part 6’], [‘mimic2wdb/37’, ‘MIMIC II/III Waveform Database, part 7’], [‘mimic2wdb/38’, ‘MIMIC II/III Waveform Database, part 8’], [‘mimic2wdb/39’, ‘MIMIC II/III Waveform Database, part 9’], [‘mimic2wdb/matched’, ‘MIMIC II Waveform Database Matched Subset’], [‘mimic3wdb/matched’, ‘MIMIC III Waveform Database Matched Subset’], [‘mitdb’, ‘MIT-BIH Arrhythmia Database’], [‘pwave’, ‘MIT-BIH Arrhythmia Database P-Wave Annotations’], [‘afdb’, ‘MIT-BIH Atrial Fibrillation Database’], [‘cdb’, ‘MIT-BIH ECG Compression Test Database’], [‘ltdb’, ‘MIT-BIH Long-Term ECG Database’], [‘vfdb’, ‘MIT-BIH Malignant Ventricular Ectopy Database’], [‘nstdb’, ‘MIT-BIH Noise Stress Test Database’], [‘nsrdb’, ‘MIT-BIH Normal Sinus Rhythm Database’], [‘excluded’, ‘… [Recordings excluded from the NSR DB]’], [‘slpdb’, ‘MIT-BIH Polysomnographic Database’], [‘stdb’, ‘MIT-BIH ST Change Database’], [‘svdb’, ‘MIT-BIH Supraventricular Arrhythmia Database’], [‘mmgdb’, ‘MMG Database’], [‘macecgdb’, ‘Motion Artifact Contaminated ECG Database’], [‘motion-artifact’, ‘Motion Artifact Contaminated fNIRS and EEG Data’], [‘noneeg’, ‘Non-EEG Dataset for Assessment of Neurological Status’], [‘nifecgdb’, ‘Non-Invasive Fetal ECG Database’], [‘nifeadb’, ‘Non-Invasive Fetal ECG Arrhythmia Database’], [‘nsr2db’, ‘Normal Sinus Rhythm RR Interval Database’], [‘ob1db’, ‘OB-1 Fetal ECG Database [sample record]’], [‘afpdb’, ‘PAF Prediction Challenge Database’], [‘osv’, ‘Pattern Analysis of Oxygen Saturation Variability’], [‘prcp’, ‘Physiologic Response to Changes in Posture’], [‘szdb’, ‘Post-Ictal Heart Rate Oscillations in Partial Epilepsy’], [‘picsdb’, ‘Preterm Infant Cardio-Respiratory Signals Database’], [‘ptbdb’, ‘PTB Diagnostic ECG Database’], [‘qtdb’, ‘QT Database’], [‘rvmh1’, ‘Response to Valsalva Maneuver in Humans’], [‘sufhsdb’, ‘Shiraz University Fetal Heart Sounds Database’], [‘simfpcgdb’, ‘Simulated Fetal Phonocardiograms’], [‘sleepbrl’, ‘Sleep Bioradiolocation Database’], [‘sleep-edfx’, ‘Sleep-EDF Database [Expanded]’], [‘shhpsgdb’, ‘Sleep Heart Health Study PSG Database [sample record]’], [‘shareedb’, ‘Smart Health for Assessing the Risk of Events via ECG Database’], [‘mvtdb/data’, ‘Spontaneous Ventricular Tachyarrhythmia Database’], [‘sgamp’, ‘Squid Giant Axon Membrane Potential’], [‘incartdb’, ‘St Petersburg INCART 12-lead Arrhythmia Database’], [‘staffiii’, ‘STAFF III Database’], [‘drivedb’, ‘Stress Recognition in Automobile Drivers’], [‘sddb’, ‘Sudden Cardiac Death Holter Database’], [‘twadb’, ‘T-Wave Alternans Challenge Database’], [‘taichidb’, ‘Tai Chi, Physiological Complexity, and Healthy Aging - Gait’], [‘tpehgdb’, ‘Term-Preterm EHG Database’], [‘tpehgt’, ‘Term-Preterm EHG DataSet with Tocogram (TPEHGT DS)’], [‘ucddb’, ‘UCD Sleep Apnea Database’], [‘unicaprop’, ‘UniCA ElectroTastegram Database (PROP)’], [‘videopulse’, ‘Video Pulse Signals in Stationary and Motion Conditions’], [‘voiced’, ‘VOice ICar fEDerico II Database’], [‘wrist’, ‘Wrist PPG During Exercise’], [‘mimic2db’, ‘MIMIC II Waveform DB, v2 [deprecated, use v3]’], [‘mimic2db/numerics’, ‘MIMIC II Waveform DB, v2 Numerics [deprecated, use v3]’], [‘sleep-edf’, ‘Sleep-EDF Database, v1 [deprecated, use sleep-edfx]’]]</p>
+<p>这个列表其实在网站*<a target="_blank" rel="noopener" href="https://physionet.org/physiobank/database/*%E4%B8%AD%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%9F%A5%E7%9C%8B%E6%9F%A5%E7%9C%8B">https://physionet.org/physiobank/database/*中也可以查看查看</a></p>
+<p><strong>找到想要分析的睡眠数据库：</strong></p>
+<p> <strong>[‘slpdb’, ‘MIT-BIH Polysomnographic Database’]</strong></p>
+<h2 id="2-获取想要的睡眠数据库的所有信号记录列表"><a href="#2-获取想要的睡眠数据库的所有信号记录列表" class="headerlink" title="2.获取想要的睡眠数据库的所有信号记录列表"></a>2.获取想要的睡眠数据库的所有信号记录列表</h2><p>由第一个库知道， <strong>[‘slpdb’, ‘MIT-BIH Polysomnographic Database’]**，对应的数据库就为</strong>slpdb**，获取里面所有数据集的列表：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">recs_list = wfdb.get_record_list(<span class="string">&#x27;slpdb&#x27;</span>)</span><br><span class="line">print(recs_list)</span><br></pre></td></tr></table></figure>
+
+<p>[‘slp01a’, ‘slp01b’, ‘slp02a’, ‘slp02b’, ‘slp03’, ‘slp04’, ‘slp14’, ‘slp16’, ‘slp32’, ‘slp37’, ‘slp41’, ‘slp45’, ‘slp48’, ‘slp59’, ‘slp60’, ‘slp61’, ‘slp66’, ‘slp67x’]</p>
+<h2 id="3-获取对应的数据库里面的内容"><a href="#3-获取对应的数据库里面的内容" class="headerlink" title="3.获取对应的数据库里面的内容"></a>3.获取对应的数据库里面的内容</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/" data-id="ckh378yd9004fl4ue9dmu2fqc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-matlab中的插值" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/" class="article-date">
+  <time datetime="2019-12-18T00:50:08.000Z" itemprop="datePublished">2019-12-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/">matlab中的插值</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Matlab中的插值函数"><a href="#Matlab中的插值函数" class="headerlink" title="Matlab中的插值函数"></a>Matlab中的插值函数</h1><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=850775&auto=1&height=66"></iframe>
+# interp1
+
+<p>一维数据插值（表查找）</p>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vq = interp1(x,v,xq)</span><br><span class="line">vq = interp1(x,v,xq,method)</span><br><span class="line">vq = interp1(x,v,xq,method,extrapolation)</span><br><span class="line">vq = interp1(v,xq)</span><br><span class="line">vq = interp1(v,xq,method)</span><br><span class="line">vq = interp1(v,xq,method,extrapolation)</span><br><span class="line">pp = interp1(x,v,method,<span class="string">&#x27;pp&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><code>vq = interp1(x,v,xq)</code> 使用线性插值返回一维函数在特定查询点的插入值。向量 <code>x</code> 包含样本点，<code>v</code> 包含对应值 v(x)。向量 <code>xq</code> 包含查询点的坐标。</p>
+<p>如果您有多个在同一点坐标采样的数据集，则可以将 <code>v</code> 以数组的形式进行传递。数组 <code>v</code> 的每一列都包含一组不同的一维样本值。</p>
+<p><code>vq = interp1(x,v,xq,method)</code> 指定备选插值方法：<code>&#39;linear&#39;</code>、<code>&#39;nearest&#39;</code>、<code>&#39;next&#39;</code>、<code>&#39;previous&#39;</code>、<code>&#39;pchip&#39;</code>、<code>&#39;cubic&#39;</code>、<code>&#39;v5cubic&#39;</code>、<code>&#39;makima&#39;</code> 或 <code>&#39;spline&#39;</code>。默认方法为 <code>&#39;linear&#39;</code>。</p>
+<p><code>vq = interp1(x,v,xq,method,extrapolation)</code> 用于指定外插策略，来计算落在 <code>x</code> 域范围外的点。如果希望使用 <code>method</code> 算法进行外插，可将 <code>extrapolation</code> 设置为 <code>&#39;extrap&#39;</code>。您也可以指定一个标量值，这种情况下，<code>interp1</code> 将为所有落在 <code>x</code> 域范围外的点返回该标量值。</p>
+<p><code>vq = interp1(v,xq)</code> 返回插入的值，并假定一个样本点坐标默认集。默认点是从 <code>1</code> 到 <code>n</code> 的数字序列，其中 <code>n</code>取决于 <code>v</code> 的形状：</p>
+<ul>
+<li>当 v 是向量时，默认点是 <code>1:length(v)</code>。</li>
+<li>当 v 是数组时，默认点是 <code>1:size(v,1)</code>。</li>
+</ul>
+<p>如果您不在意点之间的绝对距离，则可使用此语法。</p>
+<p><code>vq = interp1(v,xq,method)</code> 指定备选插值方法中的任意一种，并使用默认样本点。</p>
+<p><code>vq = interp1(v,xq,method,extrapolation)</code> 指定外插策略，并使用默认样本点。</p>
+<p><code>pp = interp1(x,v,method,&#39;pp&#39;)</code> 使用 <code>method</code> 算法返回分段多项式形式的 v(x)。</p>
+<p>根据需求确定的语法：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vq = interp1(x,v,xq,method)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h1><p><strong>x</strong> :样本点****</p>
+<p><strong>x</strong> :样本点，指定为一行或一列实数向量。<code>x</code> 中的值必须各不相同。<code>x</code> 的长度必须符合以下要求之一：</p>
+<ul>
+<li>如果 <code>v</code> 为向量，则 <code>length(x)</code> 必须等于 <code>length(v)</code>。</li>
+<li>如果 <code>v</code> 为数组，则 <code>length(x)</code> 必须等于 <code>size(v,1)</code></li>
+</ul>
+<p><strong>V:样本值</strong></p>
+<p>样本值，指定为实数/复数向量、矩阵或数组。如果 <code>v</code> 是矩阵或数组，则每列包含单独的一组一维值。</p>
+<p>如果 <code>v</code> 包含复数，则 <code>interp1</code> 将分别插入实部和虚部。</p>
+<p><strong>xq: 查询点</strong></p>
+<p>查询点，指定为实数标量、向量、矩阵或数组。</p>
+<p><strong>method- 插值方法</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+<th align="left">连续性</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>&#39;linear&#39;</code></td>
+<td align="left">线性插值。在查询点插入的值基于各维中邻点网格点处数值的线性插值。这是默认插值方法。</td>
+<td align="left">C0</td>
+<td align="center">需要至少 2 个点。比最近邻点插值需要更多内存和计算时间。</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;nearest&#39;</code></td>
+<td align="left">最近邻点插值。在查询点插入的值是距样本网格点最近的值。</td>
+<td align="left">不连续</td>
+<td align="center">需要至少 2 个点。最低内存要求最快计算时间</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;next&#39;</code></td>
+<td align="left">下一个邻点插值。在查询点插入的值是下一个抽样网格点的值。</td>
+<td align="left">不连续</td>
+<td align="center">需要至少 2 个点。内存要求和计算时间与 <code>&#39;nearest&#39;</code> 相同</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;previous&#39;</code></td>
+<td align="left">上一个邻点插值。在查询点插入的值是上一个抽样网格点的值。</td>
+<td align="left">不连续</td>
+<td align="center">需要至少 2 个点。内存要求和计算时间与 <code>&#39;nearest&#39;</code> 相同</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;pchip&#39;</code></td>
+<td align="left">保形分段三次插值。在查询点插入的值基于邻点网格点处数值的保形分段三次插值。</td>
+<td align="left">C1</td>
+<td align="center">需要至少 4 个点。比 <code>&#39;linear&#39;</code> 需要更多内存和计算时间</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;cubic&#39;</code>注意<code>interp1(...,&#39;cubic&#39;)</code>的行为在以后的版本中会有所变化。在以后的版本中，此方法将执行三次卷积。</td>
+<td align="left">与 <code>&#39;pchip&#39;</code> 相同。</td>
+<td align="left">C1</td>
+<td align="center">此方法目前返回与 <code>&#39;pchip&#39;</code> 相同的结果。</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;v5cubic&#39;</code></td>
+<td align="left">用于 MATLAB® 5 的三次卷积。</td>
+<td align="left">C1</td>
+<td align="center">点之间的间距必须均匀。<code>&#39;cubic&#39;</code> 将在以后的版本中替代 <code>&#39;v5cubic&#39;</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;makima&#39;</code></td>
+<td align="left">修改后的 Akima 三次 Hermite 插值。在查询点插入的值基于次数最大为 3 的多项式的分段函数。为防过冲，已改进 Akima 公式。</td>
+<td align="left">C1</td>
+<td align="center">需要至少 2 个点。产生的波动比 <code>&#39;spline&#39;</code> 小，但不像 <code>&#39;pchip&#39;</code> 那样急剧变平计算成本高于 <code>&#39;pchip&#39;</code>，但通常低于 <code>&#39;spline&#39;</code>内存要求与 <code>&#39;spline&#39;</code> 类似</td>
+</tr>
+<tr>
+<td align="left"><code>&#39;spline&#39;</code></td>
+<td align="left">使用非结终止条件的样条插值。在查询点插入的值基于各维中邻点网格点处数值的三次插值。</td>
+<td align="left">C2</td>
+<td align="center">需要至少 4 个点。比 <code>&#39;pchip&#39;</code> 需要更多内存和计算时间</td>
+</tr>
+</tbody></table>
+<p>选择spline。参考文献：<strong>基于时频分析的心率变异性研究</strong></p>
+<h2 id="输出函数"><a href="#输出函数" class="headerlink" title="输出函数"></a>输出函数</h2><p><strong>vq- 输出的插值</strong></p>
+<p>插入的值，以标量、向量、矩阵或数组的形式返回。<code>vq</code> 的大小取决于 <code>v</code> 和 <code>xq</code> 的形状。</p>
+<table>
+<thead>
+<tr>
+<th align="left">v 的形状</th>
+<th align="left">xq 的形状</th>
+<th align="left">Vq 的大小</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">向量</td>
+<td align="left">向量</td>
+<td align="left"><code>size(xq)</code></td>
+<td align="center">如果 <code>size(v) = [1 100]</code> 且 <code>size(xq) = [1 500]</code>， 则 <code>size(vq) = [1 500]</code>。</td>
+</tr>
+<tr>
+<td align="left">向量</td>
+<td align="left">矩阵  或 N 维数组</td>
+<td align="left"><code>size(xq)</code></td>
+<td align="center">如果 <code>size(v) = [1 100]</code> 且 <code>size(xq) = [50 30]</code>， 则 <code>size(vq) = [50 30]</code>。</td>
+</tr>
+<tr>
+<td align="left">矩阵  或 N 维数组</td>
+<td align="left">向量</td>
+<td align="left"><code>[length(xq) size(v,2),...,size(v,n)]</code></td>
+<td align="center">如果 <code>size(v) = [100 3]</code> 且 <code>size(xq) = [1 500]</code>， 则 <code>size(vq) = [500 3]</code>。</td>
+</tr>
+<tr>
+<td align="left">矩阵  或 N 维数组</td>
+<td align="left">矩阵  或 N 维数组</td>
+<td align="left"><code>[size(xq,1),...,size(xq,n),... size(v,2),...,size(v,m)]</code></td>
+<td align="center">如果 <code>size(v) = [4 5 6]</code> 且 <code>size(xq) = [2 3 7]</code>， 则 <code>size(vq) = [2 3 7 5 6]</code>。</td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="http://www.360doc.com/content/18/0201/11/12548572_726900990.shtml">http://www.360doc.com/content/18/0201/11/12548572_726900990.shtml</a></p>
+<h2 id="参考代码："><a href="#参考代码：" class="headerlink" title="参考代码："></a>参考代码：</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">load ekg.mat; <span class="comment">%读入ecg信号</span></span><br><span class="line"></span><br><span class="line">[map,r,delay]=pan_tompkin(ecg,fs,<span class="number">0</span>);<span class="comment">% 利用pan_tomkin算法找到R点</span></span><br><span class="line"></span><br><span class="line">[a,l]=<span class="built_in">size</span>(r);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:l;</span><br><span class="line"></span><br><span class="line">t(<span class="built_in">i</span><span class="number">-1</span>)=r(<span class="built_in">i</span>)-r(<span class="built_in">i</span><span class="number">-1</span>); <span class="comment">%求出R-R间的时间值，即使HRV</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">x=r(<span class="number">2</span>:<span class="number">19</span>);</span><br><span class="line"></span><br><span class="line">y=interp1(x,t,r(<span class="number">2</span>):<span class="number">1</span>:r(<span class="number">19</span>),<span class="string">&#x27;spline&#x27;</span>); <span class="comment">%利用插值法求出以原ecg信号的采样率fs的拟合函数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">plot</span>(y);<span class="built_in">hold</span> on,</span><br><span class="line"></span><br><span class="line"><span class="built_in">scatter</span>(r(<span class="number">2</span>:<span class="number">19</span>)-r(<span class="number">2</span>),t(<span class="number">1</span>:<span class="number">18</span>));</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="进行插值并实现重采样，代码如下："><a href="#进行插值并实现重采样，代码如下：" class="headerlink" title="进行插值并实现重采样，代码如下："></a>进行插值并实现重采样，代码如下：</h2><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%对其进行三次样本插值</span></span><br><span class="line">sRR = interp1(locs(<span class="number">2</span>:<span class="built_in">length</span>(locs),<span class="number">1</span>),RR, locs(<span class="number">2</span>):<span class="number">1</span>:locs(<span class="built_in">length</span>(locs)), <span class="string">&#x27;spline&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%利用散点图将图像进行标记</span></span><br><span class="line"><span class="built_in">figure</span>(<span class="number">5</span>)</span><br><span class="line"><span class="built_in">plot</span>(sRR);</span><br><span class="line"><span class="built_in">hold</span> on</span><br><span class="line"><span class="built_in">scatter</span>(locs(<span class="number">2</span>:<span class="built_in">length</span>(locs),<span class="number">1</span>) - locs(<span class="number">2</span>),RR(<span class="number">1</span>:<span class="built_in">length</span>(locs)<span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line"><span class="comment">%原来的采样率为250Hz,进行重采样为2.4Hz，%输出为等间隔的数据信号</span></span><br><span class="line">VRR = resample(sRR, <span class="number">720</span>, <span class="number">74651</span>);</span><br><span class="line">VRR = VRR&#x27;;</span><br><span class="line">Fs = <span class="number">2.4</span>;</span><br><span class="line">N_RR = <span class="built_in">length</span>(VRR);<span class="comment">%采样数</span></span><br><span class="line">fen1 = N_RR / (<span class="number">60</span> * Fs);</span><br><span class="line">m = <span class="number">1</span> : N_RR;</span><br><span class="line">t = m / Fs;</span><br><span class="line"><span class="built_in">figure</span>(<span class="number">6</span>)</span><br><span class="line"><span class="built_in">plot</span>(t, VRR);</span><br><span class="line"></span><br><span class="line"><span class="comment">%对数据进行切片30S</span></span><br><span class="line">XRR = [];</span><br><span class="line"><span class="built_in">i</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">i</span> &lt;= <span class="number">10</span></span><br><span class="line"><span class="built_in">j</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">j</span> &lt;= <span class="number">72</span></span><br><span class="line">        XRR(<span class="built_in">j</span>, <span class="built_in">i</span>) = VRR(<span class="built_in">j</span> * <span class="built_in">i</span>, <span class="number">1</span>); </span><br><span class="line">        <span class="built_in">j</span> = <span class="built_in">j</span> + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    <span class="built_in">i</span> = <span class="built_in">i</span> +<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1576660259221&di=127d3ef16eaff007d35877ac99af1c4a&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201811/03/20181103144533_neboc.thumb.700_0.jpg"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2019/12/18/matlab%E4%B8%AD%E7%9A%84%E6%8F%92%E5%80%BC/" data-id="ckh378yc40021l4ue3evfeph1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-matlab中的重采样" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/" class="article-date">
+  <time datetime="2019-12-17T06:14:28.000Z" itemprop="datePublished">2019-12-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/">matlab中的重采样</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28732503&auto=1&height=66"></iframe>
+## Matlab中的重采样
+
+<p>选取3条插值重采样</p>
+<p>重采样函数Resample：将统一或非统一数据重新采样为新的固定速率</p>
+<p>语法：</p>
+<p>y = resample(x, p, q)</p>
+<p>y = resample(x, tx, __, method)</p>
+<p>指定插值方法以及该组中以前语法中的任何参数。内插方法可以是<code>&#39;linear&#39;</code>，<code>&#39;pchip&#39;</code>，或<code>&#39;spline&#39;</code>。</p>
+<p><strong>注：</strong>  如果<code>x</code>没有变化缓慢，可以考虑使用<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/matlab/ref/interp1.html"><code>interp1</code></a>与<code>&#39;pchip&#39;</code>插值方法。</p>
+<h2 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h2><p>输入信号，指定为矢量或矩阵。如果<code>x</code>是矩阵，则将其列视为独立通道。<code>x</code>可以包含<code>NaN</code>。<code>NaN</code>将s视为丢失的数据，并从重采样中排除。double</p>
+<p>p, q:重采样因子，指定为正整数。如需要原采样频率的1/5,即p=1,q=5</p>
+<h3 id="n—-相邻词号-10（默认）-正整数"><a href="#n—-相邻词号-10（默认）-正整数" class="headerlink" title="n— 相邻词号 10（默认）| 正整数"></a><code>n</code>— 相邻词号 10（默认）| 正整数</h3><p>邻居项号，指定为正整数。如果<code>n</code> = 0，则执行最近邻插值。抗混叠FIR滤波器的长度与成正比。较大的值提供更好的精度，但要花费更多的计算时间。<code>resample``n``n</code></p>
+<p><strong>资料类型：</strong> <code>double</code></p>
+<h3 id="Kaiser窗口5的-Shape参数（默认）-正实标量"><a href="#Kaiser窗口5的-Shape参数（默认）-正实标量" class="headerlink" title="Kaiser窗口5的 Shape参数（默认）| 正实标量"></a>Kaiser窗口5的 Shape参数（默认）| 正实标量</h3><p>Kaiser窗口的Shape参数，指定为正实标量。增大<code>beta</code>加宽用于设计抗混叠滤波器的窗口的主瓣，并减小窗口旁瓣的幅度。</p>
+<p><strong>资料类型：</strong> `double</p>
+<h3 id="b—-FIR滤波器系数-矢量"><a href="#b—-FIR滤波器系数-矢量" class="headerlink" title="b— FIR滤波器系数 矢量"></a><code>b</code>— FIR滤波器系数 矢量</h3><p>FIR滤波器系数，指定为矢量。默认情况下，使用Kaiser窗口设计过滤器。补偿延迟时，假定具有奇数长度和线性相位。<code>resample</code><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/firls.html"><code>firls</code></a><code>resample``b</code></p>
+<p><strong>示例：</strong><code>fir1(4,0.5)</code>指定一个四阶低通滤波器，其归一化截止频率为0.5πrad /样本。</p>
+<p><strong>资料类型：</strong> <code>double</code></p>
+<h3 id="tx—-时间瞬间-非负实矢量-datetime数组"><a href="#tx—-时间瞬间-非负实矢量-datetime数组" class="headerlink" title="tx— 时间瞬间 非负实矢量 | datetime数组"></a><code>tx</code>— 时间瞬间 非负实矢量 | <code>datetime</code>数组</h3><p>时间瞬间，指定为非负实向量或<code>datetime</code>数组。<code>tx</code>必须单调增加，但不必均匀间隔。<code>tx</code>可以包含<code>NaN</code>或<code>NaT</code>。这些值被视为丢失的数据，并从重新采样中排除。</p>
+<p><strong>数据类型：</strong><code>double</code> |<code>datetime</code></p>
+<h3 id="fs—-采样率-正标量"><a href="#fs—-采样率-正标量" class="headerlink" title="fs— 采样率 正标量"></a><code>fs</code>— 采样率 正标量</h3><p>采样率，指定为正标量。采样率是每单位时间的采样数。如果时间单位是秒，则采样率以Hz为单位。</p>
+<p><strong>资料类型：</strong> <code>double</code></p>
+<h3 id="method—-插值方法-39-linear-39-（默认）-39-pchip-39-39-spline-39"><a href="#method—-插值方法-39-linear-39-（默认）-39-pchip-39-39-spline-39" class="headerlink" title="method— 插值方法 &#39;linear&#39;（默认）| &#39;pchip&#39;|&#39;spline&#39;"></a><code>method</code>— 插值方法 <code>&#39;linear&#39;</code>（默认）| <code>&#39;pchip&#39;</code>|<code>&#39;spline&#39;</code></h3><p>插值方法，规定为一个<code>&#39;linear&#39;</code>，<code>&#39;pchip&#39;</code>或<code>&#39;spline&#39;</code>：</p>
+<ul>
+<li><code>&#39;linear&#39;</code> - 线性插值。</li>
+<li><code>&#39;pchip&#39;</code> —保形分段三次插值。</li>
+<li><code>&#39;spline&#39;</code> —使用非终止条件进行样条插值。</li>
+</ul>
+<h2 id="输出参数"><a href="#输出参数" class="headerlink" title="输出参数"></a>输出参数</h2><h3 id="y—-重采样的信号-向量-矩阵"><a href="#y—-重采样的信号-向量-矩阵" class="headerlink" title="y— 重采样的信号 向量| 矩阵"></a><code>y</code>— 重采样的信号 向量| 矩阵</h3><p>重新采样的信号，以向量或矩阵形式返回。如果<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/resample.html?searchHighlight=resample&s_tid=doc_srchtitle#bumhz33-x"><code>x</code></a>是的长度的信号<em>Ñ</em>并指定<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/resample.html?searchHighlight=resample&s_tid=doc_srchtitle#bumhz33-pq"><code>p</code></a>和 <a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/resample.html?searchHighlight=resample&s_tid=doc_srchtitle#bumhz33-pq"><code>q</code></a>，然后<code>y</code>是长度⌈ <em>Ñ</em> × <code>p</code>/ <code>q</code>⌉。</p>
+<h3 id="b—-FIR滤波器系数-矢量-1"><a href="#b—-FIR滤波器系数-矢量-1" class="headerlink" title="b— FIR滤波器系数 矢量"></a><code>b</code>— FIR滤波器系数 矢量</h3><p>FIR滤波器系数，以向量形式返回。</p>
+<h3 id="ty—输出瞬间-非负实矢量"><a href="#ty—输出瞬间-非负实矢量" class="headerlink" title="ty—输出瞬间 非负实矢量"></a><code>ty</code>—输出瞬间 非负实矢量</h3><p>输出瞬间，作为非负实向量返回。</p>
+<p>需求：</p>
+<p>1.将信号采样为2Hz</p>
+<p>2.用3次插值</p>
+<p>3.等间隔</p>
+<p>method: “pchip”三次插值</p>
+<p>是先插值，再重采样！！！！！！！</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2019/12/17/matlab%E4%B8%AD%E7%9A%84%E9%87%8D%E9%87%87%E6%A0%B7/" data-id="ckh378yc60029l4uegmgn2dpj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/malab-%E6%AF%95%E4%B8%9A/" rel="tag">-malab -毕业</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-心率变异性" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/" class="article-date">
+  <time datetime="2019-12-16T13:31:31.000Z" itemprop="datePublished">2019-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E5%B7%A5%E4%BD%9C/">-工作</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/">心率变异性</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="心率变异性"><a href="#心率变异性" class="headerlink" title="心率变异性"></a>心率变异性</h1><p><strong>心率变异性(heart rate variability, HRV)</strong>,即指连续<strong>两次心跳时间间隔的微小变化</strong>，HRV 产生于自主神经系统（Autonomic Nervous System  ，ANS）对心脏窦房结的调制，使得心搏间期一般存在几十毫秒的差异或波动，HRV 是了解 ANS 状态的有用信号，心率（Heart Rate, HR）的正常变异是由于心脏和循环系统的自主神经调节。</p>
+<p>目前，HRV 分析方法主要分为三类，即<strong>时域分析法、频域分析法和非线性分析法</strong>。其中，时域分析和频域分析法是线性分析，计算简单且各项指标的含义明确。</p>
+<p><strong>时域分析法</strong>是基于统计学原理来量化 <strong>RR 间期序列</strong>以及心率序列的变化差异，主要是计算各项统计指标。 </p>
+<p><strong>频域分析法</strong>是将 <strong>RR 间期序列</strong>通过傅里叶变换或小波变换的方法由时域转换到频率域上，计算各频段的频谱功率。频域分析法通常采用快速傅里叶变换法(FFT)或小波变换来计算 HRV 的功率谱密度及各频段的频谱功率。</p>
+<p>文献中常用的方法是试图使用从<strong>混沌理论或分形过程</strong>得出的<strong>非线性</strong>统计指标来量化心率的复杂性，如**<em>去趋势波动分析</em>、Poincare 散点图、李雅普诺夫指数、相关维度、近似熵、样本熵、多尺度熵、复杂度**等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2019/12/16/%E5%BF%83%E7%8E%87%E5%8F%98%E5%BC%82%E6%80%A7/" data-id="ckh378ydx006cl4ue8ht7hk8e" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-matplotlib图像绘制学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time datetime="2019-12-10T14:37:17.000Z" itemprop="datePublished">2019-12-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/">matplotlib图像绘制学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2019/12/10</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 坐标名称图像绘制还有标题 </span></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">y = [<span class="number">5</span>, <span class="number">7</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">x1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">y1 = [<span class="number">15</span>, <span class="number">17</span>, <span class="number">14</span>]</span><br><span class="line"><span class="comment"># 定义线段的名字可以在后面加label=‘’，即为legend效果</span></span><br><span class="line"></span><br><span class="line">plt.plot(x, y, label=<span class="string">&#x27;First Line&#x27;</span>)</span><br><span class="line">plt.plot(x1, y1, label=<span class="string">&#x27;Second Line&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;plot xnumber&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;plot ynumber&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;plot tu\ncheck it out&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 展示图像</span></span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>绘制图像，同理在python中bar是直方图</p>
+<p>加颜色：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.plot(x, y, label=<span class="string">&#x27;First Line&#x27;</span>, color=<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">plt.plot(x1, y1, label=<span class="string">&#x27;Second Line&#x27;</span>, color=<span class="string">&#x27;b&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在pycharm中还是直接运行，当需要查看变量时，点击下面的Python Console,可在里面查看变量值。</p>
+<p>点击run file in console,即可运行到console中，可查看变量。</p>
+<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1575301201485&di=45041ef6a8b44ba8808313a156dda62f&imgtype=0&src=http%3A%2F%2Fpic.downcc.com%2Fupload%2F2015-8%2F2015824101012.jpg" alt="嘤嘤嘤">
+
+
+
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=412327101&auto=1&height=66"></iframe>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2019/12/10/matplotlib%E5%9B%BE%E5%83%8F%E7%BB%98%E5%88%B6%E5%AD%A6%E4%B9%A0/" data-id="ckh378yc7002cl4ue1mcecw1v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/9/">&amp;laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/11/">下一页 &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/matlab-%E5%B7%A5%E4%BD%9C/">-matlab -工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python%E5%9F%BA%E7%A1%80/">-python基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%87%E7%BA%A7conda/">-升级conda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">-工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graduation-work/">Graduation work</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mathematical-modeling/">mathematical modeling</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/matlab/">matlab</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nlp/">nlp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/py-study/">py_study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python%E5%9F%BA%E7%A1%80/">python基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/work/">work</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F/">游戏人生</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/malab-%E6%AF%95%E4%B8%9A/" rel="tag">-malab -毕业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">-python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">-python -人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">-个人博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graduation-work/" rel="tag">Graduation work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathematical-modeling/" rel="tag">mathematical modeling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/" rel="tag">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/py-study/" rel="tag">py_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 12px;">-malab -毕业</a> <a href="/tags/python/" style="font-size: 10px;">-python</a> <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">-python -人工智能</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">-个人博客搭建</a> <a href="/tags/Graduation-work/" style="font-size: 14px;">Graduation work</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/mathematical-modeling/" style="font-size: 16px;">mathematical modeling</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/py-study/" style="font-size: 10px;">py_study</a> <a href="/tags/python/" style="font-size: 18px;">python</a> <a href="/tags/work/" style="font-size: 20px;">work</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
 </aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            esy
-            <i class="fa fa-quote-right"></i>
-        </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>miao</p>
-</p>
-        </div>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 esy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
-    </div>
-</aside>
-    
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/11/04/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/06/10/hexo%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/">hexo相关学习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/">python_入门复习</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/26/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">python-入门复习面向对象</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/03/08/python%E2%80%94%E2%80%94OpenCV%E5%88%9D%E6%8E%A5%E8%A7%A6/">python——OpenCV初接触</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/02/26/python%E2%80%94%E2%80%94%E5%91%BC%E5%90%B8%E9%9F%B3%E7%89%B9%E5%BE%81/">python</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2019/12/26/python%E8%B0%83%E7%94%A8wfdb/">LV-3</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/02/tensorflow2-3%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85/">tensorflow2.3版本安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/06/11/%E5%85%A8%E9%83%A8%E7%89%B9%E5%BE%81%E7%9A%84%E6%8F%90%E5%8F%96%E5%92%8C%E6%A0%87%E7%AD%BE%E5%A4%84%E7%90%86/">全部特征的提取和标签处理</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/08/19/%E5%AF%B9UCDDB%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9B%E8%A1%8C%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96/">对UCDDB数据库进行特征提取</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
-
-                
-                <li>
-                    <a href="/page/10/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/page/10/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/page/10/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-                
-            </ul>
-            <div class="tab-content">
-                
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
-    
-    <a href="/tags/py-study/" style="font-size: 19.77186554940111px;" class="tag-cloud-link">py_study</a>
-    
-    <a href="/tags/nlp/" style="font-size: 19.015467839241623px;" class="tag-cloud-link">nlp</a>
-    
-    <a href="/tags/Graduation-work/" style="font-size: 9.556066309662988px;" class="tag-cloud-link">Graduation work</a>
-    
-    <a href="/tags/work/" style="font-size: 17.51115036663155px;" class="tag-cloud-link">work</a>
-    
-    <a href="/tags/hexo/" style="font-size: 15.719797101229215px;" class="tag-cloud-link">hexo</a>
-    
-    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10.453379180314855px;" class="tag-cloud-link">-个人博客搭建</a>
-    
-    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 15.731188111182707px;" class="tag-cloud-link">-malab -毕业</a>
-    
-    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 18.992123813073107px;" class="tag-cloud-link">-python -人工智能</a>
-    
-    <a href="/tags/python/" style="font-size: 9.105695745141077px;" class="tag-cloud-link">python</a>
-    
-    <a href="/tags/python/" style="font-size: 17.993107069901743px;" class="tag-cloud-link">-python</a>
-    
-    <a href="/tags/mathematical-modeling/" style="font-size: 14.886898966452904px;" class="tag-cloud-link">mathematical modeling</a>
-    
-</div>
-                
-                
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
-    </li>
-    
-</div>
-                
-                
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
-    </li>
-    
-</div>
-                
-            </div>
-        </div>
-    </aside>
-    
-</aside>
-            </div>
-        </div>
-    </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-    </div>
+  </div>
 </footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
-</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
 </body>
-
-<script src="/js/activate-power-mode.js"></script>
-
-<script>
-
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
-
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
-    });
-
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '6'
-    }
-</script>
-
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-
-
-<script src="/js/oni.js"></script>
-
-
-
-
 </html>

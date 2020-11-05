@@ -1,652 +1,245 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="author" content="esy">
-    
-    <meta name="description" content="miao">
-    
-    
-    
-    
-    
-    
-    <title>python_入门复习 | ESY</title>
-    <link href="https://esyyes.github.io" rel="prefetch" />
+  <meta charset="utf-8">
+  
 
-    
-<link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/aos.css">
+  
+  <title>python_入门复习 | ESY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="python入门复习_变量—循环—条件1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python_入门复习">
+<meta property="og:url" content="https://esyyes.github.io/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="ESY">
+<meta property="og:description" content="python入门复习_变量—循环—条件1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590405001328&di=92dd5201407c31e2187e000321d669cb&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201803/15/20180315215629_zvfXe.jpeg">
+<meta property="article:published_time" content="2020-05-21T08:28:34.000Z">
+<meta property="article:modified_time" content="2020-05-25T08:23:33.525Z">
+<meta property="article:author" content="esy">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590405001328&di=92dd5201407c31e2187e000321d669cb&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201803/15/20180315215629_zvfXe.jpeg">
+  
+    <link rel="alternate" href="/atom.xml" title="ESY" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
 <link rel="stylesheet" href="/css/style.css">
 
-    
-<script src="/js/jquery.min.js"></script>
-
-    
-<script src="/js/bootstrap.min.js"></script>
-
-    
-<script src="/js/aos.js"></script>
-
-    
-<script src="/js/highslide/highslide-full.min.js"></script>
-
-    
-<link rel="stylesheet" href="/js/highslide/highslide.css">
-
-    <style type="text/css">
-        @media (max-width: 768px) {
-            body {
-                background-color: #f0f0f0;
-                background: url('/imgs/xsbg.gif');
-                background-attachment: fixed;
-            }
-        }
-    </style>
-    
-    <!--<script type="text/javascript">
-      if (document.images) {
-        var avatar = new Image();
-        avatar.src = '/imgs/avatar.jpg'
-        var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
-        var previewsPreLoad = []
-        for(var i = 0; i < length; i++) {
-          previewsPreLoad.push(new Image())
-          previewsPreLoad[previewsPreLoad.length - 1].src = '/imgs/preview' + previews[i]
-        }
-      }
-    </script>-->
 <meta name="generator" content="Hexo 5.2.0"></head>
-<body>
-    <!-- 背景轮播图功能 -->
-    <section class="hidden-xs">
-    <ul class="cb-slideshow">
-        <li><span>天若</span></li>
-        <li><span>有情</span></li>
-        <li><span>天亦老</span></li>
-        <li><span>我为</span></li>
-        <li><span>长者</span></li>
-        <li><span>续一秒</span></li>
-    </ul>
-</section>
-    <!-- 欧尼酱功能, 谁用谁知道 -->
-    
-    <div class="gal-menu gal-dropdown">
-    <div class="circle" id="gal">
-        <div class="ring">
-            <a href="https://esyyes.github.io" class="menuItem" style="left: 50%; top: 15%;">首页</a>
-            
-            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
-            
-            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
-            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
-            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
 
-            
-            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
-            
-        </div>
-        <audio id="audio" src="/imgs/oni.mp3"></audio>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ESY</a>
+      </h1>
+      
     </div>
-</div>
-    
-    <header class="navbar navbar-inverse" id="gal-header">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed"
-                    data-toggle="collapse" data-target=".bs-navbar-collapse"
-                    aria-expanded="false">
-                <span class="fa fa-lg fa-reorder"></span>
-            </button>
-            <a href="https://esyyes.github.io">
-                
-                <style>
-                    #gal-header .navbar-brand {
-                        height: 54px;
-                        line-height: 24px;
-                        font-size: 28px;
-                        opacity: 1;
-                        background-color: rgba(0,0,0,0);
-                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
-                    }
-                </style>
-                <!-- 这里使用文字(navbar_text or config.title) -->
-                <div class="navbar-brand">ESY</div>
-                
-            </a>
-        </div>
-        <div class="collapse navbar-collapse bs-navbar-collapse">
-            <ul class="nav navbar-nav" id="menu-gal">
-                
-                
-                <li class="">
-                    <a href="/">
-                        <i class="fa fa-home"></i>首页
-                    </a>
-                </li>
-                
-                
-                
-                <li class="">
-                    <a href="/archives">
-                        <i class="fa fa-archive"></i>归档
-                    </a>
-                </li>
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-list"></i>分类
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/categories/py-study/">py_study</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/nlp/">nlp</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/Graduation-work/">Graduation work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/work/">work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/hexo/">hexo</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/categories">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                
-                <li class="dropdown">
-                    <!-- TODO 添加hover dropdown效果 -->
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false" data-hover="dropdown">
-                        <i class="fa fa-tags"></i>标签
-                    </a>
-                    <ul class="dropdown-menu">
-                        
-                        
-                        <li>
-                            <a href="/tags/py-study/">py_study</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/nlp/">nlp</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/Graduation-work/">Graduation work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/work/">work</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/hexo/">hexo</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">-个人博客搭建</a>
-                        </li>
-                        
-                        
-                        <li>
-                            <a href="/tags">...</a>
-                        </li>
-                        
-                        
-                    </ul>
-                </li>
-                
-                
-                
-                
-                <li class="">
-                    <a href="/about">
-                        <i class="fa fa-user"></i>关于我
-                    </a>
-                </li>
-                
-                
-            </ul>
-        </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://esyyes.github.io"></form>
+      </div>
     </div>
+  </div>
 </header>
-    <div id="gal-body">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 gal-right" id="mainstay">
-                    
-<article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="https://esyyes.github.io">ESY</a>
-        >
-        <span>python_入门复习</span>
-    </div>
-    <!-- 大型设备详细文章 -->
-    <div class="hidden-xs">
-        <div class="title-article">
-            <h1>
-                <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/">python_入门复习</a>
-            </h1>
-        </div>
-        <div class="tag-article">
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2020-05-21
-            </span>
-            
-        </div>
-    </div>
-    <!-- 小型设备详细文章 -->
-    <div class="visible-xs">
-        <center>
-            <div class="title-article">
-                <h4>
-                    <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/">python_入门复习</a>
-                </h4>
-            </div>
-            <p>
-                <i class="fa fa-calendar"></i> 2020-05-21
-            </p>
-            <p>
-                
-                
-            </p>
-        </center>
-    </div>
-    <div class="content-article">
+      <div class="outer">
+        <section id="main"><article id="post-python-入门复习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/" class="article-date">
+  <time datetime="2020-05-21T08:28:34.000Z" itemprop="datePublished">2020-05-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      python_入门复习
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
         <h1 id="python入门复习-变量—循环—条件"><a href="#python入门复习-变量—循环—条件" class="headerlink" title="python入门复习_变量—循环—条件"></a>python入门复习_变量—循环—条件</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/5/21</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># python 入门复习</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">注释文件: 多行注释：‘’‘ 。。。’‘’或者“”“。。。”“”</span></span><br><span class="line"><span class="string">         单行注释：#</span></span><br><span class="line"><span class="string">         快捷键  ：ctrl + /</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">标识符命名规则是Python中定义各种名字的时候的统一规范，具体如下：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 由数字、字母、下划线组成</span></span><br><span class="line"><span class="string">- 不能数字开头</span></span><br><span class="line"><span class="string">- 不能使用内置关键字</span></span><br><span class="line"><span class="string">- 严格区分大小写</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">变量命名习惯</span></span><br><span class="line"><span class="string">- 大驼峰：即每个单词首字母都大写，例如：`MyName`。</span></span><br><span class="line"><span class="string">- 小驼峰：第二个（含）以后的单词首字母大写，例如：`myName`。</span></span><br><span class="line"><span class="string">- 下划线：例如：`my_name`。</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Debug工具是PyCharm IDE中集成 用来调试程序的工具，在这里程序员可以查看程序的执行细节和流程或者调解bug。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Debug工具使用步骤：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">1. 打断点</span></span><br><span class="line"><span class="string">2. Debug调试</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">检测数据类型的方法：`type()`</span></span><br><span class="line"><span class="string">数据类型</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- 整型：int</span></span><br><span class="line"><span class="string">- 浮点型：float</span></span><br><span class="line"><span class="string">- 字符串：str</span></span><br><span class="line"><span class="string">- 布尔型：bool</span></span><br><span class="line"><span class="string">- 元组：tuple</span></span><br><span class="line"><span class="string">- 集合：set</span></span><br><span class="line"><span class="string">- 字典：dict</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">- 格式化输出</span></span><br><span class="line"><span class="string">  - 格式化符号</span></span><br><span class="line"><span class="string">  - f-字符串</span></span><br><span class="line"><span class="string">- print的结束符</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">所谓的格式化输出即按照一定的格式输出内容</span></span><br><span class="line"><span class="string">| 格式符号 |          转换          </span></span><br><span class="line"><span class="string">| :------: | :--------------------: </span></span><br><span class="line"><span class="string">|  ==%s==  |         字符串         </span></span><br><span class="line"><span class="string">|  ==%d==  |   有符号的十进制整数   </span></span><br><span class="line"><span class="string">|  ==%f==  |         浮点数         </span></span><br><span class="line"><span class="string">|    %c    |          字符          </span></span><br><span class="line"><span class="string">|    %u    |    无符号十进制整数    </span></span><br><span class="line"><span class="string">|    %o    |       八进制整数       </span></span><br><span class="line"><span class="string">|    %x    | 十六进制整数（小写ox） </span></span><br><span class="line"><span class="string">|    %X    | 十六进制整数（大写OX） </span></span><br><span class="line"><span class="string">|    %e    | 科学计数法（小写&#x27;e&#x27;）  </span></span><br><span class="line"><span class="string">|    %E    | 科学计数法（大写&#x27;E&#x27;）  </span></span><br><span class="line"><span class="string">|    %g    |      %f和%e的简写      </span></span><br><span class="line"><span class="string">|    %G    |      %f和%E的简写      </span></span><br><span class="line"><span class="string">- %06d，表示输出的整数显示位数，不足以0补全，超出当前位数则原样输出</span></span><br><span class="line"><span class="string">- %.2f，表示小数点后显示的小数位数。</span></span><br><span class="line"><span class="string">格式化字符串除了%s，还可以写为`f&#x27;&#123;表达式&#125;&#x27;`</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  print(&#x27;&#x27;) or print(&quot;&quot;)</span></span><br><span class="line">print(<span class="string">&#x27;hello Python&#x27;</span>)</span><br><span class="line">print(<span class="string">&quot;hello Python&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># hello Python</span></span><br><span class="line"><span class="comment"># hello Python</span></span><br><span class="line"></span><br><span class="line">age = <span class="number">18</span></span><br><span class="line">name = <span class="string">&#x27;TOM&#x27;</span></span><br><span class="line">weight = <span class="number">75.5</span></span><br><span class="line">student_id = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的名字是TOM</span></span><br><span class="line">print(<span class="string">&#x27;我的名字是%s&#x27;</span> % name)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的学号是0001</span></span><br><span class="line">print(<span class="string">&#x27;我的学号是%4d&#x27;</span> % student_id)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的体重是75.50公斤</span></span><br><span class="line">print(<span class="string">&#x27;我的体重是%.2f公斤&#x27;</span> % weight)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的名字是TOM，今年18岁了</span></span><br><span class="line">print(<span class="string">&#x27;我的名字是%s，今年%d岁了&#x27;</span> % (name, age))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的名字是TOM，明年19岁了</span></span><br><span class="line">print(<span class="string">&#x27;我的名字是%s，明年%d岁了&#x27;</span> % (name, age + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的名字是TOM，明年19岁了</span></span><br><span class="line">print(<span class="string">f&#x27;我的名字是<span class="subst">&#123;name&#125;</span>, 明年<span class="subst">&#123;age + <span class="number">1</span>&#125;</span>岁了&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">- 转义字符</span></span><br><span class="line"><span class="string">  - \n：换行</span></span><br><span class="line"><span class="string">  - \t：制表符</span></span><br><span class="line"><span class="string">- print结束符</span></span><br><span class="line"><span class="string">print(&#x27;内容&#x27;, end=&quot;&quot;)</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">输出的 print 函数总结：</span></span><br><span class="line"><span class="string">1. 字符串和数值类型</span></span><br><span class="line"><span class="string">可以直接输出</span></span><br><span class="line"><span class="string">2.变量</span></span><br><span class="line"><span class="string">无论什么类型，数值，布尔，列表，字典...都可以直接输出</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">(1). %字符：标记转换说明符的开始</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">(2). 转换标志：-表示左对齐；+表示在转换值之前要加上正负号；“”（空白字符）表示正数之前保留空格；0表示转换值若位数不够则用0填充</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">(3). 最小字段宽度：转换后的字符串至少应该具有该值指定的宽度。如果是*，则宽度会从值元组中读出。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">(4). 点(.)后跟精度值：如果转换的是实数，精度值就表示出现在小数点后的位数。如果转换的是字符串，那么该数字就表示最大字段宽度。如果是*，那么精度将从元组中读出</span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">(5).字符串格式化转换类型</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">    print(x, end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">abs(number)，返回数字的绝对值</span></span><br><span class="line"><span class="string">cmath.sqrt(number)，返回平方根，也可以应用于负数</span></span><br><span class="line"><span class="string">float(object)，把字符串和数字转换为浮点数</span></span><br><span class="line"><span class="string">help()，提供交互式帮助</span></span><br><span class="line"><span class="string">input(prompt)，获取用户输入</span></span><br><span class="line"><span class="string">int(object)，把字符串和数字转换为整数</span></span><br><span class="line"><span class="string">math.ceil(number)，返回数的上入整数，返回值的类型为浮点数</span></span><br><span class="line"><span class="string">math.floor(number)，返回数的下舍整数，返回值的类型为浮点数</span></span><br><span class="line"><span class="string">math.sqrt(number)，返回平方根不适用于负数</span></span><br><span class="line"><span class="string">pow(x,y[.z]),返回X的y次幂（有z则对z取模）</span></span><br><span class="line"><span class="string">repr(object)，返回值的字符串标示形式</span></span><br><span class="line"><span class="string">round(number[.ndigits])，根据给定的精度对数字进行四舍五入</span></span><br><span class="line"><span class="string">str(object),把值转换为字符串</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">- 输入功能</span></span><br><span class="line"><span class="string">  - input(&#x27;提示文字&#x27;)</span></span><br><span class="line"><span class="string">- 输入的特点</span></span><br><span class="line"><span class="string">  - 一般将input接收的数据存储到变量</span></span><br><span class="line"><span class="string">  - input接收的任何数据默认都是字符串数据类型</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">k = <span class="built_in">input</span>(<span class="string">&quot;请输入你的账号：&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;tom的年龄:&quot;</span>, <span class="number">15</span> + <span class="number">5</span>)</span><br><span class="line">print(<span class="string">&#x27;我的名字是%s&#x27;</span> % name)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">转换数据类型常用的函数</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- int()</span></span><br><span class="line"><span class="string">- float()</span></span><br><span class="line"><span class="string">- str()</span></span><br><span class="line"><span class="string">- list()</span></span><br><span class="line"><span class="string">- tuple()</span></span><br><span class="line"><span class="string">- eval()</span></span><br><span class="line"><span class="string"> eval() -- 将字符串中的数据转换成Python表达式原本类型</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">str1 = <span class="string">&#x27;10&#x27;</span></span><br><span class="line">str2 = <span class="string">&#x27;[1, 2, 3]&#x27;</span></span><br><span class="line">str3 = <span class="string">&#x27;(1000, 2000, 3000)&#x27;</span></span><br><span class="line">print(<span class="built_in">eval</span>(str1))</span><br><span class="line">print(<span class="built_in">eval</span>(str2))</span><br><span class="line">print(<span class="built_in">eval</span>(str3))</span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str1)))</span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str2)))</span><br><span class="line">print(<span class="built_in">type</span>(<span class="built_in">eval</span>(str3)))</span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">10</span></span><br><span class="line"><span class="string">[1, 2, 3]</span></span><br><span class="line"><span class="string">(1000, 2000, 3000)</span></span><br><span class="line"><span class="string">用eval将数据转换为原有形式，去除两边的&#x27;&#x27;</span></span><br><span class="line"><span class="string">在数据转换中可以用到</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">算数运算符</span></span><br><span class="line"><span class="string">| 运算符 |  描述  | 实例                                                  |</span></span><br><span class="line"><span class="string">| :----: | :----: | ----------------------------------------------------|</span></span><br><span class="line"><span class="string">|   +    |   加   | 1 + 1 输出结果为 2                                    |</span></span><br><span class="line"><span class="string">|   -    |   减   | 1-1 输出结果为 0                                      |</span></span><br><span class="line"><span class="string">|   *    |   乘   | 2 * 2 输出结果为 4                                    |</span></span><br><span class="line"><span class="string">|   /    |   除   | 10 / 2 输出结果为 5                                   |</span></span><br><span class="line"><span class="string">|   //   |  整除  | 9 // 4 输出结果为2                                    |</span></span><br><span class="line"><span class="string">|   %    |  取余  | 9 % 4 输出结果为 1                                    |</span></span><br><span class="line"><span class="string">|   **   |  指数  | 2 ** 4 输出结果为 16，即 2 * 2 * 2 * 2                 |</span></span><br><span class="line"><span class="string">|   ()   | 小括号 | 小括号用来提高运算优先级，即 (1 + 2) * 3 输出结果为 9     |</span></span><br><span class="line"><span class="string">混合运算优先级顺序：`()`高于 `**` 高于 `*` `/` `//` `%` 高于 `+` `-`</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">复合赋值运算符 </span></span><br><span class="line"><span class="string">| 运算符 | 描述           | 实例                       |</span></span><br><span class="line"><span class="string">| ------ | -------------- | -------------------------- |</span></span><br><span class="line"><span class="string">| +=     | 加法赋值运算符 | c += a 等价于 c = c + a    |</span></span><br><span class="line"><span class="string">| -=     | 减法赋值运算符 | c -= a 等价于 c = c- a     |</span></span><br><span class="line"><span class="string">| *=     | 乘法赋值运算符 | c *= a 等价于 c = c * a    |</span></span><br><span class="line"><span class="string">| /=     | 除法赋值运算符 | c /= a 等价于 c = c / a    |</span></span><br><span class="line"><span class="string">| //=    | 整除赋值运算符 | c //= a 等价于 c = c // a  |</span></span><br><span class="line"><span class="string">| %=     | 取余赋值运算符 | c %= a 等价于 c = c % a    |</span></span><br><span class="line"><span class="string">| **=    | 幂赋值运算符   | c ** = a 等价于 c = c ** a |</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">比较运算符</span></span><br><span class="line"><span class="string">| 运算符 | 描述                                                         | 实例                                            |</span></span><br><span class="line"><span class="string">| ------ | ------------------------------------------------------------ | -------------------------------------|</span></span><br><span class="line"><span class="string">| ==     | 判断相等。如果两个操作数的结果相等，则条件结果为真(True)，否则条件结果为假(False) | 如a=3,b=3，则（a == b) 为 True                              |</span></span><br><span class="line"><span class="string">| !=     | 不等于 。如果两个操作数的结果不相等，则条件为真(True)，否则条件结果为假(False) | 如a=3,b=3，则（a == b) 为 True如a=1,b=3，则(a != b) 为 True |</span></span><br><span class="line"><span class="string">| &gt;      | 运算符左侧操作数结果是否大于右侧操作数结果，如果大于，则条件为真，否则为假 | 如a=7,b=3，则(a &gt; b) 为 True                                |</span></span><br><span class="line"><span class="string">| &lt;      | 运算符左侧操作数结果是否小于右侧操作数结果，如果小于，则条件为真，否则为假 | 如a=7,b=3，则(a &lt; b) 为 False                               |</span></span><br><span class="line"><span class="string">| &gt;=     | 运算符左侧操作数结果是否大于等于右侧操作数结果，如果大于，则条件为真，否则为假 | 如a=7,b=3，则(a &lt; b) 为 False如a=3,b=3，则(a &gt;= b) 为 True  |</span></span><br><span class="line"><span class="string">| &lt;=     | 运算符左侧操作数结果是否小于等于右侧操作数结果，如果小于，则条件为真，否则为假 | 如a=3,b=3，则(a &lt;= b) 为 True                               |</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">逻辑运算符</span></span><br><span class="line"><span class="string">| 运算符 | 逻辑表达式 | 描述                                                         | 实例                                     |</span></span><br><span class="line"><span class="string">| ------ | ---------- | ------------------------------------------------------------ | ------------------ |</span></span><br><span class="line"><span class="string">| and    | x and y    | 布尔&quot;与&quot;：如果 x 为 False，x and y 返回 False，否则它返回 y 的值。 | True and False， 返回 False。            |</span></span><br><span class="line"><span class="string">| or     | x or y     | 布尔&quot;或&quot;：如果 x 是 True，它返回 True，否则它返回 y 的值。   | False or True， 返回 True。              |</span></span><br><span class="line"><span class="string">| not    | not x      | 布尔&quot;非&quot;：如果 x 为 True，返回 False 。如果 x 为 False，它返回 True。 | not True 返回 False, not False 返回 True |</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数字之间的逻辑运算</span></span><br><span class="line">a = <span class="number">0</span></span><br><span class="line">b = <span class="number">1</span></span><br><span class="line">c = <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># and运算符，只要有一个值为0，则结果为0，否则结果为最后一个非0数字</span></span><br><span class="line">print(a <span class="keyword">and</span> b)  <span class="comment"># 0</span></span><br><span class="line">print(b <span class="keyword">and</span> a)  <span class="comment"># 0</span></span><br><span class="line">print(a <span class="keyword">and</span> c)  <span class="comment"># 0</span></span><br><span class="line">print(c <span class="keyword">and</span> a)  <span class="comment"># 0</span></span><br><span class="line">print(b <span class="keyword">and</span> c)  <span class="comment"># 2</span></span><br><span class="line">print(c <span class="keyword">and</span> b)  <span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># or运算符，只有所有值为0结果才为0，否则结果为第一个非0数字</span></span><br><span class="line">print(a <span class="keyword">or</span> b)  <span class="comment"># 1</span></span><br><span class="line">print(a <span class="keyword">or</span> c)  <span class="comment"># 2</span></span><br><span class="line">print(b <span class="keyword">or</span> c)  <span class="comment"># 1</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">总结：</span></span><br><span class="line"><span class="string">- 算数运算的优先级</span></span><br><span class="line"><span class="string">  - 混合运算优先级顺序：`()`高于 `**` 高于 `*` `/` `//` `%` 高于 `+` `-`</span></span><br><span class="line"><span class="string">- 赋值运算符</span></span><br><span class="line"><span class="string">  - =</span></span><br><span class="line"><span class="string">- 复合赋值运算符</span></span><br><span class="line"><span class="string">  - +=</span></span><br><span class="line"><span class="string">  - -=</span></span><br><span class="line"><span class="string">  - 优先级</span></span><br><span class="line"><span class="string">    1. 先算复合赋值运算符右侧的表达式</span></span><br><span class="line"><span class="string">    2. 再算复合赋值运算的算数运算</span></span><br><span class="line"><span class="string">    3. 最后算赋值运算</span></span><br><span class="line"><span class="string">- 比较运算符</span></span><br><span class="line"><span class="string">  - 判断相等： == </span></span><br><span class="line"><span class="string">  - 大于等于： &gt;=</span></span><br><span class="line"><span class="string">  - 小于等于：&lt;=</span></span><br><span class="line"><span class="string">  - 不等于： !=</span></span><br><span class="line"><span class="string">- 逻辑运算符</span></span><br><span class="line"><span class="string">  - 与： and</span></span><br><span class="line"><span class="string">  - 或：or</span></span><br><span class="line"><span class="string">  - 非：not</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># round()函数，4舍5入</span></span><br><span class="line">print(<span class="string">f&#x27;round(5.3)&#x27;</span>)  <span class="comment"># 5</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">f&#x27;我的名字是<span class="subst">&#123;name&#125;</span>, 明年<span class="subst">&#123;age + <span class="number">1</span>&#125;</span>岁了&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">if 条件1:</span></span><br><span class="line"><span class="string">    条件1成立执行的代码</span></span><br><span class="line"><span class="string">elif 条件2:</span></span><br><span class="line"><span class="string">    条件2成立执行的代码</span></span><br><span class="line"><span class="string">else:</span></span><br><span class="line"><span class="string">    以上条件都不成立执行的代码</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line">age = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;请输入您的年龄：&#x27;</span>))</span><br><span class="line"><span class="keyword">if</span> age &lt; <span class="number">18</span>:</span><br><span class="line">    print(<span class="string">f&#x27;您的年龄是<span class="subst">&#123;age&#125;</span>,童工一枚&#x27;</span>)</span><br><span class="line"><span class="comment"># elif (age &gt;= 18) and (age &lt;= 60):</span></span><br><span class="line"><span class="keyword">elif</span> <span class="number">18</span> &lt;= age &lt;= <span class="number">60</span>:</span><br><span class="line">    print(<span class="string">f&#x27;您的年龄是<span class="subst">&#123;age&#125;</span>,合法工龄&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> age &gt; <span class="number">60</span>:</span><br><span class="line">    print(<span class="string">f&#x27;您的年龄是<span class="subst">&#123;age&#125;</span>,可以退休&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># age &gt;= 18 and age &lt;= 60`可以化简为`18 &lt;= age &lt;= 60`。</span></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">随机做法：</span></span><br><span class="line"><span class="string">1. 导出random模块</span></span><br><span class="line"><span class="string">2. random.randint(开始,结束)</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">三目运算符也叫三元运算符。</span></span><br><span class="line"><span class="string"># 值1 if 条件 else 值2</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">c = a <span class="keyword">if</span> a &gt; b <span class="keyword">else</span> b</span><br><span class="line">print(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ctrl + c 停止运行</span></span><br><span class="line"><span class="comment"># ctrl + d 复制上一行</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">while的语法</span></span><br><span class="line"><span class="string">必须加: i += 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- break退出整个循环</span></span><br><span class="line"><span class="string">- continue退出本次循环，继续执行下一次重复执行的代码</span></span><br><span class="line"><span class="string">- else</span></span><br><span class="line"><span class="string">  - while和for都可以配合else使用</span></span><br><span class="line"><span class="string">  - else下方缩进的代码含义：当循环正常结束后执行的代码</span></span><br><span class="line"><span class="string">  - break终止循环不会执行else下方缩进的代码</span></span><br><span class="line"><span class="string">  - continue退出循环的方式执行else下方缩进的代码</span></span><br><span class="line"><span class="string">  </span></span><br><span class="line"><span class="string">for 临时变量 in 序列:</span></span><br><span class="line"><span class="string">    重复执行的代码1</span></span><br><span class="line"><span class="string">    重复执行的代码2</span></span><br><span class="line"><span class="string">    ......</span></span><br><span class="line"><span class="string">while 条件1:</span></span><br><span class="line"><span class="string">    条件1成立执行的代码</span></span><br><span class="line"><span class="string">    ......</span></span><br><span class="line"><span class="string">    while 条件2:</span></span><br><span class="line"><span class="string">        条件2成立执行的代码</span></span><br><span class="line"><span class="string">        ......</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">result = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= <span class="number">100</span>:</span><br><span class="line">    result += i</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出5050</span></span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重复打印5行星星</span></span><br><span class="line">j = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> j &lt;= <span class="number">4</span>:</span><br><span class="line">    <span class="comment"># 一行星星的打印</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= <span class="number">4</span>:</span><br><span class="line">        <span class="comment"># 一行内的星星不能换行，取消print默认结束符\n</span></span><br><span class="line">        print(<span class="string">&#x27;*&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 每行结束要换行，这里借助一个空的print，利用print默认结束符换行</span></span><br><span class="line">    print()</span><br><span class="line">    j += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重复打印5行星星</span></span><br><span class="line"><span class="comment"># j表示行号</span></span><br><span class="line">j = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> j &lt;= <span class="number">4</span>:</span><br><span class="line">    <span class="comment"># 一行星星的打印</span></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="comment"># i表示每行里面星星的个数，这个数字要和行号相等所以i要和j联动</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">        print(<span class="string">&#x27;*&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    print()</span><br><span class="line">    j += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重复打印9行表达式</span></span><br><span class="line">j = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> j &lt;= <span class="number">9</span>:</span><br><span class="line">    <span class="comment"># 打印一行里面的表达式 a * b = a*b</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">        print(<span class="string">f&#x27;<span class="subst">&#123;i&#125;</span>*<span class="subst">&#123;j&#125;</span>=<span class="subst">&#123;j*i&#125;</span>&#x27;</span>, end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        <span class="comment"># end=&#x27;\t&#x27;制表符</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    print()</span><br><span class="line">    <span class="comment"># 换行</span></span><br><span class="line">    j += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 所谓else指的是循环正常结束之后要执行的代码，即如果是break终止循环的情况，else下方缩进的代码将不执行</span></span><br><span class="line"><span class="comment"># &gt; 因为continue是退出当前一次循环，继续下一次循环，所以该循环在continue控制下是可以正常结束的，当循环结束后，则执行了else缩进的代码。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1590405001328&di=92dd5201407c31e2187e000321d669cb&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201803/15/20180315215629_zvfXe.jpeg"></p>
 
+      
     </div>
+    <footer class="article-footer">
+      <a data-url="https://esyyes.github.io/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/" data-id="ckh378ycf0030l4ue6dy1a3ow" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/05/25/python%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          python——入门复习数据序列
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/05/18/VF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">VF基础知识</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/hexo%E5%AE%8C%E5%96%84/">-hexo完善</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/matlab-%E5%B7%A5%E4%BD%9C/">-matlab -工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python%E5%9F%BA%E7%A1%80/">-python基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8D%87%E7%BA%A7conda/">-升级conda</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C/">-工作</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B7%A5%E4%BD%9C-matlab/">-工作 -matlab</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Graduation-work/">Graduation work</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/mathematical-modeling/">mathematical modeling</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/matlab/">matlab</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/nlp/">nlp</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/py-study/">py_study</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/python%E5%9F%BA%E7%A1%80/">python基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/work/">work</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%B8%B8%E6%88%8F%E4%BA%BA%E7%94%9F/">游戏人生</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li></ul>
+    </div>
+  </div>
 
-                </div>
-                <aside class="col-md-4 gal-left" id="sidebar">
-    <!-- 此为sidebar的搜索框, 非搜索结果页面 -->
-<aside id="sidebar-search">
-    <div class="search hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <form class="form-inline clearfix" id="search-form" method="get"
-              action="/search/index.html">
-            <input type="text" name="s" class="form-control" id="searchInput" placeholder="搜索文章~" autocomplete="off">
-            <button class="btn btn-danger btn-gal" type="submit">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-    </div>
-</aside>
-    <aside id="sidebar-author">
-    <div class="panel panel-gal" data-aos="flip-right" data-aos-duration="3000">
-        <div class="panel-heading" style="text-align: center">
-            <i class="fa fa-quote-left"></i>
-            esy
-            <i class="fa fa-quote-right"></i>
-        </div>
-        <div class="author-panel text-center">
-            <img src="/imgs/avatar.jpg" width="140" height="140"
-                 alt="个人头像" class="author-image">
-            <p class="author-description"><p>miao</p>
-</p>
-        </div>
-    </div>
-</aside>
-    
-    <aside id="sidebar-recent_comments">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-comments"></i>
-            最新评论
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
-    </div>
-</aside>
-    
-    <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    
-    <aside id="sidebar-recent_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            近期文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/11/04/hello-world/">Hello World</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%983/">数学建模问题3</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%984/">数学建模问题4</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/22/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%92%8C%E5%88%86%E6%9E%90/">数学建模和分析</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="sidebar-rand_posts">
-    <div class="panel panel-gal recent hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-refresh"></i>
-            随机文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush">
-            
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/03/19/python-Matplotlib/">python_Matplotlib</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/26/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E4%B9%8B%E5%BC%82%E5%B8%B8/">python-入门复习之异常</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/26/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">python-入门复习面向对象</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/02/07/python-%E8%8E%B7%E5%8F%96MIT%E6%95%B0%E6%8D%AE/">python__获取MIT数据</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/25/python%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0%E6%95%B0%E6%8D%AE%E5%BA%8F%E5%88%97/">python——入门复习数据序列</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/02/tensorflow2-3%E7%89%88%E6%9C%AC%E5%AE%89%E8%A3%85/">tensorflow2.3版本安装</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%981/">数学建模问题1</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/09/25/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E9%97%AE%E9%A2%982/">数学建模问题2</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/05/28/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%89%88%E5%AD%A6%E5%91%98%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F/">面向对象版学员管理系统</a>
-                </span>
-            </li>
-            
-            <li class="list-group-item">
-                <span class="post-title">
-                    <a href="/2020/07/09/HMM%E4%B9%8B%E6%95%B0%E6%8D%AE%E7%9A%84%E5%A4%84%E7%90%86/">HMM之数据的处理</a>
-                </span>
-            </li>
-            
-        </ul>
-    </div>
-</aside>
-    
-    
-    <aside id="gal-sets">
-        <div class="panel panel-gal hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-            <ul class="nav nav-pills pills-gal">
 
-                
-                <li>
-                    <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
-                </li>
-                
-                
-                <li>
-                    <a href="/2020/05/21/python-%E5%85%A5%E9%97%A8%E5%A4%8D%E4%B9%A0/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
-                </li>
-                
-            </ul>
-            <div class="tab-content">
-                
-                <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
+  
     
-    <a href="/tags/py-study/" style="font-size: 19.72791398005385px;" class="tag-cloud-link">py_study</a>
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/malab-%E6%AF%95%E4%B8%9A/" rel="tag">-malab -毕业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">-python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">-python -人工智能</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" rel="tag">-个人博客搭建</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graduation-work/" rel="tag">Graduation work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mathematical-modeling/" rel="tag">mathematical modeling</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nlp/" rel="tag">nlp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/py-study/" rel="tag">py_study</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+    </div>
+  </div>
+
+
+  
     
-    <a href="/tags/nlp/" style="font-size: 18.886210046479405px;" class="tag-cloud-link">nlp</a>
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 12px;">-malab -毕业</a> <a href="/tags/python/" style="font-size: 10px;">-python</a> <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 10px;">-python -人工智能</a> <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 10px;">-个人博客搭建</a> <a href="/tags/Graduation-work/" style="font-size: 14px;">Graduation work</a> <a href="/tags/hexo/" style="font-size: 12px;">hexo</a> <a href="/tags/mathematical-modeling/" style="font-size: 16px;">mathematical modeling</a> <a href="/tags/nlp/" style="font-size: 12px;">nlp</a> <a href="/tags/py-study/" style="font-size: 10px;">py_study</a> <a href="/tags/python/" style="font-size: 18px;">python</a> <a href="/tags/work/" style="font-size: 20px;">work</a>
+    </div>
+  </div>
+
+  
     
-    <a href="/tags/Graduation-work/" style="font-size: 14.93113351885462px;" class="tag-cloud-link">Graduation work</a>
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">十月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">九月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
     
-    <a href="/tags/work/" style="font-size: 15.910313355523188px;" class="tag-cloud-link">work</a>
-    
-    <a href="/tags/hexo/" style="font-size: 14.984790821320786px;" class="tag-cloud-link">hexo</a>
-    
-    <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" style="font-size: 11.609668884959788px;" class="tag-cloud-link">-个人博客搭建</a>
-    
-    <a href="/tags/malab-%E6%AF%95%E4%B8%9A/" style="font-size: 8.229071897703255px;" class="tag-cloud-link">-malab -毕业</a>
-    
-    <a href="/tags/python-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 12.800771025187823px;" class="tag-cloud-link">-python -人工智能</a>
-    
-    <a href="/tags/python/" style="font-size: 12.279740528564439px;" class="tag-cloud-link">python</a>
-    
-    <a href="/tags/python/" style="font-size: 19.077672434118966px;" class="tag-cloud-link">-python</a>
-    
-    <a href="/tags/mathematical-modeling/" style="font-size: 16.7470770637697px;" class="tag-cloud-link">mathematical modeling</a>
-    
-</div>
-                
-                
-                <div class="friend-links tab-pane nav bs-sidenav fade" id="sidebar-friend-links">
-    
-    <li>
-        <a href="http://kdays.net/days/" target="_blank">KDays Forum</a>
-    </li>
-    
-    <li>
-        <a href="http://www.gal123.com/" target="_blank">绅士导航♂</a>
-    </li>
-    
-    <li>
-        <a href="http://www.moe123.com/" target="_blank">萌导航</a>
-    </li>
-    
-</div>
-                
-                
-                <div class="links tab-pane nav bs-sidenav fade" id="sidebar-links">
-    
-    <li>
-        <a href="https://github.com/ZEROKISEKI/" target="_blank">Github</a>
-    </li>
-    
-    <li>
-        <a href="https://coding.net/u/SORA1" target="_blank">Coding</a>
-    </li>
-    
-    <li>
-        <a href="https://www.zhihu.com/people/aonosora/activities" target="_blank">知乎</a>
-    </li>
-    
-</div>
-                
-            </div>
-        </div>
-    </aside>
-    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/03/%E5%88%86%E7%B1%BB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87/">分类模型的评估指标</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/21/10-21-%E7%88%AC%E8%99%AB%E5%9F%BA%E7%A1%80/">10-21 爬虫基础</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/25/CRF%E7%9A%84%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B%E7%BB%93%E6%9E%9C/">CRF的整体流程结果</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/25/nlp-crf%E6%A8%A1%E5%9E%8B/">nlp_crf模型</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
 </aside>
-            </div>
-        </div>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 esy<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-    <footer id="gal-footer">
-    <div class="container">
-        Copyright © 2018 esy Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
-    </div>
+  </div>
 </footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-<!-- 回到顶端 -->
-<div id="gal-gotop">
-    <i class="fa fa-angle-up"></i>
-</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
 </body>
-
-<script src="/js/activate-power-mode.js"></script>
-
-<script>
-
-    // 配置highslide
-	hs.graphicsDir = '/js/highslide/graphics/'
-    hs.outlineType = "rounded-white";
-    hs.dimmingOpacity = 0.8;
-    hs.outlineWhileAnimating = true;
-    hs.showCredits = false;
-    hs.captionEval = "this.thumb.alt";
-    hs.numberPosition = "caption";
-    hs.align = "center";
-    hs.transitions = ["expand", "crossfade"];
-    hs.lang.number = '共%2张图, 当前是第%1张';
-    hs.addSlideshow({
-      interval: 5000,
-      repeat: true,
-      useControls: true,
-      fixedControls: "fit",
-      overlayOptions: {
-        opacity: 0.75,
-        position: "bottom center",
-        hideOnMouseOut: true
-      }
-    })
-
-    // 初始化aos
-    AOS.init({
-      duration: 1000,
-      delay: 0,
-      easing: 'ease-out-back'
-    });
-
-</script>
-<script>
-	POWERMODE.colorful = 'true';    // make power mode colorful
-	POWERMODE.shake = 'true';       // turn off shake
-	// TODO 这里根据具体情况修改
-	document.body.addEventListener('input', POWERMODE);
-</script>
-<script>
-    window.slideConfig = {
-      prefix: '/imgs/slide/background',
-      ext: 'jpg',
-      maxCount: '6'
-    }
-</script>
-
-<script src="/js/hs.js"></script>
-<script src="/js/blog.js"></script>
-
-
-
-<script src="/js/oni.js"></script>
-
-
-
-
 </html>
