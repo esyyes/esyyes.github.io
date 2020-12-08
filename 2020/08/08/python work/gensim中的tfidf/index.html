@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>gensim中的tfidf - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,gensim中的tfidf通过gensim自带的model进行tfidf等计算
+不利用自己写的公式
+1234567891011121314151617181920212223242526272829,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">gensim中的tfidf</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">gensim中的tfidf</h1>
+        <div class="stuff">
+            <span>八月 08, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="gensim中的tfidf"><a href="#gensim中的tfidf" class="headerlink" title="gensim中的tfidf"></a>gensim中的tfidf</h1><p>通过gensim自带的model进行tfidf等计算</p>
+<p>不利用自己写的公式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/7</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models, similarities</span><br><span class="line"><span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> en_core_web_md</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_stop</span>(<span class="params">text</span>):</span></span><br><span class="line">    token_doc = [token.lemma_ <span class="keyword">for</span> token <span class="keyword">in</span> nlp(text)]</span><br><span class="line">    filtered_sentence = [word <span class="keyword">for</span> word <span class="keyword">in</span> token_doc <span class="keyword">if</span> <span class="keyword">not</span> nlp.vocab[word].is_stop != <span class="literal">False</span>]</span><br><span class="line">    <span class="keyword">return</span> filtered_sentence</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">nlp = en_core_web_md.load()</span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;Q&amp;A pairs.xlsx&#x27;</span>)</span><br><span class="line">df = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line">text = <span class="string">&#x27;What are the prices of the Forbidden City&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将问题进行分词，还原成标准形式，并删除停靠词</span></span><br><span class="line">list_key = [del_stop(df[i][<span class="number">0</span>]) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data))]</span><br><span class="line"><span class="comment"># 将其转换为词典</span></span><br><span class="line">dictionary = corpora.Dictionary(list_key)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断词汇的量</span></span><br><span class="line">N_ques = <span class="built_in">len</span>(dictionary)</span><br><span class="line"><span class="comment"># 统计语料库对应的关键词对应的词汇和出现的次数</span></span><br><span class="line">corpus = [dictionary.doc2bow(text) <span class="keyword">for</span> text <span class="keyword">in</span> list_key]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将输入的问题进行分词，然后转换为词向量</span></span><br><span class="line">text_bow = dictionary.doc2bow(del_stop(text))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用语料生成tfidf的模型</span></span><br><span class="line">tfidf = models.TfidfModel(corpus)[corpus]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建立tfidf对应的相似度索引</span></span><br><span class="line">index = similarities.MatrixSimilarity(tfidf)</span><br><span class="line"><span class="comment"># 利用索引排出测试语句的得分</span></span><br><span class="line">similar = index[text_bow]</span><br><span class="line"><span class="comment"># 将其转换为字典并进行排序，然后召回5个问题，最后输出相似度</span></span><br><span class="line">dict_score = <span class="built_in">dict</span>(<span class="built_in">zip</span>(np.arange(<span class="built_in">len</span>(data)), similar))</span><br><span class="line"><span class="comment"># sorted, reverse -- 排序规则，reverse = True 降序 ， reverse = False 升序（默认）,降序排列</span></span><br><span class="line">sort_score = <span class="built_in">sorted</span>(<span class="built_in">zip</span>(dict_score.values(), dict_score.keys()), reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 通过相似度得分，得到5个问题</span></span><br><span class="line">recall_qa = [df[sort_score[i][<span class="number">1</span>]] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]</span><br><span class="line">pprint(recall_qa)</span><br><span class="line"></span><br><span class="line"><span class="comment"># # 利用lsi进行分析，主题数的设置，暂时设定为3吧，包含地址，导语，价格</span></span><br><span class="line"><span class="comment"># lsi = models.LsiModel(corpus, id2word=dictionary, num_topics=3)</span></span><br><span class="line"><span class="comment"># # 通过lsi模型求相似性</span></span><br><span class="line"><span class="comment"># index = similarities.MatrixSimilarity(lsi[corpus])</span></span><br><span class="line"><span class="comment"># # 相似度计算</span></span><br><span class="line"><span class="comment"># similar_lsi = index[text_bow]</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># # 利用LDA计算</span></span><br><span class="line"><span class="comment"># lda = models.LdaModel(corpus, id2word=dictionary, num_topics=3)</span></span><br><span class="line"><span class="comment"># # 通过lsi模型求相似性</span></span><br><span class="line"><span class="comment"># index = similarities.MatrixSimilarity(lda[corpus])</span></span><br><span class="line"><span class="comment"># # 相似度计算</span></span><br><span class="line"><span class="comment"># similar_lda = index[text_bow]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>大大降低了运行的速度，下一步考虑，将其保存为模型直接调用，或者是构建全局变量，少运行些循环，加快运行的速度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/8</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models, similarities</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> en_core_web_md</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取数据库，以后数据库都稳定了</span></span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;Q&amp;A pairs.xlsx&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载语料库,这个语料库还是要在输入问题时进行使用</span></span><br><span class="line">nlp = en_core_web_md.load()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_stop</span>(<span class="params">line</span>):</span></span><br><span class="line">    token_doc = [token.lemma_ <span class="keyword">for</span> token <span class="keyword">in</span> nlp(line)]</span><br><span class="line">    key_word = [word <span class="keyword">for</span> word <span class="keyword">in</span> token_doc <span class="keyword">if</span> <span class="keyword">not</span> nlp.vocab[word].is_stop != <span class="literal">False</span>]</span><br><span class="line">    <span class="keyword">return</span> key_word</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为list</span></span><br><span class="line">list_data = np.array(data).tolist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将问题进行分词，还原成标准形式，并删除停靠词</span></span><br><span class="line">list_key = [del_stop(list_data[i][<span class="number">0</span>]) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data))]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将其转换为词典</span></span><br><span class="line"><span class="comment"># 需要将dictionary进行保存，到时直接加载作为全局变量</span></span><br><span class="line">dictionary = corpora.Dictionary(list_key)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计每个问题的关键词对应的词汇和出现的次数</span></span><br><span class="line"><span class="comment"># 同理转换为向量也需要进行保存</span></span><br><span class="line">corpus_bow = [dictionary.doc2bow(word) <span class="keyword">for</span> word <span class="keyword">in</span> list_key]</span><br><span class="line"></span><br><span class="line"><span class="comment"># # 生成TF-IDF模型，并训练得到模型，并保存</span></span><br><span class="line">tfidf = models.TfidfModel(corpus_bow)[corpus_bow]</span><br><span class="line"></span><br><span class="line"><span class="comment"># # 将模型的相似度进行保存</span></span><br><span class="line">index = similarities.MatrixSimilarity(tfidf)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 直接在开始前进行运行，然后设置为全局变量，就不需要循环调用了</span></span><br></pre></td></tr></table></figure>
+
+<p>想要将这几个变量保存下来，不一次一次的循环，</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">dictionary</span><br><span class="line">Out[<span class="number">3</span>]: &lt;gensim.corpora.dictionary.Dictionary at <span class="number">0x201d9a96208</span>&gt;</span><br><span class="line">corpus_bow[<span class="number">0</span>:<span class="number">5</span>]</span><br><span class="line">Out[<span class="number">5</span>]: </span><br><span class="line">[[(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">1</span>), (<span class="number">3</span>, <span class="number">1</span>)],</span><br><span class="line"> [(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">1</span>), (<span class="number">3</span>, <span class="number">1</span>), (<span class="number">4</span>, <span class="number">2</span>), (<span class="number">5</span>, <span class="number">1</span>)],</span><br><span class="line"> [(<span class="number">0</span>, <span class="number">1</span>), (<span class="number">1</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">1</span>), (<span class="number">3</span>, <span class="number">1</span>)],</span><br><span class="line"> [(<span class="number">6</span>, <span class="number">1</span>), (<span class="number">7</span>, <span class="number">1</span>), (<span class="number">8</span>, <span class="number">1</span>)],</span><br><span class="line"> [(<span class="number">6</span>, <span class="number">1</span>), (<span class="number">7</span>, <span class="number">1</span>), (<span class="number">9</span>, <span class="number">1</span>), (<span class="number">10</span>, <span class="number">1</span>)]]</span><br><span class="line"> tfidf模型</span><br><span class="line">Out[<span class="number">6</span>]: &lt;gensim.interfaces.TransformedCorpus at <span class="number">0x201d9ac0fd0</span>&gt;</span><br><span class="line">index</span><br><span class="line">Out[<span class="number">7</span>]: &lt;gensim.similarities.docsim.MatrixSimilarity at <span class="number">0x201d9add048</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>考虑生成全局变量吧，降低下运行的速度</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1596891766748&di=fa2c16a51c2868f73ef8cc3d40444fb7&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201606/21/20160621180055_uFaAn.jpeg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

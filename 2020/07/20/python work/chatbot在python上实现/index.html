@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>chatbot在python上实现 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,chatbot在python上实现流程基于规则输出简单的回复123456789101112131415if __name__ == &amp;#x27;__main__&amp;#x27;:    data1 = ,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">chatbot在python上实现</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">chatbot在python上实现</h1>
+        <div class="stuff">
+            <span>七月 20, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="chatbot在python上实现流程"><a href="#chatbot在python上实现流程" class="headerlink" title="chatbot在python上实现流程"></a>chatbot在python上实现流程</h1><h2 id="基于规则输出简单的回复"><a href="#基于规则输出简单的回复" class="headerlink" title="基于规则输出简单的回复"></a>基于规则输出简单的回复</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    data1 = pd.read_csv(<span class="string">&#x27;Q&amp;A pairs.csv&#x27;</span>)</span><br><span class="line">    print(<span class="string">&quot;Hello, I&#x27;m a question-and-answer chatbot for the tourism domain based on retrieval mode.&quot;</span></span><br><span class="line">          <span class="string">&quot;If you want to exit, input &#x27;Bye&#x27;!&quot;</span>)</span><br><span class="line">    greeting_output = [<span class="string">&quot;hi&quot;</span>, <span class="string">&quot;hey&quot;</span>, <span class="string">&quot;hello&quot;</span>, <span class="string">&quot;I&#x27;m glad! You are talking to me&quot;</span>]</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        text2 = <span class="built_in">input</span>(<span class="string">&quot;Please enter a question: \t&quot;</span>)</span><br><span class="line">        text1 = <span class="string">&quot; &quot;</span>.join([token.lemma_ <span class="keyword">for</span> token <span class="keyword">in</span> nlp(text2)])</span><br><span class="line">        <span class="keyword">if</span> text1 == <span class="string">&#x27;hey&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;hi&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;hello&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;HI&#x27;</span>:</span><br><span class="line">            print(random.choice(greeting_output))</span><br><span class="line">        <span class="keyword">elif</span> text1 == <span class="string">&#x27;thank&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;thank -PRON-&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;THANK&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;You are welcome.&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> text1 == <span class="string">&#x27;bye&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;BYE&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;Bye!&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>重新写个简单的程序吧</p>
+<h2 id="首先对问题进行预处理"><a href="#首先对问题进行预处理" class="headerlink" title="首先对问题进行预处理"></a>首先对问题进行预处理</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">del_stop</span>(<span class="params">text</span>):</span></span><br><span class="line">    token_doc = [token.lemma_ <span class="keyword">for</span> token <span class="keyword">in</span> nlp(text)]</span><br><span class="line">    <span class="comment"># 去除停用词后创建单词列表</span></span><br><span class="line">    filtered_sentence = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> token_doc:</span><br><span class="line">        lexeme = nlp.vocab[word]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> lexeme.is_stop != <span class="literal">False</span>:</span><br><span class="line">            filtered_sentence.append(word)</span><br><span class="line">    <span class="keyword">return</span> filtered_sentence</span><br><span class="line">将字母都切换为小写，并切除停靠词，得到关键的语句</span><br></pre></td></tr></table></figure>
+
+<h2 id="计算TF-IDF"><a href="#计算TF-IDF" class="headerlink" title="计算TF_IDF"></a>计算TF_IDF</h2><p>第一步还是将问题进行预处理，然后获取语料库中的问题的词频，得到语料库的词汇</p>
+<p>第二步判断提出的问题的关键词汇是否在语料库的词汇中，如果不在就直接返回0，程序会返回一个不知道</p>
+<p>第三步计算词汇的idf</p>
+<p>第四步计算每个单词在每个问题中的频率</p>
+<p>第五步得到每个问题的关键词汇的tf-idf的分数列表</p>
+<p>第六步计算提出问题在每个问题中能得到tf-idf多少分</p>
+<p>第七步将每个tf-idf的得分升序排列，然后召回最高得分的5个问题，和对应的5个答案</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">def QA_tf_idf(data, filtered_sentence):</span><br><span class="line">    question &#x3D; np.array(data[&#39;Question&#39;]).tolist()</span><br><span class="line">    answer &#x3D; np.array(data[&#39;Answer&#39;]).tolist()</span><br><span class="line">    # 将问题进行分词</span><br><span class="line">    list_ques &#x3D; [[t.lemma_ for t in nlp(question[i])] for i in range(len(data))]</span><br><span class="line">    # 去除停用词后创建单词列表</span><br><span class="line">    list_key &#x3D; []</span><br><span class="line">    for i in range(len(data)):</span><br><span class="line">        filtered_sentence1 &#x3D; []</span><br><span class="line">        for word in list_ques[i]:</span><br><span class="line">            lexeme &#x3D; nlp.vocab[word]</span><br><span class="line">            if not lexeme.is_stop !&#x3D; False:</span><br><span class="line">                filtered_sentence1.append(word)</span><br><span class="line">        list_key.append(filtered_sentence1)</span><br><span class="line">    # 统计词频和词汇,看单词出现的次数</span><br><span class="line">    doc_frequency &#x3D; defaultdict(int)</span><br><span class="line">    list_words &#x3D; list_key</span><br><span class="line">    for word_list in list_words:</span><br><span class="line">        for i in word_list:</span><br><span class="line">            doc_frequency[i] +&#x3D; 1</span><br><span class="line">    l1 &#x3D; set(filtered_sentence)</span><br><span class="line">    l2 &#x3D; set(doc_frequency.keys())</span><br><span class="line"></span><br><span class="line">    if not l1.issubset(l2) !&#x3D; False:</span><br><span class="line">        return 0</span><br><span class="line">    else:</span><br><span class="line">        # 计算每个词的IDF值</span><br><span class="line">        word_idf &#x3D; &#123;&#125;  # 存储每个词的idf值</span><br><span class="line">        word_doc &#x3D; defaultdict(int)  # 存储包含该词的文档数</span><br><span class="line">        for i in doc_frequency:</span><br><span class="line">            for j in list_words:</span><br><span class="line">                if i in j:</span><br><span class="line">                    word_doc[i] +&#x3D; 1</span><br><span class="line">        for i in doc_frequency:</span><br><span class="line">            word_idf[i] &#x3D; math.log(len(list_key) &#x2F; (word_doc[i] + 1))</span><br><span class="line">        # 找到每个词对应文档中出现的次数</span><br><span class="line">        doc_frequency1 &#x3D; defaultdict(int)</span><br><span class="line">        for word_list in list_key:</span><br><span class="line">            for i in word_list:</span><br><span class="line">                doc_frequency1[i] +&#x3D; 1</span><br><span class="line">        # 对样本进行词频统计</span><br><span class="line">        list_doc &#x3D; []</span><br><span class="line">        for i in range(len(list_key)):</span><br><span class="line">            doc_frequency1 &#x3D; defaultdict(int)</span><br><span class="line">            for j in list_key[i]:</span><br><span class="line">                doc_frequency1[j] +&#x3D; 1</span><br><span class="line">            list_doc.append(doc_frequency1)</span><br><span class="line">        # 计算语料库的tf_idf</span><br><span class="line">        tf_idf &#x3D; []</span><br><span class="line">        for j in range(len(data)):</span><br><span class="line">            tf_idf.append([word_idf[i] * list_doc[j][i] &#x2F; len(list_doc[j]) for i in (list_doc[j])])</span><br><span class="line">        # 计算样本的tf-idf得分</span><br><span class="line">        scores &#x3D; []</span><br><span class="line">        for j in range(len(data)):</span><br><span class="line">            score &#x3D; 0</span><br><span class="line">            for i in filtered_sentence:</span><br><span class="line">                score +&#x3D; (word_idf[i] * list_doc[j][i] &#x2F; len(list_doc[j]))</span><br><span class="line">            scores.append(score)</span><br><span class="line">        # 用字典形式排序</span><br><span class="line">        x &#x3D; np.arange(len(data)).tolist()</span><br><span class="line">        dict_score &#x3D; dict(zip(x, scores))</span><br><span class="line">        listc &#x3D; sorted(zip(dict_score.values(), dict_score.keys()))</span><br><span class="line">        recall_ques &#x3D; []</span><br><span class="line">        recall_answ &#x3D; []</span><br><span class="line">        for i in range(1, 6):</span><br><span class="line">            recall_ques.append(question[listc[-i][1]])</span><br><span class="line">            recall_answ.append(answer[listc[-i][1]])</span><br><span class="line">        return recall_ques, recall_answ</span><br></pre></td></tr></table></figure>
+
+<h1 id="求5个问题的相似度"><a href="#求5个问题的相似度" class="headerlink" title="求5个问题的相似度"></a>求5个问题的相似度</h1><p>利用自带的余弦相似性求5个问题和输入问题的相似度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def similar_list(text, recall_ques):</span><br><span class="line">    return [nlp(text).similarity(nlp(recall_ques[i])) for i in range(5)]</span><br></pre></td></tr></table></figure>
+
+<h2 id="输出相似度最高的那个问题的答案"><a href="#输出相似度最高的那个问题的答案" class="headerlink" title="输出相似度最高的那个问题的答案"></a>输出相似度最高的那个问题的答案</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_answer</span>(<span class="params">list_num, recall_answ</span>):</span></span><br><span class="line">    <span class="comment"># 输出相似度最高的那个的答案</span></span><br><span class="line">    print(recall_answ[list_num.index(<span class="built_in">max</span>(list_num))])</span><br></pre></td></tr></table></figure>
+
+<h2 id="构建无限循环"><a href="#构建无限循环" class="headerlink" title="构建无限循环"></a>构建无限循环</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    data1 = pd.read_csv(<span class="string">&#x27;Q&amp;A pairs.csv&#x27;</span>)</span><br><span class="line">    print(<span class="string">&quot;Hello, I&#x27;m a question-and-answer chatbot for the tourism domain based on retrieval mode.&quot;</span></span><br><span class="line">          <span class="string">&quot;If you want to exit, input &#x27;Bye&#x27;!&quot;</span>)</span><br><span class="line">    greeting_output = [<span class="string">&quot;hi&quot;</span>, <span class="string">&quot;hey&quot;</span>, <span class="string">&quot;hello&quot;</span>, <span class="string">&quot;I&#x27;m glad! You are talking to me&quot;</span>]</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        text2 = <span class="built_in">input</span>(<span class="string">&quot;Please enter a question: \t&quot;</span>)</span><br><span class="line">        text1 = <span class="string">&quot; &quot;</span>.join([token.lemma_ <span class="keyword">for</span> token <span class="keyword">in</span> nlp(text2)])</span><br><span class="line">        <span class="keyword">if</span> text1 == <span class="string">&#x27;hey&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;hi&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;hello&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;HI&#x27;</span>:</span><br><span class="line">            print(random.choice(greeting_output))</span><br><span class="line">        <span class="keyword">elif</span> text1 == <span class="string">&#x27;thank&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;thank -PRON-&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;THANK&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;You are welcome.&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> text1 == <span class="string">&#x27;bye&#x27;</span> <span class="keyword">or</span> text1 == <span class="string">&#x27;BYE&#x27;</span>:</span><br><span class="line">            print(<span class="string">&#x27;Bye!&#x27;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> QA_tf_idf(data1, del_stop(text1)) == <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">f&quot;I&#x27;m sorry. I don&#x27;t understand you&quot;</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                recall_ques1, recall_answ1 = QA_tf_idf(data1, del_stop(text1))</span><br><span class="line">                best_answer(similar_list(text1, recall_ques1), recall_answ1)</span><br></pre></td></tr></table></figure>
+
+<p>能够简单实现步骤，下一步加入GUI</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595262847196&di=b1093ee61bec6c22a07f7fd6b07a168e&imgtype=0&src=http://p2.itc.cn/images01/20200609/12d57ad2d3694d24b69f0db647f43830.jpeg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

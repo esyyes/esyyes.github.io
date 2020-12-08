@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Q&amp;A chatbot 简单实现 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,Q&amp;amp;A chatbot 简单实现Project Title: Traveler (a question-and-answer chatbot based on retrieval mode.,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Q&A chatbot 简单实现</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Q&A chatbot 简单实现</h1>
+        <div class="stuff">
+            <span>七月 19, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Q-amp-A-chatbot-简单实现"><a href="#Q-amp-A-chatbot-简单实现" class="headerlink" title="Q&amp;A chatbot 简单实现"></a>Q&amp;A chatbot 简单实现</h1><h2 id="Project-Title-Traveler-a-question-and-answer-chatbot-based-on-retrieval-mode"><a href="#Project-Title-Traveler-a-question-and-answer-chatbot-based-on-retrieval-mode" class="headerlink" title="Project Title: Traveler (a question-and-answer chatbot based on retrieval mode.)"></a>Project Title: Traveler (a question-and-answer chatbot based on retrieval mode.)</h2><h3 id="设计要求："><a href="#设计要求：" class="headerlink" title="设计要求："></a>设计要求：</h3><p>I plan to develop a <strong>question-and-answer chatbot for the tourism domain</strong><br>based on <strong>retrieval</strong> mode. The chatbot will respond to users by<br>selecting the best matching answer in the database based on users’<br>questions. </p>
+<h3 id="four-parts"><a href="#four-parts" class="headerlink" title="four parts."></a>four parts.</h3><p>In order to develop the question-and answer chatbot, I will divide my job into four parts. </p>
+<ol>
+<li><p>Extract the keywords from text<br>For a piece of text, I can extract keywords and remove words that have no actual<br>meaning but appear frequently, such as the, a, is, etc. This process prepares for the<br>generation of word frequency vectors that can be used to calculate the similarity<br>between two pieces of text. </p>
+</li>
+<li><p>Calculate the semantic similarity<br>For a piece of text, I can calculate the similarity between this text and other<br>compared text. According to the extracted keywords mentioned above, all the texts<br>will be vectorized to calculate the similarity between the test text and each<br>compared text. The higher the similarity value is, the more similar the compared<br>text is to the test text. This process is prepared to later calculate the similarity<br>between the user questions and existing questions in the database. </p>
+</li>
+<li><p>Create database which contains question-and-answer pairs<br>I will deliver a complete database contains all pairs of user’s possible questions and<br>answers. After calculating the similarity between the user questions and existing<br>questions, the database will select an answer whose matching question is most<br>relevant to the user’s question as response to the users. </p>
+</li>
+<li><p>Create a graphical interface that allows users to enter text<br>I will deliver a GUI that can allow users to input question and give an output to the<br>user’s question. </p>
+</li>
+</ol>
+<h2 id="初步实现之去除停靠词后的程序"><a href="#初步实现之去除停靠词后的程序" class="headerlink" title="初步实现之去除停靠词后的程序"></a>初步实现之去除停靠词后的程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/7/19</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line">语料包</span><br><span class="line"><span class="keyword">import</span> en_core_web_md</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">为了加载词频</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入英文模块</span></span><br><span class="line">nlp = en_core_web_md.load()</span><br><span class="line"></span><br><span class="line">text = <span class="built_in">input</span>(<span class="string">&quot;请输入问题: &quot;</span>)</span><br><span class="line"><span class="comment"># 进行问题分词</span></span><br><span class="line">doc = nlp(text)</span><br><span class="line">token_doc = [token.text <span class="keyword">for</span> token <span class="keyword">in</span> doc]</span><br><span class="line"><span class="comment"># 去除停用词后创建单词列表，相当于就是只有关键词了</span></span><br><span class="line">filtered_sentence = []</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> token_doc:</span><br><span class="line">    lexeme = nlp.vocab[word]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> lexeme.is_stop != <span class="literal">False</span>:</span><br><span class="line">        filtered_sentence.append(word)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导入语料包，读取问题和答案</span></span><br><span class="line">data = pd.read_csv(<span class="string">&#x27;Q&amp;A pairs.csv&#x27;</span>)</span><br><span class="line">question = np.array(data[<span class="string">&#x27;Question&#x27;</span>]).tolist()</span><br><span class="line">answer = np.array(data[<span class="string">&#x27;Answer&#x27;</span>]).tolist()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将问题进行分词</span></span><br><span class="line">list_ques = [[t.text <span class="keyword">for</span> t <span class="keyword">in</span> nlp(question[i])] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data))]</span><br><span class="line"><span class="comment"># 去除停用词后创建单词列表，将问题全部进行去停靠词</span></span><br><span class="line">list_key = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    filtered_sentence1 = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> list_ques[i]:</span><br><span class="line">        lexeme = nlp.vocab[word]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> lexeme.is_stop != <span class="literal">False</span>:</span><br><span class="line">            filtered_sentence1.append(word)</span><br><span class="line">    list_key.append(filtered_sentence1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计词频和词汇,并看单词出现的次数，看全文的关键词汇和词是多少</span></span><br><span class="line">doc_frequency = defaultdict(<span class="built_in">int</span>)</span><br><span class="line">list_words = list_key</span><br><span class="line"><span class="keyword">for</span> word_list <span class="keyword">in</span> list_words:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> word_list:</span><br><span class="line">        doc_frequency[i] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算每个词的IDF值</span></span><br><span class="line">word_idf = &#123;&#125;  <span class="comment"># 存储每个词的idf值</span></span><br><span class="line">word_doc = defaultdict(<span class="built_in">int</span>)  <span class="comment"># 存储包含该词的文档数</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> doc_frequency:</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> list_words:</span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">in</span> j:</span><br><span class="line">            word_doc[i] += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> doc_frequency:</span><br><span class="line">    word_idf[i] = math.log(<span class="built_in">len</span>(list_key) / (word_doc[i] + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到每个词对应每个问题中出现的次数</span></span><br><span class="line">doc_frequency1 = defaultdict(<span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">for</span> word_list <span class="keyword">in</span> list_key:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> word_list:</span><br><span class="line">        doc_frequency1[i] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计关键词在单个样本中出现的次数</span></span><br><span class="line">list_doc = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(list_key)):</span><br><span class="line">    doc_frequency1 = defaultdict(<span class="built_in">int</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> list_key[i]:</span><br><span class="line">        doc_frequency1[j] += <span class="number">1</span></span><br><span class="line">    list_doc.append(doc_frequency1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算出每个问题对应的tf_idf索引</span></span><br><span class="line">tf_idf = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    c = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> (list_doc[j]):</span><br><span class="line">        c.append(word_idf[i] * list_doc[j][i] / <span class="built_in">len</span>(list_doc[j]))</span><br><span class="line">    tf_idf.append(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算输入的问题在全部文档中的tf-idf得分</span></span><br><span class="line">scores = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data)):</span><br><span class="line">    score = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> filtered_sentence:</span><br><span class="line">        score += (word_idf[i] * list_doc[j][i] / <span class="built_in">len</span>(list_doc[j]))</span><br><span class="line">    scores.append(score)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 用字典形式排序</span></span><br><span class="line">x = np.arange(<span class="built_in">len</span>(data)).tolist()</span><br><span class="line">dict_score = <span class="built_in">dict</span>(<span class="built_in">zip</span>(x, scores))</span><br><span class="line">升序排序</span><br><span class="line">listc = <span class="built_in">sorted</span>(<span class="built_in">zip</span>(dict_score.values(), dict_score.keys()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 召回得分最高的5个对应问题和答案，对问题进行粗排</span></span><br><span class="line">recall_ques = []</span><br><span class="line">recall_answ = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    recall_ques.append(question[listc[-i][<span class="number">1</span>]])</span><br><span class="line">    recall_answ.append(answer[listc[-i][<span class="number">1</span>]])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用余弦相似性求5个问题的相似度</span></span><br><span class="line">list_num = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    list_num.append(doc.similarity(nlp(recall_ques[i])))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出相似度最高的那个的答案</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">set</span>(list_num)) == random.randint(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">    print(recall_answ[list_num.index(<span class="built_in">max</span>(list_num))])</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(recall_answ[random.randint(<span class="number">0</span>, <span class="number">5</span>)])</span><br></pre></td></tr></table></figure>
+
+<p>只是能简单实现样本，下一步是实现循环输入和能回复简单的问题</p>
+<p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1144338864,1787286398&fm=15&gp=0.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

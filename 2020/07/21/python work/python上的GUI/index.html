@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python上的GUI - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,Python GUI编程(Tkinter)tkinter介绍https://www.runoob.com/python/python-gui-tkinter.html
+这个链接里面直接设置相关的
+P,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python上的GUI</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python上的GUI</h1>
+        <div class="stuff">
+            <span>七月 21, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Python-GUI编程-Tkinter"><a href="#Python-GUI编程-Tkinter" class="headerlink" title="Python GUI编程(Tkinter)"></a>Python GUI编程(Tkinter)</h1><h2 id="tkinter介绍"><a href="#tkinter介绍" class="headerlink" title="tkinter介绍"></a>tkinter介绍</h2><p><a target="_blank" rel="noopener" href="https://www.runoob.com/python/python-gui-tkinter.html">https://www.runoob.com/python/python-gui-tkinter.html</a></p>
+<p>这个链接里面直接设置相关的</p>
+<p>Python 提供了多个图形开发界面的库，几个常用 Python GUI 库如下： </p>
+<ul>
+<li><strong>Tkinter：</strong> Tkinter 模块(Tk 接口)是 Python 的标准 Tk GUI 工具包的接口 .Tk 和 Tkinter 可以在大多数的 Unix 平台下使用,同样可以应用在 Windows 和 Macintosh 系统里。Tk8.0 的后续版本可以实现本地窗口风格,并良好地运行在绝大多数平台中。</li>
+<li><strong>wxPython：</strong>wxPython 是一款开源软件，是 Python 语言的一套优秀的 GUI 图形库，允许 Python 程序员很方便的创建完整的、功能健全的 GUI 用户界面。</li>
+<li><strong>Jython：</strong>Jython 程序可以和 Java 无缝集成。除了一些标准模块，Jython 使用 Java 的模块。Jython 几乎拥有标准的Python 中不依赖于 C 语言的全部模块。比如，Jython 的用户界面将使用  Swing，AWT或者 SWT。Jython 可以被动态或静态地编译成 Java 字节码。</li>
+</ul>
+<p>Tkinter 是 Python 的标准 GUI 库。Python 使用 Tkinter 可以快速的创建 GUI 应用程序。</p>
+<p>由于 Tkinter 是内置到 python 的安装包中、只要安装好 Python 之后就能 import Tkinter 库、而且 IDLE 也是用 Tkinter 编写而成、对于简单的图形界面 Tkinter 还是能应付自如。</p>
+<p>*<em>注意**</em>：Python3.x 版本使用的库名为 tkinter,即首写字母 T 为小写。*</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter</span><br></pre></td></tr></table></figure>
+
+<p>创建一个GUI程序</p>
+<ul>
+<li>1、导入 Tkinter 模块</li>
+<li>2、创建控件</li>
+<li>3、指定这个控件的 master， 即这个控件属于哪一个</li>
+<li>4、告诉 GM(geometry manager) 有一个控件产生了。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line">创建简单窗口</span><br><span class="line">top = tkinter.Tk()</span><br><span class="line"><span class="comment"># 进入消息循环</span></span><br><span class="line">top.mainloop()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/7/21</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建窗口</span></span><br><span class="line">root = thinter.TK()</span><br><span class="line">root = Tk()</span><br><span class="line"><span class="comment"># 标题</span></span><br><span class="line">root.title(<span class="string">&#x27;Q&amp;A chatbot&#x27;</span>)</span><br><span class="line"><span class="comment"># 窗口大小 小写的x，表示大小</span></span><br><span class="line">root.geometry(<span class="string">&#x27;720x400+500+200&#x27;</span>)</span><br><span class="line"><span class="comment"># 窗口位置 像素px  的坐标。距离左上角的位置</span></span><br><span class="line"><span class="comment"># root.geometry(&#x27;+500+300&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 标签控件</span></span><br><span class="line">label = Label(root, text=<span class="string">&#x27;签名&#x27;</span>, font=(<span class="string">&#x27;华为行楷&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="comment"># pack place 定位（只用一种）grid 网格布局</span></span><br><span class="line">label.grid()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入框</span></span><br><span class="line">entry = Entry(root, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>))</span><br><span class="line"><span class="comment"># row对应行，column对应的列</span></span><br><span class="line">entry.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击按钮</span></span><br><span class="line">button = Button(root, text=<span class="string">&#x27;设计签名&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line"><span class="comment"># 宽高设置</span></span><br><span class="line">button[<span class="string">&#x27;width&#x27;</span>] = <span class="number">10</span></span><br><span class="line">button[<span class="string">&#x27;height&#x27;</span>] = <span class="number">1</span></span><br><span class="line"><span class="comment"># 对齐方式sticky,W左。E右, stick=E</span></span><br><span class="line">button.grid(row=<span class="number">1</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 消息循环 显示窗口</span></span><br><span class="line">root.mainloop()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>组件：按钮，文本输入框。滚动条等</p>
+<p>窗口：root输入</p>
+<h2 id="GUI–窗口设置"><a href="#GUI–窗口设置" class="headerlink" title="GUI–窗口设置"></a>GUI–窗口设置</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建主窗口对象</span></span><br><span class="line">root = tkinter.Tk()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给窗口加入标题</span></span><br><span class="line">root.title(<span class="string">&#x27;Q&amp;A chatbot&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置窗口大小,像素大小</span></span><br><span class="line"><span class="comment"># root.minsize(300, 300)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 窗口大小 小写的x，表示大小， 和位置</span></span><br><span class="line">root.geometry(<span class="string">&#x27;720x400+500+200&#x27;</span>)</span><br><span class="line"><span class="comment"># 窗口位置 像素px  的坐标。距离左上角的位置</span></span><br><span class="line"><span class="comment"># root.geometry(&#x27;+500+300&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入信息循环</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+
+<h2 id="组件摆放方式"><a href="#组件摆放方式" class="headerlink" title="组件摆放方式"></a>组件摆放方式</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/myshuzhimei/p/11764532.html">https://www.cnblogs.com/myshuzhimei/p/11764532.html</a></p>
+<p><strong>Tkinter之部件3种放置方式pack、grid、place</strong></p>
+<p>以规律的方格形式呈现。比如下面的代码就是创建一个三行三列的表格：参数row 为行，colum 为列，padx 单元格左右间距，pady单元格上下间距，ipadx单元格内部元素与单元格的左右间距，ipady单元格内部元素与单元格的上下间距。</p>
+<p>直接用grid方式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/7/21</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建主窗口对象</span></span><br><span class="line">root = tkinter.Tk()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 给窗口加入标题</span></span><br><span class="line">root.title(<span class="string">&#x27;Q&amp;A chatbot&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置窗口大小,像素大小</span></span><br><span class="line"><span class="comment"># root.minsize(300, 300)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 窗口大小 小写的x，表示大小， 和位置</span></span><br><span class="line">root.geometry(<span class="string">&#x27;720x400+500+200&#x27;</span>)</span><br><span class="line"><span class="comment"># 窗口位置 像素px  的坐标。距离左上角的位置</span></span><br><span class="line"><span class="comment"># root.geometry(&#x27;+500+300&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击按钮</span></span><br><span class="line">button = tkinter.Button(root, text=<span class="string">&#x27;点击0&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">button.grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line">button1 = tkinter.Button(root, text=<span class="string">&#x27;点击1&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">button1.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line">button2 = tkinter.Button(root, text=<span class="string">&#x27;点击2&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">button2.grid(row=<span class="number">1</span>, column=<span class="number">0</span>)</span><br><span class="line">button3 = tkinter.Button(root, text=<span class="string">&#x27;点击3&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">button3.grid(row=<span class="number">1</span>, column=<span class="number">1</span>)</span><br><span class="line">button4 = tkinter.Button(root, text=<span class="string">&#x27;点击4&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">button4.grid(row=<span class="number">2</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>, ipadx=<span class="number">40</span>)</span><br><span class="line">button5 = tkinter.Button(root, text=<span class="string">&#x27;点击5&#x27;</span>, font=(<span class="string">&#x27;微软雅黑&#x27;</span>, <span class="number">20</span>), fg=<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">button5.grid(row=<span class="number">0</span>, column=<span class="number">2</span>, rowspan=<span class="number">2</span>, ipady=<span class="number">40</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 跨列columnspan rowspan,跨行</span></span><br><span class="line"><span class="comment"># ipadx,ipady 跨距离设置</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入信息循环</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+
+<h2 id="组件信息"><a href="#组件信息" class="headerlink" title="组件信息"></a>组件信息</h2><h1 id="鼠标样式"><a href="#鼠标样式" class="headerlink" title="鼠标样式"></a>鼠标样式</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root[<span class="string">&#x27;cursor&#x27;</span>] = <span class="string">&#x27;heart&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="cheakbutoon勾选框组件"><a href="#cheakbutoon勾选框组件" class="headerlink" title="cheakbutoon勾选框组件"></a>cheakbutoon勾选框组件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/7/21</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tkinter</span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建主窗口对象</span></span><br><span class="line">root = tkinter.Tk()</span><br><span class="line"><span class="comment"># 鼠标样式</span></span><br><span class="line">root[<span class="string">&#x27;cursor&#x27;</span>] = <span class="string">&#x27;heart&#x27;</span></span><br><span class="line"><span class="comment"># 给窗口加入标题</span></span><br><span class="line">root.title(<span class="string">&#x27;Q&amp;A chatbot&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置窗口大小,像素大小</span></span><br><span class="line"><span class="comment"># root.minsize(300, 300)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 窗口大小 小写的x，表示大小， 和位置</span></span><br><span class="line">root.geometry(<span class="string">&#x27;720x400+500+200&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># cheakbutton 选择框组件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果文本的内容有变化</span></span><br><span class="line">text = tkinter.StringVar()</span><br><span class="line">text.<span class="built_in">set</span>(<span class="string">&#x27;同意&#x27;</span>)</span><br><span class="line"><span class="comment"># 设置选择框钩与不钩的值</span></span><br><span class="line">result = tkinter.IntVar()</span><br><span class="line"><span class="comment"># 设置返回值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span>():</span></span><br><span class="line">    print(result.get())</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cheakbutoon = tkinter.Checkbutton(root, textvariable=text, variable=result, command=func)</span><br><span class="line">cheakbutoon.grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加入信息循环</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="输入组件"><a href="#输入组件" class="headerlink" title="输入组件"></a>输入组件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"># @Time     : 2020&#x2F;7&#x2F;21</span><br><span class="line"># @Author   : esy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import tkinter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 创建主窗口对象</span><br><span class="line">root &#x3D; tkinter.Tk()</span><br><span class="line"># 鼠标样式</span><br><span class="line">root[&#39;cursor&#39;] &#x3D; &#39;heart&#39;</span><br><span class="line"># 给窗口加入标题</span><br><span class="line">root.title(&#39;Q&amp;A chatbot&#39;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 窗口大小 小写的x，表示大小， 和位置</span><br><span class="line">root.geometry(&#39;720x400+500+200&#39;)</span><br><span class="line"></span><br><span class="line"># 输入组件</span><br><span class="line"># 输入框</span><br><span class="line">username &#x3D; tkinter.Entry(root, font&#x3D;(&#39;微软雅黑&#39;, 20), bg&#x3D;&#39;red&#39;, fg&#x3D;&#39;blue&#39;)</span><br><span class="line">username.grid(row&#x3D;0, column&#x3D;0)</span><br><span class="line"></span><br><span class="line"># 密码输入</span><br><span class="line">password &#x3D; tkinter.Entry(root, show&#x3D;&#39;*&#39;, font&#x3D;(&#39;微软雅黑&#39;, 20))</span><br><span class="line">password.grid(row&#x3D;1, column&#x3D;0)</span><br><span class="line"></span><br><span class="line"># 加入信息循环</span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1290205718,2520373871&fm=15&gp=0.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

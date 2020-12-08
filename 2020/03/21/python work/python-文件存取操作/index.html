@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python_文件存取操作 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,python_文件存取操作123456789# 读取第一个数据f = open(r&amp;#x27;E:/test.txt&amp;#x27;, &amp;#x27;r&amp;#x27;)result = []for line,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python_文件存取操作</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python_文件存取操作</h1>
+        <div class="stuff">
+            <span>三月 21, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="python-文件存取操作"><a href="#python-文件存取操作" class="headerlink" title="python_文件存取操作"></a>python_文件存取操作</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取第一个数据</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">r&#x27;E:/test.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">result = []</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">    result.append(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, line.split(<span class="string">&#x27;,&#x27;</span>))))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将列表中的数据从第5列后开始删除</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(result)):</span><br><span class="line">    <span class="keyword">del</span> result[i][<span class="number">4</span>:]</span><br></pre></td></tr></table></figure>
+
+<p><strong>删除列表后面的几列</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> result[i][<span class="number">4</span>:]</span><br></pre></td></tr></table></figure>
+
+<p>[‘1729162717’, ‘2169702956’, ‘57181’, ‘59445’]</p>
+<p><strong>删除引号</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/3/21</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取txt文件</span></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">r&#x27;E:/test.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>)</span><br><span class="line">result = []</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">    result.append(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">str</span>, line.split(<span class="string">&#x27;,&#x27;</span>))))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除指定的列</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(result)):</span><br><span class="line">    <span class="keyword">del</span> result[i][<span class="number">-2</span>:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">data2 = result</span><br><span class="line"><span class="comment"># # 将str数据转换为整数</span></span><br><span class="line"><span class="comment"># data2 = []</span></span><br><span class="line"><span class="comment"># for j in range(len(result)):</span></span><br><span class="line"><span class="comment">#     list2 = []</span></span><br><span class="line"><span class="comment">#     for i in range(len(result[j])):</span></span><br><span class="line"><span class="comment">#         list2.append(int(result[j][i]))</span></span><br><span class="line"><span class="comment">#     data2.append(list2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取xlsx文件，是转换为datarafme</span></span><br><span class="line">df = pd.read_excel(<span class="string">&#x27;E:/tt.xlsx&#x27;</span>)</span><br><span class="line">data = pd.get_dummies(df.iloc[<span class="number">0</span>:])</span><br><span class="line"><span class="comment"># 0插补</span></span><br><span class="line">data = data.fillna(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将其转换为数组</span></span><br><span class="line">train_data = np.array(data)</span><br><span class="line"><span class="comment"># 将其转换为列表</span></span><br><span class="line">train_x_list = train_data.tolist() <span class="comment">#list</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将列表叠加到后面去</span></span><br><span class="line">data1 = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(train_x_list)):</span><br><span class="line">    list1 = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(train_x_list[j])):</span><br><span class="line">        list1.append(<span class="built_in">int</span>(train_x_list[j][i]))</span><br><span class="line">    data1.append(list1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 批量保存文件</span></span><br><span class="line">now = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">90</span>):</span><br><span class="line">    shu = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data1)):</span><br><span class="line">        <span class="comment"># 指定列进行添加数据</span></span><br><span class="line">        data2[i].insert(<span class="number">7</span>, <span class="built_in">int</span>(data1[i][j]))</span><br><span class="line">        shu.append(data2[i])</span><br><span class="line">    now.append(shu)</span><br><span class="line">    <span class="comment"># 保存文件</span></span><br><span class="line">    np.savetxt(<span class="string">&quot;E:/3211/%s.txt&quot;</span>%j, now[j], fmt=<span class="string">&#x27;%s&#x27;</span>, delimiter=<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(data2)):</span><br><span class="line">        <span class="keyword">del</span> data2[s][<span class="number">-2</span>:<span class="number">-1</span>]</span><br><span class="line">print(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>其实根本没必要删除引号，再进行保存文件时，就已经删除了引号</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20190120/efdb6b16121348c2bd19e0d017d7563e.png"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

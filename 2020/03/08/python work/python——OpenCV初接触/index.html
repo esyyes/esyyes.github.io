@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python——OpenCV初接触 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,OpenCV初接触
+github问题解决github出问题了公共秘钥的问题,不能进行打开和下载，而且github也出现问题，各种不显示。
+已经解决：
+
+对浏览器进行删除浏览记录，消除cookie;然,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python——OpenCV初接触</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python——OpenCV初接触</h1>
+        <div class="stuff">
+            <span>三月 08, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="OpenCV初接触"><a href="#OpenCV初接触" class="headerlink" title="OpenCV初接触"></a>OpenCV初接触</h1><p><img src="https://i04piccdn.sogoucdn.com/6c5b8086d2535f2b"></p>
+<h2 id="github问题解决"><a href="#github问题解决" class="headerlink" title="github问题解决"></a>github问题解决</h2><p>github出问题了公共秘钥的问题,不能进行打开和下载，而且github也出现问题，各种不显示。</p>
+<p>已经解决：</p>
+<ol>
+<li>对浏览器进行删除浏览记录，消除cookie;然后可以正常进行登录了。</li>
+<li>问题2，登录慢；ping github.com请求超时的问题；<a target="_blank" rel="noopener" href="https://www.cnblogs.com/findview/p/11720245.html">https://www.cnblogs.com/findview/p/11720245.html</a></li>
+</ol>
+<h2 id="opencv-python下载"><a href="#opencv-python下载" class="headerlink" title="opencv-python下载"></a>opencv-python下载</h2><p>pip insatll opencv-python</p>
+<p>pip install opencv-contrib-python</p>
+<p>pip install ptesseract</p>
+<p>首先进行安装，实在是慢，我先看下文献；希望别出错！！！</p>
+<h3 id="opencv-python安装"><a href="#opencv-python安装" class="headerlink" title="opencv-python安装"></a>opencv-python安装</h3><p>python版本：3.7.5</p>
+<p>1.进入清华镜像</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38327353/article/details/88847694?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task">https://blog.csdn.net/qq_38327353/article/details/88847694?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task</a></p>
+<p>2.下载opencv-python对应的版本，whl文件</p>
+<p>3.用pip install (whl)文件进行安装</p>
+<p>4.以后下载安装还是直接找包或者镜像，要不然国外的太慢。</p>
+<h3 id="opencv-python测试"><a href="#opencv-python测试" class="headerlink" title="opencv-python测试"></a>opencv-python测试</h3><p>import cv2</p>
+<p>测试成功。</p>
+<h2 id="opencv-python图片读取问题"><a href="#opencv-python图片读取问题" class="headerlink" title="opencv-python图片读取问题"></a>opencv-python图片读取问题</h2><h3 id="opencv读取的图片格式"><a href="#opencv读取的图片格式" class="headerlink" title="opencv读取的图片格式"></a>opencv读取的图片格式</h3><p>cv2读取的图片通道是按照<strong>BGR排列</strong>的，而非RGB顺序。因此工程中opencv库与其他库混用的时候要注意，可以使用img = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)</p>
+<p>貌似图片都可以读取</p>
+<p>利用jupyter读取图片，毕竟这个可以保存。</p>
+<h3 id="opencv读取图片"><a href="#opencv读取图片" class="headerlink" title="opencv读取图片"></a>opencv读取图片</h3><p>图片的样子</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1583842369695&di=54d84190d5a56d8bab0e400f6b31c051&imgtype=0&src=http://b-ssl.duitang.com/uploads/item/201803/26/20180326184016_z4sS5.thumb.700_0.jpeg"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2 <span class="keyword">as</span> cv</span><br><span class="line">img = cv.imread(<span class="string">&quot;C:/Users/86184/Desktop/111.jfif&quot;</span>) </span><br><span class="line">cv.imshow(<span class="string">&quot;miao&quot;</span>,img)</span><br><span class="line">cv.waitKey() <span class="comment">#在imshow之后如果没有waitkey语句则不会正常显示图像</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="H:\myboke\mybike\source\images\miao.png" alt="image-20200310173233338"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>重要特征查看 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,重要特征查看目的：将睡眠分期中的345阶段的睡眠分期结果进行比较，查看特征对睡眠分期的影响,
+筛选出特征贡献度最高的那几个，进行查看
+程序：利用表格形式输出特征的排序
+123456789101112,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">重要特征查看</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">重要特征查看</h1>
+        <div class="stuff">
+            <span>六月 18, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="重要特征查看"><a href="#重要特征查看" class="headerlink" title="重要特征查看"></a>重要特征查看</h1><p>目的：将睡眠分期中的345阶段的睡眠分期结果进行比较，查看特征对睡眠分期的影响,</p>
+<p>筛选出特征贡献度最高的那几个，进行查看</p>
+<p>程序：利用表格形式输出特征的排序</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/18</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">    feature_import = pd.read_excel(<span class="string">&#x27;E:/features&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % h + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:<span class="number">23</span>])</span><br><span class="line">    data = df.T</span><br><span class="line">    print(<span class="string">f&#x27;列写特征重要度排序&#x27;</span>, end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    print()</span><br><span class="line">    print(<span class="string">f&#x27;序号&#x27;</span>, end=<span class="string">&#x27;\t\t&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;特征&#x27;</span>, end=<span class="string">&#x27;\t\t&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;重要度&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">22</span>):</span><br><span class="line">        print(<span class="string">f&#x27;%2d&#x27;</span> % i, end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        print(<span class="string">f&#x27;%10s&#x27;</span> % df.keys()[i], end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">        print(<span class="string">f&#x27;%0.3f&#x27;</span> % data[<span class="number">0</span>][i])</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">序号		特征	 重要度</span><br><span class="line"> <span class="number">0</span>	    <span class="number">5</span>pNN20	<span class="number">0.021</span></span><br><span class="line"> <span class="number">1</span>	     <span class="number">5</span>NN20	<span class="number">0.021</span></span><br><span class="line"> <span class="number">2</span>	    <span class="number">5</span>pNN50	<span class="number">0.019</span></span><br><span class="line"> <span class="number">3</span>	     <span class="number">5</span>NN50	<span class="number">0.019</span></span><br><span class="line"> <span class="number">4</span>	  <span class="number">5</span>p_RMSSD	<span class="number">0.018</span></span><br><span class="line"> <span class="number">5</span>	    <span class="number">5</span>p_var	<span class="number">0.018</span></span><br><span class="line"> <span class="number">6</span>	    <span class="number">5</span>csi50	<span class="number">0.017</span></span><br><span class="line"> <span class="number">7</span>	    <span class="number">5</span>csi30	<span class="number">0.017</span></span><br><span class="line"> <span class="number">8</span>	    <span class="number">5</span>csi10	<span class="number">0.017</span></span><br><span class="line"> <span class="number">9</span>	       <span class="number">5</span>HF	<span class="number">0.017</span></span><br><span class="line"><span class="number">10</span>	   <span class="number">5</span>p_skew	<span class="number">0.017</span></span><br><span class="line"><span class="number">11</span>	   <span class="number">5</span>p_SDNN	<span class="number">0.017</span></span><br><span class="line"><span class="number">12</span>	 <span class="number">5</span>p_median	<span class="number">0.017</span></span><br><span class="line"><span class="number">13</span>	   <span class="number">5</span>R_mean	<span class="number">0.016</span></span><br><span class="line"><span class="number">14</span>	  <span class="number">5</span>HR_mean	<span class="number">0.016</span></span><br><span class="line"><span class="number">15</span>	    <span class="number">5</span>p_RMS	<span class="number">0.015</span></span><br><span class="line"><span class="number">16</span>	   <span class="number">5</span>p_mean	<span class="number">0.015</span></span><br><span class="line"><span class="number">17</span>	    <span class="number">5</span>p_max	<span class="number">0.014</span></span><br><span class="line"><span class="number">18</span>	 <span class="number">5</span>R_median	<span class="number">0.014</span></span><br><span class="line"><span class="number">19</span>	     <span class="number">5</span>apen	<span class="number">0.014</span></span><br><span class="line"><span class="number">20</span>	<span class="number">5</span>p_peak_factor	<span class="number">0.014</span></span><br><span class="line"><span class="number">21</span>	   <span class="number">5</span>csi100	<span class="number">0.014</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">序号		特征	 重要度</span><br><span class="line"> 0	     5NN20	0.024</span><br><span class="line"> 1	    5pNN20	0.023</span><br><span class="line"> 2	    5pNN50	0.023</span><br><span class="line"> 3	     5NN50	0.022</span><br><span class="line"> 4	   5p_skew	0.020</span><br><span class="line"> 5	       5HF	0.018</span><br><span class="line"> 6	 5p_median	0.017</span><br><span class="line"> 7	   5R_mean	0.016</span><br><span class="line"> 8	   5p_SDNN	0.016</span><br><span class="line"> 9	    5p_var	0.016</span><br><span class="line">10	    5p_RMS	0.016</span><br><span class="line">11	    5csi10	0.016</span><br><span class="line">12	  5p_RMSSD	0.016</span><br><span class="line">13	   5R_CVSD	0.016</span><br><span class="line">14	    5p_max	0.016</span><br><span class="line">15	    5csi50	0.016</span><br><span class="line">16	   5R_SDSD	0.015</span><br><span class="line">17	   5p_mean	0.015</span><br><span class="line">18	      5sd1	0.015</span><br><span class="line">19	  5R_RMSSD	0.015</span><br><span class="line">20	   5HR_min	0.015</span><br><span class="line">21	     5apen	0.015</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">序号		特征	 重要度</span><br><span class="line"> <span class="number">0</span>	    <span class="number">5</span>pNN20	<span class="number">0.026</span></span><br><span class="line"> <span class="number">1</span>	     <span class="number">5</span>NN20	<span class="number">0.025</span></span><br><span class="line"> <span class="number">2</span>	    <span class="number">5</span>pNN50	<span class="number">0.023</span></span><br><span class="line"> <span class="number">3</span>	     <span class="number">5</span>NN50	<span class="number">0.021</span></span><br><span class="line"> <span class="number">4</span>	   <span class="number">5</span>R_mean	<span class="number">0.019</span></span><br><span class="line"> <span class="number">5</span>	   <span class="number">5</span>p_skew	<span class="number">0.019</span></span><br><span class="line"> <span class="number">6</span>	       <span class="number">5</span>HF	<span class="number">0.018</span></span><br><span class="line"> <span class="number">7</span>	   <span class="number">5</span>HR_min	<span class="number">0.017</span></span><br><span class="line"> <span class="number">8</span>	 <span class="number">5</span>p_median	<span class="number">0.017</span></span><br><span class="line"> <span class="number">9</span>	 <span class="number">5</span>R_median	<span class="number">0.017</span></span><br><span class="line"><span class="number">10</span>	     <span class="number">5</span>apen	<span class="number">0.017</span></span><br><span class="line"><span class="number">11</span>	  <span class="number">5</span>HR_mean	<span class="number">0.017</span></span><br><span class="line"><span class="number">12</span>	  <span class="number">5</span>p_RMSSD	<span class="number">0.016</span></span><br><span class="line"><span class="number">13</span>	   <span class="number">5</span>R_CVSD	<span class="number">0.016</span></span><br><span class="line"><span class="number">14</span>	    <span class="number">5</span>csi10	<span class="number">0.016</span></span><br><span class="line"><span class="number">15</span>	   <span class="number">5</span>p_SDNN	<span class="number">0.016</span></span><br><span class="line"><span class="number">16</span>	    <span class="number">5</span>p_RMS	<span class="number">0.016</span></span><br><span class="line"><span class="number">17</span>	    <span class="number">5</span>p_max	<span class="number">0.016</span></span><br><span class="line"><span class="number">18</span>	    <span class="number">5</span>p_var	<span class="number">0.015</span></span><br><span class="line"><span class="number">19</span>	   <span class="number">5</span>p_mean	<span class="number">0.015</span></span><br><span class="line"><span class="number">20</span>	   <span class="number">5</span>R_SDSD	<span class="number">0.015</span></span><br><span class="line"><span class="number">21</span>	  <span class="number">5</span>R_RMSSD	<span class="number">0.015</span></span><br></pre></td></tr></table></figure>
+
+<p>排序顺序为543分类</p>
+<p>直接用一个行表格不就行了嘛。。。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/6/18</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># for h in range(1, 4):</span></span><br><span class="line"><span class="comment">#     feature_import = pd.read_excel(&#x27;E:/features&#x27; + &#x27;/feature_important&#x27; + &#x27;%s&#x27; % h + &#x27;.xlsx&#x27;)</span></span><br><span class="line"><span class="comment">#     df = pd.get_dummies(feature_import.iloc[0:len(feature_import), 1:23])</span></span><br><span class="line"><span class="comment">#     data = df.T</span></span><br><span class="line"><span class="comment">#     print(f&#x27;列写特征重要度排序&#x27;, end=&#x27;\t&#x27;)</span></span><br><span class="line"><span class="comment">#     print()</span></span><br><span class="line"><span class="comment">#     print(f&#x27;序号&#x27;, end=&#x27;\t\t&#x27;)</span></span><br><span class="line"><span class="comment">#     print(f&#x27;特征&#x27;, end=&#x27;\t\t&#x27;)</span></span><br><span class="line"><span class="comment">#     print(f&#x27;重要度&#x27;)</span></span><br><span class="line"><span class="comment">#     for i in range(22):</span></span><br><span class="line"><span class="comment">#         print(f&#x27;%2d&#x27; % i, end=&#x27;\t&#x27;)</span></span><br><span class="line"><span class="comment">#         print(f&#x27;%10s&#x27; % df.keys()[i], end=&#x27;\t&#x27;)</span></span><br><span class="line"><span class="comment">#         print(f&#x27;%0.3f&#x27; % data[0][i])</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">22</span>):</span><br><span class="line">    <span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">        feature_import = pd.read_excel(<span class="string">&#x27;E:/features&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % h + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">        df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:<span class="number">23</span>])</span><br><span class="line">        data = df.T</span><br><span class="line">        print(<span class="string">f&#x27;%15s&#x27;</span> % df.keys()[i], end=<span class="string">&#x27;\t&#x27;</span>)</span><br><span class="line">    print()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">	   5期			  4期			 3期</span><br><span class="line">	 5pNN20	          5NN20	         5pNN20	</span><br><span class="line">         5NN20	         5pNN20	          5NN20	</span><br><span class="line">        5pNN50	         5pNN50	         5pNN50	</span><br><span class="line">         5NN50	          5NN50	          5NN50	</span><br><span class="line">      5p_RMSSD	        5p_skew	        5R_mean	</span><br><span class="line">        5p_var	            5HF	        5p_skew	</span><br><span class="line">        5csi50	      5p_median	            5HF	</span><br><span class="line">        5csi30	        5R_mean	        5HR_min	</span><br><span class="line">        5csi10	        5p_SDNN	      5p_median	</span><br><span class="line">           5HF	         5p_var	      5R_median	</span><br><span class="line">       5p_skew	         5p_RMS	          5apen	</span><br><span class="line">       5p_SDNN	         5csi10	       5HR_mean	</span><br><span class="line">     5p_median	       5p_RMSSD	       5p_RMSSD	</span><br><span class="line">       5R_mean	        5R_CVSD	        5R_CVSD	</span><br><span class="line">      5HR_mean	         5p_max	         5csi10	</span><br><span class="line">        5p_RMS	         5csi50	        5p_SDNN	</span><br><span class="line">       5p_mean	        5R_SDSD	         5p_RMS	</span><br><span class="line">        5p_max	        5p_mean	         5p_max	</span><br><span class="line">     5R_median	           5sd1	         5p_var	</span><br><span class="line">         5apen	       5R_RMSSD	        5p_mean	</span><br><span class="line">5p_peak_factor	        5HR_min	        5R_SDSD	</span><br><span class="line">       5csi100	          5apen	       5R_RMSSD	</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://image.uczzd.cn/889217514512198939.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

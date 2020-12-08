@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>matlab中的重采样 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,
+## Matlab中的重采样
+
+选取3条插值重采样
+重采样函数Resample：将统一或非统一数据重新采样为新的固定速率
+语法：
+y = resample(x, p, q)
+y = resampl,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">matlab中的重采样</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">matlab中的重采样</h1>
+        <div class="stuff">
+            <span>十二月 17, 2019</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/malab-%E6%AF%95%E4%B8%9A/" rel="tag">-malab -毕业</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28732503&auto=1&height=66"></iframe>
+## Matlab中的重采样
+
+<p>选取3条插值重采样</p>
+<p>重采样函数Resample：将统一或非统一数据重新采样为新的固定速率</p>
+<p>语法：</p>
+<p>y = resample(x, p, q)</p>
+<p>y = resample(x, tx, __, method)</p>
+<p>指定插值方法以及该组中以前语法中的任何参数。内插方法可以是<code>&#39;linear&#39;</code>，<code>&#39;pchip&#39;</code>，或<code>&#39;spline&#39;</code>。</p>
+<p><strong>注：</strong>  如果<code>x</code>没有变化缓慢，可以考虑使用<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/matlab/ref/interp1.html"><code>interp1</code></a>与<code>&#39;pchip&#39;</code>插值方法。</p>
+<h2 id="输入参数"><a href="#输入参数" class="headerlink" title="输入参数"></a>输入参数</h2><p>输入信号，指定为矢量或矩阵。如果<code>x</code>是矩阵，则将其列视为独立通道。<code>x</code>可以包含<code>NaN</code>。<code>NaN</code>将s视为丢失的数据，并从重采样中排除。double</p>
+<p>p, q:重采样因子，指定为正整数。如需要原采样频率的1/5,即p=1,q=5</p>
+<h3 id="n—-相邻词号-10（默认）-正整数"><a href="#n—-相邻词号-10（默认）-正整数" class="headerlink" title="n— 相邻词号 10（默认）| 正整数"></a><code>n</code>— 相邻词号 10（默认）| 正整数</h3><p>邻居项号，指定为正整数。如果<code>n</code> = 0，则执行最近邻插值。抗混叠FIR滤波器的长度与成正比。较大的值提供更好的精度，但要花费更多的计算时间。<code>resample``n``n</code></p>
+<p><strong>资料类型：</strong> <code>double</code></p>
+<h3 id="Kaiser窗口5的-Shape参数（默认）-正实标量"><a href="#Kaiser窗口5的-Shape参数（默认）-正实标量" class="headerlink" title="Kaiser窗口5的 Shape参数（默认）| 正实标量"></a>Kaiser窗口5的 Shape参数（默认）| 正实标量</h3><p>Kaiser窗口的Shape参数，指定为正实标量。增大<code>beta</code>加宽用于设计抗混叠滤波器的窗口的主瓣，并减小窗口旁瓣的幅度。</p>
+<p><strong>资料类型：</strong> `double</p>
+<h3 id="b—-FIR滤波器系数-矢量"><a href="#b—-FIR滤波器系数-矢量" class="headerlink" title="b— FIR滤波器系数 矢量"></a><code>b</code>— FIR滤波器系数 矢量</h3><p>FIR滤波器系数，指定为矢量。默认情况下，使用Kaiser窗口设计过滤器。补偿延迟时，假定具有奇数长度和线性相位。<code>resample</code><a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/firls.html"><code>firls</code></a><code>resample``b</code></p>
+<p><strong>示例：</strong><code>fir1(4,0.5)</code>指定一个四阶低通滤波器，其归一化截止频率为0.5πrad /样本。</p>
+<p><strong>资料类型：</strong> <code>double</code></p>
+<h3 id="tx—-时间瞬间-非负实矢量-datetime数组"><a href="#tx—-时间瞬间-非负实矢量-datetime数组" class="headerlink" title="tx— 时间瞬间 非负实矢量 | datetime数组"></a><code>tx</code>— 时间瞬间 非负实矢量 | <code>datetime</code>数组</h3><p>时间瞬间，指定为非负实向量或<code>datetime</code>数组。<code>tx</code>必须单调增加，但不必均匀间隔。<code>tx</code>可以包含<code>NaN</code>或<code>NaT</code>。这些值被视为丢失的数据，并从重新采样中排除。</p>
+<p><strong>数据类型：</strong><code>double</code> |<code>datetime</code></p>
+<h3 id="fs—-采样率-正标量"><a href="#fs—-采样率-正标量" class="headerlink" title="fs— 采样率 正标量"></a><code>fs</code>— 采样率 正标量</h3><p>采样率，指定为正标量。采样率是每单位时间的采样数。如果时间单位是秒，则采样率以Hz为单位。</p>
+<p><strong>资料类型：</strong> <code>double</code></p>
+<h3 id="method—-插值方法-39-linear-39-（默认）-39-pchip-39-39-spline-39"><a href="#method—-插值方法-39-linear-39-（默认）-39-pchip-39-39-spline-39" class="headerlink" title="method— 插值方法 &#39;linear&#39;（默认）| &#39;pchip&#39;|&#39;spline&#39;"></a><code>method</code>— 插值方法 <code>&#39;linear&#39;</code>（默认）| <code>&#39;pchip&#39;</code>|<code>&#39;spline&#39;</code></h3><p>插值方法，规定为一个<code>&#39;linear&#39;</code>，<code>&#39;pchip&#39;</code>或<code>&#39;spline&#39;</code>：</p>
+<ul>
+<li><code>&#39;linear&#39;</code> - 线性插值。</li>
+<li><code>&#39;pchip&#39;</code> —保形分段三次插值。</li>
+<li><code>&#39;spline&#39;</code> —使用非终止条件进行样条插值。</li>
+</ul>
+<h2 id="输出参数"><a href="#输出参数" class="headerlink" title="输出参数"></a>输出参数</h2><h3 id="y—-重采样的信号-向量-矩阵"><a href="#y—-重采样的信号-向量-矩阵" class="headerlink" title="y— 重采样的信号 向量| 矩阵"></a><code>y</code>— 重采样的信号 向量| 矩阵</h3><p>重新采样的信号，以向量或矩阵形式返回。如果<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/resample.html?searchHighlight=resample&s_tid=doc_srchtitle#bumhz33-x"><code>x</code></a>是的长度的信号<em>Ñ</em>并指定<a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/resample.html?searchHighlight=resample&s_tid=doc_srchtitle#bumhz33-pq"><code>p</code></a>和 <a target="_blank" rel="noopener" href="https://ww2.mathworks.cn/help/signal/ref/resample.html?searchHighlight=resample&s_tid=doc_srchtitle#bumhz33-pq"><code>q</code></a>，然后<code>y</code>是长度⌈ <em>Ñ</em> × <code>p</code>/ <code>q</code>⌉。</p>
+<h3 id="b—-FIR滤波器系数-矢量-1"><a href="#b—-FIR滤波器系数-矢量-1" class="headerlink" title="b— FIR滤波器系数 矢量"></a><code>b</code>— FIR滤波器系数 矢量</h3><p>FIR滤波器系数，以向量形式返回。</p>
+<h3 id="ty—输出瞬间-非负实矢量"><a href="#ty—输出瞬间-非负实矢量" class="headerlink" title="ty—输出瞬间 非负实矢量"></a><code>ty</code>—输出瞬间 非负实矢量</h3><p>输出瞬间，作为非负实向量返回。</p>
+<p>需求：</p>
+<p>1.将信号采样为2Hz</p>
+<p>2.用3次插值</p>
+<p>3.等间隔</p>
+<p>method: “pchip”三次插值</p>
+<p>是先插值，再重采样！！！！！！！</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

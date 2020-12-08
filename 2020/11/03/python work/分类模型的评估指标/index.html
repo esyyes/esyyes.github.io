@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>分类模型的评估指标 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,分类模型的评估指标 https://github.com/apachecn/sklearn-doc-zh/blob/master/docs/master/32.md 
+混淆矩阵https://bai,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">分类模型的评估指标</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">分类模型的评估指标</h1>
+        <div class="stuff">
+            <span>十一月 03, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python/" rel="tag">python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="分类模型的评估指标"><a href="#分类模型的评估指标" class="headerlink" title="分类模型的评估指标"></a>分类模型的评估指标</h1><p> <a target="_blank" rel="noopener" href="https://github.com/apachecn/sklearn-doc-zh/blob/master/docs/master/32.md">https://github.com/apachecn/sklearn-doc-zh/blob/master/docs/master/32.md</a> </p>
+<h2 id="混淆矩阵"><a href="#混淆矩阵" class="headerlink" title="混淆矩阵"></a>混淆矩阵</h2><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/10087822">https://baike.baidu.com/item/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/10087822</a></p>
+<p>评估分类器性能的最好方法是<strong>混淆矩阵</strong>。</p>
+<p>在讲矩阵之前，我们先复习下之前在讲分类评估指标中定义的一些符号含义，如下：</p>
+<p>**TP(True Positive)**：将正类预测为正类数，真实为0，预测也为0</p>
+<p>**FN(False Negative)**：将正类预测为负类数，真实为0，预测为1</p>
+<p>**FP(False Positive)**：将负类预测为正类数， 真实为1，预测为0</p>
+<p>**TN(True Negative)**：将负类预测为负类数，真实为1，预测也为1</p>
+<p><img src="../images/u=3900275624,1281499515&fm=173&app=49&f=JPEG.jpg"></p>
+<h2 id="精度（precision）"><a href="#精度（precision）" class="headerlink" title="精度（precision）"></a>精度（precision）</h2><p> <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score">https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score</a> </p>
+<p> 精度是表示观测值与真值的接近程度。每一种<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%89%A9%E7%90%86%E9%87%8F/9984692">物理量</a>要用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E5%80%BC/2013853">数值</a>表示时，必须先要制定一种标准，并选定一种单位 (unit)。这种标准的制定，通常是根据人们对于所要测量的物理量的认识与了解，并且要考虑这标准是否容易复制，或测量的过程是否容易操作等实际问题。 </p>
+<p> <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Precision_and_recall#Precision">precision</a> 是 the ability of the classifier not to label as positive a sample that is negative （classifier （分类器）的标签不能被标记为正的样本为负的能力），并且 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Precision_and_recall#Recall">recall</a> 是 classifier （分类器）查找所有 positive samples （正样本）的能力。<br>$$<br>precision = TP/(TP+FP)<br>$$<br>TP是真正类的数量，FP是假正类的数量。</p>
+<h2 id="召回（recall）-灵敏度（sensitivity）"><a href="#召回（recall）-灵敏度（sensitivity）" class="headerlink" title="召回（recall）/灵敏度（sensitivity）"></a>召回（recall）/灵敏度（sensitivity）</h2><p>$$<br>recall = TP/(TP+FN)<br>$$</p>
+<p>分类器正确检测到的正类实例的比例。</p>
+<h2 id="F1分数"><a href="#F1分数" class="headerlink" title="F1分数"></a>F<del>1</del>分数</h2><p>F<del>1</del>分数是精度和召回率的谐波平均值。正常的平均值平等对待所有的值，而谐波平均值会给予较低的值更高的权重。因此，只有当召回率和精度都很高时，分类器才能得到较高的F<del>1</del>分数。<br>$$<br>F1 =TP/(TP+(FN+FP)/2)<br>$$</p>
+<h2 id="Kappa检验"><a href="#Kappa检验" class="headerlink" title="Kappa检验"></a>Kappa检验</h2><p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/kappa%E7%B3%BB%E6%95%B0/9385025?fr=aladdin">https://baike.baidu.com/item/kappa%E7%B3%BB%E6%95%B0/9385025?fr=aladdin</a></p>
+<p> Kappa系数用于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%80%E8%87%B4%E6%80%A7%E6%A3%80%E9%AA%8C/295624">一致性检验</a>，也可以用于衡量分类<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%B2%BE%E5%BA%A6/5167954">精度</a>，但kappa系数的计算是基于<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5/10087822">混淆矩阵</a>的 </p>
+<p> kappa系数是一种衡量分类精度的指标。它是通过把所有地表真实分类中的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%83%8F%E5%85%83">像元</a>总数（N）乘以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B7%B7%E6%B7%86%E7%9F%A9%E9%98%B5">混淆矩阵</a>对角线（Xkk）的和，再减去某一类地表真实像元总数与该类中被分类像元总数之积对所有类别求和的结果，再除以总像元数的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%B9%B3%E6%96%B9">平方</a>减去某一类地表真实像元总数与该类中被分类像元总数之积对所有类别求和的结果所得到的 </p>
+<p><img src="../images/1604371707587.png" alt="1604371707587"></p>
+<p> kappa score （参阅 docstring ）是 -1 和 1 之间的数字。 <strong>.8 以上的 scores</strong> 通常被认为是很好的 agreement （协议）; 0 或者 更低表示没有 agreement （实际上是 random labels （随机标签））。 </p>
+<p> kappa计算结果为-1<del>1，但通常kappa是落在 0</del>1 间，可分为五组来表示不同级别的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%B8%80%E8%87%B4%E6%80%A7">一致性</a>：0.0<del>0.20极低的一致性(slight)、0.21</del>0.40一般的一致性(fair)、0.41<del>0.60 中等的一致性(moderate)、0.61</del>0.80 高度的一致性(substantial)和0.81~1几乎完全一致(almost perfect)。 </p>
+<p><img src="../images/1c4a3da551e79b896802267d.jpg"></p>
+<p>If this coefficient takes a value between 0.81 and 1, it is<br>considered that there is almost perfect agreement between the results (Landis &amp; Koch, 1977). </p>
+<p><img src="../images/4b90f603738da977587f1692b151f8198618e333.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python——读取excel文件之奇葩数据 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,python——读取excel文件对应3-25 RFE-RF特征选择进行绘图读取程序12345678# 读取excel表格import pandas as pdimport numpy as np ,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python——读取excel文件之奇葩数据</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">python——读取excel文件之奇葩数据</h1>
+        <div class="stuff">
+            <span>三月 25, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="python——读取excel文件"><a href="#python——读取excel文件" class="headerlink" title="python——读取excel文件"></a>python——读取excel文件</h1><h2 id="对应3-25-RFE-RF特征选择进行绘图读取程序"><a href="#对应3-25-RFE-RF特征选择进行绘图读取程序" class="headerlink" title="对应3-25 RFE-RF特征选择进行绘图读取程序"></a>对应3-25 RFE-RF特征选择进行绘图读取程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取excel表格</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;E:/features/%s.xlsx&#x27;</span>%<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">data.head()</span><br><span class="line">数据如下表所示，在生成excel的时候，直接存的列表，纯属失误</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="left">0</th>
+<th align="right">1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">0</td>
+<td align="left">[0.9420289855072463, 0.9710144927536232, 0.956…</td>
+<td align="right">[0.9710144927536232, 0.9565217391304348, 0.956…</td>
+</tr>
+<tr>
+<td align="right">1</td>
+<td align="left">[0.7523809523809524, 0.7142857142857143, 0.742…</td>
+<td align="right">[0.6285714285714286, 0.780952380952381, 0.7523…</td>
+</tr>
+<tr>
+<td align="right">2</td>
+<td align="left">[0.6761904761904762, 0.819047619047619, 0.9047…</td>
+<td align="right">[0.7333333333333333, 0.7714285714285715, 0.847…</td>
+</tr>
+<tr>
+<td align="right">3</td>
+<td align="left">[0.7692307692307693, 0.8717948717948718, 0.910…</td>
+<td align="right">[0.7307692307692307, 0.8846153846153846, 0.871…</td>
+</tr>
+<tr>
+<td align="right">4</td>
+<td align="left">[0.7230046948356808, 0.7981220657276995, 0.807…</td>
+<td align="right">[0.6619718309859155, 0.7417840375586855, 0.737…</td>
+</tr>
+</tbody></table>
+<p>一个空格中有运行的25个数据。需要将18个数据组，每个数据运行两次，25个数据，分别取对应的行进行求平均值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">train_data = np.array(data)</span><br><span class="line">train_x_list = train_data.tolist() <span class="comment">#list</span></span><br><span class="line">train_x_list[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="string">&#x27;[0.9420289855072463, 0.9710144927536232, 0.9565217391304348, 0.9710144927536232, 0.9565217391304348, 0.9565217391304348, 0.9565217391304348, 0.9710144927536232, 0.9710144927536232, 0.9710144927536232, 0.9420289855072463, 0.9565217391304348, 0.9710144927536232, 0.9710144927536232, 0.9565217391304348, 0.9565217391304348, 0.9710144927536232, 0.9565217391304348, 0.9420289855072463, 0.9565217391304348, 0.9420289855072463, 0.9565217391304348, 0.9710144927536232, 0.9565217391304348, 0.9420289855072463]&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>先转换为列表，问题1，它表达的是字符串，要先去掉’’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(train_x_list[<span class="number">0</span>][<span class="number">1</span>])</span><br><span class="line"><span class="comment"># 转换为列表。用eval()函数</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list_mean = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>):</span><br><span class="line">    list_x = <span class="built_in">eval</span>(train_x_list[i][<span class="number">0</span>])</span><br><span class="line">    list_y = <span class="built_in">eval</span>(train_x_list[i][<span class="number">1</span>])</span><br><span class="line">    list_m = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(list_x)):</span><br><span class="line">        list_m.append((list_x[j] + list_y[j])/<span class="number">2</span>)</span><br><span class="line">    list_mean.append(list_m)</span><br></pre></td></tr></table></figure>
+
+<p>生成一个含有18个小列表，已经求了一次平均，每个小列表里面有25个数据组</p>
+<p>参考</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list_f = []</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">25</span>):</span><br><span class="line">    s = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>):</span><br><span class="line">        s.append(list_mean[i][j])</span><br><span class="line">    c = (np.array(s)).mean()</span><br><span class="line">    list_f.append(c)</span><br></pre></td></tr></table></figure>
+
+<p>均值化，只有一个25数据的列表</p>
+<p>根据这个画图即可</p>
+<h2 id="参考-3-19-绘制特征选择曲线-程序"><a href="#参考-3-19-绘制特征选择曲线-程序" class="headerlink" title="参考 3-19 绘制特征选择曲线 程序"></a>参考 3-19 绘制特征选择曲线 程序</h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>edf文件中的数据读取 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,edf文件中的数据读取数据库介绍St. Vincent’s University Hospital / University College Dublin Sleep Apnea Database
+,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">edf文件中的数据读取</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">edf文件中的数据读取</h1>
+        <div class="stuff">
+            <span>八月 18, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="edf文件中的数据读取"><a href="#edf文件中的数据读取" class="headerlink" title="edf文件中的数据读取"></a>edf文件中的数据读取</h1><h2 id="数据库介绍"><a href="#数据库介绍" class="headerlink" title="数据库介绍"></a>数据库介绍</h2><p>St. Vincent’s University Hospital / University College Dublin Sleep Apnea Database</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://www.physionet.org/content/ucddb/1.0.0/">https://www.physionet.org/content/ucddb/1.0.0/</a></p>
+<p>该数据库包含来自怀疑睡眠呼吸障碍的成年受试者的25张整夜多导睡眠图，同时显示三通道动态心电图。</p>
+<p>介绍：</p>
+<p> 在6个月的时间段（9月2日至2月03日）中，从都柏林圣文森特大学医院的睡眠障碍诊所转诊的患者中随机选择受试者，以诊断阻塞性睡眠呼吸暂停，中枢性睡眠呼吸暂停或原发性打nor。受试者必须年满18岁，没有已知的心脏病，自主神经功能障碍，并且不服用会干扰心率的药物。选择了<strong>二十五个</strong>受试者（21M，4F）（年龄：50±10岁，范围28-68岁； BMI：31.6±4.0 kg /m²，范围25.1-42.5 kg /m²； AHI：24.1±20.3，范围1.7 -90.9） </p>
+<p>使用Jaeger-Toennies系统（德国Erich Jaeger GmbH）获得多导睡眠图。记录的信号包括：脑电图（C3-A2），脑电图（C4-A1），左眼电图，右眼电图，mentalmental EMG，<strong>ECG（改良的V2导联）</strong>，口鼻气流（热敏电阻），胸腔运动，腹部运动（未校准的应变）表，氧气饱和度（手指脉搏血氧仪），打（气管麦克风）和身体位置。以**.rec后缀命名的文件包含EDF格式的这些信号**。</p>
+<p>使用Reynolds Lifecard CF系统（英国Reynolds Medical）记录三通道动态心电图（V5，CC5，V5R）；以_<strong>lifecard.edf后缀命名的文件</strong>包含这些EDF格式的ECG信号。录制日期和时间不可用。在ucddb002记录中，仅记录了两个不同的ECG信号。第二个ECG信号也用作第三个信号。</p>
+<p>呼吸事件（阻塞性，中枢性呼吸暂停，呼吸不足和呼吸不足以及周期性呼吸发作）的发作时间和持续时间由同一位睡眠技术人员注释（请参见_respevt.txt文件）。这些文件中使用的术语包括：</p>
+<ul>
+<li>第一栏-发生时间（一天中的时间）</li>
+<li>第二栏<ul>
+<li>HYP-呼吸不足</li>
+<li>C-中环</li>
+<li>O-阻塞</li>
+<li>M-混合</li>
+</ul>
+</li>
+<li>第三列-周期性呼吸（PB）/凯恩斯·斯托克斯（CS）</li>
+<li>第9列和第10列-心动过缓/心动过速</li>
+</ul>
+<p>rec和edf文件都包含edf数据，只需要读取一个即可。</p>
+<p>edf格式下文件貌似损坏无法读取</p>
+<p>读取rec格式文件，edf文件是一个上下波形的等距离的文件</p>
+<p>需要采用rec中的ecg文件</p>
+<h2 id="rec格式数据读取"><a href="#rec格式数据读取" class="headerlink" title="rec格式数据读取"></a>rec格式数据读取</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">&#x27;ucddb&#x27;</span>, <span class="string">&#x27;UCD Sleep Apnea Database&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>数据库数据</p>
+<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/u013071075/article/details/83011020">https://blog.csdn.net/u013071075/article/details/83011020</a> </p>
+<p>因此需要用matlab去提取ucddb中的数据，所以第一步是用matlab安装wfdb</p>
+<h2 id="wfdb数据库的安装"><a href="#wfdb数据库的安装" class="headerlink" title="wfdb数据库的安装"></a>wfdb数据库的安装</h2><ol>
+<li><p>wfdb安装</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gyx1549624673/article/details/104479506">https://blog.csdn.net/gyx1549624673/article/details/104479506</a> </p>
+</li>
+<li><p>测试</p>
+<p>可以直接运行了</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">clc</span><br><span class="line">clear</span><br><span class="line">[signal, Fs, tm] = rdsamp(<span class="string">&#x27;ucddb002.rec&#x27;</span>,[<span class="number">6</span>]);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>已经安装完全，马上将其转换为csv</p>
+<p>数据长度为2876160，采样率为128，遵循RK规则，还有根据数据的stage可得知是30s一个标签</p>
+<p>因此直接将其转换为python可读数据即可</p>
+<p>matlab将数据转换为dat或者txt。。。转换为mat形式</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">clc</span><br><span class="line">clear</span><br><span class="line">text = <span class="string">&#x27;ucddb028.rec&#x27;</span>;</span><br><span class="line">[signal, Fs, tm] = rdsamp(text, [<span class="number">6</span>]);</span><br><span class="line">save(<span class="string">&#x27;ucddb028.mat&#x27;</span>,<span class="string">&#x27;signal&#x27;</span>)</span><br><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;ok&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在python中读取mat文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/12</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># import wfdb</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> scio</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 利用wfdb读取slpdb中的文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># test = &#x27;slp14&#x27;</span></span><br><span class="line"><span class="comment"># # wfdb读取dat文件</span></span><br><span class="line"><span class="comment"># record = wfdb.rdrecord(&#x27;F:/slpdb_data/mitdata&#x27; + &#x27;/%s&#x27; % test, channels=[0])</span></span><br><span class="line"><span class="comment"># # 读取文件开头</span></span><br><span class="line"><span class="comment"># records = wfdb.rdheader(&#x27;F:/slpdb_data/mitdata&#x27; + &#x27;/%s&#x27; % test)</span></span><br><span class="line"><span class="comment"># # 读取ecg文件</span></span><br><span class="line"><span class="comment"># annotation = wfdb.rdann(&#x27;F:/slpdb_data/mitdata&#x27; + &#x27;/%s&#x27; % test, &#x27;ecg&#x27;)</span></span><br><span class="line"><span class="comment"># # 读取st文件</span></span><br><span class="line"><span class="comment"># annotation1 = wfdb.rdann(&#x27;F:/slpdb_data/mitdata&#x27; + &#x27;/%s&#x27; % test, &#x27;st&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># edf = wfdb.rdsamp(&#x27;F:/st_data/ucddb002_lifecard.edf&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># edf = wfdb.rdsamp(&#x27;F:/st_data/ucddb002.rec&#x27;, channels=[&#x27;ECG&#x27;])</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dataFile = <span class="string">&#x27;F:/st_data/ucddb003.mat&#x27;</span></span><br><span class="line">data = scio.loadmat(dataFile)</span><br><span class="line">print(data[<span class="string">&#x27;signal&#x27;</span>][<span class="number">0</span>:<span class="number">10</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ok。这个数据库的文件就可以全部读取了</p>
+<p>下一步就是标签和数据的对应</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597811322096&di=de66c53a6a1d441ea45ab582677c1aec&imgtype=0&src=http://00.minipic.eastday.com/20170119/20170119002836_4b710c1d6eb21df94ff63e1c844e9eed_3.jpeg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

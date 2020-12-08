@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LV-1 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,绘制LV-0中的data列表数据1. import numpy as np由于机器学习算法在数据处理过程中大都涉及线性代数的知识，需要用到矩阵操作，Python本身没有处理矩阵的数据类型，因此需要使,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">LV-1</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">LV-1</h1>
+        <div class="stuff">
+            <span>十二月 01, 2019</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="绘制LV-0中的data列表数据"><a href="#绘制LV-0中的data列表数据" class="headerlink" title="绘制LV-0中的data列表数据"></a>绘制LV-0中的data列表数据</h1><h2 id="1-import-numpy-as-np"><a href="#1-import-numpy-as-np" class="headerlink" title="1. import numpy as np"></a>1. import numpy as np</h2><p>由于<strong>机器学习算法</strong>在数据处理过程中大都涉及线性代数的知识，需要用到<strong>矩阵操作</strong>，<strong>Python本身没有</strong>处理矩阵的数据类型，因此<strong>需要使用附加的函数库</strong>。</p>
+<p><strong>NumPy函数库</strong>是Python开发环境的一个独立模块，是Python的一种<strong>开源的数值计算扩展</strong>工具。</p>
+<p>这种工具可以用来<strong>存储和处理大型多维矩阵</strong>，比Python自身的列表结构要高效的多。尽管Python的list类型已经提供了类似于矩阵的表示形式，但是NumPy提供了更多的科学计算函数。</p>
+<p>NumPy被定位为数学基础库，属于比较底层的Python库，其地位趋向于成为一个被其它库调用的核心库。</p>
+<p>在使用NumPy库之前，首先必须导入该函数库，导入方式如下：<strong>import numpy as np</strong># import 模块名 as 别名</p>
+<h2 id="2-matplotlib绘图"><a href="#2-matplotlib绘图" class="headerlink" title="2.matplotlib绘图"></a>2.matplotlib绘图</h2><p><strong>Matplotlib 是 Python 的绘图库</strong>。 它可与 <strong>NumPy 一起使用</strong>，提供了一种有效的 <strong>MatLab 开源替代</strong>方案。 它也可以和图形工具包一起使用，如 <strong>PyQt 和 wxPython</strong>。</p>
+<p>Matplotlib 默认情况<strong>不支持中文</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为了显示中文，目的：标记横纵坐标</span></span><br><span class="line">pl.rcParams[<span class="string">&#x27;font.sans-serif&#x27;</span>]=[<span class="string">&#x27;SimHei&#x27;</span>]</span><br><span class="line">pl.rcParams[<span class="string">&#x27;axes.unicode_minus&#x27;</span>] = <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>参考如下对matplotlib绘制的讲解</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gaotihong/article/details/80983937">https://blog.csdn.net/gaotihong/article/details/80983937</a></p>
+<p><strong>pylab 是 matplotlib 面向对象绘图库的一个接口</strong>，它的语法和 <strong>Matlab</strong> 十分相近，主要的绘图命令和 Matlab 对应的命令有相似的参数</p>
+<p>暂时不对Matplotlib进行了解，初步选用pylab函数。</p>
+<h2 id="3-pylab和pyplot函数"><a href="#3-pylab和pyplot函数" class="headerlink" title="3.pylab和pyplot函数"></a>3.pylab和pyplot函数</h2><p><strong>pylab</strong> 模块是一款由python提供的可以绘制<strong>二维，三维数据</strong>的工具模块，其中包括了绘图软件包 matplotlib,其可以生成<strong>matab绘图库的图像。</strong> </p>
+<p>pylab将<strong>所有的功能函</strong>数（<strong>pyplot状态机函数</strong>，大部分时numpy里面的函数）<strong>全部导入</strong>其单独的命名空间内。为什么要这样做，是因为这样可以很好地与ipython（或者类似的IDE，比如pycharm）实现很好的交互模式，这个就和MATLAB差不多。</p>
+<p><strong>pylab和pyplot的区别是</strong>，<strong>前者将numpy导入了其命名空间中</strong>。这样会使pylab表现的和matlab更加相似。现在来说我们经常使用pyplot，因为pyplot相比pylab更加纯粹。</p>
+<p>总结：使用的只是pylab里面的plot功能，暂时先直接使用pyplot函数。</p>
+<p>matplotlib.pyplot：提供一个类似matlab的绘图框架。</p>
+<p>pylab将pyplot与numpy合并为一个命名空间。这对于交互式工作很方便，但是对于编程来说，建议将名称空间分开.</p>
+<h3 id="3-1-pyplot函数"><a href="#3-1-pyplot函数" class="headerlink" title="3.1 pyplot函数"></a>3.1 pyplot函数</h3><p>Matplotlib.pyplot 常用方法（一）:</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_34022298/article/details/76348969">https://blog.csdn.net/sinat_34022298/article/details/76348969</a></p>
+<p>绘图函数是直接作用于当前axes（matplotlib中的专有名词，图形中组成部分，不是数学中的坐标系。</p>
+<p>重大发现：</p>
+<p>为啥我的pycharm好多功能没有！！！！！！！！！</p>
+<p>PyCharm 在<strong>2017.3版本</strong>之后加入了Scientific Mode</p>
+<p>2019版社区版为啥很多功能没有呢，社区版这么不给力嘛。。。下载破解版</p>
+<p>对电脑访问权限的更改，明日任务，菜鸡问题多呀</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>就是问题一大堆，明天继续弄，速度过度到python</p>
+<p><img src="/img/suofei.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -1,0 +1,1103 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>随机森林超参数优化 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,随机森林超参数优化 https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">随机森林超参数优化</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">随机森林超参数优化</h1>
+        <div class="stuff">
+            <span>九月 01, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="随机森林超参数优化"><a href="#随机森林超参数优化" class="headerlink" title="随机森林超参数优化"></a>随机森林超参数优化</h1><p> <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier">https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier</a> </p>
+<p> 随机森林是一种元估计量，它适合数据集各个子样本上的许多决策树分类器，并使用平均数来提高预测准确性和控制过度拟合。子样本大小由<code>max_samples</code>参数if <code>bootstrap=True</code>（默认）控制，否则整个数据集用于构建每棵树。 </p>
+<p>Parameters</p>
+<ul>
+<li><p>*<em>n_estimators**</em>int, default=100*</p>
+<p>The number of trees in the forest.<em>Changed in version 0.22:</em> The default value of <code>n_estimators</code> changed from 10 to 100 in 0.22.</p>
+</li>
+<li><p>*<em>criterion**</em>{“gini”, “entropy”}, default=”gini”*</p>
+<p>The function to measure the quality of a split. Supported criteria are “gini” for the Gini impurity and “entropy” for the information gain. Note: this parameter is tree-specific.</p>
+</li>
+<li><p>*<em>max_depth**</em>int, default=None*</p>
+<p>The maximum depth of the tree. If None, then nodes are expanded until all leaves are pure or until all leaves contain less than min_samples_split samples.</p>
+</li>
+<li><p>*<em>min_samples_split**</em>int or float, default=2*</p>
+<p>The minimum number of samples required to split an internal node:If int, then consider <code>min_samples_split</code> as the minimum number.If float, then <code>min_samples_split</code> is a fraction and <code>ceil(min_samples_split * n_samples)</code> are the minimum number of samples for each split.<em>Changed in version 0.18:</em> Added float values for fractions.</p>
+</li>
+<li><p>*<em>min_samples_leaf**</em>int or float, default=1*</p>
+<p>The minimum number of samples required to be at a leaf node. A split point at any depth will only be considered if it leaves at least <code>min_samples_leaf</code> training samples in each of the left and right branches. This may have the effect of smoothing the model, especially in regression.If int, then consider <code>min_samples_leaf</code> as the minimum number.If float, then <code>min_samples_leaf</code> is a fraction and <code>ceil(min_samples_leaf * n_samples)</code> are the minimum number of samples for each node.<em>Changed in version 0.18:</em> Added float values for fractions.</p>
+</li>
+<li><p>*<em>min_weight_fraction_leaf**</em>float, default=0.0*</p>
+<p>The minimum weighted fraction of the sum total of weights (of all the input samples) required to be at a leaf node. Samples have equal weight when sample_weight is not provided.</p>
+</li>
+<li><p>*<em>max_features**</em>{“auto”, “sqrt”, “log2”}, int or float, default=”auto”*</p>
+<p>The number of features to consider when looking for the best split:If int, then consider <code>max_features</code> features at each split.If float, then <code>max_features</code> is a fraction and <code>int(max_features * n_features)</code> features are considered at each split.If “auto”, then <code>max_features=sqrt(n_features)</code>.If “sqrt”, then <code>max_features=sqrt(n_features)</code> (same as “auto”).If “log2”, then <code>max_features=log2(n_features)</code>.If None, then <code>max_features=n_features</code>.Note: the search for a split does not stop until at least one valid partition of the node samples is found, even if it requires to effectively inspect more than <code>max_features</code> features.</p>
+</li>
+<li><p>*<em>max_leaf_nodes**</em>int, default=None*</p>
+<p>Grow trees with <code>max_leaf_nodes</code> in best-first fashion. Best nodes are defined as relative reduction in impurity. If None then unlimited number of leaf nodes.</p>
+</li>
+<li><p>*<em>min_impurity_decrease**</em>float, default=0.0*</p>
+<p>A node will be split if this split induces a decrease of the impurity greater than or equal to this value.The weighted impurity decrease equation is the following:<code>N_t / N * (impurity - N_t_R / N_t * right_impurity                    - N_t_L / N_t * left_impurity) </code>where <code>N</code> is the total number of samples, <code>N_t</code> is the number of samples at the current node, <code>N_t_L</code> is the number of samples in the left child, and <code>N_t_R</code> is the number of samples in the right child.<code>N</code>, <code>N_t</code>, <code>N_t_R</code> and <code>N_t_L</code> all refer to the weighted sum, if <code>sample_weight</code> is passed.<em>New in version 0.19.</em></p>
+</li>
+<li><p>*<em>min_impurity_split**</em>float, default=None*</p>
+<p>Threshold for early stopping in tree growth. A node will split if its impurity is above the threshold, otherwise it is a leaf.<em>Deprecated since version 0.19:</em> <code>min_impurity_split</code> has been deprecated in favor of <code>min_impurity_decrease</code>in 0.19. The default value of <code>min_impurity_split</code> has changed from 1e-7 to 0 in 0.23 and it will be removed in 0.25. Use <code>min_impurity_decrease</code> instead.</p>
+</li>
+<li><p>*<em>bootstrap**</em>bool, default=True*</p>
+<p>Whether bootstrap samples are used when building trees. If False, the whole dataset is used to build each tree.</p>
+</li>
+<li><p>*<em>oob_score**</em>bool, default=False*</p>
+<p>Whether to use out-of-bag samples to estimate the generalization accuracy.</p>
+</li>
+<li><p>*<em>n_jobs**</em>int, default=None*</p>
+<p>The number of jobs to run in parallel. <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.fit"><code>fit</code></a>, <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.predict"><code>predict</code></a>, <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.decision_path"><code>decision_path</code></a> and <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.apply"><code>apply</code></a> are all parallelized over the trees. <code>None</code> means 1 unless in a <a target="_blank" rel="noopener" href="https://joblib.readthedocs.io/en/latest/parallel.html#joblib.parallel_backend"><code>joblib.parallel_backend</code></a> context. <code>-1</code> means using all processors. See <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/glossary.html#term-n-jobs">Glossary</a> for more details.</p>
+</li>
+<li><p>*<em>random_state**</em>int or RandomState, default=None*</p>
+<p>Controls both the randomness of the bootstrapping of the samples used when building trees (if <code>bootstrap=True</code>) and the sampling of the features to consider when looking for the best split at each node (if <code>max_features &lt; n_features</code>). See <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/glossary.html#term-random-state">Glossary</a> for details.</p>
+</li>
+<li><p>*<em>verbose**</em>int, default=0*</p>
+<p>Controls the verbosity when fitting and predicting.</p>
+</li>
+<li><p>*<em>warm_start**</em>bool, default=False*</p>
+<p>When set to <code>True</code>, reuse the solution of the previous call to fit and add more estimators to the ensemble, otherwise, just fit a whole new forest. See <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/glossary.html#term-warm-start">the Glossary</a>.</p>
+</li>
+<li><p>*<em>class_weight**</em>{“balanced”, “balanced_subsample”}, dict or list of dicts, default=None*</p>
+<p>Weights associated with classes in the form <code>&#123;class_label: weight&#125;</code>. If not given, all classes are supposed to have weight one. For multi-output problems, a list of dicts can be provided in the same order as the columns of y.Note that for multioutput (including multilabel) weights should be defined for each class of every column in its own dict. For example, for four-class multilabel classification weights should be [{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}] instead of [{1:1}, {2:5}, {3:1}, {4:1}].The “balanced” mode uses the values of y to automatically adjust weights inversely proportional to class frequencies in the input data as <code>n_samples / (n_classes * np.bincount(y))</code>The “balanced_subsample” mode is the same as “balanced” except that weights are computed based on the bootstrap sample for every tree grown.For multi-output, the weights of each column of y will be multiplied.Note that these weights will be multiplied with sample_weight (passed through the fit method) if sample_weight is specified.</p>
+</li>
+<li><p>*<em>ccp_alpha**</em>non-negative float, default=0.0*</p>
+<p>Complexity parameter used for Minimal Cost-Complexity Pruning. The subtree with the largest cost complexity that is smaller than <code>ccp_alpha</code> will be chosen. By default, no pruning is performed. See <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/tree.html#minimal-cost-complexity-pruning">Minimal Cost-Complexity Pruning</a> for details.<em>New in version 0.22.</em></p>
+</li>
+<li><p>*<em>max_samples**</em>int or float, default=None*</p>
+<p>If bootstrap is True, the number of samples to draw from X to train each base estimator.If None (default), then draw <code>X.shape[0]</code> samples.If int, then draw <code>max_samples</code> samples.If float, then draw <code>max_samples * X.shape[0]</code> samples. Thus, <code>max_samples</code> should be in the interval <code>(0, 1)</code>.<em>New in version 0.22.</em></p>
+</li>
+</ul>
+<p>Attributes</p>
+<ul>
+<li><p>*<em>base_estimator_**</em>DecisionTreeClassifier*</p>
+<p>The child estimator template used to create the collection of fitted sub-estimators.</p>
+</li>
+<li><p>*<em>estimators_**</em>list of DecisionTreeClassifier*</p>
+<p>The collection of fitted sub-estimators.</p>
+</li>
+<li><p>*<em>classes_**</em>ndarray of shape (n_classes,) or a list of such arrays*</p>
+<p>The classes labels (single output problem), or a list of arrays of class labels (multi-output problem).</p>
+</li>
+<li><p>*<em>n_classes_**</em>int or list*</p>
+<p>The number of classes (single output problem), or a list containing the number of classes for each output (multi-output problem).</p>
+</li>
+<li><p>*<em>n_features_**</em>int*</p>
+<p>The number of features when <code>fit</code> is performed.</p>
+</li>
+<li><p>*<em>n_outputs_**</em>int*</p>
+<p>The number of outputs when <code>fit</code> is performed.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier.feature_importances_"><code>feature_importances_</code></a><em>ndarray of shape (n_features,)</em></p>
+<p>The impurity-based feature importances.</p>
+</li>
+<li><p>*<em>oob_score_**</em>float*</p>
+<p>Score of the training dataset obtained using an out-of-bag estimate. This attribute exists only when <code>oob_score</code>is True.</p>
+</li>
+<li><p>*<em>oob_decision_function_**</em>ndarray of shape (n_samples, n_classes)*</p>
+<p>Decision function computed with out-of-bag estimate on the training set. If n_estimators is small it might be possible that a data point was never left out during the bootstrap. In this case, <code>oob_decision_function_</code> might contain NaN. This attribute exists only when <code>oob_score</code> is True.</p>
+</li>
+</ul>
+<p>控制树（例如<code>max_depth</code>，<code>min_samples_leaf</code>等）大小的参数的默认值会导致树完全生长和未修剪，这在某些数据集上可能非常大。为了减少内存消耗，应通过设置这些参数值来控制树的复杂性和大小。</p>
+<p>每次分割时，特征总是随机排列的。因此，即使使用相同的训练数据，最佳找到的分割也可能会有所不同，<code>max_features=n_features</code>并且<code>bootstrap=False</code>，如果在最佳分割的搜索过程中枚举的几个分割的标准改进相同，则最佳分割也可能会有所不同 。为了在拟合过程中获得确定性的行为，<code>random_state</code>必须进行修复。</p>
+<h2 id="max-features"><a href="#max-features" class="headerlink" title="max_features"></a><strong>max_features</strong></h2><p>已经筛选出了17个特征，因此不在需要设置该超参数。默认即可。</p>
+<h2 id="n-estimators"><a href="#n-estimators" class="headerlink" title="n_estimators"></a><strong>n_estimators</strong></h2><p>默认树的数目：100</p>
+<h2 id="criterion"><a href="#criterion" class="headerlink" title="criterion"></a><strong>criterion</strong></h2><p>默认：gini</p>
+<p>{“gini”, “entropy”}</p>
+<p>考虑这两个参数就可以了，其他是属于特征全部进行使用。</p>
+<h2 id="随机森林超参数结果"><a href="#随机森林超参数结果" class="headerlink" title="随机森林超参数结果"></a>随机森林超参数结果</h2><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>score</strong></th>
+<th><strong>num_tree</strong></th>
+<th><strong>score</strong></th>
+<th><strong>num_tree</strong></th>
+<th><strong>score</strong></th>
+<th><strong>num_tree</strong></th>
+<th><strong>score</strong></th>
+<th><strong>num_tree</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td>93.41%</td>
+<td>150</td>
+<td>88.57%</td>
+<td>100</td>
+<td>87.21%</td>
+<td>150</td>
+<td>79.84%</td>
+<td>50</td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>96.06%</td>
+<td>50</td>
+<td>93.92%</td>
+<td>50</td>
+<td>89.16%</td>
+<td>200</td>
+<td>87.68%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>91.62%</td>
+<td>100</td>
+<td>87.25%</td>
+<td>150</td>
+<td>87.43%</td>
+<td>50</td>
+<td>79.23%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>93.51%</td>
+<td>150</td>
+<td>91.41%</td>
+<td>50</td>
+<td>87.79%</td>
+<td>200</td>
+<td>84.54%</td>
+<td>150</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>94.47%</td>
+<td>50</td>
+<td>91.98%</td>
+<td>150</td>
+<td>86.81%</td>
+<td>50</td>
+<td>83.07%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>92.26%</td>
+<td>200</td>
+<td>90.11%</td>
+<td>150</td>
+<td>83.66%</td>
+<td>200</td>
+<td>78.28%</td>
+<td>50</td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>90.45%</td>
+<td>100</td>
+<td>89.83%</td>
+<td>100</td>
+<td>86.23%</td>
+<td>200</td>
+<td>79.66%</td>
+<td>150</td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>94.58%</td>
+<td>100</td>
+<td>91.71%</td>
+<td>200</td>
+<td>87.88%</td>
+<td>150</td>
+<td>84.85%</td>
+<td>200</td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>92.78%</td>
+<td>200</td>
+<td>93.42%</td>
+<td>150</td>
+<td>87.32%</td>
+<td>150</td>
+<td>87.00%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>93.47%</td>
+<td>100</td>
+<td>91.12%</td>
+<td>150</td>
+<td>88.78%</td>
+<td>100</td>
+<td>83.58%</td>
+<td>200</td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>90.89%</td>
+<td>150</td>
+<td>91.25%</td>
+<td>50</td>
+<td>86.96%</td>
+<td>200</td>
+<td>82.86%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>90.26%</td>
+<td>200</td>
+<td>89.70%</td>
+<td>100</td>
+<td>86.52%</td>
+<td>150</td>
+<td>80.34%</td>
+<td>200</td>
+</tr>
+<tr>
+<td><strong>12</strong></td>
+<td>89.07%</td>
+<td>150</td>
+<td>86.62%</td>
+<td>200</td>
+<td>82.22%</td>
+<td>200</td>
+<td>78.14%</td>
+<td>50</td>
+</tr>
+<tr>
+<td><strong>13</strong></td>
+<td>93.01%</td>
+<td>150</td>
+<td>93.01%</td>
+<td>200</td>
+<td>88.42%</td>
+<td>100</td>
+<td>88.79%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>14</strong></td>
+<td>96.65%</td>
+<td>200</td>
+<td>94.89%</td>
+<td>50</td>
+<td>95.41%</td>
+<td>150</td>
+<td>92.95%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>15</strong></td>
+<td>94.73%</td>
+<td>50</td>
+<td>91.50%</td>
+<td>50</td>
+<td>88.78%</td>
+<td>100</td>
+<td>87.24%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>16</strong></td>
+<td>92.08%</td>
+<td>100</td>
+<td>88.80%</td>
+<td>200</td>
+<td>87.84%</td>
+<td>200</td>
+<td>82.63%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>17</strong></td>
+<td>94.27%</td>
+<td>50</td>
+<td>90.34%</td>
+<td>200</td>
+<td>89.69%</td>
+<td>50</td>
+<td>88.38%</td>
+<td>200</td>
+</tr>
+<tr>
+<td><strong>18</strong></td>
+<td>92.27%</td>
+<td>200</td>
+<td>91.71%</td>
+<td>50</td>
+<td>91.34%</td>
+<td>50</td>
+<td>90.06%</td>
+<td>150</td>
+</tr>
+<tr>
+<td><strong>19</strong></td>
+<td>84.93%</td>
+<td>200</td>
+<td>83.56%</td>
+<td>150</td>
+<td>81.28%</td>
+<td>50</td>
+<td>76.03%</td>
+<td>50</td>
+</tr>
+<tr>
+<td><strong>20</strong></td>
+<td>94.74%</td>
+<td>50</td>
+<td>91.07%</td>
+<td>100</td>
+<td>87.08%</td>
+<td>150</td>
+<td>82.93%</td>
+<td>150</td>
+</tr>
+<tr>
+<td><strong>21</strong></td>
+<td>81.63%</td>
+<td>200</td>
+<td>77.76%</td>
+<td>150</td>
+<td>79.39%</td>
+<td>50</td>
+<td>69.18%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>22</strong></td>
+<td>97.06%</td>
+<td>50</td>
+<td>93.08%</td>
+<td>200</td>
+<td>89.79%</td>
+<td>150</td>
+<td>85.81%</td>
+<td>150</td>
+</tr>
+<tr>
+<td><strong>23</strong></td>
+<td>95.30%</td>
+<td>50</td>
+<td>93.84%</td>
+<td>200</td>
+<td>91.90%</td>
+<td>100</td>
+<td>88.33%</td>
+<td>100</td>
+</tr>
+<tr>
+<td><strong>24</strong></td>
+<td>79.28%</td>
+<td>100</td>
+<td>73.24%</td>
+<td>150</td>
+<td>66.80%</td>
+<td>200</td>
+<td>59.56%</td>
+<td>200</td>
+</tr>
+<tr>
+<td>均值</td>
+<td>91.95%</td>
+<td>124</td>
+<td>89.59%</td>
+<td>132</td>
+<td>86.63%</td>
+<td>134</td>
+<td>82.44%</td>
+<td>122</td>
+</tr>
+</tbody></table>
+<p>选取150 </p>
+<h2 id="GBDT超参数结果"><a href="#GBDT超参数结果" class="headerlink" title="GBDT超参数结果"></a>GBDT超参数结果</h2><table>
+<thead>
+<tr>
+<th></th>
+<th><strong>score</strong></th>
+<th><strong>rate</strong></th>
+<th><strong>num</strong></th>
+<th><strong>score</strong></th>
+<th><strong>rate</strong></th>
+<th><strong>num</strong></th>
+<th><strong>score</strong></th>
+<th><strong>rate</strong></th>
+<th><strong>num</strong></th>
+<th><strong>score</strong></th>
+<th><strong>rate</strong></th>
+<th><strong>num</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0</strong></td>
+<td>93%</td>
+<td>0.1</td>
+<td>200</td>
+<td>90%</td>
+<td>0.1</td>
+<td>200</td>
+<td>85%</td>
+<td>1</td>
+<td>150</td>
+<td>79%</td>
+<td>0.1</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>96%</td>
+<td>0.1</td>
+<td>150</td>
+<td>94%</td>
+<td>0.1</td>
+<td>200</td>
+<td>90%</td>
+<td>0.1</td>
+<td>200</td>
+<td>85%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>90%</td>
+<td>0.1</td>
+<td>200</td>
+<td>88%</td>
+<td>0.1</td>
+<td>200</td>
+<td>84%</td>
+<td>0.1</td>
+<td>150</td>
+<td>77%</td>
+<td>0.1</td>
+<td>50</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>95%</td>
+<td>0.01</td>
+<td>100</td>
+<td>90%</td>
+<td>0.1</td>
+<td>200</td>
+<td>86%</td>
+<td>1</td>
+<td>50</td>
+<td>85%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>95%</td>
+<td>0.01</td>
+<td>200</td>
+<td>92%</td>
+<td>0.1</td>
+<td>100</td>
+<td>88%</td>
+<td>0.1</td>
+<td>150</td>
+<td>83%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>88%</td>
+<td>1</td>
+<td>150</td>
+<td>87%</td>
+<td>0.1</td>
+<td>150</td>
+<td>83%</td>
+<td>1</td>
+<td>150</td>
+<td>75%</td>
+<td>0.1</td>
+<td>150</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>89%</td>
+<td>0.1</td>
+<td>200</td>
+<td>90%</td>
+<td>1</td>
+<td>100</td>
+<td>87%</td>
+<td>1</td>
+<td>50</td>
+<td>80%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>96%</td>
+<td>0.1</td>
+<td>50</td>
+<td>93%</td>
+<td>0.1</td>
+<td>100</td>
+<td>86%</td>
+<td>0.1</td>
+<td>200</td>
+<td>83%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>8</strong></td>
+<td>93%</td>
+<td>0.1</td>
+<td>100</td>
+<td>92%</td>
+<td>0.1</td>
+<td>100</td>
+<td>87%</td>
+<td>0.1</td>
+<td>50</td>
+<td>85%</td>
+<td>1</td>
+<td>50</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>9</strong></td>
+<td>94%</td>
+<td>0.1</td>
+<td>150</td>
+<td>91%</td>
+<td>0.1</td>
+<td>150</td>
+<td>88%</td>
+<td>0.1</td>
+<td>150</td>
+<td>82%</td>
+<td>0.01</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>10</strong></td>
+<td>90%</td>
+<td>0.1</td>
+<td>100</td>
+<td>88%</td>
+<td>1</td>
+<td>50</td>
+<td>87%</td>
+<td>0.1</td>
+<td>200</td>
+<td>85%</td>
+<td>0.1</td>
+<td>150</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>11</strong></td>
+<td>91%</td>
+<td>0.1</td>
+<td>50</td>
+<td>87%</td>
+<td>0.1</td>
+<td>200</td>
+<td>87%</td>
+<td>1</td>
+<td>50</td>
+<td>74%</td>
+<td>0.1</td>
+<td>150</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>12</strong></td>
+<td>88%</td>
+<td>0.1</td>
+<td>200</td>
+<td>84%</td>
+<td>1</td>
+<td>50</td>
+<td>82%</td>
+<td>0.1</td>
+<td>200</td>
+<td>80%</td>
+<td>0.1</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>13</strong></td>
+<td>94%</td>
+<td>0.1</td>
+<td>200</td>
+<td>92%</td>
+<td>1</td>
+<td>50</td>
+<td>91%</td>
+<td>0.1</td>
+<td>100</td>
+<td>88%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>14</strong></td>
+<td>95%</td>
+<td>1</td>
+<td>150</td>
+<td>93%</td>
+<td>0.1</td>
+<td>100</td>
+<td>94%</td>
+<td>0.1</td>
+<td>200</td>
+<td>92%</td>
+<td>1</td>
+<td>150</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>15</strong></td>
+<td>94%</td>
+<td>0.01</td>
+<td>200</td>
+<td>93%</td>
+<td>0.1</td>
+<td>200</td>
+<td>88%</td>
+<td>0.1</td>
+<td>150</td>
+<td>84%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>16</strong></td>
+<td>91%</td>
+<td>0.1</td>
+<td>150</td>
+<td>88%</td>
+<td>0.1</td>
+<td>150</td>
+<td>88%</td>
+<td>0.1</td>
+<td>150</td>
+<td>83%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>17</strong></td>
+<td>95%</td>
+<td>0.1</td>
+<td>150</td>
+<td>93%</td>
+<td>0.1</td>
+<td>100</td>
+<td>90%</td>
+<td>0.1</td>
+<td>100</td>
+<td>87%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>18</strong></td>
+<td>92%</td>
+<td>1</td>
+<td>100</td>
+<td>91%</td>
+<td>0.1</td>
+<td>200</td>
+<td>90%</td>
+<td>0.1</td>
+<td>200</td>
+<td>90%</td>
+<td>0.1</td>
+<td>150</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>19</strong></td>
+<td>86%</td>
+<td>0.1</td>
+<td>50</td>
+<td>82%</td>
+<td>0.1</td>
+<td>200</td>
+<td>83%</td>
+<td>0.1</td>
+<td>200</td>
+<td>74%</td>
+<td>0.1</td>
+<td>150</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>20</strong></td>
+<td>93%</td>
+<td>0.1</td>
+<td>200</td>
+<td>89%</td>
+<td>0.1</td>
+<td>100</td>
+<td>88%</td>
+<td>0.1</td>
+<td>200</td>
+<td>82%</td>
+<td>0.1</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>21</strong></td>
+<td>82%</td>
+<td>0.1</td>
+<td>150</td>
+<td>79%</td>
+<td>0.01</td>
+<td>200</td>
+<td>77%</td>
+<td>0.01</td>
+<td>100</td>
+<td>68%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>22</strong></td>
+<td>96%</td>
+<td>0.1</td>
+<td>100</td>
+<td>92%</td>
+<td>0.1</td>
+<td>200</td>
+<td>89%</td>
+<td>0.1</td>
+<td>150</td>
+<td>86%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>23</strong></td>
+<td>95%</td>
+<td>0.1</td>
+<td>200</td>
+<td>93%</td>
+<td>1</td>
+<td>200</td>
+<td>93%</td>
+<td>0.1</td>
+<td>100</td>
+<td>88%</td>
+<td>0.1</td>
+<td>200</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>24</strong></td>
+<td>80%</td>
+<td>0.1</td>
+<td>50</td>
+<td>72%</td>
+<td>0.1</td>
+<td>50</td>
+<td>68%</td>
+<td>0.1</td>
+<td>50</td>
+<td>58%</td>
+<td>0.1</td>
+<td>100</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td>142</td>
+<td>0.88</td>
+<td></td>
+<td>142</td>
+<td>0.86</td>
+<td></td>
+<td>138</td>
+<td>0.81</td>
+<td></td>
+<td>160</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="然后分别看GBDT和RF和组合后的优化结果"><a href="#然后分别看GBDT和RF和组合后的优化结果" class="headerlink" title="然后分别看GBDT和RF和组合后的优化结果"></a>然后分别看GBDT和RF和组合后的优化结果</h2><p>还是选择10次10折交叉验证，对训练阶段进行训练</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>stage_2</th>
+<th></th>
+<th>stage_3</th>
+<th></th>
+<th>stage_4</th>
+<th></th>
+<th>stage_5</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><strong>acr</strong></td>
+<td><strong>F1</strong></td>
+<td><strong>acr</strong></td>
+<td><strong>F1</strong></td>
+<td><strong>acr</strong></td>
+<td><strong>F1</strong></td>
+<td><strong>acr</strong></td>
+<td><strong>F1</strong></td>
+</tr>
+<tr>
+<td><strong>Rf</strong></td>
+<td>91.67%</td>
+<td>84.43%</td>
+<td>89.19%</td>
+<td>84.19%</td>
+<td>86.24%</td>
+<td>83.12%</td>
+<td>82.04%</td>
+<td>78.85%</td>
+</tr>
+<tr>
+<td><strong>gbdt</strong></td>
+<td>91.14%</td>
+<td>83.90%</td>
+<td>88.66%</td>
+<td>83.68%</td>
+<td>85.61%</td>
+<td>82.32%</td>
+<td>80.68%</td>
+<td>77.19%</td>
+</tr>
+<tr>
+<td><strong>RF-GBDT</strong></td>
+<td>91.49%</td>
+<td>84.45%</td>
+<td>89.12%</td>
+<td>84.29%</td>
+<td>86.16%</td>
+<td>82.87%</td>
+<td>81.53%</td>
+<td>78.11%</td>
+</tr>
+</tbody></table>
+<p>因此就确认选择RF，超参数N设置为150</p>
+<p>原始的RF</p>
+<table>
+<thead>
+<tr>
+<th><strong>rf</strong></th>
+<th>90.78%</th>
+<th>82.73%</th>
+<th>87.50%</th>
+<th>81.65%</th>
+<th>84.35%</th>
+<th>80.69%</th>
+<th>79.21%</th>
+<th>75.46%</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>gbdt</strong></td>
+<td>91.03%</td>
+<td>83.62%</td>
+<td>88.30%</td>
+<td>82.96%</td>
+<td>85.21%</td>
+<td>81.73%</td>
+<td>80.26%</td>
+<td>76.46%</td>
+</tr>
+</tbody></table>
+<p>都有了较大的提高</p>
+<p><img src="../images/timg-1599439426477.jfif"></p>
+<p><img src="../images/u=2881886025,3356042264&fm=26&gp=0.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

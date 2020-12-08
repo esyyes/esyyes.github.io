@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>处理并统计两个数据库中的睡眠标签 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,处理并统计两个数据库中的睡眠标签txt读取标签数据12345678910111213141516171819202122232425262728# -*- coding: utf-8 -*-# @T,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">处理并统计两个数据库中的睡眠标签</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">处理并统计两个数据库中的睡眠标签</h1>
+        <div class="stuff">
+            <span>八月 19, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="处理并统计两个数据库中的睡眠标签"><a href="#处理并统计两个数据库中的睡眠标签" class="headerlink" title="处理并统计两个数据库中的睡眠标签"></a>处理并统计两个数据库中的睡眠标签</h1><h2 id="txt读取标签数据"><a href="#txt读取标签数据" class="headerlink" title="txt读取标签数据"></a>txt读取标签数据</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/19</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">需求：</span></span><br><span class="line"><span class="string">1. 将数据库进行切片</span></span><br><span class="line"><span class="string">2. 将数据库对应的标签进行处理</span></span><br><span class="line"><span class="string">3. 统计单独数据库的标签</span></span><br><span class="line"><span class="string">4. 对应到所有数据库中，每个分期的数据</span></span><br><span class="line"><span class="string">5. 进行统计不管分期为几期。直接统计为5期</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> wfdb</span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> scio</span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先对标签进行处理</span></span><br><span class="line"></span><br><span class="line">text_num = <span class="string">&#x27;06&#x27;</span></span><br><span class="line">dataFile = <span class="string">&#x27;F:/st_data/ucddb0&#x27;</span> + text_num + <span class="string">&#x27;.mat&#x27;</span></span><br><span class="line">data = scio.loadmat(dataFile)[<span class="string">&#x27;signal&#x27;</span>]</span><br><span class="line"></span><br><span class="line">txtFile = <span class="string">&#x27;F:/st_data/ucddb0&#x27;</span> + text_num + <span class="string">&#x27;_stage.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(txtFile) <span class="keyword">as</span> f:</span><br><span class="line">    lines = [x.rstrip() <span class="keyword">for</span> x <span class="keyword">in</span> f]</span><br><span class="line">print(<span class="built_in">len</span>(data)/<span class="number">128</span>/<span class="number">30</span>)</span><br><span class="line">print(<span class="built_in">len</span>(lines))</span><br></pre></td></tr></table></figure>
+
+<p>数据长度不相等，相差为1的样子，所以直接舍弃后面部分的数据，差距就1</p>
+<p>先看下数据的效果，查看了下数据没有缺失，标签少对应了一个，直接就省略后面的这个标签吧</p>
+<h2 id="slpdb中的标签统计"><a href="#slpdb中的标签统计" class="headerlink" title="slpdb中的标签统计"></a>slpdb中的标签统计</h2><p>先查看slpdb数据库中的标签</p>
+<ol>
+<li>经处理后的标签数据，直接查看5期的标签</li>
+</ol>
+<p>数据位置F:/py/python-ECG信号处理/all_note</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 先查看slpdb数据库中的标签</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line">num_N3 = <span class="number">0</span></span><br><span class="line">num_N2 = <span class="number">0</span></span><br><span class="line">num_N1 = <span class="number">0</span></span><br><span class="line">num_R = <span class="number">0</span></span><br><span class="line">num_W = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">19</span>):</span><br><span class="line">    feature = pd.read_excel(<span class="string">&#x27;F:/py/python-ECG信号处理/all_feature&#x27;</span> + <span class="string">&#x27;/features&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % i + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    data = pd.get_dummies(feature.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature), <span class="number">1</span>:])</span><br><span class="line">    note = pd.read_excel(<span class="string">&#x27;F:/py/python-ECG信号处理/all_note&#x27;</span> + <span class="string">&#x27;/note&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % i + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    tag = pd.get_dummies(note.iloc[<span class="number">0</span>:<span class="built_in">len</span>(data), <span class="number">1</span>:])</span><br><span class="line">    N321RW = np.array(tag[<span class="string">&#x27;N321RW&#x27;</span>]).tolist()</span><br><span class="line">    <span class="comment"># 标签12345对应的是N321RW</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(tag)):</span><br><span class="line">        <span class="keyword">if</span> N321RW[j] == <span class="number">1</span>:</span><br><span class="line">            num_N3 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> N321RW[j] == <span class="number">2</span>:</span><br><span class="line">            num_N2 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> N321RW[j] == <span class="number">3</span>:</span><br><span class="line">            num_N1 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> N321RW[j] == <span class="number">4</span>:</span><br><span class="line">            num_R += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            num_W += <span class="number">1</span></span><br><span class="line">print(<span class="string">&#x27;total_tag&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;N3:<span class="subst">&#123;num_N3&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;N2:<span class="subst">&#123;num_N2&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;N1:<span class="subst">&#123;num_N1&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;r:<span class="subst">&#123;num_R&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;W:<span class="subst">&#123;num_W&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;zong:<span class="subst">&#123;num_N3+num_N2+num_N1+num_R+num_W&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><strong>Data</strong></th>
+<th><strong>N3</strong></th>
+<th><strong>N2</strong></th>
+<th><strong>N1</strong></th>
+<th><strong>R</strong></th>
+<th><strong>W</strong></th>
+<th><strong>TOTAL</strong></th>
+<th><strong>AHI</strong></th>
+<th><strong>Seff(%)</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>slp01a</td>
+<td>108</td>
+<td>103</td>
+<td>1</td>
+<td>12</td>
+<td>5</td>
+<td>229</td>
+<td>17.0</td>
+<td>98</td>
+</tr>
+<tr>
+<td>slp01b</td>
+<td>0</td>
+<td>119</td>
+<td>25</td>
+<td>25</td>
+<td>180</td>
+<td>349</td>
+<td>22.3</td>
+<td>48</td>
+</tr>
+<tr>
+<td>slp02a</td>
+<td>7</td>
+<td>195</td>
+<td>18</td>
+<td>77</td>
+<td>52</td>
+<td>349</td>
+<td>34.0</td>
+<td>85</td>
+</tr>
+<tr>
+<td>slp02b</td>
+<td>0</td>
+<td>114</td>
+<td>14</td>
+<td>29</td>
+<td>102</td>
+<td>259</td>
+<td>22.2</td>
+<td>61</td>
+</tr>
+<tr>
+<td>slp03</td>
+<td>78</td>
+<td>307</td>
+<td>105</td>
+<td>74</td>
+<td>114</td>
+<td>678</td>
+<td>43.0</td>
+<td>83</td>
+</tr>
+<tr>
+<td>slp04</td>
+<td>33</td>
+<td>440</td>
+<td>58</td>
+<td>23</td>
+<td>155</td>
+<td>709</td>
+<td>59.8</td>
+<td>78</td>
+</tr>
+<tr>
+<td>slp14</td>
+<td>42</td>
+<td>126</td>
+<td>183</td>
+<td>36</td>
+<td>316</td>
+<td>703</td>
+<td>30.7</td>
+<td>55</td>
+</tr>
+<tr>
+<td>slp16</td>
+<td>24</td>
+<td>181</td>
+<td>107</td>
+<td>65</td>
+<td>306</td>
+<td>683</td>
+<td>53.1</td>
+<td>55</td>
+</tr>
+<tr>
+<td>slp32</td>
+<td>60</td>
+<td>159</td>
+<td>27</td>
+<td>0</td>
+<td>383</td>
+<td>629</td>
+<td>22.1</td>
+<td>39</td>
+</tr>
+<tr>
+<td>slp37</td>
+<td>0</td>
+<td>586</td>
+<td>17</td>
+<td>11</td>
+<td>73</td>
+<td>687</td>
+<td>100.8</td>
+<td>89</td>
+</tr>
+<tr>
+<td>slp41</td>
+<td>13</td>
+<td>218</td>
+<td>230</td>
+<td>90</td>
+<td>218</td>
+<td>769</td>
+<td>60 [2]</td>
+<td>72</td>
+</tr>
+<tr>
+<td>slp45</td>
+<td>103</td>
+<td>399</td>
+<td>54</td>
+<td>81</td>
+<td>112</td>
+<td>749</td>
+<td>5 [2]</td>
+<td>85</td>
+</tr>
+<tr>
+<td>slp48</td>
+<td>2</td>
+<td>269</td>
+<td>238</td>
+<td>31</td>
+<td>209</td>
+<td>749</td>
+<td>46.8</td>
+<td>72</td>
+</tr>
+<tr>
+<td>slp59</td>
+<td>80</td>
+<td>92</td>
+<td>105</td>
+<td>35</td>
+<td>135</td>
+<td>447</td>
+<td>55.3</td>
+<td>70</td>
+</tr>
+<tr>
+<td>slp60</td>
+<td>0</td>
+<td>49</td>
+<td>321</td>
+<td>31</td>
+<td>276</td>
+<td>677</td>
+<td>59.2</td>
+<td>59</td>
+</tr>
+<tr>
+<td>slp61</td>
+<td>103</td>
+<td>326</td>
+<td>88</td>
+<td>73</td>
+<td>119</td>
+<td>709</td>
+<td>41.2</td>
+<td>83</td>
+</tr>
+<tr>
+<td>slp66</td>
+<td>5</td>
+<td>116</td>
+<td>141</td>
+<td>0</td>
+<td>167</td>
+<td>429</td>
+<td>65.5</td>
+<td>61</td>
+</tr>
+<tr>
+<td>slp67x</td>
+<td>1</td>
+<td>40</td>
+<td>37</td>
+<td>0</td>
+<td>65</td>
+<td>143</td>
+<td>0.7</td>
+<td>55</td>
+</tr>
+<tr>
+<td>总</td>
+<td>659</td>
+<td>3839</td>
+<td>1769</td>
+<td>693</td>
+<td>2987</td>
+<td>9947</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="Ucddb数据库的睡眠阶段统计"><a href="#Ucddb数据库的睡眠阶段统计" class="headerlink" title="Ucddb数据库的睡眠阶段统计"></a>Ucddb数据库的睡眠阶段统计</h2><p>Ucddb数据库还是遵循rk规则，30s一个划分阶段</p>
+<table>
+<thead>
+<tr>
+<th>Study Number</th>
+<th>Gender</th>
+<th>PSG AHI</th>
+<th>BMI</th>
+<th>Age</th>
+<th>Epworth Sleepiness Score</th>
+<th>Sleep Efficiency (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UCDDB002</td>
+<td>M</td>
+<td>23</td>
+<td>33.9</td>
+<td>54</td>
+<td>16</td>
+<td>84</td>
+</tr>
+<tr>
+<td>UCDDB003</td>
+<td>M</td>
+<td>51</td>
+<td>31.8</td>
+<td>48</td>
+<td>13</td>
+<td>81</td>
+</tr>
+<tr>
+<td>UCDDB005</td>
+<td>M</td>
+<td>13</td>
+<td>32.4</td>
+<td>65</td>
+<td>19</td>
+<td>63</td>
+</tr>
+<tr>
+<td>UCDDB006</td>
+<td>M</td>
+<td>31</td>
+<td>30.2</td>
+<td>52</td>
+<td>3</td>
+<td>89</td>
+</tr>
+<tr>
+<td>UCDDB007</td>
+<td>M</td>
+<td>12</td>
+<td>25.1</td>
+<td>47</td>
+<td>15</td>
+<td>90</td>
+</tr>
+<tr>
+<td>UCDDB008</td>
+<td>F</td>
+<td>5</td>
+<td>28.4</td>
+<td>63</td>
+<td>1</td>
+<td>64</td>
+</tr>
+<tr>
+<td>UCDDB009</td>
+<td>M</td>
+<td>12</td>
+<td>31.3</td>
+<td>52</td>
+<td>19</td>
+<td>80</td>
+</tr>
+<tr>
+<td>UCDDB010</td>
+<td>M</td>
+<td>34</td>
+<td>39.3</td>
+<td>38</td>
+<td>2</td>
+<td>92</td>
+</tr>
+<tr>
+<td>UCDDB011</td>
+<td>M</td>
+<td>8</td>
+<td>28.6</td>
+<td>51</td>
+<td>8</td>
+<td>60</td>
+</tr>
+<tr>
+<td>UCDDB012</td>
+<td>M</td>
+<td>25</td>
+<td>30.4</td>
+<td>51</td>
+<td>16</td>
+<td>85</td>
+</tr>
+<tr>
+<td>UCDDB013</td>
+<td>F</td>
+<td>16</td>
+<td>34.2</td>
+<td>62</td>
+<td>10</td>
+<td>61</td>
+</tr>
+<tr>
+<td>UCDDB014</td>
+<td>M</td>
+<td>36</td>
+<td>29</td>
+<td>56</td>
+<td>5</td>
+<td>79</td>
+</tr>
+<tr>
+<td>UCDDB015</td>
+<td>M</td>
+<td>6</td>
+<td>29</td>
+<td>28</td>
+<td>2</td>
+<td>77</td>
+</tr>
+<tr>
+<td>UCDDB017</td>
+<td>M</td>
+<td>12</td>
+<td>37.8</td>
+<td>53</td>
+<td>7</td>
+<td>87</td>
+</tr>
+<tr>
+<td>UCDDB018</td>
+<td>M</td>
+<td>2</td>
+<td>26.3</td>
+<td>35</td>
+<td>10</td>
+<td>60</td>
+</tr>
+<tr>
+<td>UCDDB019</td>
+<td>M</td>
+<td>16</td>
+<td>30.9</td>
+<td>49</td>
+<td>18</td>
+<td>92</td>
+</tr>
+<tr>
+<td>UCDDB020</td>
+<td>M</td>
+<td>15</td>
+<td>34</td>
+<td>52</td>
+<td>11</td>
+<td>78</td>
+</tr>
+<tr>
+<td>UCDDB021</td>
+<td>F</td>
+<td>13</td>
+<td>33.6</td>
+<td>41</td>
+<td>13</td>
+<td>82</td>
+</tr>
+<tr>
+<td>UCDDB022</td>
+<td>M</td>
+<td>7</td>
+<td>29.3</td>
+<td>34</td>
+<td>4</td>
+<td>58</td>
+</tr>
+<tr>
+<td>UCDDB023</td>
+<td>F</td>
+<td>39</td>
+<td>32.7</td>
+<td>68</td>
+<td>13</td>
+<td>67</td>
+</tr>
+<tr>
+<td>UCDDB024</td>
+<td>M</td>
+<td>24</td>
+<td>33.8</td>
+<td>54</td>
+<td>19</td>
+<td>83</td>
+</tr>
+<tr>
+<td>UCDDB025</td>
+<td>M</td>
+<td>91</td>
+<td>42.5</td>
+<td>52</td>
+<td>24</td>
+<td>77</td>
+</tr>
+<tr>
+<td>UCDDB026</td>
+<td>M</td>
+<td>14</td>
+<td>27.4</td>
+<td>49</td>
+<td>9</td>
+<td>87</td>
+</tr>
+<tr>
+<td>UCDDB027</td>
+<td>M</td>
+<td>55</td>
+<td>28.1</td>
+<td>45</td>
+<td>10</td>
+<td>86</td>
+</tr>
+<tr>
+<td>UCDDB028</td>
+<td>M</td>
+<td>46</td>
+<td>30.1</td>
+<td>50</td>
+<td>13</td>
+<td>68</td>
+</tr>
+</tbody></table>
+<h1 id="ucddb数据处理"><a href="#ucddb数据处理" class="headerlink" title="ucddb数据处理"></a>ucddb数据处理</h1><ol>
+<li>将数据进行切片划分为对应的30s和5min</li>
+<li>划分出一个标签的数据</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/19</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> scio</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取文件夹名字</span></span><br><span class="line">text_name = pd.read_excel(<span class="string">&#x27;F:/st_data/SubjectDetails.xls&#x27;</span>)</span><br><span class="line">study_name = np.array(text_name[<span class="string">&#x27;Study Number&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> study_name:</span><br><span class="line">    <span class="comment"># 读取对应的ECG数据</span></span><br><span class="line">    dataFile = <span class="string">&#x27;F:/st_data/&#x27;</span> + h + <span class="string">&#x27;.mat&#x27;</span></span><br><span class="line">    data = scio.loadmat(dataFile)[<span class="string">&#x27;signal&#x27;</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取对应的sleep数据</span></span><br><span class="line">    txtFile = <span class="string">&#x27;F:/st_data/&#x27;</span> + h + <span class="string">&#x27;_stage.txt&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(txtFile) <span class="keyword">as</span> f:</span><br><span class="line">        lines = [x.rstrip() <span class="keyword">for</span> x <span class="keyword">in</span> f]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">int</span>(<span class="built_in">len</span>(data)/<span class="number">128</span>/<span class="number">30</span>) &gt;= <span class="built_in">len</span>(lines):</span><br><span class="line">        print(<span class="string">f&#x27;<span class="subst">&#123;<span class="built_in">int</span>(<span class="built_in">len</span>(data)/<span class="number">128</span>/<span class="number">30</span>) - <span class="built_in">len</span>(lines)&#125;</span>&#x27;</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">f&#x27;<span class="subst">&#123;h&#125;</span>数据的标签长度大于数据&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 首先对数据进行判断，看是否都是data的数据大于tag</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>数据的长短和标签查看，数据比标签长一点，因此标签可以直接不管，然后舍去最后的Data即可。</p>
+<p>对标签进行处理划分5min钟的片段</p>
+<ul>
+<li>0 - Wake</li>
+<li>1 - REM</li>
+<li>2 - Stage 1</li>
+<li>3 - Stage 2</li>
+<li>4 - Stage 3</li>
+<li>5 - Stage 4</li>
+<li>6 - Artifact</li>
+<li>7 - Indeterminate</li>
+</ul>
+<p>这个标签判断错误了！！！</p>
+<h2 id="生成标签"><a href="#生成标签" class="headerlink" title="生成标签"></a>生成标签</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/19</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> scipy.io <span class="keyword">as</span> scio</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取文件夹名字</span></span><br><span class="line">text_name = pd.read_excel(<span class="string">&#x27;F:/st_data/SubjectDetails.xls&#x27;</span>)</span><br><span class="line">study_name = np.array(text_name[<span class="string">&#x27;Study Number&#x27;</span>])</span><br><span class="line"><span class="comment"># - 0 - Wake</span></span><br><span class="line"><span class="comment"># - 1 - REM</span></span><br><span class="line"><span class="comment"># - 2 - Stage 1</span></span><br><span class="line"><span class="comment"># - 3 - Stage 2</span></span><br><span class="line"><span class="comment"># - 4 - Stage 3</span></span><br><span class="line"><span class="comment"># - 5 - Stage 4</span></span><br><span class="line"><span class="comment"># - 6 - Artifact</span></span><br><span class="line"><span class="comment"># - 7 - Indeterminate</span></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> study_name:</span><br><span class="line">    <span class="comment"># 读取对应的ECG数据</span></span><br><span class="line">    dataFile = <span class="string">&#x27;F:/st_data/&#x27;</span> + h + <span class="string">&#x27;.mat&#x27;</span></span><br><span class="line">    data = scio.loadmat(dataFile)[<span class="string">&#x27;signal&#x27;</span>]</span><br><span class="line">    <span class="comment"># 读取对应的sleep数据</span></span><br><span class="line">    txtFile = <span class="string">&#x27;F:/st_data/&#x27;</span> + h + <span class="string">&#x27;_stage.txt&#x27;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(txtFile) <span class="keyword">as</span> f:</span><br><span class="line">        lines = [x.rstrip() <span class="keyword">for</span> x <span class="keyword">in</span> f]</span><br><span class="line">    <span class="comment"># 将stage数据进行5min的切片</span></span><br><span class="line">    tag1 = []</span><br><span class="line">    tag2 = []</span><br><span class="line">    tag3 = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, <span class="built_in">int</span>(<span class="built_in">len</span>(lines)<span class="number">-5</span>)):</span><br><span class="line">        <span class="keyword">if</span> (lines[i] == <span class="string">&#x27;4&#x27;</span>) <span class="keyword">or</span> (lines[i] == <span class="string">&#x27;5&#x27;</span>):</span><br><span class="line">            tag1.append(<span class="number">1</span>)</span><br><span class="line">            tag2.append(<span class="number">1</span>)</span><br><span class="line">            tag3.append(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">elif</span> lines[i][<span class="number">0</span>] == <span class="string">&#x27;3&#x27;</span>:</span><br><span class="line">            tag1.append(<span class="number">2</span>)</span><br><span class="line">            tag2.append(<span class="number">2</span>)</span><br><span class="line">            tag3.append(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">elif</span> lines[i][<span class="number">0</span>] == <span class="string">&#x27;2&#x27;</span>:</span><br><span class="line">            tag1.append(<span class="number">3</span>)</span><br><span class="line">            tag2.append(<span class="number">2</span>)</span><br><span class="line">            tag3.append(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">elif</span> lines[i][<span class="number">0</span>] == <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">            tag1.append(<span class="number">4</span>)</span><br><span class="line">            tag2.append(<span class="number">3</span>)</span><br><span class="line">            tag3.append(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tag1.append(<span class="number">5</span>)</span><br><span class="line">            tag2.append(<span class="number">4</span>)</span><br><span class="line">            tag3.append(<span class="number">3</span>)</span><br><span class="line">    label1 = pd.DataFrame(tag1, columns=[<span class="string">&#x27;N321RW&#x27;</span>])</span><br><span class="line">    label2 = pd.DataFrame(tag2, columns=[<span class="string">&#x27;DLRW&#x27;</span>])</span><br><span class="line">    label3 = pd.DataFrame(tag3, columns=[<span class="string">&#x27;NRW&#x27;</span>])</span><br><span class="line">    label = pd.concat([label1, label2, label3], axis=<span class="number">1</span>)</span><br><span class="line">    label.to_excel(<span class="string">&#x27;note_&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % h + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="ucddb中的睡眠阶段统计"><a href="#ucddb中的睡眠阶段统计" class="headerlink" title="ucddb中的睡眠阶段统计"></a>ucddb中的睡眠阶段统计</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/19</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line">text_name = pd.read_excel(<span class="string">&#x27;F:/st_data/SubjectDetails.xls&#x27;</span>)</span><br><span class="line">study_name = np.array(text_name[<span class="string">&#x27;Study Number&#x27;</span>])</span><br><span class="line"></span><br><span class="line">num_N3 = <span class="number">0</span></span><br><span class="line">num_N2 = <span class="number">0</span></span><br><span class="line">num_N1 = <span class="number">0</span></span><br><span class="line">num_R = <span class="number">0</span></span><br><span class="line">num_W = <span class="number">0</span></span><br><span class="line">all_N3 = []</span><br><span class="line">all_N2 = []</span><br><span class="line">all_N1 = []</span><br><span class="line">all_NR = []</span><br><span class="line">all_NW = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> study_name:</span><br><span class="line">    note = pd.read_excel(<span class="string">&#x27;F:/py/py_sleep stage and apnea/data&#x27;</span> + <span class="string">&#x27;/note_&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % h + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    tag = pd.get_dummies(note.iloc[:, <span class="number">1</span>:])</span><br><span class="line">    N321RW = np.array(tag[<span class="string">&#x27;N321RW&#x27;</span>]).tolist()</span><br><span class="line">    <span class="comment"># 标签12345对应的是N321RW</span></span><br><span class="line">    N3 = []</span><br><span class="line">    N2 = []</span><br><span class="line">    N1 = []</span><br><span class="line">    NR = []</span><br><span class="line">    NW = []</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(tag)):</span><br><span class="line">        <span class="keyword">if</span> N321RW[j] == <span class="number">1</span>:</span><br><span class="line">            num_N3 += <span class="number">1</span></span><br><span class="line">            N3.append(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">elif</span> N321RW[j] == <span class="number">2</span>:</span><br><span class="line">            num_N2 += <span class="number">1</span></span><br><span class="line">            N2.append(<span class="number">2</span>)</span><br><span class="line">        <span class="keyword">elif</span> N321RW[j] == <span class="number">3</span>:</span><br><span class="line">            num_N1 += <span class="number">1</span></span><br><span class="line">            N1.append(<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">elif</span> N321RW[j] == <span class="number">4</span>:</span><br><span class="line">            num_R += <span class="number">1</span></span><br><span class="line">            NR.append(<span class="number">4</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            num_W += <span class="number">1</span></span><br><span class="line">            NW.append(<span class="number">5</span>)</span><br><span class="line">    all_N3.append(<span class="built_in">len</span>(N3))</span><br><span class="line">    all_N2.append(<span class="built_in">len</span>(N2))</span><br><span class="line">    all_N1.append(<span class="built_in">len</span>(N1))</span><br><span class="line">    all_NR.append(<span class="built_in">len</span>(NR))</span><br><span class="line">    all_NW.append(<span class="built_in">len</span>(NW))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">stage_3 = pd.DataFrame(all_N3, columns=&#123;<span class="string">&#x27;N3&#x27;</span>&#125;)</span><br><span class="line">stage_2 = pd.DataFrame(all_N2, columns=&#123;<span class="string">&#x27;N2&#x27;</span>&#125;)</span><br><span class="line">stage_1 = pd.DataFrame(all_N1, columns=&#123;<span class="string">&#x27;N1&#x27;</span>&#125;)</span><br><span class="line">stage_R = pd.DataFrame(all_NR, columns=&#123;<span class="string">&#x27;R&#x27;</span>&#125;)</span><br><span class="line">stage_W = pd.DataFrame(all_NW, columns=&#123;<span class="string">&#x27;W&#x27;</span>&#125;)</span><br><span class="line">all_stage = pd.concat([stage_3, stage_2, stage_1, stage_R, stage_W], axis=<span class="number">1</span>)</span><br><span class="line">print(<span class="string">&#x27;total_tag&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;N3:<span class="subst">&#123;num_N3&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;N2:<span class="subst">&#123;num_N2&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;N1:<span class="subst">&#123;num_N1&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;r:<span class="subst">&#123;num_R&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;W:<span class="subst">&#123;num_W&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;zong:<span class="subst">&#123;num_N3+num_N2+num_N1+num_R+num_W&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;all_stage&#125;</span>&#x27;</span>)</span><br><span class="line">all_stage.to_excel(<span class="string">&#x27;ucddb_sleep_stages.xlsx&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th>Study</th>
+<th><strong>N3</strong></th>
+<th><strong>N2</strong></th>
+<th><strong>N1</strong></th>
+<th><strong>R</strong></th>
+<th><strong>W</strong></th>
+<th><strong>total</strong></th>
+<th>PSG AHI</th>
+<th>Seff (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UCDDB002</td>
+<td>87</td>
+<td>172</td>
+<td>213</td>
+<td>155</td>
+<td>111</td>
+<td>738</td>
+<td>23</td>
+<td>85</td>
+</tr>
+<tr>
+<td>UCDDB003</td>
+<td>164</td>
+<td>254</td>
+<td>106</td>
+<td>190</td>
+<td>158</td>
+<td>872</td>
+<td>51</td>
+<td>82</td>
+</tr>
+<tr>
+<td>UCDDB005</td>
+<td>52</td>
+<td>251</td>
+<td>89</td>
+<td>125</td>
+<td>299</td>
+<td>816</td>
+<td>13</td>
+<td>63</td>
+</tr>
+<tr>
+<td>UCDDB006</td>
+<td>248</td>
+<td>93</td>
+<td>181</td>
+<td>192</td>
+<td>84</td>
+<td>798</td>
+<td>31</td>
+<td>89</td>
+</tr>
+<tr>
+<td>UCDDB007</td>
+<td>127</td>
+<td>414</td>
+<td>54</td>
+<td>132</td>
+<td>76</td>
+<td>803</td>
+<td>12</td>
+<td>91</td>
+</tr>
+<tr>
+<td>UCDDB008</td>
+<td>83</td>
+<td>302</td>
+<td>76</td>
+<td>33</td>
+<td>264</td>
+<td>758</td>
+<td>5</td>
+<td>65</td>
+</tr>
+<tr>
+<td>UCDDB009</td>
+<td>141</td>
+<td>244</td>
+<td>261</td>
+<td>86</td>
+<td>183</td>
+<td>915</td>
+<td>12</td>
+<td>80</td>
+</tr>
+<tr>
+<td>UCDDB010</td>
+<td>79</td>
+<td>464</td>
+<td>119</td>
+<td>168</td>
+<td>67</td>
+<td>897</td>
+<td>34</td>
+<td>93</td>
+</tr>
+<tr>
+<td>UCDDB011</td>
+<td>118</td>
+<td>295</td>
+<td>89</td>
+<td>42</td>
+<td>346</td>
+<td>890</td>
+<td>8</td>
+<td>61</td>
+</tr>
+<tr>
+<td>UCDDB012</td>
+<td>146</td>
+<td>337</td>
+<td>58</td>
+<td>194</td>
+<td>119</td>
+<td>854</td>
+<td>25</td>
+<td>86</td>
+</tr>
+<tr>
+<td>UCDDB013</td>
+<td>111</td>
+<td>173</td>
+<td>143</td>
+<td>67</td>
+<td>307</td>
+<td>801</td>
+<td>16</td>
+<td>62</td>
+</tr>
+<tr>
+<td>UCDDB014</td>
+<td>0</td>
+<td>267</td>
+<td>260</td>
+<td>82</td>
+<td>155</td>
+<td>764</td>
+<td>36</td>
+<td>80</td>
+</tr>
+<tr>
+<td>UCDDB015</td>
+<td>146</td>
+<td>294</td>
+<td>200</td>
+<td>64</td>
+<td>202</td>
+<td>906</td>
+<td>6</td>
+<td>78</td>
+</tr>
+<tr>
+<td>UCDDB017</td>
+<td>65</td>
+<td>392</td>
+<td>36</td>
+<td>193</td>
+<td>93</td>
+<td>779</td>
+<td>12</td>
+<td>88</td>
+</tr>
+<tr>
+<td>UCDDB018</td>
+<td>137</td>
+<td>280</td>
+<td>58</td>
+<td>19</td>
+<td>318</td>
+<td>812</td>
+<td>2</td>
+<td>61</td>
+</tr>
+<tr>
+<td>UCDDB019</td>
+<td>196</td>
+<td>352</td>
+<td>45</td>
+<td>186</td>
+<td>63</td>
+<td>842</td>
+<td>16</td>
+<td>93</td>
+</tr>
+<tr>
+<td>UCDDB020</td>
+<td>64</td>
+<td>155</td>
+<td>205</td>
+<td>156</td>
+<td>162</td>
+<td>742</td>
+<td>15</td>
+<td>78</td>
+</tr>
+<tr>
+<td>UCDDB021</td>
+<td>127</td>
+<td>370</td>
+<td>122</td>
+<td>128</td>
+<td>156</td>
+<td>903</td>
+<td>13</td>
+<td>83</td>
+</tr>
+<tr>
+<td>UCDDB022</td>
+<td>131</td>
+<td>215</td>
+<td>70</td>
+<td>44</td>
+<td>317</td>
+<td>777</td>
+<td>7</td>
+<td>59</td>
+</tr>
+<tr>
+<td>UCDDB023</td>
+<td>69</td>
+<td>227</td>
+<td>226</td>
+<td>57</td>
+<td>272</td>
+<td>851</td>
+<td>39</td>
+<td>68</td>
+</tr>
+<tr>
+<td>UCDDB024</td>
+<td>137</td>
+<td>331</td>
+<td>113</td>
+<td>168</td>
+<td>149</td>
+<td>898</td>
+<td>24</td>
+<td>83</td>
+</tr>
+<tr>
+<td>UCDDB025</td>
+<td>9</td>
+<td>124</td>
+<td>368</td>
+<td>46</td>
+<td>154</td>
+<td>701</td>
+<td>91</td>
+<td>78</td>
+</tr>
+<tr>
+<td>UCDDB026</td>
+<td>139</td>
+<td>241</td>
+<td>100</td>
+<td>243</td>
+<td>105</td>
+<td>828</td>
+<td>14</td>
+<td>87</td>
+</tr>
+<tr>
+<td>UCDDB027</td>
+<td>35</td>
+<td>530</td>
+<td>62</td>
+<td>139</td>
+<td>117</td>
+<td>883</td>
+<td>55</td>
+<td>87</td>
+</tr>
+<tr>
+<td>UCDDB028</td>
+<td>52</td>
+<td>205</td>
+<td>139</td>
+<td>96</td>
+<td>219</td>
+<td>711</td>
+<td>46</td>
+<td>69</td>
+</tr>
+<tr>
+<td>total</td>
+<td>2663</td>
+<td>6982</td>
+<td>3393</td>
+<td>3005</td>
+<td>4496</td>
+<td>20539</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>ok标签和seff都对应完全，下一步生成数据</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597838747688&di=42ef860362eac090b417b855eb6703c2&imgtype=0&src=http://imgsrc.baidu.com/forum/w=580/sign=db899af0a351f3dec3b2b96ca4eff0ec/3d0731328744ebf85cd33605d5f9d72a6159a7d6.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

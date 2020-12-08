@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>交叉验证 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,交叉验证交叉验证：评估估算器的表现学习预测函数的参数，并在相同数据集上进行测试是一种错误的做法: 一个仅给出测试用例标签的模型将会获得极高的分数，但对于尚未出现过的数据它则无法预测出任何有用的信息。,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">交叉验证</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">交叉验证</h1>
+        <div class="stuff">
+            <span>七月 02, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h1><h2 id="交叉验证：评估估算器的表现"><a href="#交叉验证：评估估算器的表现" class="headerlink" title="交叉验证：评估估算器的表现"></a>交叉验证：评估估算器的表现</h2><p>学习预测函数的参数，并在相同数据集上进行测试是一种错误的做法: 一个仅给出测试用例标签的模型将会获得极高的分数，但对于尚未出现过的数据它则无法预测出任何有用的信息。 这种情况称为 overfitting（过拟合）. 为了避免这种情况，在进行（监督）机器学习实验时，通常取出部分可利用数据作为 test set（测试数据集）</p>
+<h2 id="置信区间"><a href="#置信区间" class="headerlink" title="置信区间"></a>置信区间</h2><p> <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/7442583?fr=aladdin">https://baike.baidu.com/item/%E7%BD%AE%E4%BF%A1%E5%8C%BA%E9%97%B4/7442583?fr=aladdin</a> </p>
+<p> 置信区间是指由<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%B7%E6%9C%AC%E7%BB%9F%E8%AE%A1%E9%87%8F/7378689">样本统计量</a>所构造的总体参数的估计区间。在统计学中，一个<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A6%82%E7%8E%87/828845">概率</a>样本的置信区间（Confidence interval）是对这个样本的某个总体参数的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1/6611490">区间估计</a>。 </p>
+<p> 置信区间与置信水平、样本量等因素均有关系，其中<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%B7%E6%9C%AC%E9%87%8F">样本量</a>对置信区间的影响为：在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%BD%AE%E4%BF%A1%E6%B0%B4%E5%B9%B3">置信水平</a>固定的情况下，样本量越多，置信区间越窄。其次，在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%A0%B7%E6%9C%AC%E9%87%8F">样本量</a>相同的情况下，置信水平越高，置信区间越宽 </p>
+<p>95%置信区间（Confidence Interval,CI）：当给出某个估计值的95%置信区间为【a,b】时，可以理解为我们有95%的信心（Confidence）可以说样本的平均值介于a到b之间，而发生错误的概率为5%。 </p>
+<p> 有时也会说90%，99%的置信区间，具体含义可参考95%置信区间。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&quot;Accuracy: %0.2f (+/- %0.2f)&quot;</span> % (scores.mean(), scores.std() * <span class="number">2</span>))</span><br><span class="line">Accuracy: <span class="number">0.98</span> (+/- <span class="number">0.03</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="交叉验证-1"><a href="#交叉验证-1" class="headerlink" title="交叉验证"></a>交叉验证</h2><p>用来验证分类器的性能一种统计分析方法，基本思想是把在某种意义下将原始数据(data set)进行分组，一部分做为训练集(training set)，另一部分做为验证集(validation set)，首先用训练集对分类器进行训练，在利用验证集来测试训练得到的模型(model)，以此来做为评价分类器的性能指标。</p>
+<h3 id="k折交叉验证-k-fold-cross-validation"><a href="#k折交叉验证-k-fold-cross-validation" class="headerlink" title="k折交叉验证(k-fold cross validation)"></a>k折交叉验证(k-fold cross validation)</h3><p>将数据集无替换的随机分为k份，k-1份用来训练模型，剩下一份用来模型性能评估。重复k次，得到k个模型和性能评估结果。得到k个性能评估后，取平均求出最终性能评估。即：<br>第一步：不重复抽样将原始数据随机分为k份。<br>第二步：每一次挑选其中 1 份作为测试集，剩余k-1份作为训练集用于模型训练。<br>第三步：重复第二步k次，每个子集都有一次作为测试集，其余子集作为训练集。在每个训练集上训练后得到一个模型，用这个模型在相应测试集上测试，计算并保存模型的评估指标。<br>第四步：计算k组测试结果的平均值作为模型精度的估计，并作为当前k折交叉验证下模型的性能指标。</p>
+<p>优点：分组后取平均减少方差，使得模型对数据划分不敏感。<br>缺点：k取值需要尝试</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @time     : 2020/6/30 0030</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score</span><br><span class="line"><span class="keyword">from</span> data_preprocessing <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"></span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run_rf</span>(<span class="params">train_x, test_x, train_y, test_y</span>):</span></span><br><span class="line">    clf = RandomForestClassifier()</span><br><span class="line">    clf.fit(train_x, train_y)</span><br><span class="line">    pred_y = clf.predict(test_x)</span><br><span class="line">    acr = accuracy_score(test_y, pred_y)</span><br><span class="line">    <span class="keyword">return</span> acr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">feature = pd.read_excel(<span class="string">&#x27;D:/zccode/all_feature&#x27;</span> + <span class="string">&#x27;/features&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % <span class="number">1</span> + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">data = pd.get_dummies(feature.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature), <span class="number">1</span>:])</span><br><span class="line">note = pd.read_excel(<span class="string">&#x27;D:/zccode/all_note&#x27;</span> + <span class="string">&#x27;/note&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % <span class="number">1</span> + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">tag = pd.get_dummies(note.iloc[<span class="number">0</span>:<span class="built_in">len</span>(data), <span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 选定固定的特征值</span></span><br><span class="line">feature_import = pd.read_excel(<span class="string">&#x27;D:/zccode&#x27;</span> + <span class="string">&#x27;/feature_important&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % <span class="number">2</span> + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">df = pd.get_dummies(feature_import.iloc[<span class="number">0</span>:<span class="built_in">len</span>(feature_import), <span class="number">1</span>:<span class="number">16</span>])</span><br><span class="line"></span><br><span class="line">std_data = data_pre(data[df.keys()])</span><br><span class="line">label = pd.get_dummies(tag.iloc[<span class="number">0</span>:<span class="built_in">len</span>(data), <span class="number">2</span>:<span class="number">3</span>])</span><br><span class="line">scores = cross_val_score(RandomForestClassifier(), std_data, label, cv=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;scores&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">&quot;Accuracy: %0.2f (+/- %0.2f)&quot;</span> % (scores.mean(), scores.std() * <span class="number">2</span>))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">0.88</span>       <span class="number">0.92</span>       <span class="number">0.86956522</span> <span class="number">0.91304348</span> <span class="number">0.95652174</span> <span class="number">1.</span></span><br><span class="line"> <span class="number">1.</span>         <span class="number">0.86363636</span> <span class="number">1.</span>         <span class="number">0.59090909</span>]</span><br><span class="line">Accuracy: <span class="number">0.90</span> (+/- <span class="number">0.23</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>交叉验证K值的确定，找一个样本很平均的，然后再去利用样本来进行判定</p>
+<h2 id="交叉验证的作用："><a href="#交叉验证的作用：" class="headerlink" title="交叉验证的作用："></a>交叉验证的作用：</h2><h3 id="评估模型的稳定性及调参"><a href="#评估模型的稳定性及调参" class="headerlink" title="评估模型的稳定性及调参"></a>评估模型的稳定性及调参</h3><p>比如5折交叉验证，在参数确定了的情况下，我们可以将数据弄成五份，每一份中80%训练，20%作为测试集，这样可以训练五个模型，这五个模型除了训练集测试集不同外，其他的都相同，这样我们可以得到五个模型的评估指标比如<strong>auc</strong>,计算五个模型得到的<strong>auc的方差</strong>，如果方差小说明模型的泛化性比较好，模型比较稳定是个好模型，否则说明模型泛化性不好。<br>xgboost中cv函数返回的值包括两个，一个是单模型的评价指标（比如auc），另外一个是模型的方差。</p>
+<p>参数不确定的情况下，我们通过<strong>模型的准确性和稳定性</strong>来选择最合适的参数。<br> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41060109/article/details/80878325?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase">https://blog.csdn.net/weixin_41060109/article/details/80878325?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-4.nonecase</a> </p>
+<p> 在实际训练中，模型通常对训练数据好，但是对训练数据之外的数据拟合程度差。用于<strong>评价模型的泛化能力</strong>，从而进行<strong>模型选择</strong>。 </p>
+<h2 id="交叉验证的初步目标"><a href="#交叉验证的初步目标" class="headerlink" title="交叉验证的初步目标"></a>交叉验证的初步目标</h2><p>初步选择大部分的模型，然后通过交叉验证，例如：10次10折，先初步去筛选得到性能效果好的模型，然后再对这几个好的模型，进行网格搜索的超参数优化</p>
+<p>交叉验证得到一个准确率，但是不能用准确率这个指标去直接判定分类器的性能</p>
+<p>最后用混淆矩阵、精度、召回率等去评估分类的效果和性能</p>
+<p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1593683305451&di=084be09798a996ba20acd53f72f8e663&imgtype=0&src=http://hbimg.b0.upaiyun.com/1e4a2abbb0ec1309578de3741b1c7619c7a34c4f2834b-zmvQca_fw658"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

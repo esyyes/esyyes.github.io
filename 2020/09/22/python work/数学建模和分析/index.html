@@ -1,0 +1,316 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>数学建模和分析 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,赛题分析2020年中国研究生数学建模竞赛C题
+面向康复工程的脑电信号分析和判别模型
+l 背景和意义
+大脑是人体中高级神经活动的中枢，拥有着数以亿计的神经元，并通过相互连接来传递和处理人体信息。脑电信,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">数学建模和分析</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">数学建模和分析</h1>
+        <div class="stuff">
+            <span>九月 22, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/mathematical-modeling/" rel="tag">mathematical modeling</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="赛题分析"><a href="#赛题分析" class="headerlink" title="赛题分析"></a>赛题分析</h1><p>2020年中国研究生数学建模竞赛C题</p>
+<p><strong>面向康复工程的脑电信号分析和判别模型</strong></p>
+<p>l <strong>背景和意义</strong></p>
+<p>大脑是人体中高级神经活动的中枢，拥有着数以亿计的神经元，并通过相互连接来传递和处理人体信息。脑电信号按其产生的方式可分为诱发脑电信号和自发脑电信号。诱发脑电信号是通过某种外界刺激使大脑产生电位变化从而形成的脑电活动；自发脑电信号是指在没有外界特殊刺激下，大脑自发产生的脑电活动。</p>
+<p>（1）诱发脑电信号（P300脑-机接口）</p>
+<p>在日常生活中，人的大脑控制着感知、思维、运动及语言等功能，且以外围神经为媒介向身体各部分发出指令。因此，当外围神经受损或肌肉受损时，大脑发出指令的传输通路便会受阻，人体将无法正常完成大脑指令的输出，也就失去了与外界交流和控制的能力。研究发现，在外围神经失去作用的情况下，人的大脑依旧可以正常运行，而且其发出指令的部分信息可以通过一些路径表征出来。脑-机接口技术旨在不依赖正常的由外围神经或肌肉组织组成的输出通路的通讯系统，实现大脑与外部辅助设备之间的交流沟通。</p>
+<p>P300事件相关电位是诱发脑电信号的一种，在小概率刺激发生后<strong>300**</strong>毫秒范围左右出现的一个正向波峰（相对基线来说呈现向上趋势的波）**。由于个体间的差异性，P300的发生时间也有所不同，图1表示的是在刺激发生后450毫秒左右的P300波形。P300电位作为一种内源性成分，它不受刺激物理特性影响，与知觉或认知心理活动有关，与注意、记忆、智能等加工过程密切相关。基于P300的脑-机接口优点是使用者无需通过复杂训练就可以获得较高的识别准确率，具有稳定的锁时性和高时间精度特性。</p>
+<p>（2）自发脑电信号（睡眠脑电）</p>
+<p>睡眠是身体休整积蓄能量的重要环节，睡眠质量对人的身心状态也有着重大影响。如何提高睡眠质量，减少睡眠相关疾病对健康的影响，日益受到广泛关注。睡眠过程中采集的脑电信号，属于自发型的脑电信号。<strong>自发型的睡眠脑电信号能够反映身体状态的自身变化，也是用来诊断和治疗相关疾病的重要依据</strong>。</p>
+<p>睡眠过程是一个动态变化的复杂过程。在国际睡眠分期的<strong>判读标准**</strong>R&amp;K**<strong>中</strong>，对睡眠过程中的不同状态给出了划分：除去清醒期以外，睡眠周期是由两种睡眠状态交替循环，分别是非快速眼动期和快速眼动期；在非快速眼动期中，根据睡眠状态由浅入深的逐步变化，又进一步分为<strong>睡眠**</strong>I**<strong>期，睡眠**</strong>II**<strong>期，睡眠**</strong>III**<strong>期和睡眠**</strong>IV**<strong>期；睡眠**</strong>III**<strong>期和睡眠**</strong>IV**<strong>期又可合并为深睡眠期</strong>。图2给出了不同睡眠分期对应的脑电信号时序列，自上而下依次为清醒期、睡眠I期、睡眠II期、深睡眠和快速眼动期。从图2中可以观察到，脑电信号在不同睡眠分期所呈现的特点有所不同。基于脑电信号进行自动分期，能够减轻专家医师的人工负担，也是评估睡眠质量、诊断和治疗睡眠相关疾病的重要辅助工具。</p>
+<p><strong>图**</strong>2** <strong>各睡眠分期的睡眠脑电信号时序列</strong></p>
+<p>l <strong>课题任务</strong></p>
+<p>本赛题包含2个附件（数据文件），四个课题任务。具体说明如下，</p>
+<p><strong>附件**</strong>1**<strong>：**</strong>P300**<strong>脑机接口实验数据</strong></p>
+<p>提供了<strong>5**</strong>个健康成年被试（**<strong>S1-S5**</strong>）<strong>的P300脑机接口实验数据，平均年龄为20岁。在实验的过程中，要求每一位被试（被测试者）集中注意力。P300脑机接口实验的设计如下：每位被试能够观察到一个由</strong>36**<strong>个字符组成的字符矩阵</strong>，如图3所示，字符矩阵以行或列为单位（共6行6列）。每轮实验的设计流程：首先，提示被试注视“目标字符”，例如在图<strong>3**</strong>的字符矩阵上方，出现的灰色字符**<strong>“A”**</strong>；其次，进入字符矩阵的闪烁模式<strong>，每次以随机的顺序闪烁字符矩阵的一行或一列，</strong>闪烁时长为**<strong>80**</strong>毫秒，间隔为**<strong>80**</strong>毫秒<strong>；最后，</strong>当所有行和列均闪烁一次后，则结束一轮实验**。在被试注视“目标字符”的过程中，当目标字符所在行或列闪烁时，脑电信号中会出现P300电位；而当其他行和列闪烁时，则不会出现P300电位。上述实验流程为1轮，共重复5轮</p>
+<p>每位被试的P300脑电数据包含有4个文件，具体说明如下，</p>
+<p>train_data：训练用数据；</p>
+<p>train_event：<strong>训练数据的事件标签</strong>；</p>
+<p>test_data：测试用数据；</p>
+<p>test_event：<strong>测试数据的事件标签</strong>。</p>
+<p>训练用数据包括<strong>12**</strong>个已知目标字符的数据（**<strong>char01~char12**</strong>）<strong>，</strong>测试用数据包括**<strong>10**</strong>个待识别目标字符的数据（**<strong>char13~char22**</strong>）<strong>。每个字符矩阵闪烁实验中，脑电数据</strong>表格包含有**<strong>20**</strong>列<strong>（每列</strong>表示**<strong>1**</strong>个记录通道<strong>，记录通道依次进行编号，表1为记录通道的标识符，图5对应了记录通道的位置），脑电数据表格的行表示样本点数据，采样频率为</strong>250Hz**。信号采集设备设置了参考电极和接地电极，即记录通道的信号为作用电极与参考电极之间的差值。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>表**</strong>1**<strong>采集通道的标识符</strong>             <strong>标识符</strong>            <strong>通道</strong>    <strong>名称</strong>            <strong>标识符</strong>            <strong>通道</strong>    <strong>名称</strong>                  <strong>1</strong>            Fz            <strong>11</strong>            CP5                  <strong>2</strong>            F3            <strong>12</strong>            CP6                  <strong>3</strong>            F4            <strong>13</strong>            Pz                  <strong>4</strong>            Cz            <strong>14</strong>            P3                  <strong>5</strong>            C3            <strong>15</strong>            P4                  <strong>6</strong>            C4            <strong>16</strong>            P7                  <strong>7</strong>            T7            <strong>17</strong>            P8                  <strong>8</strong>            T8            <strong>18</strong>            Oz                  <strong>9</strong>            CP3            <strong>19</strong>            O1                  <strong>10</strong>            CP4            <strong>20</strong>            O2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>训练数据中的标签文件同样是以<strong>子表形式与实验数据</strong>相对应，子表的名称为“charXX(Y)”，XX对应相应字符的序列号，<strong>Y**</strong>表示实际的目标字符。子表的内容包含了两列，第一列表示标签，第二列为采样点序号。每轮实验的起始标签为目标字符对应的标识符<strong>（字符矩阵中36个字符的标识符详</strong>见表**<strong>2</strong>，如“101”表示“A”），接下来为闪烁的行或列的标识符（详见图6，<strong>如**</strong>“2”**<strong>表示第**</strong>2**<strong>行，**</strong>“9”**<strong>表示第**</strong>3**<strong>列</strong>），一轮实验的结束标签为“100”。在训练数据的事件标签文件中，<strong>第一行给出了目标字符的标识符和对应的采样点序号</strong>，接下来是随机闪烁的行和列的标识符和对应的采样点序号，每轮实验<strong>以“**</strong>100**<strong>”标识符结束</strong>，共重复5次； </p>
+<p>测试数据中的标签文件同样是以子表形式与实验数据相对应，子表的名称为“charXX”，XX对应相应字符的序列号。在测试数据的事件标签文件中，<strong>第一行给出了待识别目标字符的标识符，统一表示为“**</strong>666**<strong>”</strong>，需要通过对脑电信号进行分析后，<strong>得到出现**</strong>P300**<strong>电位的行和列</strong>，并判断得到目标字符的识别结果。</p>
+<p><strong>表**</strong>2** <strong>字符矩阵的标识符</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>A</strong></th>
+<th>101</th>
+<th><strong>B</strong></th>
+<th>102</th>
+<th><strong>C</strong></th>
+<th>103</th>
+<th><strong>D</strong></th>
+<th>104</th>
+<th><strong>E</strong></th>
+<th>105</th>
+<th><strong>F</strong></th>
+<th>106</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>G</strong></td>
+<td>107</td>
+<td><strong>H</strong></td>
+<td>108</td>
+<td><strong>I</strong></td>
+<td>109</td>
+<td><strong>J</strong></td>
+<td>110</td>
+<td><strong>K</strong></td>
+<td>111</td>
+<td><strong>L</strong></td>
+<td>112</td>
+</tr>
+<tr>
+<td><strong>M</strong></td>
+<td>113</td>
+<td><strong>N</strong></td>
+<td>114</td>
+<td><strong>O</strong></td>
+<td>115</td>
+<td><strong>P</strong></td>
+<td>116</td>
+<td><strong>Q</strong></td>
+<td>117</td>
+<td><strong>R</strong></td>
+<td>118</td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td>119</td>
+<td><strong>T</strong></td>
+<td>120</td>
+<td><strong>U</strong></td>
+<td>121</td>
+<td><strong>V</strong></td>
+<td>122</td>
+<td><strong>W</strong></td>
+<td>123</td>
+<td><strong>X</strong></td>
+<td>124</td>
+</tr>
+<tr>
+<td><strong>Y</strong></td>
+<td>125</td>
+<td><strong>Z</strong></td>
+<td>126</td>
+<td><strong>1</strong></td>
+<td>127</td>
+<td><strong>2</strong></td>
+<td>128</td>
+<td><strong>3</strong></td>
+<td>129</td>
+<td><strong>4</strong></td>
+<td>130</td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>131</td>
+<td><strong>6</strong></td>
+<td>132</td>
+<td><strong>7</strong></td>
+<td>133</td>
+<td><strong>8</strong></td>
+<td>134</td>
+<td><strong>9</strong></td>
+<td>135</td>
+<td><strong>0</strong></td>
+<td>136</td>
+</tr>
+</tbody></table>
+<p><strong>图**</strong>6**<strong>行**</strong>/<strong>**列的标识符</strong></p>
+<p><strong>附件**</strong>2**<strong>：睡眠脑电数据</strong></p>
+<p>提供3000个睡眠脑电特征样本及其标签，取自不同的健康成年人整夜睡眠过程。第一列为“已知标签”，用数字形式来表示不同的睡眠分期：<strong>清醒期（**</strong>6**<strong>），快速眼动期（**</strong>5**<strong>），睡眠**</strong>I**<strong>期（**</strong>4**<strong>），睡眠**</strong>II**<strong>期（**</strong>3**<strong>），深睡眠期（**</strong>2**<strong>）</strong>；第二至五列为从原始时序列中计算得到的特征参数，依次包括“Alpha”，“Beta”，“Theta”，“Delta”，分别对应了<strong>脑电信号在**</strong>“8-13Hz”**<strong>，**</strong>“14-25Hz”**<strong>，**</strong>“4-7Hz”**<strong>和**</strong>“0.5-4Hz”**<strong>频率范围内的能量占比</strong>，<strong>特征参数单位为百分比</strong>。</p>
+<p>根据以上附件所给出的数据来源和实验数据，请研究以下问题：</p>
+<p><strong>问题一：</strong>在脑-机接口系统中既要考虑目标的分类准确率，同时又要保证一定的信息传输速率。请根据附件1所给数据，<strong>设计或采用一个方法，在尽可能使用较少轮次（要求轮次数小于等于**</strong>5**<strong>）的测试数据</strong>的情况下，找出附件1中5个被试测试集中的<strong>10**</strong>个待识别目标**，并给出具体的分类识别过程，可与几种方法进行对比，来说明设计方法的合理性。</p>
+<p><strong>问题二：</strong>由于采集的原始脑电数据量较大，这样的信号势必包含较多的冗余信息。根据图5和表1，在20个脑电信号采集通道中，无关或冗余的通道数据不仅会增加系统的复杂度，且影响分类识别的准确率和性能。请分析附件1所给数据，并设计一个通道选择算法，给出针对每个被试的、更有利于分类的通道名称组合（要求通道组合的数量小于20大于等于10，每个被试所选的通道可以不相同，具体的通道名称见图5和表1）。基于通道选择的结果，进一步分析对于所有被试都较适用的一组最优通道名称组合，并给出具体分析过程。为了方便参赛者对最优通道组合进行选择，赛题给出了测试数据（char13-char17）的结果，它们的字符分别是：M、F、5、2、I。</p>
+<p><strong>问题三：</strong>在P300脑-机接口系统中，往往需要花费很长时间获取有标签样本来训练模型。为了减少训练时间，请根据附件1所给数据，选择适量的样本作为有标签样本，其余训练样本作为无标签样本，在问题二所得一组最优通道组合的基础上，设计一种学习的方法，并利用问题二的测试数据（char13-char17）检验方法的有效性，同时利用所设计的学习方法找出测试集中的其余待识别目标（char18-char22）。</p>
+<p><strong>问题四**</strong>：**根据附件2中所给出的特征样本，请设计一个睡眠分期预测模型，在尽可能少的训练样本的基础上，得到相对较高的预测准确率，给出训练数据和测试数据的选取方式和分配比例，说明具体的分类识别过程，并结合分类性能指标对预测的效果进行分析。</p>
+<p><strong>注意</strong>：在研究问题一时，不能将问题二提供的5个测试数据的结果作为已知条件，若使用该条件，则被判为作弊处理。</p>
+<p>解析：</p>
+<p>问题4：</p>
+<p>先设计一个分类模型，去看准确率，主要看划分的比例</p>
+<p>问题123就是对去预测组合。</p>
+<p><img src="/images/u=2576007063,4172196017&fm=26&gp=0.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

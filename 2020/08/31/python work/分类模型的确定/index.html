@@ -1,0 +1,461 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>分类模型的确定 - ESY</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="ESY,"> 
+    <meta name="description" content="esy,分类模型的确定按照书中的完善分类器，和重新筛选分类器
+选择和训练分类模型 分类问题的评价指标是准确率，那么回归算法的评价指标就是MSE，RMSE，MAE、R-Squared ，这几个是回归模型的。
+,"> 
+    <meta name="author" content="esy"> 
+    <link rel="alternative" href="atom.xml" title="ESY" type="application/atom+xml"> 
+    <link rel="icon" href="/img/hhh.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">ESY</span>
+    <div id="loader"></div>
+​    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="https://esyyes.github.io"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">分类模型的确定</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">分类模型的确定</h1>
+        <div class="stuff">
+            <span>八月 31, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/work/" rel="tag">work</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="分类模型的确定"><a href="#分类模型的确定" class="headerlink" title="分类模型的确定"></a>分类模型的确定</h1><p>按照书中的完善分类器，和重新筛选分类器</p>
+<h2 id="选择和训练分类模型"><a href="#选择和训练分类模型" class="headerlink" title="选择和训练分类模型"></a>选择和训练分类模型</h2><p> 分类问题的评价指标是准确率，那么回归算法的评价指标就是MSE，RMSE，MAE、R-Squared ，这几个是回归模型的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error <span class="comment">#均方误差</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_absolute_error <span class="comment">#平方绝对误差</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> r2_score<span class="comment">#R square</span></span><br><span class="line"><span class="comment">#调用</span></span><br><span class="line">mean_squared_error(y_test,y_predict)</span><br><span class="line">mean_absolute_error(y_test,y_predict)</span><br><span class="line">r2_score(y_test,y_predict)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>训练集（train set） —— 用于模型拟合的数据样本。</li>
+<li>验证集（development set）—— 是模型训练过程中单独留出的样本集，它可以用于调整模型的超参数和用于对模型的能力进行初步评估。</li>
+</ul>
+<p>​         在神经网络中， 我们用验证数据集去寻找最优的网络深度（number of hidden layers)，或者决定反向传播算法的停止点或者<em>在神经网络中选择隐藏层神经元的数量；</em></p>
+<p>​        在普通的机器学习中常用的交叉验证（Cross Validation) 就是把训练数据集本身再细分成不同的验证数据集去训练模型。</p>
+<ul>
+<li>测试集 —— 用来评估模最终模型的泛化能力。但不能作为调参、选择特征等算法相关的选择的依据。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">验证集</th>
+<th align="left">测试集</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">是否被训练到</td>
+<td align="left">否</td>
+<td align="left">否</td>
+</tr>
+<tr>
+<td align="left">作用</td>
+<td align="left">用于调超参数，监控模型是否发生过拟合（以决定是否停止训练）</td>
+<td align="left">为了评估最终模型泛化能力</td>
+</tr>
+<tr>
+<td align="left">使用次数</td>
+<td align="left">多次使用，以不断调参</td>
+<td align="left">仅仅一次使用</td>
+</tr>
+<tr>
+<td align="left">缺陷</td>
+<td align="left">模型在一次次重新手动调参并继续训练后所逼近的验证集，可能只代表一部分非训练集，导致最终训练好的模型泛化性能不够</td>
+<td align="left">测试集为了具有泛化代表性，往往数据量比较大，测试一轮要很久，所以往往只取测试集的其中一小部分作为训练过程中的验证集</td>
+</tr>
+</tbody></table>
+<h2 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h2><p>交叉验证算法的具体步骤如下</p>
+<ol>
+<li><p>随机将训练数据等分成k份，S1, S2, …, Sk。</p>
+</li>
+<li><p>对于每一个模型Mi，算法执行k次，每次选择一个Sj作为验证集，而其它作为训练集来训练模型Mi，把训练得到的模型在Sj上进行测试，这样一来，每次都会得到一个误差E，最后对k次得到的误差求平均，就可以得到模型Mi的泛化误差。</p>
+</li>
+<li><p><strong>算法选择具有最小泛化误差的模型作为最终模型，并且在整个训练集上再次训练该模型，从而得到最终的模型。</strong></p>
+</li>
+</ol>
+<p>​        K折交叉验证，其主要 的目的是<strong>为了选择不同的模型类型（比如一次线性模型、非线性模型、）</strong>，而<strong>不是为了选择具体模型的具体参数</strong>。比如在BP神经网络中，其目的主要为了选择模型的层数、神经元的激活函数、每层模型的神经元个数（即所谓的超参数）。每一层网络神经元连接的最终权重是在模型选择（即K折交叉验证）之后，由全部的训练数据重新训练。 </p>
+<p>目的在模型选择，而非模型训练调整参数。</p>
+<p> <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html">https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.cross_val_score.html</a> </p>
+<p> <a target="_blank" rel="noopener" href="https://github.com/apachecn/hands-on-ml-zh/blob/master/docs/2.%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE.md">https://github.com/apachecn/hands-on-ml-zh/blob/master/docs/2.%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E9%A1%B9%E7%9B%AE.md</a> </p>
+<h2 id="使用交叉验证去评估"><a href="#使用交叉验证去评估" class="headerlink" title="使用交叉验证去评估"></a>使用交叉验证去评估</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="keyword">from</span> data_preprocessing <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="comment"># 均方误差</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score, cross_val_predict, permutation_test_score</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取分期为2时的17个特征</span></span><br><span class="line">feature_name = np.array(pd.read_excel(<span class="string">&#x27;F:/st_data/30-17个特征.xlsx&#x27;</span>)[<span class="string">&#x27;stage_2&#x27;</span>])[<span class="number">0</span>:<span class="number">17</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取ucddb库中的名字和AHI/SEFF</span></span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;F:/py/py_sleep stage and apnea/data/&#x27;</span> + <span class="string">&#x27;ucddb&#x27;</span> + <span class="string">&#x27;_sleep_stages.xlsx&#x27;</span>)</span><br><span class="line">study_name = np.array(data[<span class="string">&#x27;data&#x27;</span>])</span><br><span class="line">data_AHI = np.array(data[<span class="string">&#x27;AHI&#x27;</span>])</span><br><span class="line">data_seff = np.array(data[<span class="string">&#x27;Seff&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取ucddb库中的单个数据的全部特征</span></span><br><span class="line"><span class="keyword">for</span> text <span class="keyword">in</span> study_name[<span class="number">0</span>:<span class="number">1</span>]:</span><br><span class="line">    <span class="comment"># 读取ucddb库中的102个特征</span></span><br><span class="line">    features = pd.read_excel(<span class="string">&#x27;E:/MIT data/ucddb_feature/features_&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % text + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    <span class="comment"># 将获取的17个特征进行标准化和补缺失值</span></span><br><span class="line">    df = data_pre(pd.get_dummies(features.iloc[:, <span class="number">1</span>:])[feature_name])</span><br><span class="line">    <span class="comment"># 获取标签</span></span><br><span class="line">    labels = pd.read_excel(<span class="string">&#x27;E:/MIT data/ucddb_note/note_&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % text + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    tag = pd.get_dummies(labels.iloc[<span class="number">0</span>:<span class="built_in">len</span>(features), <span class="number">1</span>:<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 分层抽样并按照7:3划分为训练集和测试集</span></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(df, tag, stratify=tag, test_size=<span class="number">0.3</span>)</span><br><span class="line">    lin_reg = LinearRegression()</span><br><span class="line">    lin_reg.fit(X_train, y_train)</span><br><span class="line">    pred_y = lin_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 均方误差</span></span><br><span class="line">    <span class="comment"># print(np.sqrt(mean_squared_error(y_test, pred_y)))</span></span><br><span class="line">    <span class="comment"># MSE均方误差</span></span><br><span class="line">    scores = cross_val_score(lin_reg, X_train, y_train, scoring=<span class="string">&#x27;neg_mean_squared_error&#x27;</span>, cv=<span class="number">10</span>)</span><br><span class="line">    rmse_scores = np.sqrt(-scores)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Target is multiclass but average=’binary’. Please choose another average setting.</p>
+<p> <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44436677/article/details/105985358">https://blog.csdn.net/weixin_44436677/article/details/105985358</a> </p>
+<p>average参数定义了该指标的计算方法，<strong>二分类时average参数默认是binary</strong>；多分类时，可选参数有micro、macro、weighted和samples。</p>
+<p><strong>None</strong>：返回每个班级的分数。否则，这将确定对数据执行的平均类型。</p>
+<p><strong>binary</strong>：仅报告由指定的类的结果pos_label。仅当targets（y_{true,pred}）是二进制时才适用。</p>
+<p><strong>micro</strong>：通过计算总真阳性，假阴性和误报来全球计算指标。也就是把所有的类放在一起算（具体到precision），然后把所有类的TP加和，再除以所有类的TP和FN的加和。因此micro方法下的<strong>precision和recall都等于accuracy。</strong></p>
+<p><strong>macro</strong>：计算每个标签的指标，找出它们的未加权平均值。这不会考虑标签不平衡。也就是先分别求出每个类的precision再求其算术平均。</p>
+<p><strong>weighted</strong>：计算每个标签的指标，并找到它们的平均值，按支持加权（每个标签的真实实例数）。这会改变“宏观”以解决标签不平衡问题; 它可能导致F分数不在精确度和召回之间。</p>
+<p><strong>samples</strong>：计算每个实例的指标，并找出它们的平均值（仅对于不同的多标记分类有意义 accuracy_score）</p>
+<p>若选用average=’micro’都等于准确率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;confusion_matrix(y_train, pre_train)&#125;</span>&#x27;</span>)</span><br><span class="line">precision = precision_score(y_train, pre_train, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">recall = recall_score(y_train, pre_train, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">F1 = f1_score(y_train, pre_train, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;精准度<span class="subst">&#123;precision&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;召回率<span class="subst">&#123;recall&#125;</span>&#x27;</span>)</span><br><span class="line">print(<span class="string">f&#x27;f1_score<span class="subst">&#123;F1&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>现在都是训练，交叉验证什么的都不加入测试集。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time     : 2020/8/31</span></span><br><span class="line"><span class="comment"># @Author   : esy</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line"><span class="keyword">from</span> data_preprocessing <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="comment"># 均方误差</span></span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> mean_squared_error</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score, cross_val_predict, permutation_test_score</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> accuracy_score, cohen_kappa_score, precision_score, recall_score, f1_score</span><br><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> confusion_matrix</span><br><span class="line"></span><br><span class="line"><span class="comment"># 忽略警告</span></span><br><span class="line">warnings.filterwarnings(<span class="string">&#x27;ignore&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取分期为2时的17个特征</span></span><br><span class="line">feature_name = np.array(pd.read_excel(<span class="string">&#x27;F:/st_data/30-17个特征.xlsx&#x27;</span>)[<span class="string">&#x27;stage_2&#x27;</span>])[<span class="number">0</span>:<span class="number">17</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取ucddb库中的名字和AHI/SEFF</span></span><br><span class="line">data = pd.read_excel(<span class="string">&#x27;F:/py/py_sleep stage and apnea/data/&#x27;</span> + <span class="string">&#x27;ucddb&#x27;</span> + <span class="string">&#x27;_sleep_stages.xlsx&#x27;</span>)</span><br><span class="line">study_name = np.array(data[<span class="string">&#x27;data&#x27;</span>])</span><br><span class="line">data_AHI = np.array(data[<span class="string">&#x27;AHI&#x27;</span>])</span><br><span class="line">data_seff = np.array(data[<span class="string">&#x27;Seff&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取ucddb库中的单个数据的全部特征</span></span><br><span class="line"><span class="keyword">for</span> text <span class="keyword">in</span> study_name[<span class="number">0</span>:<span class="number">1</span>]:</span><br><span class="line">    <span class="comment"># 读取ucddb库中的102个特征</span></span><br><span class="line">    features = pd.read_excel(<span class="string">&#x27;E:/MIT data/ucddb_feature/features_&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % text + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    <span class="comment"># 将获取的17个特征进行标准化和补缺失值</span></span><br><span class="line">    df = data_pre(pd.get_dummies(features.iloc[:, <span class="number">1</span>:])[feature_name])</span><br><span class="line">    <span class="comment"># 获取标签</span></span><br><span class="line">    labels = pd.read_excel(<span class="string">&#x27;E:/MIT data/ucddb_note/note_&#x27;</span> + <span class="string">&#x27;%s&#x27;</span> % text + <span class="string">&#x27;.xlsx&#x27;</span>)</span><br><span class="line">    tag = pd.get_dummies(labels.iloc[<span class="number">0</span>:<span class="built_in">len</span>(features), <span class="number">1</span>:<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 分层抽样并按照7:3划分为训练集和测试集</span></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(df, tag, stratify=tag, test_size=<span class="number">0.3</span>)</span><br><span class="line"></span><br><span class="line">    log_reg = LogisticRegression()</span><br><span class="line">    log_reg.fit(X_train, y_train)</span><br><span class="line">    pred_y = log_reg.predict(X_test)</span><br><span class="line">    <span class="comment"># 均方误差</span></span><br><span class="line">    <span class="comment"># print(np.sqrt(mean_squared_error(y_test, pred_y)))</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">15</span>):</span><br><span class="line">        scores = cross_val_score(log_reg, X_train, y_train, scoring=<span class="string">&#x27;accuracy&#x27;</span>, cv=i)</span><br><span class="line">        print(<span class="string">f&#x27;准率率的平均值<span class="subst">&#123;np.array(scores).mean()&#125;</span>&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;准率率的标准差<span class="subst">&#123;np.array(scores).std()&#125;</span>&#x27;</span>)</span><br><span class="line">    pre_train = cross_val_predict(log_reg, X_train, y_train, cv=<span class="number">10</span>)</span><br><span class="line">    print(<span class="string">f&#x27;<span class="subst">&#123;confusion_matrix(y_train, pre_train)&#125;</span>&#x27;</span>)</span><br><span class="line">    precision = precision_score(y_train, pre_train, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">    recall = recall_score(y_train, pre_train, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">    F1 = f1_score(y_train, pre_train, average=<span class="string">&#x27;macro&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;精准度<span class="subst">&#123;precision&#125;</span>&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;召回率<span class="subst">&#123;recall&#125;</span>&#x27;</span>)</span><br><span class="line">    print(<span class="string">f&#x27;f1_score<span class="subst">&#123;F1&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>已经开始了训练，所以下一步就是构建选择分类器。</p>
+<p> <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-">https://scikit-learn.org/stable/modules/model_evaluation.html#scoring-</a> </p>
+<table>
+<thead>
+<tr>
+<th>Scoring</th>
+<th>Function</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Classification</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘accuracy’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score"><code>metrics.accuracy_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘balanced_accuracy’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.balanced_accuracy_score.html#sklearn.metrics.balanced_accuracy_score"><code>metrics.balanced_accuracy_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘average_precision’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score"><code>metrics.average_precision_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_brier_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.brier_score_loss.html#sklearn.metrics.brier_score_loss"><code>metrics.brier_score_loss</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘f1’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score"><code>metrics.f1_score</code></a></td>
+<td>for binary targets</td>
+</tr>
+<tr>
+<td>‘f1_micro’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score"><code>metrics.f1_score</code></a></td>
+<td>micro-averaged</td>
+</tr>
+<tr>
+<td>‘f1_macro’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score"><code>metrics.f1_score</code></a></td>
+<td>macro-averaged</td>
+</tr>
+<tr>
+<td>‘f1_weighted’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score"><code>metrics.f1_score</code></a></td>
+<td>weighted average</td>
+</tr>
+<tr>
+<td>‘f1_samples’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score"><code>metrics.f1_score</code></a></td>
+<td>by multilabel sample</td>
+</tr>
+<tr>
+<td>‘neg_log_loss’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html#sklearn.metrics.log_loss"><code>metrics.log_loss</code></a></td>
+<td>requires <code>predict_proba</code> support</td>
+</tr>
+<tr>
+<td>‘precision’ etc.</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score"><code>metrics.precision_score</code></a></td>
+<td>suffixes apply as with ‘f1’</td>
+</tr>
+<tr>
+<td>‘recall’ etc.</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score"><code>metrics.recall_score</code></a></td>
+<td>suffixes apply as with ‘f1’</td>
+</tr>
+<tr>
+<td>‘jaccard’ etc.</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.jaccard_score.html#sklearn.metrics.jaccard_score"><code>metrics.jaccard_score</code></a></td>
+<td>suffixes apply as with ‘f1’</td>
+</tr>
+<tr>
+<td>‘roc_auc’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score"><code>metrics.roc_auc_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘roc_auc_ovr’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score"><code>metrics.roc_auc_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘roc_auc_ovo’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score"><code>metrics.roc_auc_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘roc_auc_ovr_weighted’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score"><code>metrics.roc_auc_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘roc_auc_ovo_weighted’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score"><code>metrics.roc_auc_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Clustering</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘adjusted_mutual_info_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_mutual_info_score.html#sklearn.metrics.adjusted_mutual_info_score"><code>metrics.adjusted_mutual_info_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘adjusted_rand_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score"><code>metrics.adjusted_rand_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘completeness_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.completeness_score.html#sklearn.metrics.completeness_score"><code>metrics.completeness_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘fowlkes_mallows_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.fowlkes_mallows_score.html#sklearn.metrics.fowlkes_mallows_score"><code>metrics.fowlkes_mallows_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘homogeneity_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.homogeneity_score.html#sklearn.metrics.homogeneity_score"><code>metrics.homogeneity_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘mutual_info_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mutual_info_score.html#sklearn.metrics.mutual_info_score"><code>metrics.mutual_info_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘normalized_mutual_info_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.normalized_mutual_info_score.html#sklearn.metrics.normalized_mutual_info_score"><code>metrics.normalized_mutual_info_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘v_measure_score’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.v_measure_score.html#sklearn.metrics.v_measure_score"><code>metrics.v_measure_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Regression</strong></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>‘explained_variance’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html#sklearn.metrics.explained_variance_score"><code>metrics.explained_variance_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘max_error’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.max_error.html#sklearn.metrics.max_error"><code>metrics.max_error</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_mean_absolute_error’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html#sklearn.metrics.mean_absolute_error"><code>metrics.mean_absolute_error</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_mean_squared_error’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error"><code>metrics.mean_squared_error</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_root_mean_squared_error’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error"><code>metrics.mean_squared_error</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_mean_squared_log_error’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html#sklearn.metrics.mean_squared_log_error"><code>metrics.mean_squared_log_error</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_median_absolute_error’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html#sklearn.metrics.median_absolute_error"><code>metrics.median_absolute_error</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘r2’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score"><code>metrics.r2_score</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_mean_poisson_deviance’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_poisson_deviance.html#sklearn.metrics.mean_poisson_deviance"><code>metrics.mean_poisson_deviance</code></a></td>
+<td></td>
+</tr>
+<tr>
+<td>‘neg_mean_gamma_deviance’</td>
+<td><a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_gamma_deviance.html#sklearn.metrics.mean_gamma_deviance"><code>metrics.mean_gamma_deviance</code></a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p> 此实现不适用于大规模数据应用。 特别是 scikit-learn 不支持 GPU。如果想要提高运行速度并使用基于 GPU 的实现以及为构建深度学习架构提供更多灵活性的框架，请参阅 <a target="_blank" rel="noopener" href="https://scikit-learn.org/stable/related_projects.html#related-projects">Related Projects</a> 。 </p>
+<p><img src="https://pic.rmb.bdstatic.com/c91adf54fa1b5b43a523664167cdc2ab.gif"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='https://link.hhtjim.com/163/509313159.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='https://link.hhtjim.com/163/579954.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='https://link.hhtjim.com/163/579648.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='https://link.hhtjim.com/163/40915694.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
